@@ -13,7 +13,7 @@ type DraftProps = {
 };
 
 const Draft: NextPage<DraftProps> = (props) => {
-  const { data, isLoading } = useDraft(props);
+  const { data, isLoading } = useDraft();
 
   if (isLoading || !data) {
     return <Loader />;
