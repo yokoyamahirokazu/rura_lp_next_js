@@ -28,7 +28,7 @@
 
 ### ブログ
 
-endpoint: blog  
+endpoint: blog
 type: リスト形式
 
 | フィールド ID | 表示名     | 種類                        |
@@ -45,7 +45,7 @@ type: リスト形式
 
 ### 著者
 
-endpoint: authors  
+endpoint: authors
 type: リスト形式
 
 | フィールド ID | 表示名   | 種類               |
@@ -56,7 +56,7 @@ type: リスト形式
 
 ### カテゴリー
 
-endpoint: categories  
+endpoint: categories
 type: リスト形式
 
 | フィールド ID | 表示名 | 種類               |
@@ -74,7 +74,7 @@ type: リスト形式
 
 ### パートナー
 
-endpoint: partners  
+endpoint: partners
 type: リスト形式
 
 | フィールド ID | 表示名   | 種類               |
@@ -86,7 +86,7 @@ type: リスト形式
 
 ### 人気の記事
 
-endpoint: popular-articles  
+endpoint: popular-articles
 type: オブジェクト形式
 
 | フィールド ID | 表示名     | 種類                        |
@@ -95,7 +95,7 @@ type: オブジェクト形式
 
 ### バナー
 
-endpoint: banner  
+endpoint: banner
 type: オブジェクト形式
 
 | フィールド ID | 表示名       | 種類               |

@@ -1,24 +1,32 @@
 import { GetStaticPropsContext, NextPage } from 'next';
+import { useRouter } from 'next/dist/client/router';
 import Link from 'next/link';
-import { BreadCrumb, Categories, Meta, Pager } from '@components';
-import { IBlog, ICategory, IPopularArticles, ITag } from '@/types';
+import { BreadCrumb, Categories, Loader, Meta, Pager } from '@components';
+import { IBanner, IBlog, ICategory, IPopularArticles, ITag } from '@/types';
 import { getContents } from '@blog';
 import { Tags } from '@components/Tags';
 
-type IndexProps = {
+type PageProps = {
   currentPage: number;
   blogs: IBlog[];
   categories: ICategory[];
   popularArticles: IPopularArticles;
+  banner: IBanner;
   pager: [];
+  selectedCategory: ICategory;
   tags: ITag[];
 };
 
-const Index: NextPage<IndexProps> = (props) => {
+const Page: NextPage<PageProps> = (props) => {
+  const router = useRouter();
+  if (router.isFallback) {
+    return <Loader />;
+  }
   return (
     <div className="divider">
       <div className="container">
-        <BreadCrumb />
+        <h1>{props.selectedCategory.name}</h1>
+        <BreadCrumb category={props.selectedCategory} />
         {props.blogs.length === 0 && <>記事がありません</>}
         <ul>
           {props.blogs.map((blog) => {
@@ -51,7 +59,11 @@ const Index: NextPage<IndexProps> = (props) => {
         </ul>
         {props.blogs.length > 0 && (
           <ul className="pager">
-            <Pager pager={props.pager} currentPage={props.currentPage} />
+            <Pager
+              pager={props.pager}
+              currentPage={props.currentPage}
+              selectedCategory={props.selectedCategory}
+            />
           </ul>
         )}
       </div>
@@ -63,18 +75,30 @@ const Index: NextPage<IndexProps> = (props) => {
   );
 };
 
+export async function getStaticPaths() {
+  return {
+    paths: [],
+    fallback: true,
+  };
+}
+
 export async function getStaticProps(context: GetStaticPropsContext) {
-  const page: any = context.params || '1';
-  const { blogs, pager, categories, tags } = await getContents(page);
+  const page: any = context.params?.id || '1';
+  const categoryId = context.params?.categoryId;
+  const articleFilter = categoryId !== undefined ? `category[equals]${categoryId}` : undefined;
+  const { blogs, pager, categories, tags } = await getContents(page, articleFilter);
+  const selectedCategory =
+    categoryId !== undefined ? categories.find((content) => content.id === categoryId) : undefined;
+
   return {
     props: {
       currentPage: parseInt(page),
       blogs,
       categories,
       pager,
+      selectedCategory,
       tags,
     },
   };
 }
-
-export default Index;
+export default Page;

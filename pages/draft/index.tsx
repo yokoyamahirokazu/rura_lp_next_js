@@ -1,18 +1,6 @@
 import { NextPage } from 'next';
-import {
-  Banner,
-  BreadCrumb,
-  Categories,
-  Latest,
-  Loader,
-  Meta,
-  PopularArticle,
-  Post,
-  Search,
-  Share,
-  Toc,
-} from '@components';
-import { IBanner, IBlog, ICategory, IPopularArticles, ITag } from '@/types';
+import { BreadCrumb, Categories, Latest, Loader, Meta, Post, Share, Toc } from '@components';
+import { IBlog, ICategory, ITag } from '@/types';
 import { useDraft } from '@hooks';
 import styles from '@styles/Detail.module.scss';
 import { getContents } from '@blog';
@@ -21,8 +9,6 @@ import { Tags } from '@components/Tags';
 type DraftProps = {
   blogs: IBlog[];
   categories: ICategory[];
-  popularArticles: IPopularArticles;
-  banner: IBanner;
   tags: ITag[];
 };
 
@@ -66,7 +52,6 @@ const Draft: NextPage<DraftProps> = (props) => {
           <div className={styles.container}>
             <h1 className={styles.title}>{data.blog.title}</h1>
             <Meta
-              author={data.blog.writer}
               category={data.blog.category}
               createdAt={data.blog.createdAt}
               tags={data.blog.tag}
@@ -77,11 +62,8 @@ const Draft: NextPage<DraftProps> = (props) => {
         </div>
       </article>
       <aside className="aside">
-        <Banner banner={props.banner} />
-        <Search />
         <Categories categories={props.categories} />
         <Tags tags={props.tags} />
-        <PopularArticle blogs={props.popularArticles.articles} />
         <Latest blogs={props.blogs} />
       </aside>
     </div>

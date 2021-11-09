@@ -13,7 +13,7 @@ export const Tags: React.FC<TagsProps> = ({ tags }) => {
       <ul className={styles.list}>
         {tags.map((tag) => (
           <li key={tag.id} className={styles.listItem}>
-            <NextLink href="/tag/[tagId]/page/[id]" as={`/tag/${tag.id}/page/1`}>
+            <NextLink href="/news/tag/[tagId]/page/[id]" as={`/news/tag/${tag.id}/page/1`}>
               <a className={styles.link}>{tag.name}</a>
             </NextLink>
           </li>

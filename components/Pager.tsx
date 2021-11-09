@@ -12,11 +12,11 @@ type PagerProps = {
 export const Pager: React.FC<PagerProps> = (props) => {
   const getPath = (pageNumber) => {
     if (props.selectedCategory) {
-      return `/category/${props.selectedCategory.id}/page/${pageNumber}`;
+      return `/news/category/${props.selectedCategory.id}/page/${pageNumber}`;
     } else if (props.selectedTag) {
-      return `/tag/${props.selectedTag.id}/page/${pageNumber}`;
+      return `/news/tag/${props.selectedTag.id}/page/${pageNumber}`;
     } else {
-      return `/page/${pageNumber}`;
+      return `/news/page/${pageNumber}`;
     }
   };
   return (

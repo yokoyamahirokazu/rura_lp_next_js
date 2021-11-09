@@ -13,7 +13,7 @@ export const Latest: React.FC<LatestProps> = (props) => {
         {props.blogs.map((blog) => {
           return (
             <li className={styles.list} key={blog.id}>
-              <a href={`/${blog.id}`} className={styles.link}>
+              <a href={`/news/${blog.id}`} className={styles.link}>
                 {blog.title}
               </a>
             </li>

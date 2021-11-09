@@ -1,16 +1,7 @@
 import { GetStaticPropsContext, NextPage } from 'next';
 import { useRouter } from 'next/dist/client/router';
 import Link from 'next/link';
-import {
-  Banner,
-  BreadCrumb,
-  Categories,
-  Loader,
-  Meta,
-  Pager,
-  PopularArticle,
-  Search,
-} from '@components';
+import { BreadCrumb, Categories, Loader, Meta, Pager } from '@components';
 import { IBanner, IBlog, ICategory, IPopularArticles, ITag } from '@/types';
 import { getBlogsByFilter, getContents } from '@blog';
 import { Tags } from '@components/Tags';
@@ -39,7 +30,7 @@ const Page: NextPage<PageProps> = (props) => {
           {props.blogs.map((blog) => {
             return (
               <li key={blog.id} className="list">
-                <Link href="/[blogId]" as={`/${blog.id}`}>
+                <Link href="/news/[blogId]" as={`/news/${blog.id}`}>
                   <a className="link">
                     <>
                       {blog.ogimage && (
@@ -52,7 +43,6 @@ const Page: NextPage<PageProps> = (props) => {
                         <dd>
                           <Meta
                             createdAt={blog.createdAt}
-                            author={blog.writer}
                             category={blog.category}
                             tags={blog.tag}
                           />
@@ -72,11 +62,8 @@ const Page: NextPage<PageProps> = (props) => {
         )}
       </div>
       <aside className="aside">
-        <Banner banner={props.banner} />
-        <Search />
         <Categories categories={props.categories} />
         <Tags tags={props.tags} />
-        <PopularArticle blogs={props.popularArticles.articles} />
       </aside>
     </div>
   );
@@ -96,14 +83,12 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context: GetStaticPropsContext) {
   const page: any = context.params?.id || '1';
-  const { blogs, pager, categories, popularArticles, banner, tags } = await getContents(page);
+  const { blogs, pager, categories, tags } = await getContents(page);
   return {
     props: {
       currentPage: parseInt(page),
       blogs,
       categories,
-      popularArticles,
-      banner,
       pager,
       tags,
     },

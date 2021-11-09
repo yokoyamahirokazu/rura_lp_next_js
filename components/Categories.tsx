@@ -14,7 +14,10 @@ export const Categories: React.FC<CategoriesProps> = (props) => {
         {props.categories.map((category) => {
           return (
             <li className={styles.list} key={category.id}>
-              <Link href="/category/[categoryId]/page/[id]" as={`/category/${category.id}/page/1`}>
+              <Link
+                href="/news/category/[categoryId]/page/[id]"
+                as={`/news/category/${category.id}/page/1`}
+              >
                 <a className="link">{category.name}</a>
               </Link>
             </li>

@@ -1,14 +1,12 @@
 import { GetStaticPropsContext, NextPage } from 'next';
 import { useRouter } from 'next/dist/client/router';
-import { Banner } from '@components/Banner';
 import { BreadCrumb } from '@components/BreadCrumb';
 import { Categories } from '@components/Categories';
 import { Latest } from '@components/Latest';
 import { Loader } from '@components/Loader';
 import { Meta } from '@components/Meta';
-import { PopularArticle } from '@components/PopularArticle';
-import { Post, Search, Share, Toc } from '@components';
-import { IBanner, IBlog, ICategory, IPopularArticles, ITag, TocTypes } from '@/types/interface';
+import { Post, Share, Toc } from '@components';
+import { IBlog, ICategory, ITag, TocTypes } from '@/types/interface';
 import styles from '@styles/Detail.module.scss';
 import { convertToToc, convertToHtml } from '@scripts';
 import { getAllBlogs, getBlogById, getContents } from '@blog';
@@ -20,8 +18,6 @@ type DetailProps = {
   toc: TocTypes[];
   blogs: IBlog[];
   categories: ICategory[];
-  popularArticles: IPopularArticles;
-  banner: IBanner;
   tags: ITag[];
 };
 
@@ -33,6 +29,8 @@ const Detail: NextPage<DetailProps> = (props) => {
   return (
     <div className={styles.divider}>
       <article className={styles.article}>
+        <BreadCrumb category={props.blog.category} />
+
         <div className={styles.ogimageWrap}>
           <picture>
             <source
@@ -58,13 +56,11 @@ const Detail: NextPage<DetailProps> = (props) => {
             <img src={`${props.blog.ogimage?.url}?w=820&q=100`} className={styles.ogimage} />
           </picture>
         </div>
-        <BreadCrumb category={props.blog.category} />
         <div className={styles.main}>
           <Share id={props.blog.id} title={props.blog.title} />
           <div className={styles.container}>
             <h1 className={styles.title}>{props.blog.title}</h1>
             <Meta
-              author={props.blog.writer}
               category={props.blog.category}
               createdAt={props.blog.createdAt}
               tags={props.blog.tag}
@@ -76,11 +72,8 @@ const Detail: NextPage<DetailProps> = (props) => {
         </div>
       </article>
       <aside className="aside">
-        <Banner banner={props.banner} />
-        <Search />
         <Categories categories={props.categories} />
         <Tags tags={props.tags} />
-        <PopularArticle blogs={props.popularArticles.articles} />
         <Latest blogs={props.blogs} />
       </aside>
     </div>
@@ -103,7 +96,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   const blog = await getBlogById(blogId);
   const toc = convertToToc(blog.body);
   const body = convertToHtml(blog.body);
-  const { blogs, categories, popularArticles, banner, tags } = await getContents();
+  const { blogs, categories, tags } = await getContents();
 
   return {
     props: {
@@ -112,8 +105,6 @@ export async function getStaticProps(context: GetStaticPropsContext) {
       toc,
       blogs,
       categories,
-      popularArticles,
-      banner,
       tags,
     },
   };

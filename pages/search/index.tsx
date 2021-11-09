@@ -50,7 +50,6 @@ const Index: NextPage<IndexProps> = (props) => {
                         <dd>
                           <Meta
                             createdAt={blog.createdAt}
-                            author={blog.writer}
                             category={blog.category}
                             tags={blog.tag}
                           />
