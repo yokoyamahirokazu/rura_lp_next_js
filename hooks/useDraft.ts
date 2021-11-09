@@ -3,7 +3,7 @@ import { useRouter } from 'next/dist/client/router';
 import { IDraftResponse } from '@/types';
 import { getDraftBlog } from 'framework/draft';
 
-export const useDraft = () => {
+export const useDraft = (props) => {
   const router = useRouter();
   const [data, setData] = useState<IDraftResponse>(null);
   const [isLoading, setLoading] = useState<boolean>(true);
