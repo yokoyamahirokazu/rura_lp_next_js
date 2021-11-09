@@ -28,12 +28,12 @@ export const BreadCrumb: React.FC<BreadCrumbProps> = (props) => {
       </li>
       {hasCategory(props.category) && (
         <li className="breadcrumbList">
-          <Link href={`/category/${props.category?.id}/page/1`}>{props.category?.name}</Link>
+          <Link href={`/news/category/${props.category?.id}/page/1`}>{props.category?.name}</Link>
         </li>
       )}
       {hasTag(props.tag) && (
         <li className="breadcrumbList">
-          <Link href={`/tag/${props.tag?.id}/page/1`}>{props.tag.name}</Link>
+          <Link href={`/news/tag/${props.tag?.id}/page/1`}>{props.tag.name}</Link>
         </li>
       )}
     </ul>
