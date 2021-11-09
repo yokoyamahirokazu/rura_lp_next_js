@@ -13,11 +13,8 @@ type DraftProps = {
 };
 
 const Draft: NextPage<DraftProps> = (props) => {
-  const { data, isLoading } = useDraft();
+  const { data } = useDraft();
 
-  if (isLoading || !data) {
-    return <Loader />;
-  }
   return (
     <div className={styles.divider}>
       <article className={styles.article}>
@@ -71,13 +68,12 @@ const Draft: NextPage<DraftProps> = (props) => {
 };
 
 export async function getStaticProps() {
-  const { blogs, categories, popularArticles, banner, tags } = await getContents();
+  const { blogs, categories, tags } = await getContents();
   return {
     props: {
       blogs,
       categories,
-      popularArticles,
-      banner,
+
       tags,
     },
   };
