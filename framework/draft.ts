@@ -4,7 +4,7 @@ import axios from 'axios';
 
 export const getDraftBlog = async (id: string, draftKey: string): Promise<IDraftResponse> => {
   const res = await axios.get<IDraftResponse>(
-    `${config.baseUrl}/api/blog/draft?id=${id}&draftKey=${draftKey}`,
+    `https://${config.baseUrl}/api/v1/blog/${id}&draftKey=${draftKey}`,
   );
   return res.data;
 };
