@@ -1,8 +1,6 @@
 import Link from 'next/link';
 import styles from '@styles/components/Parts.module.css';
 import { IoDocumentTextOutline, IoMailOutline } from 'react-icons/io5';
-import { icons } from '@react-icons/all-files';
-
 interface Props {
   children?: string;
   href?: string;

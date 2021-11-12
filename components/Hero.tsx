@@ -7,29 +7,7 @@ import React from 'react';
 import Modal from 'react-modal';
 import YouTube from 'react-youtube';
 
-const customStyles = {
-  content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-  },
-  overlay: {
-    position: ' fixed',
-    top: ' 0',
-    left: ' 0',
-    right: ' 0',
-    bottom: ' 0',
-    backgroundColor: 'rgba(0,0,0,0.7)',
-    zIndex: '9999999',
-    transition: 'all 500ms ease-in-out',
-  },
-};
-
 export const Hero: React.FC = () => {
-  let subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
   function openModal() {

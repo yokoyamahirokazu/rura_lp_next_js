@@ -1,4 +1,4 @@
-import { GetStaticPropsContext, NextPage } from 'next';
+import { NextPage } from 'next';
 import {
   Hero,
   Case,
@@ -14,7 +14,6 @@ import {
 
 import ContactSection from '@components/ContactSection';
 import { IBlog, ICategory, IPopularArticles, ITag } from '@/types';
-import { getContents } from '@blog';
 import { client } from 'framework/client';
 
 interface caseItems {
