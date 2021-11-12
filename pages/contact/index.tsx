@@ -20,7 +20,7 @@ const Index: NextPage = () => {
         <Script onLoad={onLoadFormrun} url="https://sdk.form.run/js/v2/formrun.js"></Script>
         <form
           className="formrun"
-          action="https://form.run/api/v1/r/22nlcue43v2sug2m0ata0ssv"
+          action="https://form.run/api/v1/r/7f2p3yy9yrknpi16oqc2w1c9"
           method="post"
         >
           <label>
@@ -62,10 +62,10 @@ const Index: NextPage = () => {
             電話番号<span>必須</span>
           </label>
           <input name={'電話番号'} type={'text'} data-formrun-type={'tel'} data-formrun-required />
-          <div data-formrun-show-if-error={'電話番号'}>メールアドレスを正しく入力してください</div>
+          <div data-formrun-show-if-error={'電話番号'}>電話番号を入力してください</div>
 
           <label>
-            電話番号<span>必須</span>
+            お問い合わせs内容<span>必須</span>
           </label>
           <textarea name={'お問い合わせ'} data-formrun-required></textarea>
           <div data-formrun-show-if-error={'お問い合わせ'}>お問い合わせ入力してください</div>
