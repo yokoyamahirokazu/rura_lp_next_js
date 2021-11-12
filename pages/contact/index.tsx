@@ -1,10 +1,23 @@
 import { NextPage } from 'next';
+import Script from 'react-load-script';
+import React, { useCallback } from 'react';
+
+declare global {
+  interface Window {
+    Formrun?: any;
+  }
+}
 
 const Index: NextPage = () => {
+  const onLoadFormrun = useCallback(() => {
+    window.Formrun?.init('.formrun');
+  }, []);
+
   return (
     <div>
       お問い合わせ
       <div>
+        <Script onLoad={onLoadFormrun} url="https://sdk.form.run/js/v2/formrun.js"></Script>
         <form
           className="formrun"
           action="https://form.run/api/v1/r/22nlcue43v2sug2m0ata0ssv"
