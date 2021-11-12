@@ -62,12 +62,22 @@ export const Case: React.FC<CaesProps> = (props) => {
                   <div className={styles.caseContentsLogo}>
                     {cases.caseLogo1 && (
                       <div className={styles.caseContentsLogoImg}>
-                        <img src={cases.caseLogo1.url} alt="" />
+                        <Image
+                          src={cases.caseLogo1.url}
+                          alt={cases.caseName}
+                          layout={'fill'}
+                          objectFit={'contain'}
+                        />
                       </div>
                     )}
                     {cases.caseLogo2 && (
                       <div className={styles.caseContentsLogoImg}>
-                        <img src={cases.caseLogo2.url} alt="" />
+                        <Image
+                          src={cases.caseLogo2.url}
+                          alt={cases.caseName}
+                          layout={'fill'}
+                          objectFit={'contain'}
+                        />
                       </div>
                     )}
                   </div>

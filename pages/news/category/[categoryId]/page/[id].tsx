@@ -23,8 +23,8 @@ const Page: NextPage<PageProps> = (props) => {
     return <Loader />;
   }
   return (
-    <div className="divider">
-      <div className="container">
+    <div>
+      <div>
         <h1>{props.selectedCategory.name}</h1>
         <BreadCrumb category={props.selectedCategory} />
         {props.blogs.length === 0 && <>記事がありません</>}
@@ -67,10 +67,9 @@ const Page: NextPage<PageProps> = (props) => {
           </ul>
         )}
       </div>
-      <aside className="aside">
-        <Categories categories={props.categories} />
-        <Tags tags={props.tags} />
-      </aside>
+
+      <Categories categories={props.categories} />
+      <Tags tags={props.tags} />
     </div>
   );
 };

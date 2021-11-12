@@ -2,7 +2,7 @@ import styles from '@styles/components/Hero.module.css';
 import Image from 'next/image';
 import Button from '@components/Button';
 import { LazyVideo } from 'react-lazy-media';
-import { GrPlayFill } from 'react-icons/gr';
+import { IoIosPlay } from 'react-icons/io';
 import React from 'react';
 import Modal from 'react-modal';
 import YouTube from 'react-youtube';
@@ -64,14 +64,14 @@ export const Hero: React.FC = () => {
             <div className={styles.imageCircle}>
               <Image
                 src="/images/videoPlay.jpg"
-                alt="画面を見せながらの接客"
+                alt="Youtube動画再生"
                 layout={'fill'}
                 objectFit={'cover'}
               />
               <div className={styles.imageCircleOverlay}></div>
               <div className={styles.imagePlayIconWrapper}>
                 <div className={styles.imagePlayIcon}>
-                  <GrPlayFill />
+                  <IoIosPlay />
                 </div>
               </div>
             </div>

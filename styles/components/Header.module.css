@@ -47,7 +47,7 @@ nav.header_nav ul li {
   margin: 0 0 0 20px;
 }
 nav.header_nav ul li a {
-  font-size: 0.9rem;
+  font-size: 1.4rem;
   color: var(--primary-500);
   display: block;
   position: relative;

@@ -7,10 +7,11 @@ import { Loader } from '@components/Loader';
 import { Meta } from '@components/Meta';
 import { Post, Share, Toc } from '@components';
 import { IBlog, ICategory, ITag, TocTypes } from '@/types/interface';
-import styles from '@styles/Detail.module.scss';
 import { convertToToc, convertToHtml } from '@scripts';
 import { getAllBlogs, getBlogById, getContents } from '@blog';
 import { Tags } from '@components/Tags';
+import styles from '@styles/components/Components.module.css';
+import Image from 'next/image';
 
 type DetailProps = {
   blog: IBlog;
@@ -27,55 +28,59 @@ const Detail: NextPage<DetailProps> = (props) => {
     return <Loader />;
   }
   return (
-    <div className={styles.divider}>
-      <article className={styles.article}>
-        <BreadCrumb category={props.blog.category} />
+    <div>
+      <BreadCrumb category={props.blog.category} />
 
-        <div className={styles.ogimageWrap}>
-          <picture>
-            <source
-              media="(min-width: 1160px)"
-              type="image/webp"
-              srcSet={`${props.blog.ogimage.url}?w=820&fm=webp, ${props.blog.ogimage.url}?w=1640&fm=webp 2x`}
-            />
-            <source
-              media="(min-width: 820px)"
-              type="image/webp"
-              srcSet={`${props.blog.ogimage.url}?w=740&fm=webp, ${props.blog.ogimage.url}?w=1480&fm=webp 2x`}
-            />
-            <source
-              media="(min-width: 768px)"
-              type="image/webp"
-              srcSet={`${props.blog.ogimage.url}?w=728&fm=webp, ${props.blog.ogimage.url}?w=1456&fm=webp 2x`}
-            />
-            <source
-              media="(min-width: 768px)"
-              type="image/webp"
-              srcSet={`${props.blog.ogimage.url}?w=375&fm=webp, ${props.blog.ogimage.url}?w=750&fm=webp 2x`}
-            />
-            <img src={`${props.blog.ogimage?.url}?w=820&q=100`} className={styles.ogimage} />
-          </picture>
-        </div>
-        <div className={styles.main}>
+      <div className={styles.postOgpImage}>
+        <picture>
+          <source
+            media="(min-width: 1160px)"
+            type="image/webp"
+            srcSet={`${props.blog.ogimage.url}?w=820&fm=webp, ${props.blog.ogimage.url}?w=1640&fm=webp 2x`}
+          />
+          <source
+            media="(min-width: 820px)"
+            type="image/webp"
+            srcSet={`${props.blog.ogimage.url}?w=740&fm=webp, ${props.blog.ogimage.url}?w=1480&fm=webp 2x`}
+          />
+          <source
+            media="(min-width: 768px)"
+            type="image/webp"
+            srcSet={`${props.blog.ogimage.url}?w=728&fm=webp, ${props.blog.ogimage.url}?w=1456&fm=webp 2x`}
+          />
+          <source
+            media="(min-width: 768px)"
+            type="image/webp"
+            srcSet={`${props.blog.ogimage.url}?w=375&fm=webp, ${props.blog.ogimage.url}?w=750&fm=webp 2x`}
+          />
+
+          <Image
+            src={`${props.blog.ogimage?.url}?w=820&q=100`}
+            alt={props.blog.title}
+            layout={'fill'}
+            objectFit={'contain'}
+          />
+        </picture>
+      </div>
+      <div className={styles.postContent}>
+        <h1 className={styles.title}>{props.blog.title}</h1>
+        <div className={styles.postMetaFlex}>
+          <Meta
+            category={props.blog.category}
+            createdAt={props.blog.createdAt}
+            tags={props.blog.tag}
+            isDetail={true}
+          />
           <Share id={props.blog.id} title={props.blog.title} />
-          <div className={styles.container}>
-            <h1 className={styles.title}>{props.blog.title}</h1>
-            <Meta
-              category={props.blog.category}
-              createdAt={props.blog.createdAt}
-              tags={props.blog.tag}
-              isDetail={true}
-            />
-            {props.blog.toc_visible && <Toc toc={props.toc} />}
-            <Post body={props.body} />
-          </div>
         </div>
-      </article>
-      <aside className="aside">
-        <Categories categories={props.categories} />
-        <Tags tags={props.tags} />
-        <Latest blogs={props.blogs} />
-      </aside>
+
+        <div className={styles.postBody}>{props.blog.toc_visible && <Toc toc={props.toc} />}</div>
+        <Post body={props.body} />
+      </div>
+
+      <Categories categories={props.categories} />
+      <Tags tags={props.tags} />
+      <Latest blogs={props.blogs} />
     </div>
   );
 };

@@ -384,16 +384,6 @@
   display: block;
 }
 
-.caseContentsLogoImg img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-
 .button_prev {
   left: 0;
   top: 50%;
@@ -613,4 +603,50 @@ ul.news li h3 {
 .newx_list_link {
   text-align: right;
   margin: 30px 0 0 0;
+}
+
+/* post */
+
+.postOgpImage {
+  margin: 0 auto;
+
+  width: 840px;
+  height: 475px;
+  position: relative;
+}
+
+.postContent {
+  max-width: 680px;
+  margin: 0 auto;
+}
+.postContent h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0 0 20px 0;
+  line-height: 1.4;
+}
+
+.postBody {
+  margin: 60px 0 0 0;
+}
+
+.postMetaFlex {
+  display: flex;
+  align-items: center;
+}
+
+/* share */
+
+ul.shareIcons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+ul.shareIcons li {
+  margin: 0 0 0 15px;
+}
+
+ul.shareIcons li a {
+  font-size: 1.8rem;
+  color: #999;
 }
