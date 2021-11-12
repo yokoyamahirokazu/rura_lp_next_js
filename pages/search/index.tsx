@@ -4,7 +4,7 @@ import { Banner, BreadCrumb, Categories, Meta, PopularArticle } from '@component
 import { useSearchByQuery } from '@hooks';
 import { IBanner, IBlog, ICategory, IPopularArticles, MicroCmsResponse } from '@/types';
 import styles from '@styles/SearchPage.module.scss';
-import { getBanners, getCategories, getPopularArticles } from '@blog';
+import { getCategories } from '@blog';
 import { getBlogsByQuery } from '@framework';
 
 type IndexProps = {
@@ -76,14 +76,11 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   const query = context.query.q;
   const blogs = await getBlogsByQuery(query as string);
   const categories = await getCategories();
-  const popularArticles = await getPopularArticles();
-  const banner = await getBanners();
+
   return {
     props: {
       blogs: blogs,
       categories: categories,
-      popularArticles: popularArticles,
-      banner: banner,
       query: query,
     },
   };

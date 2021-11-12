@@ -13,12 +13,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   return axios
-    .get<IBlog>(
-      `https://${config.serviceId}.microcms.io/api/v1/blog/${id}?fields=id?draftKey=${draftKey}`,
-      {
-        headers: { 'X-API-KEY': config.apiKey },
-      },
-    )
+    .get<IBlog>(`https://${config.serviceId}.microcms.io/api/v1/blog/${id}?draftKey=${draftKey}`, {
+      headers: { 'X-API-KEY': config.apiKey },
+    })
     .then(({ data }) => {
       const toc = convertToToc(data.body);
       const body = convertToHtml(data.body);

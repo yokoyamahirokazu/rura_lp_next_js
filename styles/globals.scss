@@ -6,9 +6,82 @@
 @import 'reset.css';
 @import 'highlight.js/styles/github.css';
 
+:root {
+  --primary-050: #8adaff;
+  --primary-100: #63ceff;
+  --primary-200: #40c3ff;
+  --primary-300: #20b9ff;
+  --primary-400: #04b0ff;
+  --primary-500: #00a0e9;
+  --primary-600: #008ecf;
+  --primary-700: #007eb8;
+  --primary-800: #0070a4;
+  --primary-900: #006492;
+
+  --secondary-300: #fff877;
+  --secondary-500: #fff000;
+  --secondary-600: #ffd600;
+  --secondary-700: #ffc700;
+  --secondary-900: #ffb800;
+
+  --error-050: #f7a3b1;
+  --error-100: #f48194;
+  --error-200: #f1627a;
+  --error-300: #ef4662;
+  --error-400: #ed2c4c;
+  --error-500: #eb1438;
+  --error-600: #d31232;
+  --error-700: #be102d;
+  --error-800: #ab0e29;
+  --error-900: #9a0d25;
+
+  --dark-050: #e9e9e9;
+  --dark-100: #dcdcdc;
+  --dark-200: #c4c4c4;
+  --dark-300: #acacac;
+  --dark-400: #939393;
+  --dark-700: #4a4a4a;
+  --dark-900: #000000;
+
+  --from-bg: #efefef;
+
+  --w300: 300;
+  --w400: 400;
+  --w500: 500;
+  --w700: 700;
+
+  --text-color: #0000000;
+  --text-light: #808080;
+
+  --bg-light: #f3f6f6;
+
+  --border-light: rgba(0, 0, 0, 0.1);
+
+  --header-bg: rgba(0, 160, 233, 0.5);
+
+  --bg-overlay: rgba(0, 38, 95, 0.7);
+}
+
 a {
-  color: #2b2c30;
+  color: var(--primary-500);
   text-decoration: none;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
+    Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  color: var(--text-color);
+  -webkit-font-smoothing: antialiased;
+  font-size: 62.5%;
+  font-feature-settings: 'pwid' 1;
 }
 
 input,
@@ -17,4 +90,35 @@ button {
   &:focus {
     outline: none;
   }
+}
+
+p {
+  line-height: 1.7;
+  font-feature-settings: 'pwid' 1;
+  font-size: 1.5rem;
+}
+
+section {
+  overflow: hidden;
+}
+
+h1,
+h2 {
+  letter-spacing: 0.2rem;
+}
+
+h3 {
+  letter-spacing: 0.1rem;
+}
+
+h4 {
+  letter-spacing: 0.05rem;
+}
+
+span {
+  letter-spacing: 0.05rem;
+}
+
+p small {
+  font-size: 1.2rem;
 }

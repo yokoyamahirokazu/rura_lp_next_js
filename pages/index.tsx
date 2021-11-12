@@ -1,9 +1,64 @@
 import { GetStaticPropsContext, NextPage } from 'next';
-import Link from 'next/link';
-import { BreadCrumb, Categories, Meta, Pager } from '@components';
+import {
+  Hero,
+  Case,
+  Recommend,
+  Faqs,
+  Handbook,
+  Service,
+  Scene,
+  Design,
+  Features,
+  Newsindex,
+} from '@components';
+
+import ContactSection from '@components/ContactSection';
 import { IBlog, ICategory, IPopularArticles, ITag } from '@/types';
 import { getContents } from '@blog';
-import { Tags } from '@components/Tags';
+import { client } from 'framework/client';
+
+interface caseItems {
+  id?: string;
+  caseName?: string;
+  caseType?: string;
+  caseBody?: string;
+  width: number;
+  height: number;
+  caseImg?: {
+    url: string;
+  };
+  caseLogo1?: {
+    url: string;
+  };
+  caseLogo2?: {
+    url: string;
+  };
+}
+interface recommendItems {
+  id?: string;
+  company?: string;
+  name?: string;
+  body?: string;
+  img?: {
+    url: string;
+  };
+}
+interface faqItems {
+  id?: string;
+  question?: string;
+  answer?: string;
+}
+interface handbookItems {
+  id?: string;
+  title?: string;
+  smallBanner?: string;
+  img?: {
+    url: string;
+  };
+  smallBannerImg?: {
+    url: string;
+  };
+}
 
 type IndexProps = {
   currentPage: number;
@@ -12,67 +67,50 @@ type IndexProps = {
   popularArticles: IPopularArticles;
   pager: [];
   tags: ITag[];
+  blogItem: IBlog[];
+  caseItem: caseItems[];
+  recommendItem: recommendItems[];
+  faqItem: faqItems[];
+  handbookItem: handbookItems[];
 };
 
 const Index: NextPage<IndexProps> = (props) => {
   return (
-    <div className="divider">
-      <div className="container">
-        <BreadCrumb />
-        {props.blogs.length === 0 && <>記事がありません</>}
-        <ul>
-          {props.blogs.map((blog) => {
-            return (
-              <li key={blog.id} className="list">
-                <Link href="/news/[blogId]" as={`/news/${blog.id}`}>
-                  <a className="link">
-                    <>
-                      {blog.ogimage && (
-                        <picture>
-                          <img src={`${blog.ogimage.url}?w=670`} className="ogimage lazyload" />
-                        </picture>
-                      )}
-                      <dl className="content">
-                        <dt className="title">{blog.title}</dt>
-                        <dd>
-                          <Meta
-                            createdAt={blog.createdAt}
-                            category={blog.category}
-                            tags={blog.tag}
-                          />
-                        </dd>
-                      </dl>
-                    </>
-                  </a>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-        {props.blogs.length > 0 && (
-          <ul className="pager">
-            <Pager pager={props.pager} currentPage={props.currentPage} />
-          </ul>
-        )}
-      </div>
-      <aside className="aside">
-        <Categories categories={props.categories} />
-        <Tags tags={props.tags} />
-      </aside>
+    <div>
+      <Hero />
+      <Case articles={props.caseItem} />
+      <Service />
+      <ContactSection num="cs1" />
+      <Scene />
+      <Design />
+      <ContactSection num="cs2" />
+      <Recommend articles={props.recommendItem} />
+      <Features />
+      <ContactSection num="cs3" />
+      <Newsindex articles={props.blogItem} />
+      <Handbook articles={props.handbookItem} />
+      <Faqs articles={props.faqItem} />
     </div>
   );
 };
 
-export async function getStaticProps(context: GetStaticPropsContext) {
-  const page: any = context.params || '1';
-  const { blogs, pager, categories, tags } = await getContents(page);
+export async function getStaticProps() {
+  const caseData = await client.get({ endpoint: 'case' });
+  const recommendData = await client.get({ endpoint: 'recommend' });
+  const faqData = await client.get({ endpoint: 'faq' });
+  const handbookData = await client.get({ endpoint: 'whitepaper' });
+  const blogData = await client.get({
+    endpoint: 'blog',
+    queries: { limit: 5 },
+  });
+
   return {
     props: {
-      currentPage: parseInt(page),
-      blogs,
-      categories,
-      pager,
-      tags,
+      blogItem: blogData.contents,
+      caseItem: caseData.contents,
+      recommendItem: recommendData.contents,
+      faqItem: faqData.contents,
+      handbookItem: handbookData.contents,
     },
   };
 }

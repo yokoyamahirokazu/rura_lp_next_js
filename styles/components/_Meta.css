@@ -1,0 +1,26 @@
+.metaBox {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.category {
+  font-size: 1.15rem;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px 1px;
+  border: solid 1px var(--primary-500);
+  border-radius: 12px;
+  line-height: normal;
+  box-sizing: border-box;
+}
+
+.timestamp {
+  margin: 0 0 0 10px;
+}
+
+.timestamp time {
+  font-size: 1.2rem;
+}

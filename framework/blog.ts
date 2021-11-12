@@ -1,13 +1,5 @@
 import { config } from '@site.config';
-import {
-  IBanner,
-  IBlog,
-  ICategory,
-  IPopularArticles,
-  ITag,
-  MicroCmsResponse,
-  Queries,
-} from '@types';
+import { IBlog, ICategory, ITag, MicroCmsResponse, Queries } from '@types';
 import { client } from '@framework';
 
 const limit = parseInt(config.defaultLimit);
@@ -18,24 +10,19 @@ export const getContents = async (
 ): Promise<{
   blogs: IBlog[];
   categories: ICategory[];
-  popularArticles: IPopularArticles;
   pager: number[];
-  banner: IBanner;
   tags: ITag[];
 }> => {
-  const [{ blogs, pager }, categories, banner, popularArticles, tags] = await Promise.all([
+  const [{ blogs, pager }, categories, tags] = await Promise.all([
     getBlogsByFilter(limit, currentPage, articleFilter),
     getCategories(),
-    getBanners(),
-    getPopularArticles(),
+
     getTags(),
   ]);
   return {
     blogs: blogs.contents,
     categories: categories.contents,
-    popularArticles,
     pager,
-    banner,
     tags: tags.contents,
   };
 };
@@ -86,16 +73,6 @@ export const getBlogById = async (blogId: string): Promise<IBlog> => {
 
 export const getCategories = async (): Promise<MicroCmsResponse<ICategory>> => {
   const res = await client.get<MicroCmsResponse<ICategory>>({ endpoint: 'categories' });
-  return res;
-};
-
-export const getPopularArticles = async (): Promise<IPopularArticles> => {
-  const res = await client.get<IPopularArticles>({ endpoint: 'popular-articles' });
-  return res;
-};
-
-export const getBanners = async (): Promise<IBanner> => {
-  const res = await client.get<IBanner>({ endpoint: 'banner' });
   return res;
 };
 
