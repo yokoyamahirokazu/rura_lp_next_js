@@ -8,6 +8,7 @@ type PostProps = {
 
 export const Post: React.FC<PostProps> = (props) => {
   const [htmlString, setHtmlString] = useState<string>('');
+
   useEffect(() => {
     if (props.body) {
       // XSS対策

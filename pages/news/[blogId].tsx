@@ -4,9 +4,9 @@ import { BreadCrumb } from '@components/BreadCrumb';
 import { Latest } from '@components/Latest';
 import { Loader } from '@components/Loader';
 import { Meta } from '@components/Meta';
-import { Post, Share, Toc } from '@components';
-import { IBlog, ICategory, TocTypes } from '@/types/interface';
-import { convertToToc, convertToHtml } from '@scripts';
+import { Post, Share } from '@components';
+import { IBlog, ICategory } from '@/types/interface';
+import { convertToHtml } from '@scripts';
 import { getAllBlogs, getBlogById, getContents } from '@blog';
 import styles from '@styles/components/Components.module.css';
 import Image from 'next/image';
@@ -15,7 +15,6 @@ import Button from '@components/Button';
 type DetailProps = {
   blog: IBlog;
   body: string;
-  toc: TocTypes[];
   blogs: IBlog[];
   categories: ICategory[];
 };
@@ -70,8 +69,10 @@ const Detail: NextPage<DetailProps> = (props) => {
             <Share id={props.blog.id} title={props.blog.title} />
           </div>
 
-          <div className={styles.postBody}>{props.blog.toc_visible && <Toc toc={props.toc} />}</div>
+          {/* <div className={styles.postBody}>{props.blog.toc_visible && <Toc toc={props.toc} />}</div> */}
           <Post body={props.body} />
+
+          <div className={styles.postBody} dangerouslySetInnerHTML={{ __html: props.body }}></div>
 
           <div className={styles.postContactBox}>
             <div className={styles.postContactBoxLogo}>
@@ -124,7 +125,6 @@ export async function getStaticPaths() {
 export async function getStaticProps(context: GetStaticPropsContext) {
   const blogId: any = context.params?.blogId || '1';
   const blog = await getBlogById(blogId);
-  const toc = convertToToc(blog.body);
   const body = convertToHtml(blog.body);
   const { blogs, categories } = await getContents();
 
@@ -132,7 +132,6 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     props: {
       blog,
       body,
-      toc,
       blogs,
       categories,
     },
