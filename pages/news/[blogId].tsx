@@ -11,12 +11,16 @@ import { getAllBlogs, getBlogById, getContents } from '@blog';
 import styles from '@styles/components/Components.module.css';
 import Image from 'next/image';
 import Button from '@components/Button';
+import { client } from '@framework/client';
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
 type DetailProps = {
   blog: IBlog;
   body: string;
   blogs: IBlog[];
   categories: ICategory[];
+  prevEntry: IBlog;
+  nextEntry: IBlog;
 };
 
 const Detail: NextPage<DetailProps> = (props) => {
@@ -96,15 +100,44 @@ const Detail: NextPage<DetailProps> = (props) => {
             </div>
           </div>
           <Share id={props.blog.id} title={props.blog.title} />
-          <div className={styles.categoryLinkBtnBox}>
-            <Button bgColor="normal" size="normal" types="link" href={cotegoryLink}>
-              {cotegoryLinkName}
-            </Button>
-            <Button bgColor="normal" size="normal" types="link" href="/news/page/1">
-              全ての記事を見る
-            </Button>
+        </div>
+        <div className={styles.nextPreviewWrapper}>
+          <div className={styles.nextPreview}>
+            <div className={styles.nextPreviewbox}>
+              {(() => {
+                if (props.nextEntry.id) {
+                  return (
+                    <a className={styles.prev} href={`/news/${props.nextEntry.id}`}>
+                      {props.nextEntry.title}
+                      <IoIosArrowBack />
+                    </a>
+                  );
+                }
+              })()}
+            </div>
+            <div className={styles.nextPreviewbox}>
+              {(() => {
+                if (props.prevEntry.id) {
+                  return (
+                    <a className={styles.next} href={`/news/${props.prevEntry.id}`}>
+                      {props.prevEntry.title}
+                      <IoIosArrowForward />
+                    </a>
+                  );
+                }
+              })()}
+            </div>
           </div>
         </div>
+        <div className={styles.categoryLinkBtnBox}>
+          <Button bgColor="normal" size="normal" types="link" href={cotegoryLink}>
+            {cotegoryLinkName}
+          </Button>
+          <Button bgColor="normal" size="normal" types="link" href="/news/page/1">
+            全ての記事を見る
+          </Button>
+        </div>
+
         <Latest blogs={props.blogs} />
       </div>
     </>
@@ -128,12 +161,39 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   const body = convertToHtml(blog.body);
   const { blogs, categories } = await getContents();
 
+  const entry = await client.get({ endpoint: 'blog', contentId: blogId });
+  const fields = 'id,title,publishedAt';
+  const prev = await client.get({
+    endpoint: 'blog',
+    queries: {
+      limit: 1,
+      orders: '-publishedAt',
+      fields,
+      filters: `publishedAt[less_than]${entry.publishedAt}`,
+    },
+  });
+
+  const next = await client.get({
+    endpoint: 'blog',
+    queries: {
+      limit: 1,
+      orders: 'publishedAt',
+      fields,
+      filters: `publishedAt[greater_than]${entry.publishedAt}`,
+    },
+  });
+
+  const prevEntry = prev.contents[0] || {};
+  const nextEntry = next.contents[0] || {};
+
   return {
     props: {
       blog,
       body,
       blogs,
       categories,
+      prevEntry,
+      nextEntry,
     },
   };
 }
