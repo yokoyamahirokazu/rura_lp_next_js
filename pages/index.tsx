@@ -13,7 +13,7 @@ import {
 } from '@components';
 
 import ContactSection from '@components/ContactSection';
-import { IBlog, ICategory, IPopularArticles, ITag } from '@/types';
+import { IBlog, ICategory, IPopularArticles } from '@/types';
 import { client } from 'framework/client';
 
 interface caseItems {
@@ -65,7 +65,6 @@ type IndexProps = {
   categories: ICategory[];
   popularArticles: IPopularArticles;
   pager: [];
-  tags: ITag[];
   blogItem: IBlog[];
   caseItem: caseItems[];
   recommendItem: recommendItems[];

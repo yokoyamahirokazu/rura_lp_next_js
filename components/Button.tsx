@@ -5,13 +5,28 @@ interface Props {
   children?: string;
   href?: string;
   types?: string;
+  type?: string;
   bgColor?: string;
   size?: string;
   icon?: string;
+  errorText?: string;
+  submittingText?: string;
+  as?: string;
   classNames?: string;
 }
 
-const Button = ({ children, href, types, bgColor, size, icon, classNames }: Props) => {
+const Button = ({
+  children,
+  href,
+  types,
+  bgColor,
+  size,
+  icon,
+  classNames,
+  errorText,
+  as,
+  submittingText,
+}: Props) => {
   {
     if (size == 'normal') {
       bgColor == 'normal' && (classNames = styles.btn);
@@ -26,16 +41,21 @@ const Button = ({ children, href, types, bgColor, size, icon, classNames }: Prop
 
   return (
     <>
-      {types == 'button' ? (
-        <button type="button" className={classNames}>
+      {types == 'submit' ? (
+        <button
+          type="submit"
+          className={classNames}
+          data-formrun-error-text={errorText}
+          data-formrun-submitting-text={submittingText}
+        >
           {children}
         </button>
       ) : (
-        <Link href={href}>
+        <Link href={href} as={as}>
           <a className={classNames}>
             {(() => {
               if (icon) {
-                if (icon == 'donwload') {
+                if (icon == 'download') {
                   return <IoDocumentTextOutline />;
                 }
                 if (icon == 'contact') {
@@ -43,7 +63,6 @@ const Button = ({ children, href, types, bgColor, size, icon, classNames }: Prop
                 }
               }
             })()}
-
             {children}
           </a>
         </Link>

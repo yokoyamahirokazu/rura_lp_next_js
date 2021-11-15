@@ -2,9 +2,10 @@ import { GetStaticPropsContext, NextPage } from 'next';
 import { useRouter } from 'next/dist/client/router';
 import Link from 'next/link';
 import { BreadCrumb, Categories, Loader, Meta, Pager } from '@components';
-import { IBanner, IBlog, ICategory, IPopularArticles, ITag } from '@/types';
+import { IBanner, IBlog, ICategory, IPopularArticles } from '@/types';
 import { getContents } from '@blog';
-import { Tags } from '@components/Tags';
+import styles from '@styles/components/Components.module.css';
+import Image from 'next/image';
 
 type PageProps = {
   currentPage: number;
@@ -14,7 +15,6 @@ type PageProps = {
   banner: IBanner;
   pager: [];
   selectedCategory: ICategory;
-  tags: ITag[];
 };
 
 const Page: NextPage<PageProps> = (props) => {
@@ -23,34 +23,38 @@ const Page: NextPage<PageProps> = (props) => {
     return <Loader />;
   }
   return (
-    <div>
-      <div>
-        <h1>{props.selectedCategory.name}</h1>
-        <BreadCrumb category={props.selectedCategory} />
+    <>
+      <BreadCrumb />
+      <div className={styles.newsListHead}>
+        <div className={styles.newsListHeadInnder}>
+          <div className={styles.headline_box_center}>
+            <h1 className={styles.headline}>{props.selectedCategory.name}</h1>
+          </div>
+          <Categories categories={props.categories} />
+        </div>
+      </div>
+      <div className={styles.newsListContent}>
         {props.blogs.length === 0 && <>記事がありません</>}
-        <ul>
+        <ul className={`${styles.news} ${styles.newsImages}`}>
           {props.blogs.map((blog) => {
             return (
-              <li key={blog.id} className="list">
+              <li key={blog.id}>
                 <Link href="/news/[blogId]" as={`/news/${blog.id}`}>
-                  <a className="link">
-                    <>
-                      {blog.ogimage && (
-                        <picture>
-                          <img src={`${blog.ogimage.url}?w=670`} className="ogimage lazyload" />
-                        </picture>
-                      )}
-                      <dl className="content">
-                        <dt className="title">{blog.title}</dt>
-                        <dd>
-                          <Meta
-                            createdAt={blog.createdAt}
-                            category={blog.category}
-                            tags={blog.tag}
-                          />
-                        </dd>
-                      </dl>
-                    </>
+                  <a>
+                    {blog.ogimage && (
+                      <div className={styles.newsImagesBox}>
+                        <Image
+                          src={`${blog.ogimage.url}?w=670`}
+                          alt={blog.title}
+                          layout={'fill'}
+                          objectFit={'cover'}
+                        />
+                      </div>
+                    )}
+                    <div className={styles.newsImagesTxt}>
+                      <h3>{blog.title}</h3>
+                      <Meta createdAt={blog.postDate} category={blog.category} tags={blog.tag} />
+                    </div>
                   </a>
                 </Link>
               </li>
@@ -67,10 +71,7 @@ const Page: NextPage<PageProps> = (props) => {
           </ul>
         )}
       </div>
-
-      <Categories categories={props.categories} />
-      <Tags tags={props.tags} />
-    </div>
+    </>
   );
 };
 
@@ -85,7 +86,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   const page: any = context.params?.id || '1';
   const categoryId = context.params?.categoryId;
   const articleFilter = categoryId !== undefined ? `category[equals]${categoryId}` : undefined;
-  const { blogs, pager, categories, tags } = await getContents(page, articleFilter);
+  const { blogs, pager, categories } = await getContents(page, articleFilter);
   const selectedCategory =
     categoryId !== undefined ? categories.find((content) => content.id === categoryId) : undefined;
 
@@ -96,7 +97,6 @@ export async function getStaticProps(context: GetStaticPropsContext) {
       categories,
       pager,
       selectedCategory,
-      tags,
     },
   };
 }

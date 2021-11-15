@@ -54,7 +54,7 @@ export const Header: React.FC = () => {
               </li>
             </ul>
           </nav>
-          <Button bgColor="primary" size="normal" types="link" href="/">
+          <Button bgColor="primary" size="normal" types="link" href="/download">
             資料ダウンロード
           </Button>
           <Button bgColor="secondary" size="normal" types="link" href="/contact">

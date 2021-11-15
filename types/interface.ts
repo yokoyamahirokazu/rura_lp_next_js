@@ -23,6 +23,7 @@ export interface IBlog extends ContentBase {
   ogimage?: IMicroCmsImageType;
   writer?: IAuthor;
   partner?: string;
+  postDate?: string;
   related_blogs: IBlog[];
 }
 

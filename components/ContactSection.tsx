@@ -59,7 +59,7 @@ const ContactSection: React.FC<Props> = ({ num }: Props) => {
               </div>
             </div>
             <div className={styles.contactSectionLogoBtn}>
-              <Button bgColor="primary" size="large" types="link" href="/" icon="donwload">
+              <Button bgColor="primary" size="large" types="link" href="/download/" icon="download">
                 資料ダウンロード
               </Button>
               <Button bgColor="secondary" size="large" types="link" href="/contact" icon="contact">

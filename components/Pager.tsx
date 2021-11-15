@@ -1,6 +1,7 @@
 import NextLink from 'next/link';
 import { ICategory, ITag } from '@/types';
-import styles from '@styles/components/Pager.module.scss';
+import styles from '@styles/components/Components.module.css';
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
 type PagerProps = {
   currentPage: number;
@@ -20,13 +21,13 @@ export const Pager: React.FC<PagerProps> = (props) => {
     }
   };
   return (
-    <div className={styles.wrapper}>
+    <div>
       <ul className={styles.pager}>
         {props.currentPage > 1 && (
-          <li className={`${styles.page} ${styles.arrow}`}>
+          <li className={styles.page}>
             <NextLink href={getPath(props.currentPage - 1)}>
               <a>
-                <img src="/images/icon_arrow_left.svg" alt="前のページへ" />
+                <IoIosArrowBack />
               </a>
             </NextLink>
           </li>
@@ -69,7 +70,7 @@ export const Pager: React.FC<PagerProps> = (props) => {
           <li className={`${styles.page} ${styles.arrow}`}>
             <NextLink href={getPath(props.currentPage + 1)}>
               <a>
-                <img src="/images/icon_arrow_right.svg" alt="次のページへ" />
+                <IoIosArrowForward />
               </a>
             </NextLink>
           </li>

@@ -1,6 +1,6 @@
-import Link from 'next/link';
 import { ICategory } from '@/types';
-import styles from '@styles/components/Categories.module.scss';
+import styles from '@styles/components/Components.module.css';
+import Button from '@components/Button';
 
 type CategoriesProps = {
   categories: ICategory[];
@@ -8,21 +8,29 @@ type CategoriesProps = {
 
 export const Categories: React.FC<CategoriesProps> = (props) => {
   return (
-    <div className={styles.wrapper}>
-      <h1 className={styles.pageTitle}>カテゴリー</h1>
-      <ul>
+    <div className={styles.newsCategoryFlex}>
+      <p className={styles.newsCategoryTitle}>カテゴリー</p>
+      <ul className={styles.newsCategoryList}>
         {props.categories.map((category) => {
           return (
-            <li className={styles.list} key={category.id}>
-              <Link
+            <li key={category.id}>
+              <Button
+                bgColor="normal"
+                size="normal"
+                types="link"
                 href="/news/category/[categoryId]/page/[id]"
                 as={`/news/category/${category.id}/page/1`}
               >
-                <a className="link">{category.name}</a>
-              </Link>
+                {category.name}
+              </Button>
             </li>
           );
         })}
+        <li>
+          <Button bgColor="normal" size="normal" types="link" href="/news/page/1">
+            全ての記事
+          </Button>
+        </li>
       </ul>
     </div>
   );

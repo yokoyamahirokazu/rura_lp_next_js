@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { BreadCrumb, Categories, Loader, Meta, Pager } from '@components';
 import { IBanner, IBlog, ICategory, IPopularArticles, ITag } from '@/types';
 import { getBlogsByFilter, getContents } from '@blog';
-import { Tags } from '@components/Tags';
+import styles from '@styles/components/Components.module.css';
 
 type PageProps = {
   currentPage: number;
@@ -22,33 +22,26 @@ const Page: NextPage<PageProps> = (props) => {
     return <Loader />;
   }
   return (
-    <div className="divider">
-      <div className="container">
-        <BreadCrumb />
+    <>
+      <BreadCrumb />
+      <div className={styles.newsListHead}>
+        <div className={styles.newsListHeadInnder}>
+          <div className={styles.headline_box_center}>
+            <h1 className={styles.headline}>新着情報</h1>
+          </div>
+          <Categories categories={props.categories} />
+        </div>
+      </div>
+      <div className={styles.newsListContent}>
         {props.blogs.length === 0 && <>記事がありません</>}
-        <ul>
+        <ul className={styles.news}>
           {props.blogs.map((blog) => {
             return (
-              <li key={blog.id} className="list">
+              <li key={blog.id}>
                 <Link href="/news/[blogId]" as={`/news/${blog.id}`}>
-                  <a className="link">
-                    <>
-                      {blog.ogimage && (
-                        <picture>
-                          <img src={`${blog.ogimage.url}?w=670`} className="ogimage lazyload" />
-                        </picture>
-                      )}
-                      <dl className="content">
-                        <dt className="title">{blog.title}</dt>
-                        <dd>
-                          <Meta
-                            createdAt={blog.createdAt}
-                            category={blog.category}
-                            tags={blog.tag}
-                          />
-                        </dd>
-                      </dl>
-                    </>
+                  <a>
+                    <h3>{blog.title}</h3>
+                    <Meta createdAt={blog.postDate} category={blog.category} tags={blog.tag} />
                   </a>
                 </Link>
               </li>
@@ -61,11 +54,7 @@ const Page: NextPage<PageProps> = (props) => {
           </ul>
         )}
       </div>
-      <aside className="aside">
-        <Categories categories={props.categories} />
-        <Tags tags={props.tags} />
-      </aside>
-    </div>
+    </>
   );
 };
 

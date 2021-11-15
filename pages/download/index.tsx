@@ -4,6 +4,7 @@ import React, { useCallback } from 'react';
 import { useTabIndex } from 'react-tabindex';
 import styles from '@styles/components/Components.module.css';
 import Button from '@components/Button';
+import Image from 'next/image';
 
 declare global {
   interface Window {
@@ -21,12 +22,48 @@ const Index: NextPage = () => {
     <div className={styles.contactPageFlex}>
       <div className={styles.contactPageFlexLeft}>
         <div className={styles.contactPageFlexInner}>
-          <h1 className={styles.headline}>お問い合わせ</h1>
-          <p>
-            RURAにご関心いただきありがとうございます。
-            必須項目を入力の上、フォームの送信をお願いします。
-            担当者が内容を確認の上、折り返し連絡させていただきます。
-          </p>
+          <h1 className={styles.headline}>資料ダウンロード</h1>
+          <div>
+            <p>
+              RURAにご関心いただきありがとうございます。
+              必須項目を入力の上、フォームの送信をお願いします。
+            </p>
+            <div className={styles.downloadFlex}>
+              <div className={styles.downloadFlexImg}>
+                <div className={styles.downloadFlexImgBox}>
+                  <Image
+                    src="/images/rura_dl_document_1.png"
+                    alt="資料ダウンロード・お問い合わせ"
+                    layout={'fill'}
+                    objectFit={'cover'}
+                  />
+                </div>
+                <div className={styles.downloadFlexImgBox}>
+                  <Image
+                    src="/images/rura_dl_document_2.png"
+                    alt="資料ダウンロード・お問い合わせ"
+                    layout={'fill'}
+                    objectFit={'cover'}
+                  />
+                </div>
+              </div>
+              <div className={styles.downloadFlexRight}>
+                <p className={styles.downloadTxt}>
+                  こんな方にオススメの資料です。
+                  <span>
+                    ・RURAをもっと知りたい
+                    <br />
+                    ・導入事例を見たい
+                    <br />
+                    ・料金プランを知りたい
+                    <br />
+                    ・コストダウンできる秘密を知りたい
+                  </span>
+                </p>
+              </div>
+            </div>
+            <p>※資料はフォーム入力後にダウンロードできます。</p>
+          </div>
         </div>
       </div>
       <div className={styles.contactPageFlexRight}>
@@ -94,10 +131,13 @@ const Index: NextPage = () => {
               </div>
               <div className={styles.formContentBox}>
                 <label>
-                  お問い合わせ内容<span className={styles.required}>必須</span>
+                  コメント<span>任意</span>
                 </label>
-                <textarea name={'お問い合わせ'} data-formrun-required></textarea>
-                <div data-formrun-show-if-error={'お問い合わせ'}>お問い合わせ入力してください</div>
+                <textarea
+                  name={'コメント'}
+                  placeholder={'ご質問・ご要望等ございましたらご記入ください。'}
+                ></textarea>
+                <div data-formrun-show-if-error={'コメント'}>お問い合わせ入力してください</div>
               </div>
 
               <div className={styles._formrun_gotcha}>

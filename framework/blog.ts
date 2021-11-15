@@ -44,6 +44,15 @@ export const getBlogs = async (limit: number): Promise<MicroCmsResponse<IBlog>> 
   return res;
 };
 
+export const getLatestBlogs = async (limit: number): Promise<MicroCmsResponse<IBlog>> => {
+  const res = await client.get<MicroCmsResponse<IBlog>>({
+    endpoint: 'blog',
+    queries: { limit: limit },
+  });
+
+  return res;
+};
+
 export const getBlogsByFilter = async (
   limit: number,
   currentPage: number,

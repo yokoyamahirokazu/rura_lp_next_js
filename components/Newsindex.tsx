@@ -34,7 +34,7 @@ export const Newsindex: React.FC<CaesProps> = (props) => {
               })}
             </ul>
             <div className={styles.newx_list_link}>
-              <Button bgColor="normal" size="normal" types="link" href="/news/">
+              <Button bgColor="normal" size="normal" types="link" href="/news/page/1">
                 全ての記事を見る
               </Button>
             </div>

@@ -1,5 +1,7 @@
 import { IBlog } from '@/types';
-import styles from '@styles/components/Latest.module.scss';
+import styles from '@styles/components/Components.module.css';
+import { Meta } from '@components';
+import Link from 'next/link';
 
 type LatestProps = {
   blogs: IBlog[];
@@ -7,15 +9,17 @@ type LatestProps = {
 
 export const Latest: React.FC<LatestProps> = (props) => {
   return (
-    <div className={styles.wrapper}>
-      <h1 className={styles.pageTitle}>最新の記事</h1>
-      <ul>
-        {props.blogs.map((blog) => {
+    <div className={styles.latestPost}>
+      <ul className={styles.news}>
+        {props.blogs.slice(0, 5).map((blog) => {
           return (
-            <li className={styles.list} key={blog.id}>
-              <a href={`/news/${blog.id}`} className={styles.link}>
-                {blog.title}
-              </a>
+            <li key={blog.id}>
+              <Link href="/news/[blogId]" as={`/news/${blog.id}`}>
+                <a>
+                  <h3>{blog.title}</h3>
+                  <Meta createdAt={blog.createdAt} category={blog.category} tags={blog.tag} />
+                </a>
+              </Link>
             </li>
           );
         })}

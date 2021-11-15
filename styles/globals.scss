@@ -86,9 +86,11 @@ body {
 
 input,
 select,
-button {
+button,
+textarea {
   &:focus {
     outline: none;
+    cursor: pointer;
   }
 }
 
@@ -121,4 +123,49 @@ span {
 
 p small {
   font-size: 1.2rem;
+}
+
+input,
+select,
+option,
+textarea {
+  font-size: 1.5rem;
+  letter-spacing: 0.1rem;
+}
+input,
+textarea {
+  outline: 0;
+  background-color: var(--from-bg) !important;
+  border: 0;
+  width: 100%;
+  box-sizing: border-box !important;
+  padding: 8px 10px;
+  line-height: 1.6;
+  overflow: hidden;
+  border-style: solid !important;
+  display: block;
+  position: relative !important;
+  border-radius: 2px;
+}
+
+input:focus,
+textarea:focus {
+  outline: solid 1px var(--primary-500);
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
