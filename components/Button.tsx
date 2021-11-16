@@ -12,6 +12,7 @@ interface Props {
   errorText?: string;
   submittingText?: string;
   as?: string;
+  target?: string;
   classNames?: string;
 }
 
