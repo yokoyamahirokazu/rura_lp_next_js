@@ -29,10 +29,10 @@ export const Handbook: React.FC<CaesProps> = (props) => {
         </div>
         <div className={styles.contentBox}>
           <div className={styles.contentFlex}>
-            {props.articles.map((recommend) => (
-              <div key={recommend.id} className={styles.contentFlexThree}>
+            {props.articles.map((handbook) => (
+              <div key={handbook.id} className={styles.contentFlexThree}>
                 {(() => {
-                  if (!recommend.smallBannerImg) {
+                  if (!handbook.smallBannerImg) {
                     return (
                       <Link href="/">
                         <a className={styles.handbookLink}>
@@ -40,22 +40,28 @@ export const Handbook: React.FC<CaesProps> = (props) => {
                             <div className={styles.boxRound_inner}>
                               <div className={styles.imageBoxB}>
                                 <Image
-                                  src={recommend.img && recommend.img.url}
-                                  alt={recommend.title && recommend.title}
+                                  src={handbook.img && handbook.img.url}
+                                  alt={handbook.title && handbook.title}
                                   layout={'fill'}
                                   objectFit={'contain'}
                                 />
                               </div>
                             </div>
                             <div className={styles.handbookLinkHover}>
-                              <Button bgColor="secondary" size="normal" types="link" href="/">
+                              <Button
+                                bgColor="secondary"
+                                size="normal"
+                                types="link"
+                                href="/download/[id]"
+                                as={`/download/${handbook.id}`}
+                              >
                                 ダウンロードへ進む
                               </Button>
                             </div>
                           </div>
                           <div className={styles.txtBoxC}>
                             <h3 className={styles.headlineMinBlk}>
-                              {recommend.title && recommend.title}
+                              {handbook.title && handbook.title}
                             </h3>
                           </div>
                         </a>
@@ -71,8 +77,8 @@ export const Handbook: React.FC<CaesProps> = (props) => {
                                 <div className={styles.handbookSmallImg}>
                                   <div className={styles.imageBoxSquare}>
                                     <Image
-                                      src={recommend.smallBannerImg && recommend.smallBannerImg.url}
-                                      alt={recommend.title && recommend.title}
+                                      src={handbook.smallBannerImg && handbook.smallBannerImg.url}
+                                      alt={handbook.title && handbook.title}
                                       layout={'fill'}
                                       objectFit={'cover'}
                                     />
@@ -81,7 +87,7 @@ export const Handbook: React.FC<CaesProps> = (props) => {
                                 <div className={styles.handbookSmallTxt}>
                                   <div className={styles.txtBoxC}>
                                     <h3 className={styles.headlineMinBlk}>
-                                      {recommend.title && recommend.title}
+                                      {handbook.title && handbook.title}
                                       <span>導入ハンドブック</span>
                                     </h3>
                                   </div>
@@ -89,7 +95,13 @@ export const Handbook: React.FC<CaesProps> = (props) => {
                               </div>
                             </div>
                             <div className={styles.handbookLinkHover}>
-                              <Button bgColor="secondary" size="normal" types="link" href="/">
+                              <Button
+                                bgColor="secondary"
+                                size="normal"
+                                types="link"
+                                href="/download/[id]"
+                                as={`/download/${handbook.id}`}
+                              >
                                 ダウンロードへ進む
                               </Button>
                             </div>
