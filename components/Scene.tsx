@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export const Scene: React.FC = () => {
   return (
-    <section>
+    <section id="scene">
       <div className={styles.section_inner}>
         <div className={styles.headline_box_center}>
           <h2 className={styles.headline}>

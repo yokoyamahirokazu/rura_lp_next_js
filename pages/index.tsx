@@ -78,13 +78,13 @@ const Index: NextPage<IndexProps> = (props) => {
       <Hero />
       <Case articles={props.caseItem} />
       <Service />
-      <ContactSection num="cs1" />
+      <ContactSection ids="cs1" />
       <Scene />
       <Design />
-      <ContactSection num="cs2" />
+      <ContactSection ids="cs2" />
       <Recommend articles={props.recommendItem} />
       <Features />
-      <ContactSection num="cs3" />
+      <ContactSection ids="cs3" />
       <Newsindex articles={props.blogItem} />
       <Handbook articles={props.handbookItem} />
       <Faqs articles={props.faqItem} />
@@ -101,6 +101,7 @@ export async function getStaticProps() {
     endpoint: 'blog',
     queries: { limit: 5 },
   });
+  const categoryData = await client.get({ endpoint: 'categories' });
 
   return {
     props: {
@@ -109,6 +110,7 @@ export async function getStaticProps() {
       recommendItem: recommendData.contents,
       faqItem: faqData.contents,
       handbookItem: handbookData.contents,
+      cateoryItem: categoryData.contents,
     },
   };
 }

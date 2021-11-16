@@ -29,7 +29,6 @@
 
 .heroContent {
   width: 100%;
-  max-width: 1080px;
   box-sizing: content-box;
   padding: 4vw;
   margin: 0 auto;
@@ -84,7 +83,7 @@
   width: 340px;
   height: 340px;
   position: absolute;
-  right: calc((100vw - 1080px) / 2);
+  right: 4vw;
   bottom: -30px;
   box-sizing: border-box;
 }

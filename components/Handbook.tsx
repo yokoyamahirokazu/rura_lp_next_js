@@ -19,7 +19,7 @@ type CaesProps = {
 };
 export const Handbook: React.FC<CaesProps> = (props) => {
   return (
-    <section className={styles.slantBg}>
+    <section className={styles.slantBg} id="handbook">
       <div className={styles.slantBg_inner}>
         <div className={styles.headline_box_center}>
           <h2 className={styles.headline}>

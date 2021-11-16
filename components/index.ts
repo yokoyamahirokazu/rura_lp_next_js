@@ -23,3 +23,4 @@ export * from './Design';
 export * from './Features';
 export * from './ContactSection';
 export * from './Newsindex';
+export * from './TopButton';

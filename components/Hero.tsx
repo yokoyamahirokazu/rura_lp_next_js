@@ -6,18 +6,21 @@ import { IoIosPlay } from 'react-icons/io';
 import React from 'react';
 import Modal from 'react-modal';
 import YouTube from 'react-youtube';
+import { gsap } from 'gsap';
+import { useRef, useEffect } from 'react';
 
 export const Hero: React.FC = () => {
   const [modalIsOpen, setIsOpen] = React.useState(false);
-
   function openModal() {
     setIsOpen(true);
   }
-
   function closeModal() {
     setIsOpen(false);
   }
-
+  const boxRef = useRef();
+  useEffect(() => {
+    gsap.fromTo(boxRef.current, { y: 100 }, { y: 0 });
+  });
   return (
     <>
       <div className={styles.hero}>
@@ -31,7 +34,9 @@ export const Hero: React.FC = () => {
         />
         <div className={styles.heroInner}>
           <div className={styles.heroContent}>
-            <p className={styles.heroCopy}>変わる接客、変わらない体験</p>
+            <p className={styles.heroCopy} ref={boxRef}>
+              変わる接客、変わらない体験
+            </p>
             <div className={styles.heroLogo}>
               <p className={styles.heroLogoTxt}>遠隔接客サービス</p>
               <div className={styles.heroLogoImg}>

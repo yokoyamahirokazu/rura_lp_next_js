@@ -9,7 +9,7 @@ type CaesProps = {
 };
 export const Newsindex: React.FC<CaesProps> = (props) => {
   return (
-    <section>
+    <section id="news">
       <div className={styles.section_inner}>
         <div className={styles.sectionFlex}>
           <div className={styles.sectionFlexLeft}>

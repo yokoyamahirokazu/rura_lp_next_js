@@ -3,11 +3,11 @@ import styles from '@styles/components/Components.module.css';
 import Button from '@components/Button';
 
 interface Props {
-  num?: string;
+  ids?: string;
 }
-const ContactSection: React.FC<Props> = ({ num }: Props) => {
+const ContactSection: React.FC<Props> = ({ ids }: Props) => {
   return (
-    <section id={num && num} className={styles.contactSection}>
+    <section id={ids && ids} className={styles.contactSection}>
       <div className={styles.contactSectionBg}>
         <Image
           src="/images/contact_section_bg.jpg"

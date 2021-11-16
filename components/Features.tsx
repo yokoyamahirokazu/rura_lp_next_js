@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export const Features: React.FC = () => {
   return (
-    <section className={styles.slantBg}>
+    <section className={styles.slantBg} id="features">
       <div className={styles.slantBg_inner}>
         <div className={styles.headline_box_center}>
           <h2 className={styles.headline}>

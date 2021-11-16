@@ -169,3 +169,85 @@ button {
   -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
+
+.slick-slide {
+  opacity: 0.2;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  cursor: grab;
+}
+
+.slick-slide:hover {
+  opacity: 0.4;
+}
+
+.slick-active {
+  opacity: 1;
+}
+.slick-active:hover {
+  opacity: 1;
+}
+
+.slick-prev,
+.slick-next {
+  opacity: 0;
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  top: 50%;
+  display: block;
+  width: 50px;
+  height: 50px;
+  padding: 8px;
+  box-sizing: border-box;
+  transform: translate(0, -50%);
+  cursor: pointer;
+  color: transparent;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--primary-500);
+  z-index: 9999;
+  border-radius: 6px;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  background-color: var(--primary-500);
+  color: #fff;
+  cursor: pointer;
+}
+
+.slick-slider:hover .slick-prev,
+.slick-slider:hover .slick-next {
+  opacity: 1;
+}
+
+.slick-next {
+  right: 2vw;
+}
+.slick-prev {
+  left: 2vw;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: var(--primary-500);
+}
+.slick-prev:hover,
+.slick-next:hover {
+  color: #fff;
+  background-color: var(--primary-600);
+  box-shadow: 0px 4px 10px rgba(0, 35, 51, 0.2);
+}
+
+.slick-dots li button:before {
+  color: var(--primary-500);
+}
+
+.slick-dots li.slick-active button:before {
+  opacity: 0.75;
+  color: var(--primary-500);
+}
