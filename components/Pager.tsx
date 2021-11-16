@@ -40,12 +40,12 @@ export const Pager: React.FC<PagerProps> = (props) => {
           </li>
         )}
         {props.currentPage > 4 && <li className={styles.omission}>...</li>}
-        {props.pager.map((page, index) => {
+        {props.pager.map((page, pageIndex) => {
           return (
             <>
               {props.currentPage - 3 <= page && page <= props.currentPage + 1 && (
                 <li
-                  key={index}
+                  key={pageIndex}
                   className={`${styles.page} ${
                     props.currentPage === page + 1 ? `${styles.active}` : ''
                   }`}
