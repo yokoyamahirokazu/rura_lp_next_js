@@ -65,6 +65,8 @@
 
 .heroBtn {
   margin: 40px 0 0 0;
+  display: flex;
+  align-items: center;
 }
 
 .heroBtn a {
@@ -220,9 +222,10 @@
   padding: 0;
   color: #f00;
   background-color: #fff;
-  border-radius: 1em;
+  border-radius: 6px;
   transform: translate(-50%, -50%);
   outline: transparent;
+  overflow: hidden;
 }
 
 .Overlay {
@@ -236,4 +239,134 @@
   transition-property: background-color, opacity;
   transition-duration: 500ms;
   transition-timing-function: ease-in-out;
+}
+
+@media screen and (max-width: 1200px) {
+  .heroCopy {
+    font-size: 4vw;
+  }
+
+  .heroLogo {
+    margin: 4vw 0;
+  }
+  .heroLogoImg {
+    width: 40vw;
+    height: 10vw;
+    position: relative;
+  }
+
+  .heroLogoTxt {
+    font-size: 3.2vw;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .heroTitle {
+    font-size: 1.7vw;
+    font-weight: bold;
+    line-height: 1.5;
+    color: #fff;
+  }
+
+  .videoPlayBox {
+    width: 34vw;
+    height: 34vw;
+    right: 4vw;
+  }
+
+  .videoPlayImg {
+    width: 28vw;
+    height: 28vw;
+  }
+
+  .imagePlayTxt {
+    width: 14vw;
+    height: 14vw;
+  }
+
+  .imagePlayTxt p {
+    font-size: 2vw;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .hero {
+    height: 161vw;
+  }
+
+  .heroInner {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .heroContent {
+    width: 100%;
+    padding: 30px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .heroCopy {
+    font-size: 5vw;
+    letter-spacing: 0.1rem;
+  }
+
+  .heroLogo {
+    margin: 30px auto 30px;
+    text-align: center;
+  }
+
+  .heroLogoImg {
+    width: 60vw;
+    height: 15vw;
+    margin: 0 auto;
+  }
+
+  .heroLogoTxt {
+    margin: 0 0 2vw 0;
+    font-size: 4vw;
+  }
+
+  .heroTitle {
+    font-size: 1.3rem;
+  }
+
+  .heroBtn {
+    margin: 20px auto 0;
+    display: block;
+    align-items: center;
+    max-width: 240px;
+  }
+
+  .heroBtn a {
+    display: flex;
+    margin: 0 0 10px;
+  }
+
+  .videoPlayBox {
+    width: 60vw;
+    height: 60vw;
+    right: 50%;
+    bottom: -50px;
+    transform: translate(calc(50% - 5vw), 0);
+  }
+
+  .videoPlayImg {
+    width: 50vw;
+    height: 50vw;
+  }
+
+  .imagePlayTxt {
+    width: 18vw;
+    height: 18vw;
+  }
+
+  .imagePlayTxt p {
+    font-size: 2vw;
+  }
+
+  .imagePlayIcon svg {
+    width: 15vw;
+    height: 15vw;
+  }
 }

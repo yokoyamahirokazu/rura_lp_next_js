@@ -51,20 +51,20 @@ export const Header: React.FC = () => {
 
               {router.pathname == '/' ? (
                 <>
-                  {navItem.map((items) => (
+                  {navItem.map((navItems) => (
                     <li>
-                      <Scroll to={items.url} smooth={true} duration={600}>
-                        {items.name}
+                      <Scroll to={navItems.url} smooth={true} duration={600}>
+                        {navItems.name}
                       </Scroll>
                     </li>
                   ))}
                 </>
               ) : (
                 <>
-                  {navItem.map((items) => (
+                  {navItem.map((navItems) => (
                     <li>
-                      <Link href="/" as={`/#${items.url}`}>
-                        {items.name}
+                      <Link href="/" as={`/#${navItems.url}`}>
+                        {navItems.name}
                       </Link>
                     </li>
                   ))}

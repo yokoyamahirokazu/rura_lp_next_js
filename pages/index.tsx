@@ -78,16 +78,17 @@ const Index: NextPage<IndexProps> = (props) => {
       <Hero />
       <Case articles={props.caseItem} />
       <Service />
-      <ContactSection ids="cs1" />
+      <ContactSection ids="index1" />
       <Scene />
       <Design />
-      <ContactSection ids="cs2" />
+      <ContactSection ids="index2" />
       <Recommend articles={props.recommendItem} />
       <Features />
-      <ContactSection ids="cs3" />
+      <ContactSection ids="index3" />
       <Newsindex articles={props.blogItem} />
       <Handbook articles={props.handbookItem} />
       <Faqs articles={props.faqItem} />
+      <ContactSection ids="index4" />
     </div>
   );
 };

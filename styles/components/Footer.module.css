@@ -18,10 +18,12 @@
   align-items: flex-start;
   justify-content: flex-end;
   width: 100%;
+  order: 2;
 }
 
 .footerLogo {
   margin: 0;
+  order: 1;
 }
 
 .footerLogoImg {
@@ -86,5 +88,42 @@ p.footerCopyRight {
   color: #fff;
   margin: 0 auto;
   text-align: center;
-  padding: 2vw;
+  padding: 4vw;
+}
+
+@media screen and (max-width: 767px) {
+  .footerInner {
+    display: block;
+  }
+  .footerNavFlex {
+    margin: 0 0 40px 0;
+    justify-content: flex-start;
+  }
+
+  .footerLogo {
+    margin: 0 auto;
+  }
+
+  p.footerCopyRight {
+    text-align: left;
+  }
+
+  .footerCompany {
+    margin: 20px 0 0 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footerNavFlex {
+    display: block;
+  }
+
+  ul.footerNav {
+    margin: 0 0 20px 0;
+    display: block;
+  }
+
+  ul.footerNav:first-child {
+    margin: 0 0 20px 0;
+  }
 }

@@ -1,58 +1,11 @@
 import styles from '@styles/components/Components.module.css';
 import Image from 'next/image';
-import { ReactElement, useEffect } from 'react';
-import { gsap } from 'gsap/dist/gsap';
-import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import { ReactElement } from 'react';
 
 export const Service: React.FC = (): ReactElement => {
-  useEffect(() => {
-    if (process.browser) {
-      gsap.registerPlugin(ScrollTrigger);
-      setAnimation();
-    }
-  }, []);
-
-  const setAnimation = () => {
-    gsap.fromTo(
-      '.serviceWrap .fadein',
-      {
-        y: 300,
-      },
-      {
-        y: 0,
-        stagger: {
-          from: 'start', //左側から
-          amount: 0.8, // 0.8秒おきに
-        },
-        scrollTrigger: {
-          trigger: '.serviceWrap',
-          start: 'top bottom',
-          end: 'bottom top',
-        },
-      },
-    );
-    gsap.fromTo(
-      '.toLeft',
-      {
-        width: '0%',
-        y: 10,
-      },
-      {
-        width: '100%',
-        y: 0,
-        scrollTrigger: {
-          trigger: '#service',
-          start: 'top bottom',
-          end: 'bottom top',
-        },
-      },
-    );
-  };
-
   return (
     <section className={styles.slantBg} id="service">
       <div className={styles.slantBg_inner}>
-        <div className={`toLeft ${styles.slantBgColor}`}></div>
         <div className={styles.headline_box_center}>
           <h2 className={styles.headline}>
             遠隔接客サービス

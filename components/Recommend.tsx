@@ -18,14 +18,30 @@ type CaesProps = {
   articles: Article[];
 };
 export const Recommend: React.FC<CaesProps> = (props) => {
-  const settings = {
+  const settingsR = {
     arows: true,
     dots: true,
-    centerMode: true,
     arrows: true,
     variableWidth: true,
+    adaptiveHeight: true,
+    centerMode: true,
     nextArrow: <BsChevronRight />,
     prevArrow: <BsChevronLeft />,
+    responsive: [
+      {
+        breakpoint: 1180, //399px以下のサイズに適用
+        settings: {
+          centerMode: true,
+        },
+      },
+      {
+        breakpoint: 767, //399px以下のサイズに適用
+        settings: {
+          variableWidth: false,
+          centerMode: false,
+        },
+      },
+    ],
   };
   return (
     <section>
@@ -33,7 +49,7 @@ export const Recommend: React.FC<CaesProps> = (props) => {
         <div className={styles.headline_box_center_nomargin}>
           <h2 className={styles.headline}>RURAをオススメする理由</h2>
         </div>
-        <Slick {...settings}>
+        <Slick {...settingsR}>
           {props.articles.map((recommend) => (
             <div className={styles.recommendContents} key={recommend.id}>
               <div className={`${styles.boxShadowA} ${styles.boxRound}`}>

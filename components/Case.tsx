@@ -30,11 +30,28 @@ export const Case: React.FC<CaesProps> = (props) => {
   const settings = {
     arows: true,
     dots: true,
-    centerMode: true,
     arrows: true,
     variableWidth: true,
+    adaptiveHeight: true,
+    centerMode: true,
     nextArrow: <BsChevronRight />,
     prevArrow: <BsChevronLeft />,
+    responsive: [
+      {
+        breakpoint: 1180, //399px以下のサイズに適用
+        settings: {
+          variableWidth: false,
+          centerMode: true,
+        },
+      },
+      {
+        breakpoint: 767, //399px以下のサイズに適用
+        settings: {
+          variableWidth: false,
+          centerMode: false,
+        },
+      },
+    ],
   };
 
   return (
@@ -46,46 +63,46 @@ export const Case: React.FC<CaesProps> = (props) => {
           </h2>
         </div>
         <Slick {...settings}>
-          {props.articles.map((cases) => (
-            <div className={styles.caseContents} key={cases.id}>
-              <div className={styles.caseContentsTxt}>
-                <h2>
-                  {cases.caseName}
-                  <span> {cases.caseType}</span>
-                </h2>
-                <p>{cases.caseBody}</p>
-                <div className={styles.caseContentsLogo}>
-                  {cases.caseLogo1 && (
-                    <div className={styles.caseContentsLogoImg}>
-                      <Image
-                        src={cases.caseLogo1.url}
-                        alt={cases.caseName}
-                        layout={'fill'}
-                        objectFit={'contain'}
-                      />
-                    </div>
-                  )}
-                  {cases.caseLogo2 && (
-                    <div className={styles.caseContentsLogoImg}>
-                      <Image
-                        src={cases.caseLogo2.url}
-                        alt={cases.caseName}
-                        layout={'fill'}
-                        objectFit={'contain'}
-                      />
-                    </div>
-                  )}
-                </div>
-              </div>
+          {props.articles.map((caseItems) => (
+            <div className={styles.caseContents} key={caseItems.id}>
               <div className={styles.caseContentsImg}>
                 <div className={styles.caseContentsImg_inner}>
-                  {!!cases.caseImg && (
+                  {!!caseItems.caseImg && (
                     <Image
-                      src={cases.caseImg && cases.caseImg.url}
-                      alt={cases.caseName}
+                      src={caseItems.caseImg && caseItems.caseImg.url}
+                      alt={caseItems.caseName}
                       layout={'fill'}
                       objectFit={'cover'}
                     />
+                  )}
+                </div>
+              </div>
+              <div className={styles.caseContentsTxt}>
+                <h2>
+                  {caseItems.caseName}
+                  <span> {caseItems.caseType}</span>
+                </h2>
+                <p>{caseItems.caseBody}</p>
+                <div className={styles.caseContentsLogo}>
+                  {caseItems.caseLogo1 && (
+                    <div className={styles.caseContentsLogoImg}>
+                      <Image
+                        src={caseItems.caseLogo1.url}
+                        alt={caseItems.caseName}
+                        layout={'fill'}
+                        objectFit={'contain'}
+                      />
+                    </div>
+                  )}
+                  {caseItems.caseLogo2 && (
+                    <div className={styles.caseContentsLogoImg}>
+                      <Image
+                        src={caseItems.caseLogo2.url}
+                        alt={caseItems.caseName}
+                        layout={'fill'}
+                        objectFit={'contain'}
+                      />
+                    </div>
                   )}
                 </div>
               </div>

@@ -82,22 +82,26 @@ const DrawerMenu = () => {
             </ul>
 
             <div className={styles.drawerInnerBtn}>
-              <Button bgColor="primary" size="normal" types="link" href="/download">
-                資料ダウンロード
-              </Button>
-              <Button bgColor="secondary" size="normal" types="link" href="/contact">
-                お問い合わせ
-              </Button>
+              <div onClick={toggleDrawer}>
+                <Button bgColor="primary" size="normal" types="link" href="/download">
+                  資料ダウンロード
+                </Button>
+              </div>
+              <div onClick={toggleDrawer}>
+                <Button bgColor="secondary" size="normal" types="link" href="/contact">
+                  お問い合わせ
+                </Button>
+              </div>
             </div>
             <ul className={styles.simple}>
               <li>
                 <Link href={'/company'}>
-                  <a>運営会社</a>
+                  <a onClick={toggleDrawer}>運営会社</a>
                 </Link>
               </li>
               <li>
                 <Link href={'/company/privacy-policy'}>
-                  <a>プライバシーポリシー</a>
+                  <a onClick={toggleDrawer}>プライバシーポリシー</a>
                 </Link>
               </li>
             </ul>

@@ -18,6 +18,13 @@ type CaesProps = {
   articles: Article[];
 };
 export const Handbook: React.FC<CaesProps> = (props) => {
+  const filter_Handbook = props.articles.filter((output) => {
+    return output.smallBannerImg == undefined;
+  });
+  const unfilter_Handbook = props.articles.filter((output) => {
+    return output.smallBannerImg !== undefined;
+  });
+
   return (
     <section className={styles.slantBg} id="handbook">
       <div className={styles.slantBg_inner}>
@@ -29,7 +36,7 @@ export const Handbook: React.FC<CaesProps> = (props) => {
         </div>
         <div className={styles.contentBox}>
           <div className={styles.contentFlex}>
-            {props.articles.map((handbook) => (
+            {filter_Handbook.map((handbook) => (
               <div key={handbook.id} className={styles.contentFlexThree}>
                 {(() => {
                   if (!handbook.smallBannerImg) {
@@ -67,7 +74,16 @@ export const Handbook: React.FC<CaesProps> = (props) => {
                         </a>
                       </Link>
                     );
-                  } else {
+                  }
+                })()}
+              </div>
+            ))}
+          </div>
+          <div className={styles.contentFlex}>
+            {unfilter_Handbook.map((handbook) => (
+              <div key={handbook.id} className={styles.contentFlexThree}>
+                {(() => {
+                  if (handbook.smallBannerImg) {
                     return (
                       <Link href="/">
                         <a className={styles.handbookLink}>

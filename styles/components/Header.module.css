@@ -167,3 +167,24 @@ nav.header_nav ul li a:hover::before {
     margin: 0 0 5px 0;
   }
 }
+
+@media screen and (max-width: 640px) {
+  .header {
+    padding: 10px 10px;
+    position: relative;
+    z-index: 99999;
+  }
+
+  .logoImg {
+    width: 140px;
+    height: 35px;
+    position: relative;
+  }
+
+  .logoText {
+    display: none;
+  }
+  .headerRight {
+    display: none;
+  }
+}

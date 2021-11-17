@@ -13,6 +13,8 @@ import Image from 'next/image';
 import Button from '@components/Button';
 import { client } from '@framework/client';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import Head from 'next/head';
+import { config } from '@site.config';
 
 type DetailProps = {
   blog: IBlog;
@@ -30,8 +32,26 @@ const Detail: NextPage<DetailProps> = (props) => {
   }
   const cotegoryLink = '/news/category/' + props.blog.category.id + '/page/1';
   const cotegoryLinkName = props.blog.category.name + 'の記事一覧を見る';
+
   return (
     <>
+      <Head>
+        <title>{`${props.blog.title} | 遠隔接客サービス RURA`}</title>
+        {props.blog.description == null ? (
+          <>
+            <meta name="description" content={config.siteMeta.description} />
+            <meta property="og:description" content={config.siteMeta.description} />
+          </>
+        ) : (
+          <>
+            <meta name="description" content={props.blog.description} />
+            <meta property="og:description" content={props.blog.description} />
+          </>
+        )}
+        <meta property="og:title" content={`${props.blog.title} | 遠隔接客サービス RURA`} />
+        <meta property="og:image" content={props.blog.ogimage.url} />
+        <meta name="twitter:card" content="summary" />
+      </Head>
       <div>
         <BreadCrumb category={props.blog.category} />
 

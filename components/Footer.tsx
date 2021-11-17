@@ -22,27 +22,6 @@ export const Footer: React.FC = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.footerInner}>
-        <div className={styles.footerLogo}>
-          <p>遠隔接客サービス</p>
-          <div className={styles.footerLogoImg}>
-            <Image
-              src="/images/rura_logo_white.svg"
-              alt="RURA"
-              layout={'fill'}
-              objectFit={'contain'}
-            />
-          </div>
-          <div className={styles.footerCompany}>
-            <p>
-              運営会社
-              <br />
-              タイムリープ株式会社
-              <a href="https://timeleap.co.jp/" target="_blank">
-                https://timeleap.co.jp/
-              </a>
-            </p>
-          </div>
-        </div>
         <div className={styles.footerNavFlex}>
           <ul className={styles.footerNav}>
             <li>
@@ -152,7 +131,27 @@ export const Footer: React.FC = () => {
             </li>
           </ul>
         </div>
-        <ul className={styles.lists}></ul>
+        <div className={styles.footerLogo}>
+          <p>遠隔接客サービス</p>
+          <div className={styles.footerLogoImg}>
+            <Image
+              src="/images/rura_logo_white.svg"
+              alt="RURA"
+              layout={'fill'}
+              objectFit={'contain'}
+            />
+          </div>
+          <div className={styles.footerCompany}>
+            <p>
+              運営会社
+              <br />
+              タイムリープ株式会社
+              <a href="https://timeleap.co.jp/" target="_blank">
+                https://timeleap.co.jp/
+              </a>
+            </p>
+          </div>
+        </div>
       </div>
       <p className={styles.footerCopyRight}>
         Copyright© {thisYear} Timeleap inc. All Rights Reserved.
