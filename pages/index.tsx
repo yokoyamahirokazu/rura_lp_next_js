@@ -16,6 +16,7 @@ import ContactSection from '@components/ContactSection';
 import SeoContent from '@components/SeoContent';
 import { IBlog, ICategory, IPopularArticles } from '@/types';
 import { client } from 'framework/client';
+import { config } from '@site.config';
 
 interface caseItems {
   id?: string;
@@ -99,7 +100,10 @@ export async function getStaticProps() {
   const caseData = await client.get({ endpoint: 'case' });
   const recommendData = await client.get({ endpoint: 'recommend' });
   const faqData = await client.get({ endpoint: 'faq' });
-  const handbookData = await client.get({ endpoint: 'whitepaper' });
+  const handbookData = await client.get({
+    endpoint: 'whitepaper',
+    queries: { limit: config.defaultMaxLimit },
+  });
   const blogData = await client.get({
     endpoint: 'blog',
     queries: { limit: 5 },

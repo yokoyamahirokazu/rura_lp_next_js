@@ -8,6 +8,7 @@ import Image from 'next/image';
 import { client } from '@framework/client';
 import SeoContent from '@components/SeoContent';
 import { useRouter } from 'next/router';
+import { config } from '@site.config';
 
 declare global {
   interface Window {
@@ -165,14 +166,6 @@ const Index: NextPage<IndexProps> = (props) => {
                 </div>
                 <input type={'hidden'} name={'リードソース'} value={props.handbookItem.title} />
                 <div>
-                  {/* <button
-                  type={'submit'}
-                  data-formrun-error-text={'未入力の項目があります'}
-                  data-formrun-submitting-text={'送信中...'}
-                >
-                  送信する
-                </button> */}
-
                   <Button
                     bgColor="primary"
                     size="large"
@@ -193,7 +186,10 @@ const Index: NextPage<IndexProps> = (props) => {
 };
 
 export const getStaticPaths = async () => {
-  const data = await client.get({ endpoint: 'whitepaper' });
+  const data = await client.get({
+    endpoint: 'whitepaper',
+    queries: { limit: config.defaultMaxLimit },
+  });
 
   const paths = data.contents.map((content) => `/download/${content.id}`);
   return { paths, fallback: false };

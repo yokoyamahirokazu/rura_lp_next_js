@@ -6,6 +6,8 @@ import Image from 'next/image';
 import { client } from '@framework/client';
 import SeoContent from '@components/SeoContent';
 import { useRouter } from 'next/router';
+import { config } from '@site.config';
+
 declare global {
   interface Window {
     Formrun?: any;
@@ -98,7 +100,10 @@ const Index: NextPage<IndexProps> = (props) => {
 };
 
 export const getStaticPaths = async () => {
-  const data = await client.get({ endpoint: 'whitepaper' });
+  const data = await client.get({
+    endpoint: 'whitepaper',
+    queries: { limit: config.defaultMaxLimit },
+  });
 
   const paths = data.contents.map((content) => `/download/thanks/${content.id}`);
   return { paths, fallback: false };
