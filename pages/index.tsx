@@ -13,6 +13,7 @@ import {
 } from '@components';
 
 import ContactSection from '@components/ContactSection';
+import SeoContent from '@components/SeoContent';
 import { IBlog, ICategory, IPopularArticles } from '@/types';
 import { client } from 'framework/client';
 
@@ -74,7 +75,8 @@ type IndexProps = {
 
 const Index: NextPage<IndexProps> = (props) => {
   return (
-    <div>
+    <>
+      <SeoContent />
       <Hero />
       <Case articles={props.caseItem} />
       <Service />
@@ -89,7 +91,7 @@ const Index: NextPage<IndexProps> = (props) => {
       <Handbook articles={props.handbookItem} />
       <Faqs articles={props.faqItem} />
       <ContactSection ids="index4" />
-    </div>
+    </>
   );
 };
 

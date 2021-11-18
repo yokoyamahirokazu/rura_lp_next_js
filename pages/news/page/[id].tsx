@@ -5,7 +5,7 @@ import { BreadCrumb, Categories, Loader, Meta, Pager } from '@components';
 import { IBanner, IBlog, ICategory, IPopularArticles, ITag } from '@/types';
 import { getBlogsByFilter, getContents } from '@blog';
 import styles from '@styles/components/Components.module.css';
-
+import SeoContent from '@components/SeoContent';
 type PageProps = {
   currentPage: number;
   blogs: IBlog[];
@@ -21,8 +21,14 @@ const Page: NextPage<PageProps> = (props) => {
   if (router.isFallback) {
     return <Loader />;
   }
+
   return (
     <>
+      <SeoContent
+        pageTitle="新着情報"
+        pageDescription="遠隔接客サービスの新着情報をお届けします。"
+        pageUrl={router.asPath}
+      />
       <BreadCrumb />
       <div className={styles.newsListHead}>
         <div className={styles.newsListHeadInnder}>

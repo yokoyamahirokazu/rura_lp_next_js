@@ -47,7 +47,7 @@ export const Hero: React.FC = () => {
               お店の無人化や人材不足に効果を発揮します。
             </h1>
             <div className={styles.heroBtn}>
-              <Button bgColor="primary" size="large" types="link" href="/" icon="donwload">
+              <Button bgColor="primary" size="large" types="link" href="/download" icon="download">
                 資料ダウンロード
               </Button>
               <Button bgColor="secondary" size="large" types="link" href="/contact" icon="contact">

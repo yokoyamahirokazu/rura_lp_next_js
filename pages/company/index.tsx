@@ -3,6 +3,7 @@ import React from 'react';
 import styles from '@styles/components/Company.module.css';
 import ContactSection from '@components/ContactSection';
 import Image from 'next/image';
+import SeoContent from '@components/SeoContent';
 
 const Index: NextPage = () => {
   const companyOutline = [
@@ -17,6 +18,10 @@ const Index: NextPage = () => {
 
   return (
     <>
+      <SeoContent
+        pageTitle="運営会社"
+        pageDescription="遠隔接客サービスRURAの運営会社タイムリープ株式会社をご紹介します。"
+      />
       <div className={styles.companyContent}>
         <section>
           <div className={styles.companyTimeleapLogo}>

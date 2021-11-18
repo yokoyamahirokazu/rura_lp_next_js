@@ -4,7 +4,7 @@ import { GA_TRACKING_ID } from '@utils';
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html>
+      <Html lang="ja">
         <Head>
           <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
           <script

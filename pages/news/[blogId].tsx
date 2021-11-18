@@ -13,8 +13,7 @@ import Image from 'next/image';
 import Button from '@components/Button';
 import { client } from '@framework/client';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
-import Head from 'next/head';
-import { config } from '@site.config';
+import SeoContent from '@components/SeoContent';
 
 type DetailProps = {
   blog: IBlog;
@@ -35,23 +34,13 @@ const Detail: NextPage<DetailProps> = (props) => {
 
   return (
     <>
-      <Head>
-        <title>{`${props.blog.title} | 遠隔接客サービス RURA`}</title>
-        {props.blog.description == null ? (
-          <>
-            <meta name="description" content={config.siteMeta.description} />
-            <meta property="og:description" content={config.siteMeta.description} />
-          </>
-        ) : (
-          <>
-            <meta name="description" content={props.blog.description} />
-            <meta property="og:description" content={props.blog.description} />
-          </>
-        )}
-        <meta property="og:title" content={`${props.blog.title} | 遠隔接客サービス RURA`} />
-        <meta property="og:image" content={props.blog.ogimage.url} />
-        <meta name="twitter:card" content="summary" />
-      </Head>
+      <SeoContent
+        pageTitle={props.blog.title}
+        pageDescription={props.blog.description}
+        pageUrl={router.asPath}
+        ogpImg={props.blog.ogimage.url}
+      />
+
       <div>
         <BreadCrumb category={props.blog.category} />
 
@@ -77,7 +66,6 @@ const Detail: NextPage<DetailProps> = (props) => {
               type="image/webp"
               srcSet={`${props.blog.ogimage.url}?w=375&fm=webp, ${props.blog.ogimage.url}?w=750&fm=webp 2x`}
             />
-
             <Image
               src={`${props.blog.ogimage?.url}?w=820&q=100`}
               alt={props.blog.title}

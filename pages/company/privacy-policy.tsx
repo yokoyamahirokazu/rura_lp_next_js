@@ -2,10 +2,15 @@ import { NextPage } from 'next';
 import React from 'react';
 import styles from '@styles/components/Company.module.css';
 import ContactSection from '@components/ContactSection';
+import SeoContent from '@components/SeoContent';
 
 const Privacy: NextPage = () => {
   return (
     <>
+      <SeoContent
+        pageTitle="プライバシーポリシー"
+        pageDescription="プライバシーポリシーページです。"
+      />
       <div className={styles.companyContent}>
         <div className={styles.companyArticle}>
           <section>

@@ -6,6 +6,7 @@ import { IBanner, IBlog, ICategory, IPopularArticles } from '@/types';
 import { getContents } from '@blog';
 import styles from '@styles/components/Components.module.css';
 import Image from 'next/image';
+import SeoContent from '@components/SeoContent';
 
 type PageProps = {
   currentPage: number;
@@ -24,6 +25,11 @@ const Page: NextPage<PageProps> = (props) => {
   }
   return (
     <>
+      <SeoContent
+        pageTitle={props.selectedCategory.name}
+        pageDescription={`「${props.selectedCategory.name}]カテゴリー記事一覧ページです。`}
+        pageUrl={router.asPath}
+      />
       <BreadCrumb />
       <div className={styles.newsListHead}>
         <div className={styles.newsListHeadInnder}>
