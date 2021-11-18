@@ -32,12 +32,14 @@
 }
 
 .companyContentFlex h2 {
-  font-size: 2.6rem;
-  font-weight: bold;
+  font-size: 2rem;
+  font-weight: normal;
+  list-style: 1.4;
 }
 .companyVision h3 {
   font-size: 2.4rem;
   font-weight: bold;
+  line-height: 1.4;
   margin: 0 0 30px 0;
   letter-spacing: 0.2rem;
 }
@@ -52,12 +54,14 @@
   border-collapse: collapse;
   display: block;
   font-size: 1.4rem;
+  line-height: 1.4;
 }
 
 .companyContent table th {
   padding: 10px 0;
   font-weight: bold;
   text-align: left;
+  white-space: nowrap;
 }
 .companyContent table td {
   padding: 10px 0 10px 20px;
@@ -80,4 +84,49 @@
   margin: 60px 0 20px;
   font-size: 2rem;
   font-weight: bold;
+}
+
+@media screen and (max-width: 767px) {
+  .companyTimeleapLogo {
+    height: 100px;
+    position: relative;
+    margin: 0 auto;
+  }
+
+  .companyContent section {
+    padding: 40px 0;
+  }
+
+  .companyContentFlex {
+    display: block;
+  }
+
+  .companyContentFlexLeft {
+    width: 100%;
+  }
+
+  .companyContentFlexRight {
+    width: 100%;
+    margin: 40px 0 0 0;
+  }
+  .companyVision h3 {
+    font-size: 2rem;
+  }
+
+  .companyVision p {
+    font-size: 1.5rem;
+  }
+
+  .companyArticle h1 {
+    font-size: 2.4rem;
+  }
+
+  .companyArticle p {
+    margin: 0 0 20px;
+  }
+  .companyArticle h2 {
+    margin: 60px 0 20px;
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
 }
