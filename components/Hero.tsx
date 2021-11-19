@@ -40,14 +40,12 @@ export const Hero: React.FC = () => {
         {(() => {
           if (windowWidth < 640) {
             return (
-              <div className={styles.heroBgImg}>
-                <Image
-                  src="/images/contact_section_bg.jpg"
-                  alt="資料ダウンロード・お問い合わせ"
-                  layout={'fill'}
-                  objectFit={'cover'}
-                />
-              </div>
+              <Image
+                src="/images/contact_section_bg.jpg"
+                alt="資料ダウンロード・お問い合わせ"
+                layout={'fill'}
+                objectFit={'cover'}
+              />
             );
           } else {
             return (
