@@ -83,12 +83,12 @@ const DrawerMenu = () => {
 
             <div className={styles.drawerInnerBtn}>
               <div onClick={toggleDrawer}>
-                <Button bgColor="primary" size="normal" types="link" href="/download">
+                <Button bgColor="primary" size="normal" types="link" href="/download" id="drawerD">
                   資料ダウンロード
                 </Button>
               </div>
               <div onClick={toggleDrawer}>
-                <Button bgColor="secondary" size="normal" types="link" href="/contact">
+                <Button bgColor="secondary" size="normal" types="link" href="/contact" id="drawerC">
                   お問い合わせ
                 </Button>
               </div>

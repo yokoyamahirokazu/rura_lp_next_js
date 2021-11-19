@@ -81,17 +81,17 @@ const Index: NextPage<IndexProps> = (props) => {
       <Hero />
       <Case articles={props.caseItem} />
       <Service />
-      <ContactSection ids="index1" />
+      <ContactSection downloadId="indexD1" contactId="indexC1" />
       <Scene />
       <Design />
-      <ContactSection ids="index2" />
+      <ContactSection downloadId="indexD2" contactId="indexC2" />
       <Recommend articles={props.recommendItem} />
       <Features />
-      <ContactSection ids="index3" />
+      <ContactSection downloadId="indexD3" contactId="indexC3" />
       <Newsindex articles={props.blogItem} />
       <Handbook articles={props.handbookItem} />
       <Faqs articles={props.faqItem} />
-      <ContactSection ids="index4" />
+      <ContactSection downloadId="indexD4" contactId="indexC4" />
     </>
   );
 };

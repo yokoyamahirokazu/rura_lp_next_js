@@ -25,3 +25,4 @@ export * from './SeoContent';
 export * from './ContactSection';
 export * from './Newsindex';
 export * from './TopButton';
+export * from './WindowSize';

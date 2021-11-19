@@ -69,7 +69,7 @@ const Index: NextPage = () => {
           </div>
         </section>
       </div>{' '}
-      <ContactSection ids="cs1" />
+      <ContactSection downloadId="companyD" contactId="companyC" />
     </>
   );
 };

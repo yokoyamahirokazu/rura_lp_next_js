@@ -73,10 +73,10 @@ export const Header: React.FC = () => {
             </ul>
           </nav>
 
-          <Button bgColor="primary" size="normal" types="link" href="/download">
+          <Button bgColor="primary" size="normal" types="link" href="/download" id="headerD">
             資料ダウンロード
           </Button>
-          <Button bgColor="secondary" size="normal" types="link" href="/contact">
+          <Button bgColor="secondary" size="normal" types="link" href="/contact" id="headerC">
             お問い合わせ
           </Button>
         </div>

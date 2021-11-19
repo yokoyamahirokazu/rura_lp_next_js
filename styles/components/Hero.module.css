@@ -241,6 +241,24 @@
   transition-timing-function: ease-in-out;
 }
 
+.heroBgImg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+.heroBgImg::after {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: var(--bg-overlay-light);
+  mix-blend-mode: multiply;
+  content: ' ';
+}
+
 @media screen and (max-width: 1200px) {
   .heroCopy {
     font-size: 4vw;

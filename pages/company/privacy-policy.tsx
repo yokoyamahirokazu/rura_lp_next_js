@@ -130,7 +130,7 @@ const Privacy: NextPage = () => {
           </section>
         </div>
       </div>
-      <ContactSection ids="cs1" />
+      <ContactSection downloadId="privacy-policyD" contactId="privacy-policyC" />
     </>
   );
 };

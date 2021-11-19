@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Button from '@components/Button';
 import { LazyVideo } from 'react-lazy-media';
 import { IoIosPlay } from 'react-icons/io';
-import React from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import Modal from 'react-modal';
 import YouTube from 'react-youtube';
 
@@ -16,17 +16,53 @@ export const Hero: React.FC = () => {
     setIsOpen(false);
   }
 
+  const isClient = typeof window === 'object';
+  const getWindowDimensions = useCallback(() => {
+    return {
+      width: isClient ? window?.innerWidth : 0,
+      height: isClient ? window?.innerHeight : 0,
+    };
+  }, [isClient]);
+  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+  useEffect(() => {
+    const onResize = () => {
+      setWindowDimensions(getWindowDimensions());
+    };
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, [getWindowDimensions]);
+
+  const windowWidth = windowDimensions.width;
+
   return (
     <>
       <div className={styles.hero}>
-        <LazyVideo
-          poster={'/images/videoPoster.jpg'}
-          src={'/videos/rura_lp_movie.mp4'}
-          autoplay={true}
-          muted={true}
-          loop={true}
-          controls={false}
-        />
+        {(() => {
+          if (windowWidth < 640) {
+            return (
+              <div className={styles.heroBgImg}>
+                <Image
+                  src="/images/contact_section_bg.jpg"
+                  alt="資料ダウンロード・お問い合わせ"
+                  layout={'fill'}
+                  objectFit={'cover'}
+                />
+              </div>
+            );
+          } else {
+            return (
+              <LazyVideo
+                poster={'/images/videoPoster.jpg'}
+                src={'/videos/rura_lp_movie.mp4'}
+                autoplay={true}
+                muted={true}
+                loop={true}
+                controls={false}
+              />
+            );
+          }
+        })()}
+
         <div className={styles.heroInner}>
           <div className={styles.heroContent}>
             <p className={styles.heroCopy}>変わる接客、変わらない体験</p>
@@ -47,10 +83,24 @@ export const Hero: React.FC = () => {
               お店の無人化や人材不足に効果を発揮します。
             </h1>
             <div className={styles.heroBtn}>
-              <Button bgColor="primary" size="large" types="link" href="/download" icon="download">
+              <Button
+                bgColor="primary"
+                size="large"
+                types="link"
+                href="/download"
+                icon="download"
+                id="heroD"
+              >
                 資料ダウンロード
               </Button>
-              <Button bgColor="secondary" size="large" types="link" href="/contact" icon="contact">
+              <Button
+                bgColor="secondary"
+                size="large"
+                types="link"
+                href="/contact"
+                icon="contact"
+                id="heroC"
+              >
                 お問い合わせ
               </Button>
             </div>

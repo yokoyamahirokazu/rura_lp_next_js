@@ -4,8 +4,10 @@ import Button from '@components/Button';
 
 interface Props {
   ids?: string;
+  downloadId?: string;
+  contactId?: string;
 }
-const ContactSection: React.FC<Props> = ({ ids }: Props) => {
+const ContactSection: React.FC<Props> = ({ ids, downloadId, contactId }: Props) => {
   return (
     <section id={ids && ids} className={styles.contactSection}>
       <div className={styles.contactSectionBg}>
@@ -33,10 +35,24 @@ const ContactSection: React.FC<Props> = ({ ids }: Props) => {
               </div>
             </div>
             <div className={styles.contactSectionLogoBtn}>
-              <Button bgColor="primary" size="large" types="link" href="/download/" icon="download">
+              <Button
+                bgColor="primary"
+                size="large"
+                types="link"
+                href="/download/"
+                icon="download"
+                id={downloadId}
+              >
                 資料ダウンロード
               </Button>
-              <Button bgColor="secondary" size="large" types="link" href="/contact" icon="contact">
+              <Button
+                bgColor="secondary"
+                size="large"
+                types="link"
+                href="/contact"
+                icon="contact"
+                id={contactId}
+              >
                 お問い合わせ
               </Button>
             </div>

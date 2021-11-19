@@ -99,10 +99,24 @@ const Detail: NextPage<DetailProps> = (props) => {
               <p>資料ダウンロード・お問い合わせはこちら</p>
             </div>
             <div className={styles.contactSectionLogoBtn}>
-              <Button bgColor="primary" size="large" types="link" href="/download/" icon="download">
+              <Button
+                bgColor="primary"
+                size="large"
+                types="link"
+                href="/download/"
+                icon="download"
+                id={`${props.blog.id}D`}
+              >
                 資料ダウンロード
               </Button>
-              <Button bgColor="secondary" size="large" types="link" href="/contact" icon="contact">
+              <Button
+                bgColor="secondary"
+                size="large"
+                types="link"
+                href="/contact"
+                icon="contact"
+                id={`${props.blog.id}C`}
+              >
                 お問い合わせ
               </Button>
             </div>

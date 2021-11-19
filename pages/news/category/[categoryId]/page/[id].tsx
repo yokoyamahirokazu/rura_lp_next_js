@@ -7,6 +7,7 @@ import { getContents } from '@blog';
 import styles from '@styles/components/Components.module.css';
 import Image from 'next/image';
 import SeoContent from '@components/SeoContent';
+import ContactSection from '@components/ContactSection';
 
 type PageProps = {
   currentPage: number;
@@ -77,6 +78,10 @@ const Page: NextPage<PageProps> = (props) => {
           </ul>
         )}
       </div>
+      <ContactSection
+        downloadId={`${props.selectedCategory.id}D`}
+        contactId={`${props.selectedCategory.id}C`}
+      />
     </>
   );
 };

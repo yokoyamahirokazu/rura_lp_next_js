@@ -5,6 +5,8 @@ import { BreadCrumb, Categories, Loader, Meta, Pager } from '@components';
 import { IBanner, IBlog, ICategory, IPopularArticles, ITag } from '@/types';
 import { getBlogsByFilter, getContents } from '@blog';
 import styles from '@styles/components/Components.module.css';
+import ContactSection from '@components/ContactSection';
+
 import SeoContent from '@components/SeoContent';
 type PageProps = {
   currentPage: number;
@@ -60,6 +62,7 @@ const Page: NextPage<PageProps> = (props) => {
           </ul>
         )}
       </div>
+      <ContactSection downloadId="newsD" contactId="newsC" />
     </>
   );
 };

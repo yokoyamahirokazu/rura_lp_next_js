@@ -408,13 +408,16 @@
 .DesignImg {
   position: absolute;
   right: 20px;
-  bottom: -80px;
-  width: 240px;
-  height: 240px;
+  top: 50%;
+  width: 20vw;
+  height: 20vw;
+  max-width: 240px;
+  max-height: 240px;
+  transform: translate(0, -50%);
 }
 
 .stepBoxWrapper .contentFlexTwo:nth-child(even) .DesignImg {
-  bottom: -20px;
+  bottom: 0;
 }
 
 @media screen and (max-width: 960px) {
@@ -530,6 +533,42 @@
   }
   .contentFlexThree:nth-child(odd) {
     margin: 0 0 15px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .DesignImg {
+    right: 20px;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .DesignWrapper {
+    padding: 80px 0 0;
+  }
+  .DesignImg {
+    right: 50%;
+    top: -100px;
+    width: 160px;
+    height: 160px;
+    transform: translate(50%, 0);
+  }
+  .stepBoxWrapper .contentFlexTwo:nth-child(even) .DesignImg {
+    top: -100px;
+  }
+
+  .DesignWrapper .contentFlexTwo {
+    margin: 0 0 120px;
+  }
+  .DesignWrapper .contentFlexTwo:nth-child(odd) {
+    margin: 0 0 120px;
+  }
+
+  .DesignWrapper .txtBoxA {
+    padding: 50px 20px 20px;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
   }
 }
 

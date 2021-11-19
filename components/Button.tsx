@@ -13,6 +13,7 @@ interface Props {
   submittingText?: string;
   as?: string;
   target?: string;
+  id?: string;
   classNames?: string;
 }
 
@@ -22,6 +23,7 @@ const Button = ({
   types,
   bgColor,
   size,
+  id,
   icon,
   classNames,
   errorText,
@@ -53,7 +55,7 @@ const Button = ({
         </button>
       ) : (
         <Link href={href} as={as}>
-          <a className={classNames}>
+          <a className={classNames} id={id}>
             {(() => {
               if (icon) {
                 if (icon == 'download') {
