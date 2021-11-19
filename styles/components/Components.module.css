@@ -1581,6 +1581,15 @@ ul.shareIcons li button:hover {
   margin: 0 5px;
 }
 
+.noPost {
+  padding: 60px 4vw;
+  text-align: center;
+}
+.noPost p {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
 /* latest */
 
 .latestPost {

@@ -41,7 +41,11 @@ const Page: NextPage<PageProps> = (props) => {
         </div>
       </div>
       <div className={styles.newsListContent}>
-        {props.blogs.length === 0 && <>記事がありません</>}
+        {props.blogs.length === 0 && (
+          <div className={styles.noPost}>
+            <p>記事がありません</p>
+          </div>
+        )}
         <ul className={`${styles.news} ${styles.newsImages}`}>
           {props.blogs.map((blog) => {
             return (
