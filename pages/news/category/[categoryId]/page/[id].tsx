@@ -34,7 +34,7 @@ const Page: NextPage<PageProps> = (props) => {
       <BreadCrumb />
       <div className={styles.newsListHead}>
         <div className={styles.newsListHeadInnder}>
-          <div className={styles.headline_box_center}>
+          <div className={styles.headline_box_center_nomargin}>
             <h1 className={styles.headline}>{props.selectedCategory.name}</h1>
           </div>
           <Categories categories={props.categories} />
@@ -46,32 +46,75 @@ const Page: NextPage<PageProps> = (props) => {
             <p>記事がありません</p>
           </div>
         )}
-        <ul className={`${styles.news} ${styles.newsImages}`}>
-          {props.blogs.map((blog) => {
+
+        {(() => {
+          if (props.selectedCategory.id == 'corporate') {
             return (
-              <li key={blog.id}>
-                <Link href="/news/[blogId]" as={`/news/${blog.id}`}>
-                  <a>
-                    {blog.ogimage && (
-                      <div className={styles.newsImagesBox}>
-                        <Image
-                          src={`${blog.ogimage.url}?w=670`}
-                          alt={blog.title}
-                          layout={'fill'}
-                          objectFit={'cover'}
-                        />
-                      </div>
-                    )}
-                    <div className={styles.newsImagesTxt}>
-                      <h3>{blog.title}</h3>
-                      <Meta createdAt={blog.postDate} category={blog.category} tags={blog.tag} />
-                    </div>
-                  </a>
-                </Link>
-              </li>
+              <ul className={styles.news}>
+                {props.blogs.map((blog) => {
+                  return (
+                    <li key={blog.id}>
+                      <Link href="/news/[blogId]" as={`/news/${blog.id}`}>
+                        <a>
+                          <h3>{blog.title}</h3>
+                          <Meta
+                            createdAt={blog.createdAt}
+                            category={blog.category}
+                            tags={blog.tag}
+                          />
+                        </a>
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
             );
-          })}
-        </ul>
+          } else {
+            return (
+              <ul className={`${styles.news} ${styles.newsImages}`}>
+                {props.blogs.map((blog) => {
+                  return (
+                    <li key={blog.id}>
+                      <Link href="/news/[blogId]" as={`/news/${blog.id}`}>
+                        <a>
+                          {blog.ogimage ? (
+                            <div className={styles.newsImagesBox}>
+                              <Image
+                                src={`${blog.ogimage.url}?w=670`}
+                                alt={blog.title}
+                                layout={'fill'}
+                                objectFit={'cover'}
+                              />
+                            </div>
+                          ) : (
+                            <div className={styles.newsImagesBox}>
+                              <Image
+                                src="/images/noimage.png"
+                                alt={blog.title}
+                                layout={'fill'}
+                                objectFit={'cover'}
+                              />
+                            </div>
+                          )}
+
+                          <div className={styles.newsImagesTxt}>
+                            <h3>{blog.title}</h3>
+                            <Meta
+                              createdAt={blog.postDate}
+                              category={blog.category}
+                              tags={blog.tag}
+                            />
+                          </div>
+                        </a>
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            );
+          }
+        })()}
+
         {props.blogs.length > 0 && (
           <ul className="pager">
             <Pager

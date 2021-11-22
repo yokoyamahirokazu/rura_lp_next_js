@@ -4,7 +4,11 @@ import Link from 'next/link';
 import { BreadCrumb, Categories, Loader, Meta, Pager } from '@components';
 import { IBanner, IBlog, ICategory, IPopularArticles, ITag } from '@/types';
 import { getContents } from '@blog';
-import { Tags } from '@components/Tags';
+import styles from '@styles/components/Components.module.css';
+import Image from 'next/image';
+import SeoContent from '@components/SeoContent';
+import ContactSection from '@components/ContactSection';
+import { IoPricetagsOutline } from 'react-icons/io5';
 
 type PageProps = {
   currentPage: number;
@@ -23,33 +27,49 @@ const Page: NextPage<PageProps> = (props) => {
     return <Loader />;
   }
   return (
-    <div className="divider">
-      <div className="container">
-        <BreadCrumb tag={props.selectedTag} />
-        {props.blogs.length === 0 && <>記事がありません</>}
-        <ul>
+    <>
+      <SeoContent
+        pageTitle={props.selectedTag.name}
+        pageDescription={`「${props.selectedTag.name}]記事一覧ページです。`}
+        pageUrl={router.asPath}
+      />
+      <BreadCrumb />
+      <div className={styles.newsListHead}>
+        <div className={styles.newsListHeadInnder}>
+          <div className={styles.headline_box_center_nomargin}>
+            <h1 className={styles.headline}>
+              <IoPricetagsOutline />
+              {props.selectedTag.name}
+            </h1>
+          </div>
+        </div>
+      </div>
+      <div className={styles.newsListContent}>
+        {props.blogs.length === 0 && (
+          <div className={styles.noPost}>
+            <p>記事がありません</p>
+          </div>
+        )}
+        <ul className={`${styles.news} ${styles.newsImages}`}>
           {props.blogs.map((blog) => {
             return (
-              <li key={blog.id} className="list">
+              <li key={blog.id}>
                 <Link href="/news/[blogId]" as={`/news/${blog.id}`}>
-                  <a className="link">
-                    <>
-                      {blog.ogimage && (
-                        <picture>
-                          <img src={`${blog.ogimage.url}?w=670`} className="ogimage lazyload" />
-                        </picture>
-                      )}
-                      <dl className="content">
-                        <dt className="title">{blog.title}</dt>
-                        <dd>
-                          <Meta
-                            createdAt={blog.createdAt}
-                            category={blog.category}
-                            tags={blog.tag}
-                          />
-                        </dd>
-                      </dl>
-                    </>
+                  <a>
+                    {blog.ogimage && (
+                      <div className={styles.newsImagesBox}>
+                        <Image
+                          src={`${blog.ogimage.url}?w=670`}
+                          alt={blog.title}
+                          layout={'fill'}
+                          objectFit={'cover'}
+                        />
+                      </div>
+                    )}
+                    <div className={styles.newsImagesTxt}>
+                      <h3>{blog.title}</h3>
+                      <Meta createdAt={blog.postDate} category={blog.category} tags={blog.tag} />
+                    </div>
                   </a>
                 </Link>
               </li>
@@ -61,16 +81,21 @@ const Page: NextPage<PageProps> = (props) => {
             <Pager
               pager={props.pager}
               currentPage={props.currentPage}
-              selectedTag={props.selectedTag}
+              selectedCategory={props.selectedTag}
             />
           </ul>
         )}
       </div>
-      <aside className="aside">
-        <Categories categories={props.categories} />
-        <Tags tags={props.tags} />
-      </aside>
-    </div>
+      <section>
+        <div className={styles.section_inner}>
+          <Categories categories={props.categories} />
+        </div>
+      </section>
+      <ContactSection
+        downloadId={`${props.selectedTag.id}D`}
+        contactId={`${props.selectedTag.id}C`}
+      />
+    </>
   );
 };
 
@@ -96,7 +121,6 @@ export async function getStaticProps(context: GetStaticPropsContext) {
       currentPage: parseInt(page),
       blogs,
       categories,
-
       pager,
       selectedTag,
       tags,

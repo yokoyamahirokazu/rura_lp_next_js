@@ -10,6 +10,7 @@ import { getContents } from '@blog';
 import styles from '@styles/components/Components.module.css';
 import Image from 'next/image';
 import Button from '@components/Button';
+import { Tags } from '@components/Tags';
 
 type DraftProps = {
   blogs: IBlog[];
@@ -25,9 +26,8 @@ const Draft: NextPage<DraftProps> = (props) => {
   }
   return (
     <>
-      <div>
-        <BreadCrumb category={data.blog.category} />
-
+      <BreadCrumb category={data.blog.category} />
+      <div className={styles.postPage}>
         {data.blog.ogimage && (
           <div className={styles.postOgpImage}>
             <picture>
@@ -108,6 +108,7 @@ const Draft: NextPage<DraftProps> = (props) => {
               </Button>
             </div>
           </div>
+          <Tags tags={props.tags} />
           <Share id={data.blog.id} title={data.blog.title} />
         </div>
         <Latest blogs={props.blogs} />

@@ -5,7 +5,7 @@ import { Latest } from '@components/Latest';
 import { Loader } from '@components/Loader';
 import { Meta } from '@components/Meta';
 import { Post, Share } from '@components';
-import { IBlog, ICategory } from '@/types/interface';
+import { IBlog, ITag, ICategory } from '@/types/interface';
 import { convertToHtml } from '@scripts';
 import { getAllBlogs, getBlogById, getContents } from '@blog';
 import styles from '@styles/components/Components.module.css';
@@ -14,6 +14,7 @@ import Button from '@components/Button';
 import { client } from '@framework/client';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import SeoContent from '@components/SeoContent';
+import { Tags } from '@components/Tags';
 
 type DetailProps = {
   blog: IBlog;
@@ -22,6 +23,7 @@ type DetailProps = {
   categories: ICategory[];
   prevEntry: IBlog;
   nextEntry: IBlog;
+  tags: ITag[];
 };
 
 const Detail: NextPage<DetailProps> = (props) => {
@@ -36,14 +38,13 @@ const Detail: NextPage<DetailProps> = (props) => {
     <>
       <SeoContent
         pageTitle={props.blog.title}
-        pageDescription={props.blog.description}
+        pageDescription={props.blog.description && props.blog.description}
         pageUrl={router.asPath}
-        ogpImg={props.blog.ogimage.url}
+        ogpImg={props.blog.ogimage && props.blog.ogimage.url}
       />
+      <BreadCrumb category={props.blog.category} />
 
-      <div>
-        <BreadCrumb category={props.blog.category} />
-
+      <div className={styles.postPage}>
         <div className={styles.postOgpImage}>
           <picture>
             <source
@@ -121,6 +122,7 @@ const Detail: NextPage<DetailProps> = (props) => {
               </Button>
             </div>
           </div>
+          <Tags tags={props.tags} />
           <Share id={props.blog.id} title={props.blog.title} />
         </div>
         <div className={styles.nextPreviewWrapper}>
@@ -159,7 +161,6 @@ const Detail: NextPage<DetailProps> = (props) => {
             全ての記事を見る
           </Button>
         </div>
-
         <Latest blogs={props.blogs} />
       </div>
     </>
@@ -181,7 +182,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   const blogId: any = context.params?.blogId || '1';
   const blog = await getBlogById(blogId);
   const body = convertToHtml(blog.body);
-  const { blogs, categories } = await getContents();
+  const { blogs, categories, tags } = await getContents();
 
   const entry = await client.get({ endpoint: 'blog', contentId: blogId });
   const fields = 'id,title,publishedAt';
@@ -213,6 +214,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
       blog,
       body,
       blogs,
+      tags,
       categories,
       prevEntry,
       nextEntry,
