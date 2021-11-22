@@ -16,7 +16,6 @@ export const getContents = async (
   const [{ blogs, pager }, categories, tags] = await Promise.all([
     getBlogsByFilter(limit, currentPage, articleFilter),
     getCategories(),
-
     getTags(),
   ]);
   return {
