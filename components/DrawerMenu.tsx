@@ -61,7 +61,7 @@ const DrawerMenu = () => {
               {router.pathname == '/' ? (
                 <>
                   {navItem.map((items) => (
-                    <li>
+                    <li key={items.url}>
                       <Scroll to={items.url} smooth={true} duration={600} onClick={toggleDrawer}>
                         {items.name}
                       </Scroll>
@@ -71,7 +71,7 @@ const DrawerMenu = () => {
               ) : (
                 <>
                   {navItem.map((items) => (
-                    <li>
+                    <li key={items.url}>
                       <Link href="/" as={`/#${items.url}`}>
                         <a onClick={toggleDrawer}>{items.name}</a>
                       </Link>

@@ -1,0 +1,184 @@
+import { config } from '@site.config';
+
+import { NextPage } from 'next';
+import { useRouter } from 'next/dist/client/router';
+import { BreadCrumb } from '@components/BreadCrumb';
+import { Latest } from '@components/Latest';
+import { Loader } from '@components/Loader';
+import { Meta } from '@components/Meta';
+import { Post, Share } from '@components';
+import { IBlog, ICategory } from '@/types/interface';
+
+import styles from '@styles/components/Components.module.css';
+import Image from 'next/image';
+import Button from '@components/Button';
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import SeoContent from '@components/SeoContent';
+
+type DetailProps = {
+  blog: IBlog;
+  body: string;
+  blogs: IBlog[];
+  categories: ICategory[];
+  prevEntry: IBlog;
+  nextEntry: IBlog;
+};
+
+const Preview: NextPage<DetailProps> = (props) => {
+  const router = useRouter();
+  if (router.isFallback) {
+    return <Loader />;
+  }
+  const cotegoryLink = '/news/category/' + props.blog.category.id + '/page/1';
+  const cotegoryLinkName = props.blog.category.name + 'の記事一覧を見る';
+  return (
+    <>
+      <SeoContent
+        pageTitle={props.blog.title}
+        pageDescription={props.blog.description}
+        pageUrl={router.asPath}
+        ogpImg={props.blog.ogimage.url}
+      />
+
+      <div>
+        <BreadCrumb category={props.blog.category} />
+
+        <div className={styles.postOgpImage}>
+          <picture>
+            <source
+              media="(min-width: 1160px)"
+              type="image/webp"
+              srcSet={`${props.blog.ogimage.url}?w=820&fm=webp, ${props.blog.ogimage.url}?w=1640&fm=webp 2x`}
+            />
+            <source
+              media="(min-width: 820px)"
+              type="image/webp"
+              srcSet={`${props.blog.ogimage.url}?w=740&fm=webp, ${props.blog.ogimage.url}?w=1480&fm=webp 2x`}
+            />
+            <source
+              media="(min-width: 768px)"
+              type="image/webp"
+              srcSet={`${props.blog.ogimage.url}?w=728&fm=webp, ${props.blog.ogimage.url}?w=1456&fm=webp 2x`}
+            />
+            <source
+              media="(min-width: 768px)"
+              type="image/webp"
+              srcSet={`${props.blog.ogimage.url}?w=375&fm=webp, ${props.blog.ogimage.url}?w=750&fm=webp 2x`}
+            />
+            <Image
+              src={`${props.blog.ogimage?.url}?w=820&q=100`}
+              alt={props.blog.title}
+              layout={'fill'}
+              objectFit={'contain'}
+            />
+          </picture>
+        </div>
+        <div className={styles.postContent}>
+          <h1 className={styles.title}>{props.blog.title}</h1>
+          <div className={styles.postMetaFlex}>
+            <Meta category={props.blog.category} createdAt={props.blog.createdAt} isDetail={true} />
+            <Share id={props.blog.id} title={props.blog.title} />
+          </div>
+
+          {/* <div className={styles.postBody}>{props.blog.toc_visible && <Toc toc={props.toc} />}</div> */}
+          <Post body={props.body} />
+
+          <div className={styles.postBody} dangerouslySetInnerHTML={{ __html: props.body }}></div>
+
+          <div className={styles.postContactBox}>
+            <div className={styles.postContactBoxLogo}>
+              <div className={styles.postContactBoxLogoImg}>
+                <Image
+                  src="/images/rura_logo_blue.svg"
+                  alt={props.blog.title}
+                  layout={'fill'}
+                  objectFit={'contain'}
+                />
+              </div>
+              <p>資料ダウンロード・お問い合わせはこちら</p>
+            </div>
+            <div className={styles.contactSectionLogoBtn}>
+              <Button
+                bgColor="primary"
+                size="large"
+                types="link"
+                href="/download/"
+                icon="download"
+                id={`${props.blog.id}D`}
+              >
+                資料ダウンロード
+              </Button>
+              <Button
+                bgColor="secondary"
+                size="large"
+                types="link"
+                href="/contact"
+                icon="contact"
+                id={`${props.blog.id}C`}
+              >
+                お問い合わせ
+              </Button>
+            </div>
+          </div>
+          <Share id={props.blog.id} title={props.blog.title} />
+        </div>
+        <div className={styles.nextPreviewWrapper}>
+          <div className={styles.nextPreview}>
+            <div className={styles.nextPreviewbox}>
+              {(() => {
+                if (props.nextEntry.id) {
+                  return (
+                    <a className={styles.prev} href={`/news/${props.nextEntry.id}`}>
+                      {props.nextEntry.title}
+                      <IoIosArrowBack />
+                    </a>
+                  );
+                }
+              })()}
+            </div>
+            <div className={styles.nextPreviewbox}>
+              {(() => {
+                if (props.prevEntry.id) {
+                  return (
+                    <a className={styles.next} href={`/news/${props.prevEntry.id}`}>
+                      {props.prevEntry.title}
+                      <IoIosArrowForward />
+                    </a>
+                  );
+                }
+              })()}
+            </div>
+          </div>
+        </div>
+        <div className={styles.categoryLinkBtnBox}>
+          <Button bgColor="normal" size="normal" types="link" href={cotegoryLink}>
+            {cotegoryLinkName}
+          </Button>
+          <Button bgColor="normal" size="normal" types="link" href="/news/page/1">
+            全ての記事を見る
+          </Button>
+        </div>
+
+        <Latest blogs={props.blogs} />
+      </div>
+    </>
+  );
+};
+
+export default Preview;
+
+export const getStaticProps = async (context) => {
+  const slug = context.params?.slug;
+  const draftKey = context.previewData?.draftKey;
+  const content = await fetch(
+    `https://rura.microcms.io/api/v1/blog/${slug}${
+      draftKey !== undefined ? `?draftKey=${draftKey}` : ''
+    }`,
+    { headers: { 'X-MICROCMS-API-KEY': config.apiKey || '' } },
+  ).then((res) => res.json());
+  return {
+    props: {
+      content,
+    },
+  };
+};

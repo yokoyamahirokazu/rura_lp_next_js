@@ -32,7 +32,7 @@ export const Footer: React.FC = () => {
             {router.pathname == '/' ? (
               <>
                 {navItem.map((items) => (
-                  <li>
+                  <li key={items.url}>
                     <Scroll to={items.url} smooth={true} duration={600}>
                       {items.name}
                     </Scroll>
@@ -42,7 +42,7 @@ export const Footer: React.FC = () => {
             ) : (
               <>
                 {navItem.map((items) => (
-                  <li>
+                  <li key={items.url}>
                     <Link href="/" as={`/#${items.url}`}>
                       <a>{items.name}</a>
                     </Link>

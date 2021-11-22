@@ -1,27 +1,25 @@
-import axios from 'axios';
-import { NextApiRequest, NextApiResponse } from 'next';
-import { config } from '../../site.config';
-import { IBlog } from '@/types';
-import { convertToToc, convertToHtml } from '@scripts';
+import { config } from '@site.config';
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const id = req.query.id;
-  const draftKey = req.query.draftKey;
+import fetch from 'node-fetch';
 
-  if (!id || !draftKey) {
-    res.status(400).json({ error: `missing queryparamaeter` });
+export default async (req, res) => {
+  if (!req.query.slug) {
+    return res.status(404).end();
+  }
+  const content = await fetch(
+    `https://rura.microcms.io/api/v1/blog/${req.query.slug}?fields=id&draftKey=${req.query.draftKey}`,
+    { headers: { 'X-MICROCMS-API-KEY': config.apiKey || '' } },
+  ).then((res) => res.json());
+  // .catch((error) => null);
+
+  if (!content) {
+    return res.status(401).json({ message: 'Invalid slug' });
   }
 
-  return axios
-    .get<IBlog>(`https://${config.serviceId}.microcms.io/api/v1/blog/${id}?draftKey=${draftKey}`, {
-      headers: { 'X-API-KEY': config.apiKey },
-    })
-    .then(({ data }) => {
-      const toc = convertToToc(data.body);
-      const body = convertToHtml(data.body);
-      res.status(200).json({ blog: data, toc: toc, body: body });
-    })
-    .catch((error) => {
-      res.status(500).json(error);
-    });
+  res.setPreviewData({
+    slug: content.id,
+    draftKey: req.query.draftKey,
+  });
+  res.writeHead(307, { Location: `/${content.id}` });
+  res.end('Preview mode enabled');
 };
