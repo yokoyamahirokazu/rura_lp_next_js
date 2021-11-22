@@ -20,6 +20,6 @@ export default async (req, res) => {
     slug: content.id,
     draftKey: req.query.draftKey,
   });
-  res.writeHead(307, { Location: `/${content.id}` });
+  res.writeHead(307, { Location: `/news/draft/${content.id}` });
   res.end('Preview mode enabled');
 };
