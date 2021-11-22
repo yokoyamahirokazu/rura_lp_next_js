@@ -1,5 +1,5 @@
 import { NextPage } from 'next';
-import { IBanner, IBlog, ICategory, IPopularArticles, ITag } from '@/types';
+import { IBlog, ICategory, ITag } from '@/types';
 import { useDraft } from '@hooks';
 import { BreadCrumb } from '@components/BreadCrumb';
 import { Latest } from '@components/Latest';
@@ -14,8 +14,6 @@ import Button from '@components/Button';
 type DraftProps = {
   blogs: IBlog[];
   categories: ICategory[];
-  popularArticles: IPopularArticles;
-  banner: IBanner;
   tags: ITag[];
 };
 
@@ -30,36 +28,39 @@ const Draft: NextPage<DraftProps> = (props) => {
       <div>
         <BreadCrumb category={data.blog.category} />
 
-        <div className={styles.postOgpImage}>
-          <picture>
-            <source
-              media="(min-width: 1160px)"
-              type="image/webp"
-              srcSet={`${data.blog.ogimage.url}?w=820&fm=webp, ${data.blog.ogimage.url}?w=1640&fm=webp 2x`}
-            />
-            <source
-              media="(min-width: 820px)"
-              type="image/webp"
-              srcSet={`${data.blog.ogimage.url}?w=740&fm=webp, ${data.blog.ogimage.url}?w=1480&fm=webp 2x`}
-            />
-            <source
-              media="(min-width: 768px)"
-              type="image/webp"
-              srcSet={`${data.blog.ogimage.url}?w=728&fm=webp, ${data.blog.ogimage.url}?w=1456&fm=webp 2x`}
-            />
-            <source
-              media="(min-width: 768px)"
-              type="image/webp"
-              srcSet={`${data.blog.ogimage.url}?w=375&fm=webp, ${data.blog.ogimage.url}?w=750&fm=webp 2x`}
-            />
-            <Image
-              src={`${data.blog.ogimage?.url}?w=820&q=100`}
-              alt={data.blog.title}
-              layout={'fill'}
-              objectFit={'contain'}
-            />
-          </picture>
-        </div>
+        {data.blog.ogimage && (
+          <div className={styles.postOgpImage}>
+            <picture>
+              <source
+                media="(min-width: 1160px)"
+                type="image/webp"
+                srcSet={`${data.blog.ogimage.url}?w=820&fm=webp, ${data.blog.ogimage.url}?w=1640&fm=webp 2x`}
+              />
+              <source
+                media="(min-width: 820px)"
+                type="image/webp"
+                srcSet={`${data.blog.ogimage.url}?w=740&fm=webp, ${data.blog.ogimage.url}?w=1480&fm=webp 2x`}
+              />
+              <source
+                media="(min-width: 768px)"
+                type="image/webp"
+                srcSet={`${data.blog.ogimage.url}?w=728&fm=webp, ${data.blog.ogimage.url}?w=1456&fm=webp 2x`}
+              />
+              <source
+                media="(min-width: 768px)"
+                type="image/webp"
+                srcSet={`${data.blog.ogimage.url}?w=375&fm=webp, ${data.blog.ogimage.url}?w=750&fm=webp 2x`}
+              />
+              <Image
+                src={`${data.blog.ogimage?.url}?w=820&q=100`}
+                alt={data.blog.title}
+                layout={'fill'}
+                objectFit={'contain'}
+              />
+            </picture>
+          </div>
+        )}
+
         <div className={styles.postContent}>
           <h1 className={styles.title}>{data.blog.title}</h1>
           <div className={styles.postMetaFlex}>
