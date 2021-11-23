@@ -106,7 +106,7 @@ export const Hero: React.FC = () => {
         </div>
 
         <div className={styles.videoPlayBox}>
-          <div className={styles.videoPlayImg} onClick={openModal}>
+          <div className={styles.videoPlayImg} onClick={openModal} id="moviePlay">
             <div className={styles.imageCircle}>
               <Image
                 src="/images/videoPlay.jpg"
