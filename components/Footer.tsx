@@ -60,7 +60,7 @@ export const Footer: React.FC = () => {
                 <li>
                   <Link
                     href="/news/category/[categoryId]/page/[id]"
-                    as={'/news/category/newsrelease/page/1'}
+                    as={'/news/category/presselease/page/1'}
                   >
                     <a>プレスリリース</a>
                   </Link>
@@ -76,7 +76,7 @@ export const Footer: React.FC = () => {
                 <li>
                   <Link
                     href="/news/category/[categoryId]/page/[id]"
-                    as={'/news/category/tzayg14-0xt/page/1'}
+                    as={'/news/category/event/page/1'}
                   >
                     <a>イベント・セミナー</a>
                   </Link>
@@ -84,7 +84,7 @@ export const Footer: React.FC = () => {
                 <li>
                   <Link
                     href="/news/category/[categoryId]/page/[id]"
-                    as={'/news/category/rsy4l4evi/page/1'}
+                    as={'/news/category/useful/page/1'}
                   >
                     <a>お役立ちコンテンツ</a>
                   </Link>
@@ -92,17 +92,9 @@ export const Footer: React.FC = () => {
                 <li>
                   <Link
                     href="/news/category/[categoryId]/page/[id]"
-                    as={'/news/category/r-iurn53qr0/page/1'}
+                    as={'/news/category/corporate/page/1'}
                   >
-                    <a>お役立ちコンテンツ</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/news/category/[categoryId]/page/[id]"
-                    as={'/news/category/stk_78iv4/page/1'}
-                  >
-                    <a>その他</a>
+                    <a>コーポレート</a>
                   </Link>
                 </li>
               </ul>

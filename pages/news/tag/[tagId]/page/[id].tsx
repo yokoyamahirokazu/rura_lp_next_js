@@ -56,7 +56,7 @@ const Page: NextPage<PageProps> = (props) => {
               <li key={blog.id}>
                 <Link href="/news/[blogId]" as={`/news/${blog.id}`}>
                   <a>
-                    {blog.ogimage && (
+                    {blog.ogimage ? (
                       <div className={styles.newsImagesBox}>
                         <Image
                           src={`${blog.ogimage.url}?w=670`}
@@ -65,7 +65,17 @@ const Page: NextPage<PageProps> = (props) => {
                           objectFit={'cover'}
                         />
                       </div>
+                    ) : (
+                      <div className={styles.newsImagesBox}>
+                        <Image
+                          src="/images/noimage.png"
+                          alt={blog.title}
+                          layout={'fill'}
+                          objectFit={'cover'}
+                        />
+                      </div>
                     )}
+
                     <div className={styles.newsImagesTxt}>
                       <h3>{blog.title}</h3>
                       <Meta createdAt={blog.postDate} category={blog.category} tags={blog.tag} />
@@ -81,7 +91,7 @@ const Page: NextPage<PageProps> = (props) => {
             <Pager
               pager={props.pager}
               currentPage={props.currentPage}
-              selectedCategory={props.selectedTag}
+              selectedTag={props.selectedTag}
             />
           </ul>
         )}

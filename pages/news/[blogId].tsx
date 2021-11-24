@@ -4,7 +4,7 @@ import { BreadCrumb } from '@components/BreadCrumb';
 import { Latest } from '@components/Latest';
 import { Loader } from '@components/Loader';
 import { Meta } from '@components/Meta';
-import { Post, Share } from '@components';
+import { Share } from '@components';
 import { IBlog, ITag, ICategory } from '@/types/interface';
 import { convertToHtml } from '@scripts';
 import { getAllBlogs, getBlogById, getContents } from '@blog';
@@ -45,45 +45,44 @@ const Detail: NextPage<DetailProps> = (props) => {
       <BreadCrumb category={props.blog.category} />
 
       <div className={styles.postPage}>
-        <div className={styles.postOgpImage}>
-          <picture>
-            <source
-              media="(min-width: 1160px)"
-              type="image/webp"
-              srcSet={`${props.blog.ogimage.url}?w=820&fm=webp, ${props.blog.ogimage.url}?w=1640&fm=webp 2x`}
-            />
-            <source
-              media="(min-width: 820px)"
-              type="image/webp"
-              srcSet={`${props.blog.ogimage.url}?w=740&fm=webp, ${props.blog.ogimage.url}?w=1480&fm=webp 2x`}
-            />
-            <source
-              media="(min-width: 768px)"
-              type="image/webp"
-              srcSet={`${props.blog.ogimage.url}?w=728&fm=webp, ${props.blog.ogimage.url}?w=1456&fm=webp 2x`}
-            />
-            <source
-              media="(min-width: 768px)"
-              type="image/webp"
-              srcSet={`${props.blog.ogimage.url}?w=375&fm=webp, ${props.blog.ogimage.url}?w=750&fm=webp 2x`}
-            />
-            <Image
-              src={`${props.blog.ogimage?.url}?w=820&q=100`}
-              alt={props.blog.title}
-              layout={'fill'}
-              objectFit={'contain'}
-            />
-          </picture>
-        </div>
+        {props.blog.ogimage && (
+          <div className={styles.postOgpImage}>
+            <picture>
+              <source
+                media="(min-width: 1160px)"
+                type="image/webp"
+                srcSet={`${props.blog.ogimage.url}?w=820&fm=webp, ${props.blog.ogimage.url}?w=1640&fm=webp 2x`}
+              />
+              <source
+                media="(min-width: 820px)"
+                type="image/webp"
+                srcSet={`${props.blog.ogimage.url}?w=740&fm=webp, ${props.blog.ogimage.url}?w=1480&fm=webp 2x`}
+              />
+              <source
+                media="(min-width: 768px)"
+                type="image/webp"
+                srcSet={`${props.blog.ogimage.url}?w=728&fm=webp, ${props.blog.ogimage.url}?w=1456&fm=webp 2x`}
+              />
+              <source
+                media="(min-width: 768px)"
+                type="image/webp"
+                srcSet={`${props.blog.ogimage.url}?w=375&fm=webp, ${props.blog.ogimage.url}?w=750&fm=webp 2x`}
+              />
+              <Image
+                src={`${props.blog.ogimage?.url}?w=820&q=100`}
+                alt={props.blog.title}
+                layout={'fill'}
+                objectFit={'contain'}
+              />
+            </picture>
+          </div>
+        )}
         <div className={styles.postContent}>
           <h1 className={styles.title}>{props.blog.title}</h1>
           <div className={styles.postMetaFlex}>
             <Meta category={props.blog.category} createdAt={props.blog.createdAt} isDetail={true} />
             <Share id={props.blog.id} title={props.blog.title} />
           </div>
-
-          {/* <div className={styles.postBody}>{props.blog.toc_visible && <Toc toc={props.toc} />}</div> */}
-          <Post body={props.body} />
 
           <div className={styles.postBody} dangerouslySetInnerHTML={{ __html: props.body }}></div>
 
