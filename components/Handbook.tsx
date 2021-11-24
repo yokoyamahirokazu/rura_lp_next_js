@@ -41,7 +41,7 @@ export const Handbook: React.FC<CaesProps> = (props) => {
                 {(() => {
                   if (!handbook.smallBannerImg) {
                     return (
-                      <Link href="/">
+                      <Link href="/download/[id]" as={`/download/${handbook.id}`}>
                         <a className={styles.handbookLink}>
                           <div className={`${styles.boxShadowA} ${styles.boxRound}`}>
                             <div className={styles.boxRound_inner}>
@@ -85,7 +85,7 @@ export const Handbook: React.FC<CaesProps> = (props) => {
                 {(() => {
                   if (handbook.smallBannerImg) {
                     return (
-                      <Link href="/">
+                      <Link href="/download/[id]" as={`/download/${handbook.id}`}>
                         <a className={styles.handbookLink}>
                           <div className={`${styles.boxShadowA} ${styles.boxRound}`}>
                             <div className={styles.boxRound_inner}>
