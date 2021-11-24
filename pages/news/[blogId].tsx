@@ -121,7 +121,7 @@ const Detail: NextPage<DetailProps> = (props) => {
               </Button>
             </div>
           </div>
-          <Tags tags={props.tags} />
+          <Tags tags={props.blog.tag} />
           <Share id={props.blog.id} title={props.blog.title} />
         </div>
         <div className={styles.nextPreviewWrapper}>
