@@ -68,7 +68,7 @@ const Page: NextPage<PageProps> = (props) => {
 };
 
 export async function getStaticPaths() {
-  const limit: number = 10;
+  const limit: number = 12;
   const { pager } = await getBlogsByFilter(limit, 1);
   const paths = pager.map((page) => {
     return { params: { id: (page + 1).toString() } };

@@ -13,6 +13,6 @@ export const config = {
   serviceId: process.env.SERVICE_ID,
   gtmId: process.env.GTM_ID,
   headerLinks: [],
-  defaultLimit: process.env.NEXT_PUBLIC_DEFAULT_LIMIT ?? '10',
+  defaultLimit: process.env.NEXT_PUBLIC_DEFAULT_LIMIT ?? '12',
   defaultMaxLimit: 50,
 };

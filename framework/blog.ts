@@ -66,7 +66,7 @@ export const getBlogsByFilter = async (
     endpoint: 'blog',
     queries: queries,
   });
-  const pager = [...Array(Math.ceil(blogs.totalCount / 10)).keys()];
+  const pager = [...Array(Math.ceil(blogs.totalCount / 12)).keys()];
   return { blogs, pager };
 };
 
