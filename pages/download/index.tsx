@@ -87,7 +87,9 @@ const Index: NextPage = () => {
                     会社名<span className={styles.required}>必須</span>
                   </label>
                   <input name={'会社名'} type={'text'} data-formrun-required />
-                  <div data-formrun-show-if-error={'会社名'}>お名前を入力してください</div>
+                  <div className={styles.errorText} data-formrun-show-if-error={'会社名'}>
+                    お名前を入力してください
+                  </div>
                 </div>
                 <div className={styles.formContentBoxFlex}>
                   <div className={styles.formContentBox}>
@@ -108,7 +110,9 @@ const Index: NextPage = () => {
                     お名前<span className={styles.required}>必須</span>
                   </label>
                   <input name={'お名前'} type={'text'} data-formrun-required />
-                  <div data-formrun-show-if-error={'お名前'}>お名前を入力してください</div>
+                  <div className={styles.errorText} data-formrun-show-if-error={'お名前'}>
+                    お名前を入力してください
+                  </div>
                 </div>
                 <div className={styles.formContentBox}>
                   <label>
@@ -120,7 +124,7 @@ const Index: NextPage = () => {
                     data-formrun-type={'email'}
                     data-formrun-required
                   />
-                  <div data-formrun-show-if-error={'メールアドレス'}>
+                  <div className={styles.errorText} data-formrun-show-if-error={'メールアドレス'}>
                     メールアドレスを正しく入力してください
                   </div>
                 </div>
@@ -134,7 +138,9 @@ const Index: NextPage = () => {
                     data-formrun-type={'tel'}
                     data-formrun-required
                   />
-                  <div data-formrun-show-if-error={'電話番号'}>電話番号を入力してください</div>
+                  <div className={styles.errorText} data-formrun-show-if-error={'電話番号'}>
+                    電話番号を入力してください
+                  </div>
                 </div>
                 <div className={styles.formContentBox}>
                   <label>
@@ -144,7 +150,9 @@ const Index: NextPage = () => {
                     name={'コメント'}
                     placeholder={'ご質問・ご要望等ございましたらご記入ください。'}
                   ></textarea>
-                  <div data-formrun-show-if-error={'コメント'}>お問い合わせ入力してください</div>
+                  <div className={styles.errorText} data-formrun-show-if-error={'コメント'}>
+                    お問い合わせ入力してください
+                  </div>
                 </div>
 
                 <div className={styles._formrun_gotcha}>

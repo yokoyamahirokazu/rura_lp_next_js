@@ -49,7 +49,9 @@ const Index: NextPage = () => {
                     会社名<span className={styles.required}>必須</span>
                   </label>
                   <input name={'会社名'} type={'text'} data-formrun-required />
-                  <div data-formrun-show-if-error={'会社名'}>お名前を入力してください</div>
+                  <div className={styles.errorText} data-formrun-show-if-error={'会社名'}>
+                    お名前を入力してください
+                  </div>
                 </div>
                 <div className={styles.formContentBoxFlex}>
                   <div className={styles.formContentBox}>
@@ -70,7 +72,9 @@ const Index: NextPage = () => {
                     お名前<span className={styles.required}>必須</span>
                   </label>
                   <input name={'お名前'} type={'text'} data-formrun-required />
-                  <div data-formrun-show-if-error={'お名前'}>お名前を入力してください</div>
+                  <div className={styles.errorText} data-formrun-show-if-error={'お名前'}>
+                    お名前を入力してください
+                  </div>
                 </div>
                 <div className={styles.formContentBox}>
                   <label>
@@ -82,7 +86,7 @@ const Index: NextPage = () => {
                     data-formrun-type={'email'}
                     data-formrun-required
                   />
-                  <div data-formrun-show-if-error={'メールアドレス'}>
+                  <div className={styles.errorText} data-formrun-show-if-error={'メールアドレス'}>
                     メールアドレスを正しく入力してください
                   </div>
                 </div>
@@ -96,14 +100,16 @@ const Index: NextPage = () => {
                     data-formrun-type={'tel'}
                     data-formrun-required
                   />
-                  <div data-formrun-show-if-error={'電話番号'}>電話番号を入力してください</div>
+                  <div className={styles.errorText} data-formrun-show-if-error={'電話番号'}>
+                    電話番号を入力してください
+                  </div>
                 </div>
                 <div className={styles.formContentBox}>
                   <label>
                     お問い合わせ内容<span className={styles.required}>必須</span>
                   </label>
                   <textarea name={'お問い合わせ'} data-formrun-required></textarea>
-                  <div data-formrun-show-if-error={'お問い合わせ'}>
+                  <div className={styles.errorText} data-formrun-show-if-error={'お問い合わせ'}>
                     お問い合わせ入力してください
                   </div>
                 </div>
