@@ -27,7 +27,13 @@ const Thanks: NextPage = () => {
             <h1>お問い合わせいただきありがとうございます。</h1>
             <div className={styles.thanksDownload}>
               <h2>資料ダウンロードはこちら</h2>
-              <Button bgColor="secondary" size="large" types="link" href="/" icon="download">
+              <Button
+                bgColor="secondary"
+                size="large"
+                types="link"
+                href="https://drive.google.com/file/d/1YvNmlliK4gPVTtgfebTQ6AKVf0mmo1om/view"
+                icon="download"
+              >
                 資料ダウンロードはこちら
               </Button>
             </div>
