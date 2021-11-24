@@ -79,7 +79,7 @@ const Index: NextPage = () => {
               <Script onLoad={onLoadFormrun} url="https://sdk.form.run/js/v2/formrun.js"></Script>
               <form
                 className={'formrun'}
-                action={'https://form.run/api/v1/r/7f2p3yy9yrknpi16oqc2w1c9'}
+                action={'https://form.run/api/v1/r/jla1gd46a72v0m3g4b71smxh'}
                 method={'post'}
               >
                 <div className={styles.formContentBox}>
