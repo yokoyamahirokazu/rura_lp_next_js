@@ -43,7 +43,6 @@ const Detail: NextPage<DetailProps> = (props) => {
         ogpImg={props.blog.ogimage && props.blog.ogimage.url}
       />
       <BreadCrumb category={props.blog.category} />
-
       <div className={styles.postPage}>
         {props.blog.ogimage && (
           <div className={styles.postOgpImage}>

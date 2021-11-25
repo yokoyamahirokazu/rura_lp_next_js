@@ -18,7 +18,7 @@ const SeoContent = ({ pageTitle, pageDescription, pageUrl, ogpImg, noIndex }: Pr
   const defaultOgpImg = `${config.baseUrl}/images/og_image.jpg`;
 
   const title = pageTitle ? `${pageTitle} | 遠隔接客サービス RURA` : defaultTitle;
-  const description = pageDescription ? pageDescription : defaultDescription;
+  const description = pageDescription ? pageDescription : pageTitle + defaultDescription;
   const url = pageUrl ? `${defaultPageUrl}${pageUrl}` : defaultPageUrl;
   const imgUrl = ogpImg ? ogpImg : defaultOgpImg;
 
