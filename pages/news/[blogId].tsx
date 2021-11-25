@@ -34,10 +34,10 @@ const Detail: NextPage<DetailProps> = (props) => {
   const cotegoryLink = '/news/category/' + props.blog.category.id + '/page/1';
   const cotegoryLinkName = props.blog.category.name + 'の記事一覧を見る';
   const tagContent = props.blog.tag.map((tagName) => {
-    return `#${tagName.name}`;
+    return `&hashtags=${tagName.name}`;
   });
-  const tagDataDefalt = tagContent.join(' ');
-  const tagData = ` ${tagDataDefalt}`;
+  const tagDataDefalt = tagContent.join('');
+  const tagData = tagDataDefalt;
 
   return (
     <>
@@ -46,7 +46,6 @@ const Detail: NextPage<DetailProps> = (props) => {
         pageDescription={props.blog.description && props.blog.description}
         pageUrl={router.asPath}
         ogpImg={props.blog.ogimage && props.blog.ogimage.url}
-        tagData={tagData && tagData}
       />
       <BreadCrumb category={props.blog.category} />
       <div className={styles.postPage}>
@@ -86,7 +85,7 @@ const Detail: NextPage<DetailProps> = (props) => {
           <h1 className={styles.title}>{props.blog.title}</h1>
           <div className={styles.postMetaFlex}>
             <Meta category={props.blog.category} createdAt={props.blog.createdAt} isDetail={true} />
-            <Share id={props.blog.id} title={props.blog.title} />
+            <Share id={props.blog.id} title={props.blog.title} tagData={tagData && tagData} />
           </div>
 
           <div className={styles.postBody} dangerouslySetInnerHTML={{ __html: props.body }}></div>
@@ -127,7 +126,7 @@ const Detail: NextPage<DetailProps> = (props) => {
             </div>
           </div>
           <Tags tags={props.blog.tag} />
-          <Share id={props.blog.id} title={props.blog.title} />
+          <Share id={props.blog.id} title={props.blog.title} tagData={tagData && tagData} />
         </div>
         <div className={styles.nextPreviewWrapper}>
           <div className={styles.nextPreview}>

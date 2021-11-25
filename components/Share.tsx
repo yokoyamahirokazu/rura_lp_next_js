@@ -8,12 +8,13 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 type ShareProps = {
   id: string;
   title?: string;
+  tagData?: string;
 };
 
 export const Share: React.FC<ShareProps> = (props) => {
   const updateText = config.baseUrl + '/news/' + props.id;
 
-  const twitterLink = `https://twitter.com/intent/tweet?text=${props.title}&url=${config.baseUrl}/news/${props.id}/&hashtags=microcms`;
+  const twitterLink = `https://twitter.com/intent/tweet?text=${props.title}&url=${config.baseUrl}/news/${props.id}/${props.tagData}`;
   const facebookLink = `https://www.facebook.com/sharer.php?u=${config.baseUrl}/news/${props.id}/`;
   const LineLink = `https://social-plugins.line.me/lineit/share?url=${config.baseUrl}/news/${props.id}/`;
 

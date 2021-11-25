@@ -7,10 +7,9 @@ interface Props {
   pageUrl?: string;
   ogpImg?: string;
   noIndex?: string;
-  tagData?: string;
 }
 
-const SeoContent = ({ pageTitle, pageDescription, pageUrl, ogpImg, noIndex, tagData }: Props) => {
+const SeoContent = ({ pageTitle, pageDescription, pageUrl, ogpImg, noIndex }: Props) => {
   const defaultTitle =
     '遠隔接客サービス RURA｜まるで瞬間移動。 高スキルのスタッフを全国に０秒派遣。 お店の無人化や人材不足に効果を発揮。';
   const defaultDescription =
@@ -18,11 +17,10 @@ const SeoContent = ({ pageTitle, pageDescription, pageUrl, ogpImg, noIndex, tagD
   const defaultPageUrl = config.baseUrl;
   const defaultOgpImg = `${config.baseUrl}/images/og_image.jpg`;
 
-  const titleDefalt = pageTitle ? `${pageTitle} | 遠隔接客サービス RURA` : defaultTitle;
+  const title = pageTitle ? `${pageTitle} | 遠隔接客サービス RURA` : defaultTitle;
   const description = pageDescription ? pageDescription : pageTitle + defaultDescription;
   const url = pageUrl ? `${defaultPageUrl}${pageUrl}` : defaultPageUrl;
   const imgUrl = ogpImg ? ogpImg : defaultOgpImg;
-  const title = tagData ? titleDefalt + tagData : titleDefalt;
 
   return (
     <Head>
