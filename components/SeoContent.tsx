@@ -33,7 +33,7 @@ const SeoContent = ({ pageTitle, pageDescription, pageUrl, ogpImg, noIndex }: Pr
       <meta property="og:description" content={description} />
       <meta property="og:type" content="website" />
       <meta property="og:image" content={imgUrl} />
-      <meta name="twitter:card" content={imgUrl} />
+      <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@RURAtimeleap" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
