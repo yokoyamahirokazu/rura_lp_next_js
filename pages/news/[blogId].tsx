@@ -33,6 +33,11 @@ const Detail: NextPage<DetailProps> = (props) => {
   }
   const cotegoryLink = '/news/category/' + props.blog.category.id + '/page/1';
   const cotegoryLinkName = props.blog.category.name + 'の記事一覧を見る';
+  const tagContent = props.blog.tag.map((tagName) => {
+    return `#${tagName.name}`;
+  });
+  const tagDataDefalt = tagContent.join(' ');
+  const tagData = ` ${tagDataDefalt}`;
 
   return (
     <>
@@ -41,6 +46,7 @@ const Detail: NextPage<DetailProps> = (props) => {
         pageDescription={props.blog.description && props.blog.description}
         pageUrl={router.asPath}
         ogpImg={props.blog.ogimage && props.blog.ogimage.url}
+        tagData={tagData && tagData}
       />
       <BreadCrumb category={props.blog.category} />
       <div className={styles.postPage}>
