@@ -1,16 +1,18 @@
 import { NextPage } from 'next';
 import { IBlog, ICategory, ITag } from '@/types';
+import { useRouter } from 'next/dist/client/router';
 import { useDraft } from '@hooks';
 import { BreadCrumb } from '@components/BreadCrumb';
 import { Latest } from '@components/Latest';
 import { Loader } from '@components/Loader';
 import { Meta } from '@components/Meta';
-import { Post, Share } from '@components';
+import { Share } from '@components';
 import { getContents } from '@blog';
 import styles from '@styles/components/Components.module.css';
 import Image from 'next/image';
 import Button from '@components/Button';
 import { Tags } from '@components/Tags';
+import SeoContent from '@components/SeoContent';
 
 type DraftProps = {
   blogs: IBlog[];
@@ -20,12 +22,19 @@ type DraftProps = {
 
 const Draft: NextPage<DraftProps> = (props) => {
   const { data, isLoading } = useDraft();
+  const router = useRouter();
 
   if (isLoading || !data) {
     return <Loader />;
   }
   return (
     <>
+      <SeoContent
+        pageTitle={data.blog.title}
+        pageDescription={data.blog.description && data.blog.description}
+        pageUrl={router.asPath}
+        ogpImg={data.blog.ogimage && data.blog.ogimage.url}
+      />
       <BreadCrumb category={data.blog.category} />
       <div className={styles.postPage}>
         {data.blog.ogimage && (
@@ -68,9 +77,6 @@ const Draft: NextPage<DraftProps> = (props) => {
             <Share id={data.blog.id} title={data.blog.title} />
           </div>
 
-          {/* <div className={styles.postBody}>{data.blog.toc_visible && <Toc toc={data.toc} />}</div> */}
-          <Post body={data.body} />
-
           <div className={styles.postBody} dangerouslySetInnerHTML={{ __html: data.body }}></div>
 
           <div className={styles.postContactBox}>
@@ -108,7 +114,7 @@ const Draft: NextPage<DraftProps> = (props) => {
               </Button>
             </div>
           </div>
-          <Tags tags={props.tags} />
+          <Tags tags={data.blog.tag} />
           <Share id={data.blog.id} title={data.blog.title} />
         </div>
         <Latest blogs={props.blogs} />
