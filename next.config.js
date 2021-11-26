@@ -54,6 +54,41 @@ module.exports = {
         destination: '/download/8t-k-q4hmlav', // リダイレクト先のURL
         permanent: true, // 永続的なリダイレクトかのフラグ
       },
+      {
+        source: '/download/whitepaper/u-fskwgyeq', // リダイレクト元のURL
+        destination: '/download/u-fskwgyeq', // リダイレクト先のURL
+        permanent: true, // 永続的なリダイレクトかのフラグ
+      },
+      {
+        source: '/download/whitepaper/dg12a7b6xeq', // リダイレクト元のURL
+        destination: '/download/dg12a7b6xeq', // リダイレクト先のURL
+        permanent: true, // 永続的なリダイレクトかのフラグ
+      },
+      {
+        source: '/download/whitepaper/moen0aa0l', // リダイレクト元のURL
+        destination: '/download/moen0aa0l', // リダイレクト先のURL
+        permanent: true, // 永続的なリダイレクトかのフラグ
+      },
+      {
+        source: '/download/whitepaper/mxhf1ds1t_i', // リダイレクト元のURL
+        destination: '/download/mxhf1ds1t_i', // リダイレクト先のURL
+        permanent: true, // 永続的なリダイレクトかのフラグ
+      },
+      {
+        source: '/download/whitepaper/6t_vfr79pw', // リダイレクト元のURL
+        destination: '/download/6t_vfr79pw', // リダイレクト先のURL
+        permanent: true, // 永続的なリダイレクトかのフラグ
+      },
+      {
+        source: '/download/whitepaper/96ab8g5nt', // リダイレクト元のURL
+        destination: '/download/96ab8g5nt', // リダイレクト先のURL
+        permanent: true, // 永続的なリダイレクトかのフラグ
+      },
+      {
+        source: '/download/whitepaper/fnf6-uc77r', // リダイレクト元のURL
+        destination: '/download/fnf6-uc77r', // リダイレクト先のURL
+        permanent: true, // 永続的なリダイレクトかのフラグ
+      },
     ];
   },
 };
