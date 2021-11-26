@@ -79,5 +79,5 @@ GTM_ID=hogehoge
 $ npm install
 
 # 開発サーバーを起動（localhost:3000）
-$ npm rud dev
+$ npm run dev
 ```
