@@ -24,3 +24,4 @@ export const Search: React.FC = () => {
     </label>
   );
 };
+export default Search;
