@@ -31,7 +31,7 @@ const Thanks: NextPage = () => {
                 bgColor="secondary"
                 size="large"
                 types="link"
-                href="https://drive.google.com/file/d/1YvNmlliK4gPVTtgfebTQ6AKVf0mmo1om/view"
+                href="https://drive.google.com/file/d/1ofA5TP-xjMDg87fXSpGccDj8LAnVbj3m/view"
                 icon="download"
               >
                 資料ダウンロードはこちら
