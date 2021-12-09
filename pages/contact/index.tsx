@@ -125,6 +125,12 @@ const Index: NextPage = () => {
                 </div>
                 <input type={'hidden'} name={'リードソース'} value={'問い合わせフォーム'} />
                 <div>
+                  <div
+                    className="g-recaptcha"
+                    data-sitekey="6LeonngdAAAAAFhZcAqOlCzr-G5gXGEVUPpWjQIo"
+                  ></div>
+                </div>
+                <div>
                   {/* <button
                   type={'submit'}
                   data-formrun-error-text={'未入力の項目があります'}
