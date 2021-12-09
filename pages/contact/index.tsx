@@ -5,6 +5,7 @@ import { useTabIndex } from 'react-tabindex';
 import styles from '@styles/components/Components.module.css';
 import Button from '@components/Button';
 import SeoContent from '@components/SeoContent';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 declare global {
   interface Window {
@@ -124,10 +125,10 @@ const Index: NextPage = () => {
                   />
                 </div>
                 <input type={'hidden'} name={'リードソース'} value={'問い合わせフォーム'} />
-                <div
-                  className="g-recaptcha"
-                  data-sitekey="6LeonngdAAAAAFhZcAqOlCzr-G5gXGEVUPpWjQIo"
-                ></div>
+                <div className={styles.formContentBox}>
+                  <ReCAPTCHA size="normal" sitekey="6LeonngdAAAAAFhZcAqOlCzr-G5gXGEVUPpWjQIo" />
+                </div>
+
                 <div>
                   <Button
                     bgColor="primary"
