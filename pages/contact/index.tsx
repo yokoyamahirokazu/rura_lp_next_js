@@ -131,14 +131,6 @@ const Index: NextPage = () => {
                   ></div>
                 </div>
                 <div>
-                  {/* <button
-                  type={'submit'}
-                  data-formrun-error-text={'未入力の項目があります'}
-                  data-formrun-submitting-text={'送信中...'}
-                >
-                  送信する
-                </button> */}
-
                   <Button
                     bgColor="primary"
                     size="large"
