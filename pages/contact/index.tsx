@@ -13,10 +13,6 @@ declare global {
   }
 }
 
-function onChange(value) {
-  console.log('Captcha value:', value);
-}
-
 const Index: NextPage = () => {
   const tabIndex = useTabIndex();
   const onLoadFormrun = useCallback(() => {
@@ -130,10 +126,7 @@ const Index: NextPage = () => {
                 </div>
                 <input type={'hidden'} name={'リードソース'} value={'問い合わせフォーム'} />
                 <div className={styles.formContentBox}>
-                  <ReCAPTCHA
-                    sitekey="6LeonngdAAAAAFhZcAqOlCzr-G5gXGEVUPpWjQIo"
-                    onChange={onChange}
-                  />
+                  <ReCAPTCHA sitekey="6LeonngdAAAAAFhZcAqOlCzr-G5gXGEVUPpWjQIo" />
                 </div>
 
                 <div>
