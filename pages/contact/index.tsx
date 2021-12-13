@@ -118,9 +118,9 @@ const Index: NextPage = () => {
                 <div className={styles._formrun_gotcha}>
                   <label>If you are a human, ignore this field</label>
                   <input
-                    type={'text'}
-                    name={'_formrun_gotcha'}
-                    id={'_formrun_gotcha'}
+                    type="text"
+                    name="_formrun_gotcha"
+                    id="_formrun_gotcha"
                     tabIndex={tabIndex}
                   />
                 </div>
