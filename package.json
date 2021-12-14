@@ -45,6 +45,7 @@
     "react-native-screens": "^3.9.0",
     "react-navigation": "^4.4.4",
     "react-query": "^3.19.1",
+    "react-recaptcha": "^2.3.10",
     "react-router-dom": "^6.0.2",
     "react-slick": "^0.28.1",
     "react-tabindex": "^1.0.3",

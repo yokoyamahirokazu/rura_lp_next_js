@@ -10,6 +10,7 @@ import ReCAPTCHA from 'react-google-recaptcha';
 declare global {
   interface Window {
     Formrun?: any;
+    grecaptcha?: any;
   }
 }
 
@@ -17,6 +18,7 @@ const Index: NextPage = () => {
   const tabIndex = useTabIndex();
   const onLoadFormrun = useCallback(() => {
     window.Formrun?.init('.formrun');
+    window.grecaptcha.reset();
   }, []);
 
   return (
@@ -126,6 +128,7 @@ const Index: NextPage = () => {
                 </div>
                 <input type={'hidden'} name={'リードソース'} value={'問い合わせフォーム'} />
                 <div className={styles.formContentBox}>
+                  {/* <Recaptcha sitekey="6LeonngdAAAAAFhZcAqOlCzr-G5gXGEVUPpWjQIo" /> */}
                   <ReCAPTCHA sitekey="6LeonngdAAAAAFhZcAqOlCzr-G5gXGEVUPpWjQIo" />
                 </div>
 
