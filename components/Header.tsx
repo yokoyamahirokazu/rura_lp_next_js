@@ -5,7 +5,7 @@ import TopButton from '@components/TopButton';
 import DrawerMenu from '@components/DrawerMenu';
 import { Link as Scroll } from 'react-scroll';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useCallback, useState, useEffect } from "react"
 import Image from 'next/image';
 
 export const Header: React.FC = () => {
@@ -21,10 +21,39 @@ export const Header: React.FC = () => {
     { url: 'handbook', name: 'ハンドブック' },
     { url: 'faq', name: 'FAQ' },
   ];
+const [isHeaderShown, setIsHeaderClass] = useState(true);
+ const [lastPosition, setLastPosition] = useState(0);
+ const headerHeight = 30;
+
+ const scrollEvent = useCallback(() => {
+    const offset = window.pageYOffset;
+
+    if (offset > headerHeight) {
+      setIsHeaderClass(false);
+    } else {
+      setIsHeaderClass(true);
+    }
+
+
+    setLastPosition(offset);
+  }, [lastPosition]);
+
+  useEffect(() => {
+    window.addEventListener('scroll', scrollEvent);
+
+    return () => {
+      window.removeEventListener('scroll', scrollEvent);
+    };
+  }, [scrollEvent]);
+
+
+
 
   return (
     <>
-      <header className={styles.header}>
+      <header className={(
+        isHeaderShown == true ? styles.header : `${styles.headerFixed} ${styles.header}`
+      )}>
         <div className={styles.logo}>
           <Link href="/">
             <a>
@@ -73,10 +102,14 @@ export const Header: React.FC = () => {
             </ul>
           </nav>
 
-          <Button bgColor="primary" size="normal" types="link" href="/download" id="headerD">
+          <Button bgColor="primary" size={(
+        isHeaderShown == true ? 'normal' : 'headerSmall'
+      )} types="link" href="/download" id="headerD">
             資料ダウンロード
           </Button>
-          <Button bgColor="secondary" size="normal" types="link" href="/contact" id="headerC">
+          <Button bgColor="secondary" size={(
+        isHeaderShown == true ? 'normal' : 'headerSmall'
+      )} types="link" href="/contact" id="headerC">
             お問い合わせ
           </Button>
         </div>

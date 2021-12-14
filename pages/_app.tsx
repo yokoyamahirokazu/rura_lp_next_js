@@ -3,22 +3,12 @@ import Head from 'next/head';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { Footer, Header } from '@components';
 import '../styles/globals.scss';
-import React, {useState, useEffect} from 'react'
 
 
 const queryClient = new QueryClient();
 
 export default function MyApp({ Component, pageProps }: AppProps) {
 
-  // const [scrollY, setScrollY] = useState(0)
-
-  // const handleScroll = () => {
-  //   setScrollY(window.scrollY)
-  // }
-
-  // useEffect(()=> {
-  //   window.addEventListener('scroll', handleScroll )
-  // }, [])
 
 
   return (

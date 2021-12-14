@@ -1,8 +1,19 @@
 .header {
   padding: 20px 20px;
-  position: relative;
+  position: fixed;
+  left: 0;
+    top: 0;
+    width: 100%;
+    box-sizing: border-box;
   z-index: 99999;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+      background-color: #fff;
 }
+
+
 .logo a {
   display: flex;
   align-items: center;
@@ -12,6 +23,10 @@
   width: 160px;
   height: 40px;
   position: relative;
+     -webkit-transition: all 0.2s ease;
+     -moz-transition: all 0.2s ease;
+     -o-transition: all 0.2s ease;
+     transition: all 0.2s ease;
 }
 
 .logoText {
@@ -84,6 +99,18 @@ nav.header_nav ul li a:hover::before {
 .drawerBtn {
   display: none;
 }
+
+.headerFixed {
+  padding: 10px 20px;
+}
+
+.headerFixed .logoImg{
+  width: 120px;
+  height: 30px;
+}
+
+
+
 
 @media screen and (max-width: 1160px) {
   .drawerBtn {
