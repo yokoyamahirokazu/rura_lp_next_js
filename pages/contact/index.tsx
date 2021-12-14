@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import Script from 'react-load-script';
-import React, { useCallback } from 'react';
+import React, { useCallback,useRef } from 'react';
 import { useTabIndex } from 'react-tabindex';
 import styles from '@styles/components/Components.module.css';
 import Button from '@components/Button';
@@ -15,12 +15,29 @@ declare global {
   }
 }
 
+
+
 const Index: NextPage = () => {
+    const recaptchaRef = useRef(null);
+
+const handleSubmit = async () => {
+
+    recaptchaRef.current.reset();
+
+  }
+
+
   const tabIndex = useTabIndex();
   const onLoadFormrun = useCallback(() => {
     window.Formrun?.init('.formrun');
-    window.grecaptcha.reset();
   }, []);
+
+
+  const recaptchaOnload = function () {
+  console.log('Done!!!!');
+};
+
+
 
 
   return (
@@ -31,7 +48,6 @@ const Index: NextPage = () => {
         pageDescription="遠隔接客サービスRURAへのお問い合わせページです。"
       />
         <Head>
-      <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=6LeonngdAAAAANrnHlpwM84GtxNxxQg-ZyMb6Bcm" async defer></script>
     </Head>
       <div className={styles.contactPageFlex}>
         <div className={styles.contactPageFlexLeft}>
@@ -49,6 +65,7 @@ const Index: NextPage = () => {
             <div className={styles.contactContent}>
               <Script onLoad={onLoadFormrun} url="https://sdk.form.run/js/v2/formrun.js"></Script>
               <form
+              onSubmit={handleSubmit}
                 className={'formrun'}
                 action={'https://form.run/api/v1/r/7f2p3yy9yrknpi16oqc2w1c9'}
                 method={'post'}
@@ -134,8 +151,7 @@ const Index: NextPage = () => {
                 </div>
                 <input type={'hidden'} name={'リードソース'} value={'問い合わせフォーム'} />
                 <div className={styles.formContentBox}>
-                  {/* <Recaptcha sitekey="6LeonngdAAAAAFhZcAqOlCzr-G5gXGEVUPpWjQIo" /> */}
-                  <ReCAPTCHA sitekey="6LeonngdAAAAAFhZcAqOlCzr-G5gXGEVUPpWjQIo" />
+                  <ReCAPTCHA asyncScriptOnLoad={recaptchaOnload} ref={recaptchaRef} sitekey="6LeonngdAAAAAFhZcAqOlCzr-G5gXGEVUPpWjQIo" />
                 </div>
 
                 <div>
