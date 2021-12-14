@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import Script from 'react-load-script';
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback } from 'react';
 import { useTabIndex } from 'react-tabindex';
 import styles from '@styles/components/Components.module.css';
 import Button from '@components/Button';
@@ -12,16 +12,14 @@ declare global {
   interface Window {
     Formrun?: any;
     grecaptcha?: any;
-    recaptchaOptions?: any;
   }
 }
 
 const Index: NextPage = () => {
-  const recaptchaRef = useRef(null);
-
   const tabIndex = useTabIndex();
   const onLoadFormrun = useCallback(() => {
     window.Formrun?.init('.formrun');
+    window.grecaptcha.reset();
   }, []);
 
   return (
