@@ -10,15 +10,15 @@ const queryClient = new QueryClient();
 
 export default function MyApp({ Component, pageProps }: AppProps) {
 
-  const [scrollY, setScrollY] = useState(0)
+  // const [scrollY, setScrollY] = useState(0)
 
-  const handleScroll = () => {
-    setScrollY(window.scrollY)
-  }
+  // const handleScroll = () => {
+  //   setScrollY(window.scrollY)
+  // }
 
-  useEffect(()=> {
-    window.addEventListener('scroll', handleScroll )
-  }, [])
+  // useEffect(()=> {
+  //   window.addEventListener('scroll', handleScroll )
+  // }, [])
 
 
   return (
@@ -31,7 +31,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <div className="wrapper">
         <Header />
-        {scrollY}
         <QueryClientProvider client={queryClient}>
           <Component {...pageProps} />
         </QueryClientProvider>
