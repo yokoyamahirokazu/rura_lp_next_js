@@ -1,24 +1,27 @@
 import { NextPage } from 'next';
 import Script from 'react-load-script';
-import React, { useCallback } from 'react';
+import React, { useCallback, useRef } from 'react';
 import { useTabIndex } from 'react-tabindex';
 import styles from '@styles/components/Components.module.css';
 import Button from '@components/Button';
 import SeoContent from '@components/SeoContent';
 import ReCAPTCHA from 'react-google-recaptcha';
+import Head from 'next/head';
 
 declare global {
   interface Window {
     Formrun?: any;
     grecaptcha?: any;
+    recaptchaOptions?: any;
   }
 }
 
 const Index: NextPage = () => {
+  const recaptchaRef = useRef(null);
+
   const tabIndex = useTabIndex();
   const onLoadFormrun = useCallback(() => {
     window.Formrun?.init('.formrun');
-    window.grecaptcha.reset();
   }, []);
 
   return (
@@ -27,6 +30,9 @@ const Index: NextPage = () => {
         pageTitle="お問い合わせ"
         pageDescription="遠隔接客サービスRURAへのお問い合わせページです。"
       />
+      <Head>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+      </Head>
       <div className={styles.contactPageFlex}>
         <div className={styles.contactPageFlexLeft}>
           <div className={styles.contactPageFlexInner}>
