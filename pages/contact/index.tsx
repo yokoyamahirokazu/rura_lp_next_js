@@ -6,6 +6,7 @@ import styles from '@styles/components/Components.module.css';
 import Button from '@components/Button';
 import SeoContent from '@components/SeoContent';
 import ReCAPTCHA from 'react-google-recaptcha';
+import Head from 'next/head'
 
 declare global {
   interface Window {
@@ -19,12 +20,17 @@ const Index: NextPage = () => {
     window.Formrun?.init('.formrun');
   }, []);
 
+
   return (
     <>
+
       <SeoContent
         pageTitle="お問い合わせ"
         pageDescription="遠隔接客サービスRURAへのお問い合わせページです。"
       />
+        <Head>
+      <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=6LeonngdAAAAANrnHlpwM84GtxNxxQg-ZyMb6Bcm" async defer></script>
+    </Head>
       <div className={styles.contactPageFlex}>
         <div className={styles.contactPageFlexLeft}>
           <div className={styles.contactPageFlexInner}>
