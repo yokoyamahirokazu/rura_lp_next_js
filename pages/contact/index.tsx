@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import Script from 'react-load-script';
-import React, { useCallback,useRef } from 'react';
+import React, { useCallback } from 'react';
 import { useTabIndex } from 'react-tabindex';
 import styles from '@styles/components/Components.module.css';
 import Button from '@components/Button';
@@ -18,14 +18,6 @@ declare global {
 
 
 const Index: NextPage = () => {
-    const recaptchaRef = useRef(null);
-
-const handleSubmit = async () => {
-
-    recaptchaRef.current.reset();
-
-  }
-
 
   const tabIndex = useTabIndex();
   const onLoadFormrun = useCallback(() => {
@@ -65,7 +57,6 @@ const handleSubmit = async () => {
             <div className={styles.contactContent}>
               <Script onLoad={onLoadFormrun} url="https://sdk.form.run/js/v2/formrun.js"></Script>
               <form
-              onSubmit={handleSubmit}
                 className={'formrun'}
                 action={'https://form.run/api/v1/r/7f2p3yy9yrknpi16oqc2w1c9'}
                 method={'post'}
@@ -151,7 +142,7 @@ const handleSubmit = async () => {
                 </div>
                 <input type={'hidden'} name={'リードソース'} value={'問い合わせフォーム'} />
                 <div className={styles.formContentBox}>
-                  <ReCAPTCHA asyncScriptOnLoad={recaptchaOnload} ref={recaptchaRef} sitekey="6LeonngdAAAAAFhZcAqOlCzr-G5gXGEVUPpWjQIo" />
+                  <ReCAPTCHA asyncScriptOnLoad={recaptchaOnload} sitekey="6LeonngdAAAAAFhZcAqOlCzr-G5gXGEVUPpWjQIo" />
                 </div>
 
                 <div>
