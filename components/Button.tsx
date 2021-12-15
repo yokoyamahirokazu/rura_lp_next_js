@@ -40,6 +40,10 @@ const Button = ({
       bgColor == 'primary' && (classNames = `${styles.btn} ${styles.primary}  ${styles.large}`);
       bgColor == 'secondary' && (classNames = `${styles.btn} ${styles.secondary} ${styles.large}`);
     }
+    if (size == 'headerSmall') {
+      bgColor == 'primary' && (classNames = `${styles.btn} ${styles.primary}  ${styles.headerSmall}`);
+      bgColor == 'secondary' && (classNames = `${styles.btn} ${styles.secondary} ${styles.headerSmall}`);
+    }
   }
 
   return (

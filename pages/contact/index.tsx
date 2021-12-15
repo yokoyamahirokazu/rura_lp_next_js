@@ -5,25 +5,35 @@ import { useTabIndex } from 'react-tabindex';
 import styles from '@styles/components/Components.module.css';
 import Button from '@components/Button';
 import SeoContent from '@components/SeoContent';
+import Head from 'next/head'
 
 declare global {
   interface Window {
     Formrun?: any;
+    grecaptcha?: any;
   }
 }
 
+
+
 const Index: NextPage = () => {
+
   const tabIndex = useTabIndex();
   const onLoadFormrun = useCallback(() => {
     window.Formrun?.init('.formrun');
   }, []);
 
+
+
   return (
     <>
+
       <SeoContent
         pageTitle="お問い合わせ"
         pageDescription="遠隔接客サービスRURAへのお問い合わせページです。"
       />
+        <Head>
+    </Head>
       <div className={styles.contactPageFlex}>
         <div className={styles.contactPageFlexLeft}>
           <div className={styles.contactPageFlexInner}>
@@ -117,22 +127,15 @@ const Index: NextPage = () => {
                 <div className={styles._formrun_gotcha}>
                   <label>If you are a human, ignore this field</label>
                   <input
-                    type={'text'}
-                    name={'_formrun_gotcha'}
-                    id={'_formrun_gotcha'}
+                    type="text"
+                    name="_formrun_gotcha"
+                    id="_formrun_gotcha"
                     tabIndex={tabIndex}
                   />
                 </div>
                 <input type={'hidden'} name={'リードソース'} value={'問い合わせフォーム'} />
-                <div>
-                  {/* <button
-                  type={'submit'}
-                  data-formrun-error-text={'未入力の項目があります'}
-                  data-formrun-submitting-text={'送信中...'}
-                >
-                  送信する
-                </button> */}
 
+                <div>
                   <Button
                     bgColor="primary"
                     size="large"

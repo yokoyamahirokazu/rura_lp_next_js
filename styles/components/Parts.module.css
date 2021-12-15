@@ -87,6 +87,11 @@
   font-size: 2rem;
 }
 
+.headerSmall {
+  height: 34px;
+}
+
+
 @media screen and (max-width: 767px) {
   .large {
     height: 50px;
