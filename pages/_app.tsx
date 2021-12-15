@@ -22,7 +22,9 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       <div className="wrapper">
         <Header />
         <QueryClientProvider client={queryClient}>
+          <div className="main">
           <Component {...pageProps} />
+          </div>
         </QueryClientProvider>
       </div>
       <Footer />

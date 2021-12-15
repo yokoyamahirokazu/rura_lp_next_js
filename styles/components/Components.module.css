@@ -840,6 +840,16 @@
   z-index: 1;
   overflow: hidden;
 }
+.contactSection::before{
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  content: " ";
+  box-shadow: inset 0px 4px 30px rgba(0, 35, 51, 0.5);
+  z-index: 3;
+}
 .contactSectionBg {
   position: absolute;
   left: 0;

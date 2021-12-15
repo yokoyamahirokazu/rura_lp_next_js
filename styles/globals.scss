@@ -260,3 +260,14 @@ button {
     letter-spacing: 0.07rem;
   }
 }
+
+.main {
+  padding: 80px 0 0 0;
+}
+
+@media screen and (max-width: 767px) {
+.main {
+  padding: 50px 0 0 0;
+}
+
+}

@@ -26,7 +26,7 @@ const Index: NextPage = () => {
 
 
   const recaptchaOnload = function () {
-  console.log('Done!!!!');
+  console.log('reCaptcha ok');
 };
 
 

@@ -23,7 +23,7 @@ export const Header: React.FC = () => {
   ];
 const [isHeaderShown, setIsHeaderClass] = useState(true);
  const [lastPosition, setLastPosition] = useState(0);
- const headerHeight = 30;
+ const headerHeight = 0;
 
  const scrollEvent = useCallback(() => {
     const offset = window.pageYOffset;
