@@ -5,7 +5,6 @@ import { useTabIndex } from 'react-tabindex';
 import styles from '@styles/components/Components.module.css';
 import Button from '@components/Button';
 import SeoContent from '@components/SeoContent';
-import ReCAPTCHA from 'react-google-recaptcha';
 import Head from 'next/head'
 
 declare global {
@@ -23,12 +22,6 @@ const Index: NextPage = () => {
   const onLoadFormrun = useCallback(() => {
     window.Formrun?.init('.formrun');
   }, []);
-
-
-  const recaptchaOnload = function () {
-  console.log('reCaptcha ok');
-};
-
 
 
 
@@ -141,9 +134,6 @@ const Index: NextPage = () => {
                   />
                 </div>
                 <input type={'hidden'} name={'リードソース'} value={'問い合わせフォーム'} />
-                <div className={styles.formContentBox}>
-                  <ReCAPTCHA asyncScriptOnLoad={recaptchaOnload} sitekey="6LeonngdAAAAAFhZcAqOlCzr-G5gXGEVUPpWjQIo" />
-                </div>
 
                 <div>
                   <Button
