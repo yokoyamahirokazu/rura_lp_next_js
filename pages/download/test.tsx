@@ -1,9 +1,6 @@
 import { NextPage } from 'next';
-import Script from 'react-load-script';
-import React, { useCallback } from 'react';
-import { useTabIndex } from 'react-tabindex';
+import React from 'react';
 import styles from '@styles/components/Components.module.css';
-import Button from '@components/Button';
 import Image from 'next/image';
 import SeoContent from '@components/SeoContent';
 import HubspotForm from 'react-hubspot-form'
@@ -17,10 +14,7 @@ declare global {
 }
 
 const Index: NextPage = () => {
-  const tabIndex = useTabIndex();
-  const onLoadFormrun = useCallback(() => {
-    window.Formrun?.init('.formrun');
-  }, []);
+
 
   return (
     <>
@@ -80,12 +74,10 @@ const Index: NextPage = () => {
           <div className={styles.contactPageFlexInner}>
             <div className={styles.contactContent}>
               <HubspotForm
-   portalId='21136941'
-   formId='df368756-6d5c-48a7-b00b-7bd889cbcf0c'
-   onSubmit={() => console.log('Submit!')}
-   onReady={(form) => console.log('Form ready!')}
-   loading={<div>Loading...</div>}
-   />
+              portalId='21136941'
+              formId='df368756-6d5c-48a7-b00b-7bd889cbcf0c'
+              loading={<div>Loading...</div>}
+              />
             </div>
           </div>
         </div>
