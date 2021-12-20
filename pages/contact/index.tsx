@@ -5,7 +5,7 @@ import { useTabIndex } from 'react-tabindex';
 import styles from '@styles/components/Components.module.css';
 import Button from '@components/Button';
 import SeoContent from '@components/SeoContent';
-import Head from 'next/head'
+import Head from 'next/head';
 
 declare global {
   interface Window {
@@ -14,26 +14,19 @@ declare global {
   }
 }
 
-
-
 const Index: NextPage = () => {
-
   const tabIndex = useTabIndex();
   const onLoadFormrun = useCallback(() => {
     window.Formrun?.init('.formrun');
   }, []);
 
-
-
   return (
     <>
-
       <SeoContent
         pageTitle="お問い合わせ"
         pageDescription="遠隔接客サービスRURAへのお問い合わせページです。"
       />
-        <Head>
-    </Head>
+      <Head></Head>
       <div className={styles.contactPageFlex}>
         <div className={styles.contactPageFlexLeft}>
           <div className={styles.contactPageFlexInner}>
