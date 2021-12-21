@@ -1302,9 +1302,9 @@ ul.newsImages li a {
 }
 
 .postBody img {
-  width: 100%;
+  max-width: 100%;
   height: auto;
-  margin: 0 0 20px;
+  margin: 0 auto 20px;
 }
 
 .postBody blockquote {
@@ -1481,9 +1481,9 @@ ul.tagList li a:hover {
   }
 
   .postBody img {
-    width: 100%;
+    max-width: 100%;
     height: auto;
-    margin: 0 0 20px;
+    margin: 0 auto 20px;
   }
 
   .postBody blockquote {
@@ -1896,6 +1896,9 @@ p.downloadTxt span {
   font-weight: bold;
 }
 
+.test {
+  background-color: #000;
+}
 /* thanks */
 
 .thanksPage {
