@@ -4,6 +4,7 @@ import styles from '@styles/components/Components.module.css';
 import SeoContent from '@components/SeoContent';
 import HubspotForm from 'react-hubspot-form';
 
+
 declare global {
   interface Window {
     Formrun?: any;
@@ -12,6 +13,7 @@ declare global {
 }
 
 const Index: NextPage = () => {
+
   return (
     <>
       <SeoContent
