@@ -4,7 +4,6 @@ import styles from '@styles/components/Components.module.css';
 import SeoContent from '@components/SeoContent';
 import HubspotForm from 'react-hubspot-form';
 
-
 declare global {
   interface Window {
     Formrun?: any;
@@ -13,12 +12,11 @@ declare global {
 }
 
 const Index: NextPage = () => {
-
   return (
     <>
       <SeoContent
         pageTitle="お問い合わせ"
-        pageDescription="遠隔接客サービスRURAへのお問い合わせページです。"
+        pageDescription="遠隔接客サービスRURAへのお問い合わせページになります。"
       />
       <div className={styles.contactPageFlex}>
         <div className={styles.contactPageFlexLeft}>
