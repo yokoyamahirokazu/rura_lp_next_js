@@ -14,7 +14,8 @@ const ReturnTopButton = () => {
 
   useEffect(() => {
     window.addEventListener('scroll', scrollWindow);
-    return () => {
+    
+return () => {
       window.removeEventListener('scroll', scrollWindow);
     };
   }, []);

@@ -10,7 +10,7 @@ type CaesProps = {
 };
 export const Faqs: React.FC<CaesProps> = (props) => {
   return (
-    <section id="faq">
+    <section id='faq'>
       <div className={styles.section_inner}>
         <div className={styles.headline_box_center}>
           <h2 className={styles.headline}>よくあるご質問</h2>
@@ -25,7 +25,9 @@ export const Faqs: React.FC<CaesProps> = (props) => {
                 <div className={styles.boxRound_inner}>
                   <div className={styles.faqContent}>
                     <div className={styles.txtBoxA}>
-                      <h3 className={styles.headlineMin}>Q {faq.question && faq.question}</h3>
+                      <h3 className={styles.headlineMin}>
+                        Q {faq.question && faq.question}
+                      </h3>
                       <p>{faq.answer && faq.answer}</p>
                     </div>
                   </div>

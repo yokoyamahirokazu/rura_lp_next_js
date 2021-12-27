@@ -8,8 +8,8 @@ const Privacy: NextPage = () => {
   return (
     <>
       <SeoContent
-        pageTitle="プライバシーポリシー"
-        pageDescription="プライバシーポリシーページです。"
+        pageTitle='プライバシーポリシー'
+        pageDescription='プライバシーポリシーページです。'
       />
       <div className={styles.companyContent}>
         <div className={styles.companyArticle}>
@@ -61,25 +61,25 @@ const Privacy: NextPage = () => {
                 【Google Analyticsの利用規約】
                 <br />
                 <a
-                  href="http://www.google.com/analytics/terms/jp.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href='http://www.google.com/analytics/terms/jp.html'
+                  target='_blank'
+                  rel='noopener noreferrer'
                 >
                   http://www.google.com/analytics/terms/jp.html
                 </a>
                 <br />
                 【Googleのプライバシーポリシー】
                 <br />
-                <a href="http://www.google.com/intl/ja/policies/privacy/">
+                <a href='http://www.google.com/intl/ja/policies/privacy/'>
                   http://www.google.com/intl/ja/policies/privacy/
                 </a>
                 <br />
                 【Google Analyticsオプトアウトアドオン】
                 <br />
                 <a
-                  href="https://tools.google.com/dlpage/gaoptout?hl=ja"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href='https://tools.google.com/dlpage/gaoptout?hl=ja'
+                  target='_blank'
+                  rel='noopener noreferrer'
                 >
                   https://tools.google.com/dlpage/gaoptout?hl=ja
                 </a>
@@ -116,7 +116,7 @@ const Privacy: NextPage = () => {
                 個人情報に関するお問い合わせについては、弊社HP内の問い合わせフォームまでお願い致します。
                 <br />
                 タイムリープ株式会社
-                <a href="https://timeleap.co.jp/">https://timeleap.co.jp/</a>
+                <a href='https://timeleap.co.jp/'>https://timeleap.co.jp/</a>
               </p>
               <h2>第9条（本ポリシーの変更）</h2>
               <p>
@@ -130,7 +130,10 @@ const Privacy: NextPage = () => {
           </section>
         </div>
       </div>
-      <ContactSection downloadId="privacy-policyD" contactId="privacy-policyC" />
+      <ContactSection
+        downloadId='privacy-policyD'
+        contactId='privacy-policyC'
+      />
     </>
   );
 };
