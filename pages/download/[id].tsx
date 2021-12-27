@@ -7,7 +7,6 @@ import SeoContent from '@components/SeoContent';
 import { useRouter } from 'next/router';
 import { config } from '@site.config';
 import HubspotForm from 'react-hubspot-form';
-
 interface handbookItems {
   id?: string;
   title?: string;

@@ -3,7 +3,6 @@ import React from 'react';
 import styles from '@styles/components/Components.module.css';
 import SeoContent from '@components/SeoContent';
 import HubspotForm from 'react-hubspot-form';
-
 declare global {
   interface Window {
     Formrun?: any;
