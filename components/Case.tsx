@@ -55,7 +55,7 @@ export const Case: React.FC<CaesProps> = (props) => {
   };
 
   return (
-    <section id="case">
+    <section id='case'>
       <div className={styles.case_inner}>
         <div className={styles.headline_box}>
           <h2 className={styles.headline}>

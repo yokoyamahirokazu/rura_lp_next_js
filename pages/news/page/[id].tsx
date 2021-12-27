@@ -73,7 +73,8 @@ export async function getStaticPaths() {
   const paths = pager.map((page) => {
     return { params: { id: (page + 1).toString() } };
   });
-  return {
+  
+return {
     paths: paths,
     fallback: true,
   };
@@ -82,7 +83,8 @@ export async function getStaticPaths() {
 export async function getStaticProps(context: GetStaticPropsContext) {
   const page: any = context.params?.id || '1';
   const { blogs, pager, categories, tags } = await getContents(page);
-  return {
+  
+return {
     props: {
       currentPage: parseInt(page),
       blogs,

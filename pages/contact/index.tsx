@@ -2,7 +2,9 @@ import { NextPage } from 'next';
 import React from 'react';
 import styles from '@styles/components/Components.module.css';
 import SeoContent from '@components/SeoContent';
+
 import HubspotForm from 'react-hubspot-form';
+
 
 declare global {
   interface Window {
@@ -31,13 +33,7 @@ const Index: NextPage = () => {
         </div>
         <div className={styles.contactPageFlexRight}>
           <div className={styles.contactPageFlexInner}>
-            <div className={styles.contactContent}>
-              <HubspotForm
-                portalId="21136941"
-                formId="694f4564-50b6-45dc-ba3c-c540fd9af18b"
-                loading={<div>Loading...</div>}
-              />
-            </div>
+            <div className={styles.contactContent}></div>
           </div>
         </div>
       </div>
