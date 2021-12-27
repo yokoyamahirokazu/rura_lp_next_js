@@ -23,12 +23,15 @@ export const Hero: React.FC = () => {
       height: isClient ? window?.innerHeight : 0,
     };
   }, [isClient]);
-  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+  const [windowDimensions, setWindowDimensions] = useState(
+    getWindowDimensions()
+  );
   useEffect(() => {
     const onResize = () => {
       setWindowDimensions(getWindowDimensions());
     };
     window.addEventListener('resize', onResize);
+
     return () => window.removeEventListener('resize', onResize);
   }, [getWindowDimensions]);
 
@@ -41,8 +44,8 @@ export const Hero: React.FC = () => {
           if (windowWidth < 640) {
             return (
               <Image
-                src="/images/contact_section_bg.jpg"
-                alt="資料ダウンロード・お問い合わせ"
+                src='/images/contact_section_bg.jpg'
+                alt='資料ダウンロード・お問い合わせ'
                 layout={'fill'}
                 objectFit={'cover'}
               />
@@ -68,8 +71,8 @@ export const Hero: React.FC = () => {
               <p className={styles.heroLogoTxt}>遠隔接客サービス</p>
               <div className={styles.heroLogoImg}>
                 <Image
-                  src="/images/rura_logo_white.svg"
-                  alt="遠隔接客サービスRURA"
+                  src='/images/rura_logo_white.svg'
+                  alt='遠隔接客サービスRURA'
                   layout={'fill'}
                   objectFit={'contain'}
                 />
@@ -82,22 +85,22 @@ export const Hero: React.FC = () => {
             </h1>
             <div className={styles.heroBtn}>
               <Button
-                bgColor="primary"
-                size="large"
-                types="link"
-                href="/download"
-                icon="download"
-                id="heroD"
+                bgColor='primary'
+                size='large'
+                types='link'
+                href='/download'
+                icon='download'
+                id='heroD'
               >
                 資料ダウンロード
               </Button>
               <Button
-                bgColor="secondary"
-                size="large"
-                types="link"
-                href="/contact"
-                icon="contact"
-                id="heroC"
+                bgColor='secondary'
+                size='large'
+                types='link'
+                href='/contact'
+                icon='contact'
+                id='heroC'
               >
                 お問い合わせ
               </Button>
@@ -106,11 +109,15 @@ export const Hero: React.FC = () => {
         </div>
 
         <div className={styles.videoPlayBox}>
-          <div className={styles.videoPlayImg} onClick={openModal} id="moviePlay">
+          <div
+            className={styles.videoPlayImg}
+            onClick={openModal}
+            id='moviePlay'
+          >
             <div className={styles.imageCircle}>
               <Image
-                src="/images/videoPlay.jpg"
-                alt="Youtube動画再生"
+                src='/images/videoPlay.jpg'
+                alt='Youtube動画再生'
                 layout={'fill'}
                 objectFit={'cover'}
               />
@@ -124,7 +131,7 @@ export const Hero: React.FC = () => {
           </div>
           <div className={styles.imagePlayTxt}>
             <p>
-              WHAT'S
+              WHAT&apos;S
               <br />
               RURA ?
             </p>
@@ -141,7 +148,7 @@ export const Hero: React.FC = () => {
       >
         <div className={styles.youtubeWrapper}>
           <YouTube
-            videoId="BjCzqX1n_IM"
+            videoId='BjCzqX1n_IM'
             className={styles.iframe}
             containerClassName={styles.youtube}
           />

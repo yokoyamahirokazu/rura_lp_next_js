@@ -11,9 +11,14 @@ export const Post: React.FC<PostProps> = (props) => {
 
   useEffect(() => {
     if (props.body) {
-      // XSS対策
       setHtmlString(DOMPurify().sanitize(props.body));
     }
-  }, []);
-  return <div className={styles.postBody} dangerouslySetInnerHTML={{ __html: htmlString }}></div>;
+  }, [props.body]);
+
+  return (
+    <div
+      className={styles.postBody}
+      dangerouslySetInnerHTML={{ __html: htmlString }}
+    ></div>
+  );
 };

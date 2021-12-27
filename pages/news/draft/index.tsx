@@ -27,7 +27,8 @@ const Draft: NextPage<DraftProps> = (props) => {
   if (isLoading || !data) {
     return <Loader />;
   }
-  return (
+  
+return (
     <>
       <SeoContent
         pageTitle={data.blog.title}
@@ -125,7 +126,8 @@ const Draft: NextPage<DraftProps> = (props) => {
 
 export async function getStaticProps() {
   const { blogs, categories, tags } = await getContents();
-  return {
+  
+return {
     props: {
       blogs,
       categories,

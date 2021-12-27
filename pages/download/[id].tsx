@@ -57,8 +57,8 @@ const Index: NextPage<IndexProps> = (props) => {
                 <Image
                   src={props.handbookItem.img.url}
                   alt={props.handbookItem.title}
-                  layout="fill"
-                  objectFit="contain"
+                  layout='fill'
+                  objectFit='contain'
                 />
               </div>
 
@@ -76,7 +76,7 @@ const Index: NextPage<IndexProps> = (props) => {
           <div className={styles.contactPageFlexInner}>
             <div className={styles.contactContent}>
               <HubspotForm
-                portalId="21136941"
+                portalId='21136941'
                 formId={props.handbookItem.hubspotId}
                 loading={<div>Loading...</div>}
               />

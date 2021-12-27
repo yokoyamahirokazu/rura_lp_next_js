@@ -5,18 +5,12 @@ import Image from 'next/image';
 import SeoContent from '@components/SeoContent';
 import HubspotForm from 'react-hubspot-form';
 
-declare global {
-  interface Window {
-    Formrun?: any;
-  }
-}
-
 const Index: NextPage = () => {
   return (
     <>
       <SeoContent
-        pageTitle="資料ダウンロード"
-        pageDescription="資料ダウンロードページです。遠隔接客サービスRURAにご関心いただきありがとうございます。"
+        pageTitle='資料ダウンロード'
+        pageDescription='資料ダウンロードページです。遠隔接客サービスRURAにご関心いただきありがとうございます。'
         noIndex={'true'}
       />
       <div className={styles.contactPageFlex}>
@@ -32,16 +26,16 @@ const Index: NextPage = () => {
                 <div className={styles.downloadFlexImg}>
                   <div className={styles.downloadFlexImgBox}>
                     <Image
-                      src="/images/rura_dl_document_1.png"
-                      alt="資料ダウンロード・お問い合わせ"
+                      src='/images/rura_dl_document_1.png'
+                      alt='資料ダウンロード・お問い合わせ'
                       layout={'fill'}
                       objectFit={'cover'}
                     />
                   </div>
                   <div className={styles.downloadFlexImgBox}>
                     <Image
-                      src="/images/rura_dl_document_2.png"
-                      alt="資料ダウンロード・お問い合わせ"
+                      src='/images/rura_dl_document_2.png'
+                      alt='資料ダウンロード・お問い合わせ'
                       layout={'fill'}
                       objectFit={'cover'}
                     />
@@ -70,8 +64,8 @@ const Index: NextPage = () => {
           <div className={styles.contactPageFlexInner}>
             <div className={styles.contactContent}>
               <HubspotForm
-                portalId="21136941"
-                formId="df368756-6d5c-48a7-b00b-7bd889cbcf0c"
+                portalId='21136941'
+                formId='df368756-6d5c-48a7-b00b-7bd889cbcf0c'
                 loading={<div>Loading...</div>}
               />
             </div>

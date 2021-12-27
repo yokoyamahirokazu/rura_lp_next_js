@@ -5,6 +5,7 @@ export function convertToHtml(htmlString: string): string {
   const dom = new JSDOM(htmlString);
   setCodeHighlight(dom.window.document.querySelectorAll('pre code'));
   setLazyLoad(dom.window.document.querySelectorAll('img'));
+
   return dom.window.document.body.innerHTML;
 }
 

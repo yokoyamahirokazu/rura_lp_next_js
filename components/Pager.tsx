@@ -20,7 +20,8 @@ export const Pager: React.FC<PagerProps> = (props) => {
       return `/news/page/${pageNumber}`;
     }
   };
-  return (
+  
+return (
     <div>
       <ul className={styles.pager}>
         {props.currentPage > 1 && (

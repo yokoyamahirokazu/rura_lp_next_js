@@ -33,16 +33,16 @@ const DrawerMenu = () => {
       <button className={styles.drawerBtn} onClick={toggleDrawer}>
         <IoIosMenu />
       </button>
-      <Drawer open={isOpen} onClose={toggleDrawer} direction="right">
+      <Drawer open={isOpen} onClose={toggleDrawer} direction='right'>
         <div className={styles.drawerInner}>
           <div className={styles.drawerInnerContent}>
             <div className={styles.logo}>
-              <Link href="/">
+              <Link href='/'>
                 <a>
                   <div className={styles.logoImg}>
                     <Image
-                      src="/images/rura_logo_blue.svg"
-                      alt="遠隔接客サービスRURA"
+                      src='/images/rura_logo_blue.svg'
+                      alt='遠隔接客サービスRURA'
                       layout={'fill'}
                       objectFit={'contain'}
                     />
@@ -62,7 +62,12 @@ const DrawerMenu = () => {
                 <>
                   {navItem.map((items) => (
                     <li key={items.url}>
-                      <Scroll to={items.url} smooth={true} duration={600} onClick={toggleDrawer}>
+                      <Scroll
+                        to={items.url}
+                        smooth={true}
+                        duration={600}
+                        onClick={toggleDrawer}
+                      >
                         {items.name}
                       </Scroll>
                     </li>
@@ -72,7 +77,7 @@ const DrawerMenu = () => {
                 <>
                   {navItem.map((items) => (
                     <li key={items.url}>
-                      <Link href="/" as={`/#${items.url}`}>
+                      <Link href='/' as={`/#${items.url}`}>
                         <a onClick={toggleDrawer}>{items.name}</a>
                       </Link>
                     </li>
@@ -83,12 +88,24 @@ const DrawerMenu = () => {
 
             <div className={styles.drawerInnerBtn}>
               <div onClick={toggleDrawer}>
-                <Button bgColor="primary" size="normal" types="link" href="/download" id="drawerD">
+                <Button
+                  bgColor='primary'
+                  size='normal'
+                  types='link'
+                  href='/download'
+                  id='drawerD'
+                >
                   資料ダウンロード
                 </Button>
               </div>
               <div onClick={toggleDrawer}>
-                <Button bgColor="secondary" size="normal" types="link" href="/contact" id="drawerC">
+                <Button
+                  bgColor='secondary'
+                  size='normal'
+                  types='link'
+                  href='/contact'
+                  id='drawerC'
+                >
                   お問い合わせ
                 </Button>
               </div>
