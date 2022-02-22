@@ -258,6 +258,16 @@
   mix-blend-mode: multiply;
   content: ' ';
 }
+.heroSubText {
+  font-size: 1.4rem;
+  color: #fff;
+  font-weight: bold;
+  margin: 16px 0 0 0;
+}
+.heroSubText span {
+  font-size: 1.6rem;
+  margin: 0 5px 0 0;
+}
 
 @media screen and (max-width: 1200px) {
   .heroCopy {
@@ -387,5 +397,13 @@
   .imagePlayIcon svg {
     width: 15vw;
     height: 15vw;
+  }
+  .heroSubText {
+    font-size: 1.1rem;
+    margin: 16px 0 0 0;
+  }
+  .heroSubText span {
+    font-size: 1.3rem;
+    margin: 0 5px 0 0;
   }
 }
