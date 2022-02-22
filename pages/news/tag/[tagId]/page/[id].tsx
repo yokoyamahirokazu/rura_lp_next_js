@@ -26,7 +26,8 @@ const Page: NextPage<PageProps> = (props) => {
   if (router.isFallback) {
     return <Loader />;
   }
-  return (
+  
+return (
     <>
       <SeoContent
         pageTitle={props.selectedTag.name}
