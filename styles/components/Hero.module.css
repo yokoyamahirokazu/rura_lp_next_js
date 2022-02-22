@@ -259,6 +259,17 @@
   content: ' ';
 }
 
+.heroSubText {
+  font-size: 1.4rem;
+  margin: 16px 0 0 0;
+  color: #fff;
+  font-weight: bold;
+}
+.heroSubText span {
+  font-size: 1.6rem;
+  margin: 0 5px 0 0;
+}
+
 @media screen and (max-width: 1200px) {
   .heroCopy {
     font-size: 4vw;
@@ -387,5 +398,13 @@
   .imagePlayIcon svg {
     width: 15vw;
     height: 15vw;
+  }
+  .heroSubText {
+    font-size: 1.1rem;
+    margin: 16px 0 0 0;
+  }
+  .heroSubText span {
+    font-size: 1.3rem;
+    margin: 0 5px 0 0;
   }
 }

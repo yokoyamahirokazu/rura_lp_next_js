@@ -102,6 +102,9 @@ export const Hero: React.FC = () => {
                 お問い合わせ
               </Button>
             </div>
+            <p className={styles.heroSubText}>
+              <span>ショールーム体験受付中！</span>ご希望の方は「お問い合わせ」より
+            </p>
           </div>
         </div>
 
