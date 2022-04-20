@@ -36,10 +36,10 @@ const DrawerMenu = () => {
       <Drawer open={isOpen} onClose={toggleDrawer} direction="right">
         <div className={styles.drawerInner}>
           <div className={styles.drawerInnerContent}>
-            <div className={styles.drawerLogoImg}>
+            <div className={styles.drawerLogo}>
               <Link href="/">
                 <a>
-                  <div className={styles.logoImg}>
+                  <div className={styles.drawerLogoImg}>
                     <Image
                       src="/images/rura_logo_blue.svg"
                       alt="遠隔接客サービスRURA"

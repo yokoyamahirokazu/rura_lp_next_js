@@ -114,10 +114,16 @@ nav.header_nav ul li a:hover::before {
   height: 30px;
 }
 
-.drawerLogoImg {
+.drawerLogo {
   width: 120px;
   height: 30px;
   margin: 0 0 20px 0;
+  position: relative;
+}
+
+.drawerLogoImg {
+  width: 100%;
+  height: auto;
 }
 
 @media screen and (max-width: 1160px) {
