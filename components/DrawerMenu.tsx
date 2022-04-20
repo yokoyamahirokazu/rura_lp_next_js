@@ -36,7 +36,7 @@ const DrawerMenu = () => {
       <Drawer open={isOpen} onClose={toggleDrawer} direction="right">
         <div className={styles.drawerInner}>
           <div className={styles.drawerInnerContent}>
-            <div className={styles.logo}>
+            <div className={styles.drawerLogoImg}>
               <Link href="/">
                 <a>
                   <div className={styles.logoImg}>

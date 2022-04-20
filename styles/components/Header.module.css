@@ -2,18 +2,17 @@
   padding: 0;
   position: fixed;
   left: 0;
-    top: 0;
-    width: 100%;
-    box-sizing: border-box;
-    height: 80px;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+  height: 80px;
   z-index: 99999;
-    -webkit-transition: all 0.2s ease;
-    -moz-transition: all 0.2s ease;
-    -o-transition: all 0.2s ease;
-    transition: all 0.2s ease;
-      background-color: #fff;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  background-color: #fff;
 }
-
 
 .logo a {
   display: flex;
@@ -22,16 +21,16 @@
   position: absolute;
   left: 20px;
   top: 50%;
-  transform: translate(0,-50%);
+  transform: translate(0, -50%);
 }
 .logoImg {
   width: 160px;
   height: 40px;
   position: relative;
-     -webkit-transition: all 0.2s ease;
-     -moz-transition: all 0.2s ease;
-     -o-transition: all 0.2s ease;
-     transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .logoText {
@@ -110,13 +109,16 @@ nav.header_nav ul li a:hover::before {
   box-shadow: 0px 4px 30px rgba(0, 35, 51, 0.2);
 }
 
-.headerFixed .logoImg{
+.headerFixed .logoImg {
   width: 120px;
   height: 30px;
 }
 
-
-
+.drawerLogoImg {
+  width: 120px;
+  height: 30px;
+  margin: 0 0 20px 0;
+}
 
 @media screen and (max-width: 1160px) {
   .drawerBtn {
@@ -217,7 +219,6 @@ nav.header_nav ul li a:hover::before {
     width: 120px;
     height: 30px;
   }
-
 
   .logoText {
     display: none;
