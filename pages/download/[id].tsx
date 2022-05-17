@@ -93,15 +93,12 @@ export const getStaticPaths = async () => {
     endpoint: 'whitepaper',
     queries: { limit: config.defaultMaxLimit },
   });
-
   const paths = data.contents.map((content) => `/download/${content.id}`);
   return { paths, fallback: false };
 };
-
 export const getStaticProps = async (context) => {
   const id = context.params.id;
   const data = await client.get({ endpoint: 'whitepaper', contentId: id });
-
   return {
     props: {
       handbookItem: data,

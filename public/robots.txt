@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: hogehoge
+Host: https://rural-lp-nextjs-dev.vercel.app
 
 # Sitemaps
-Sitemap: hogehoge/sitemap.xml
+Sitemap: https://rural-lp-nextjs-dev.vercel.app/sitemap.xml
