@@ -84,7 +84,7 @@ const Detail: NextPage<DetailProps> = (props) => {
         <div className={styles.postContent}>
           <h1 className={styles.title}>{props.blog.title}</h1>
           <div className={styles.postMetaFlex}>
-            <Meta category={props.blog.category} createdAt={props.blog.createdAt} isDetail={true} />
+            <Meta category={props.blog.category} createdAt={props.blog.postDate} isDetail={true} />
             <Share id={props.blog.id} title={props.blog.title} tagData={tagData && tagData} />
           </div>
 
@@ -188,14 +188,14 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   const { blogs, categories, tags } = await getContents();
 
   const entry = await client.get({ endpoint: 'blog', contentId: blogId });
-  const fields = 'id,title,publishedAt';
+  const fields = 'id,title,postDate';
   const prev = await client.get({
     endpoint: 'blog',
     queries: {
       limit: 1,
-      orders: '-publishedAt',
+      orders: '-postDate',
       fields,
-      filters: `publishedAt[less_than]${entry.publishedAt}`,
+      filters: `postDate[less_than]${entry.postDate}`,
     },
   });
 
@@ -203,9 +203,9 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     endpoint: 'blog',
     queries: {
       limit: 1,
-      orders: 'publishedAt',
+      orders: 'postDate',
       fields,
-      filters: `publishedAt[greater_than]${entry.publishedAt}`,
+      filters: `postDate[greater_than]${entry.postDate}`,
     },
   });
 

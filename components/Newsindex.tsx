@@ -26,7 +26,7 @@ export const Newsindex: React.FC<CaesProps> = (props) => {
                     <Link href="/news/[blogId]" as={`/news/${blog.id}`}>
                       <a>
                         <h3>{blog.title}</h3>
-                        <Meta createdAt={blog.createdAt} category={blog.category} tags={blog.tag} />
+                        <Meta createdAt={blog.postDate} category={blog.category} tags={blog.tag} />
                       </a>
                     </Link>
                   </li>
