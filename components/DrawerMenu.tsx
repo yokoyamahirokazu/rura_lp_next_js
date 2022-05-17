@@ -36,13 +36,8 @@ const DrawerMenu = () => {
       <Drawer open={isOpen} onClose={toggleDrawer} direction='right'>
         <div className={styles.drawerInner}>
           <div className={styles.drawerInnerContent}>
-<<<<<<< HEAD
             <div className={styles.drawerLogo}>
               <Link href="/">
-=======
-            <div className={styles.logo}>
-              <Link href='/'>
->>>>>>> 6f1a04e0a88fd9299b0dc4b7f391e0397f0a6585
                 <a>
                   <div className={styles.drawerLogoImg}>
                     <Image
