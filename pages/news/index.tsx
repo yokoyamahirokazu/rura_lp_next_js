@@ -17,7 +17,6 @@ type IndexProps = {
 
 const Index: NextPage<IndexProps> = (props) => {
   const router = useRouter();
-
   return (
     <>
       <SeoContent
