@@ -11,13 +11,11 @@ import {
   Features,
   Newsindex,
 } from '@components';
-
 import ContactSection from '@components/ContactSection';
 import SeoContent from '@components/SeoContent';
 import { IBlog, ICategory, IPopularArticles } from '@/types';
 import { client } from 'framework/client';
 import { config } from '@site.config';
-
 interface caseItems {
   id?: string;
   caseName?: string;
