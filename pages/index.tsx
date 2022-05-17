@@ -71,7 +71,6 @@ type IndexProps = {
   faqItem: faqItems[];
   handbookItem: handbookItems[];
 };
-
 const Index: NextPage<IndexProps> = (props) => {
   return (
     <>
