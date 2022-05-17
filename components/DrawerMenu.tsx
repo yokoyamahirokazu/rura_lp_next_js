@@ -1,13 +1,13 @@
-import Link from 'next/link';
-import React from 'react';
-import styles from '@styles/components/Header.module.css';
-import Drawer from 'react-modern-drawer';
-import 'react-modern-drawer/dist/index.css';
-import { IoIosMenu } from 'react-icons/io';
-import { useRouter } from 'next/router';
-import { Link as Scroll } from 'react-scroll';
-import Image from 'next/image';
-import Button from '@components/Button';
+import Link from "next/link";
+import React from "react";
+import styles from "@styles/components/Header.module.css";
+import Drawer from "react-modern-drawer";
+import "react-modern-drawer/dist/index.css";
+import { IoIosMenu } from "react-icons/io";
+import { useRouter } from "next/router";
+import { Link as Scroll } from "react-scroll";
+import Image from "next/image";
+import Button from "@components/Button";
 
 const DrawerMenu = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -18,14 +18,14 @@ const DrawerMenu = () => {
   const router = useRouter();
 
   const navItem = [
-    { url: 'case', name: '導入事例' },
-    { url: 'service', name: 'サービス' },
-    { url: 'scene', name: 'シーン' },
-    { url: 'design', name: 'デザイン' },
-    { url: 'features', name: '機能' },
-    { url: 'news', name: '新着情報' },
-    { url: 'handbook', name: 'ハンドブック' },
-    { url: 'faq', name: 'FAQ' },
+    { url: "case", name: "導入事例" },
+    { url: "service", name: "サービス" },
+    { url: "scene", name: "シーン" },
+    { url: "design", name: "デザイン" },
+    { url: "features", name: "機能" },
+    { url: "news", name: "新着情報" },
+    { url: "handbook", name: "ハンドブック" },
+    { url: "faq", name: "FAQ" },
   ];
 
   return (
@@ -37,14 +37,14 @@ const DrawerMenu = () => {
         <div className={styles.drawerInner}>
           <div className={styles.drawerInnerContent}>
             <div className={styles.drawerLogo}>
-              <Link href="/">
+              <Link href='/'>
                 <a>
                   <div className={styles.drawerLogoImg}>
                     <Image
                       src='/images/rura_logo_blue.svg'
                       alt='遠隔接客サービスRURA'
-                      layout={'fill'}
-                      objectFit={'contain'}
+                      layout={"fill"}
+                      objectFit={"contain"}
                     />
                   </div>
                 </a>
@@ -53,12 +53,12 @@ const DrawerMenu = () => {
 
             <ul>
               <li>
-                <Link href={'/'}>
+                <Link href={"/"}>
                   <a onClick={toggleDrawer}>ホーム</a>
                 </Link>
               </li>
 
-              {router.pathname == '/' ? (
+              {router.pathname == "/" ? (
                 <>
                   {navItem.map((items) => (
                     <li key={items.url}>
@@ -112,12 +112,12 @@ const DrawerMenu = () => {
             </div>
             <ul className={styles.simple}>
               <li>
-                <Link href={'/company'}>
+                <Link href={"/company"}>
                   <a onClick={toggleDrawer}>運営会社</a>
                 </Link>
               </li>
               <li>
-                <Link href={'/company/privacy-policy'}>
+                <Link href={"/company/privacy-policy"}>
                   <a onClick={toggleDrawer}>プライバシーポリシー</a>
                 </Link>
               </li>

@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import styles from '@styles/components/Parts.module.css';
-import { IoDocumentTextOutline, IoMailOutline } from 'react-icons/io5';
+import Link from "next/link";
+import styles from "@styles/components/Parts.module.css";
+import { IoDocumentTextOutline, IoMailOutline } from "react-icons/io5";
 interface Props {
   children?: string;
   href?: string;
@@ -31,29 +31,29 @@ const Button = ({
   submittingText,
 }: Props) => {
   {
-    if (size == 'normal') {
-      bgColor == 'normal' && (classNames = styles.btn);
-      bgColor == 'primary' && (classNames = `${styles.btn} ${styles.primary}`);
-      bgColor == 'secondary' &&
+    if (size == "normal") {
+      bgColor == "normal" && (classNames = styles.btn);
+      bgColor == "primary" && (classNames = `${styles.btn} ${styles.primary}`);
+      bgColor == "secondary" &&
         (classNames = `${styles.btn} ${styles.secondary}`);
     }
-    if (size == 'large') {
-      bgColor == 'primary' &&
+    if (size == "large") {
+      bgColor == "primary" &&
         (classNames = `${styles.btn} ${styles.primary}  ${styles.large}`);
-      bgColor == 'secondary' &&
+      bgColor == "secondary" &&
         (classNames = `${styles.btn} ${styles.secondary} ${styles.large}`);
     }
-    if (size == 'headerSmall') {
-      bgColor == 'primary' &&
+    if (size == "headerSmall") {
+      bgColor == "primary" &&
         (classNames = `${styles.btn} ${styles.primary}  ${styles.headerSmall}`);
-      bgColor == 'secondary' &&
+      bgColor == "secondary" &&
         (classNames = `${styles.btn} ${styles.secondary} ${styles.headerSmall}`);
     }
   }
 
   return (
     <>
-      {types == 'submit' ? (
+      {types == "submit" ? (
         <button
           type='submit'
           className={classNames}
@@ -67,10 +67,10 @@ const Button = ({
           <a className={classNames} id={id}>
             {(() => {
               if (icon) {
-                if (icon == 'download') {
+                if (icon == "download") {
                   return <IoDocumentTextOutline />;
                 }
-                if (icon == 'contact') {
+                if (icon == "contact") {
                   return <IoMailOutline />;
                 }
               }

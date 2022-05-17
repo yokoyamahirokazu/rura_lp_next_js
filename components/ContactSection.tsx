@@ -1,6 +1,6 @@
-import Image from 'next/image';
-import styles from '@styles/components/Components.module.css';
-import Button from '@components/Button';
+import Image from "next/image";
+import styles from "@styles/components/Components.module.css";
+import Button from "@components/Button";
 
 interface Props {
   ids?: string;
@@ -18,8 +18,8 @@ const ContactSection: React.FC<Props> = ({
         <Image
           src='/images/contact_section_bg.jpg'
           alt='資料ダウンロード・お問い合わせ'
-          layout={'fill'}
-          objectFit={'cover'}
+          layout={"fill"}
+          objectFit={"cover"}
         />
       </div>
 
@@ -33,8 +33,8 @@ const ContactSection: React.FC<Props> = ({
                 <Image
                   src='/images/rura_logo_white.svg'
                   alt='遠隔接客サービスRURA'
-                  layout={'fill'}
-                  objectFit={'contain'}
+                  layout={"fill"}
+                  objectFit={"contain"}
                 />
               </div>
             </div>
@@ -68,8 +68,8 @@ const ContactSection: React.FC<Props> = ({
                   <Image
                     src='/images/rura_dl_document_2.png'
                     alt='資料ダウンロード・お問い合わせ'
-                    layout={'fill'}
-                    objectFit={'contain'}
+                    layout={"fill"}
+                    objectFit={"contain"}
                   />
                 </div>
               </div>
@@ -80,8 +80,8 @@ const ContactSection: React.FC<Props> = ({
                   <Image
                     src='/images/rura_dl_document_1.png'
                     alt='資料ダウンロード・お問い合わせ'
-                    layout={'fill'}
-                    objectFit={'contain'}
+                    layout={"fill"}
+                    objectFit={"contain"}
                   />
                 </div>
               </div>

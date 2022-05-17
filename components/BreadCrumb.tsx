@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import { ICategory, ITag } from '@/types';
-import styles from '@styles/components/Components.module.css';
+import Link from "next/link";
+import { ICategory, ITag } from "@/types";
+import styles from "@styles/components/Components.module.css";
 
 type BreadCrumbProps = {
   category?: ICategory;

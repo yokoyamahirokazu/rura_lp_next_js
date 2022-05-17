@@ -1,7 +1,7 @@
-import styles from '@styles/components/Components.module.css';
-import Image from 'next/image';
-import Link from 'next/link';
-import Button from '@components/Button';
+import styles from "@styles/components/Components.module.css";
+import Image from "next/image";
+import Link from "next/link";
+import Button from "@components/Button";
 
 interface Article {
   id?: string;
@@ -54,8 +54,8 @@ export const Handbook: React.FC<CaesProps> = (props) => {
                                 <Image
                                   src={handbook.img && handbook.img.url}
                                   alt={handbook.title && handbook.title}
-                                  layout={'fill'}
-                                  objectFit={'contain'}
+                                  layout={"fill"}
+                                  objectFit={"contain"}
                                 />
                               </div>
                             </div>
@@ -108,8 +108,8 @@ export const Handbook: React.FC<CaesProps> = (props) => {
                                         handbook.smallBannerImg.url
                                       }
                                       alt={handbook.title && handbook.title}
-                                      layout={'fill'}
-                                      objectFit={'cover'}
+                                      layout={"fill"}
+                                      objectFit={"cover"}
                                     />
                                   </div>
                                 </div>

@@ -1,12 +1,12 @@
-import { NextPage } from 'next';
-import React from 'react';
-import styles from '@styles/components/Components.module.css';
-import Image from 'next/image';
-import { client } from '@framework/client';
-import SeoContent from '@components/SeoContent';
-import { useRouter } from 'next/router';
-import { config } from '@site.config';
-import HubspotForm from 'react-hubspot-form';
+import { NextPage } from "next";
+import React from "react";
+import styles from "@styles/components/Components.module.css";
+import Image from "next/image";
+import { client } from "@framework/client";
+import SeoContent from "@components/SeoContent";
+import { useRouter } from "next/router";
+import { config } from "@site.config";
+import HubspotForm from "react-hubspot-form";
 interface handbookItems {
   id?: string;
   title?: string;
@@ -38,7 +38,7 @@ const Index: NextPage<IndexProps> = (props) => {
         pageDescription={props.handbookItem.description}
         ogpImg={props.handbookItem.img.url}
         pageUrl={router.asPath}
-        noIndex={'true'}
+        noIndex={"true"}
       />
       <div className={styles.contactPageFlex}>
         <div className={styles.contactPageFlexLeft}>
@@ -87,10 +87,9 @@ const Index: NextPage<IndexProps> = (props) => {
     </>
   );
 };
-
 export const getStaticPaths = async () => {
   const data = await client.get({
-    endpoint: 'whitepaper',
+    endpoint: "whitepaper",
     queries: { limit: config.defaultMaxLimit },
   });
   const paths = data.contents.map((content) => `/download/${content.id}`);
@@ -98,11 +97,9 @@ export const getStaticPaths = async () => {
 };
 export const getStaticProps = async (context) => {
   const id = context.params.id;
-  const data = await client.get({ endpoint: 'whitepaper', contentId: id });
+  const data = await client.get({ endpoint: "whitepaper", contentId: id });
   return {
-    props: {
-      handbookItem: data,
-    },
+    props: { handbookItem: data },
   };
 };
 

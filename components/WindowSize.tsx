@@ -1,7 +1,7 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from "react";
 
 const WindowSize = () => {
-  const isClient = typeof window === 'object';
+  const isClient = typeof window === "object";
   const getWindowDimensions = useCallback(() => {
     return {
       width: isClient ? window?.innerWidth : 0,
@@ -13,9 +13,9 @@ const WindowSize = () => {
     const onResize = () => {
       setWindowDimensions(getWindowDimensions());
     };
-    window.addEventListener('resize', onResize);
-    
-return () => window.removeEventListener('resize', onResize);
+    window.addEventListener("resize", onResize);
+
+    return () => window.removeEventListener("resize", onResize);
   }, [getWindowDimensions]);
 };
 

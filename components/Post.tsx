@@ -1,13 +1,13 @@
-import DOMPurify from 'dompurify';
-import { useEffect, useState } from 'react';
-import styles from '@styles/components/Components.module.css';
+import DOMPurify from "dompurify";
+import { useEffect, useState } from "react";
+import styles from "@styles/components/Components.module.css";
 
 type PostProps = {
   body?: string;
 };
 
 export const Post: React.FC<PostProps> = (props) => {
-  const [htmlString, setHtmlString] = useState<string>('');
+  const [htmlString, setHtmlString] = useState<string>("");
 
   useEffect(() => {
     if (props.body) {

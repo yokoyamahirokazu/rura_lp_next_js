@@ -1,6 +1,6 @@
-import { IBlog } from '@/types';
-import styles from '@styles/components/Components.module.css';
-import { Meta } from '@components';
+import { IBlog } from "@/types";
+import styles from "@styles/components/Components.module.css";
+import { Meta } from "@components";
 
 type LatestProps = {
   blogs: IBlog[];

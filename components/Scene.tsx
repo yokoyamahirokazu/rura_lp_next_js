@@ -1,5 +1,5 @@
-import styles from '@styles/components/Components.module.css';
-import Image from 'next/image';
+import styles from "@styles/components/Components.module.css";
+import Image from "next/image";
 
 export const Scene: React.FC = () => {
   return (
@@ -21,8 +21,8 @@ export const Scene: React.FC = () => {
                   <Image
                     src='/images/rura_scene_clinic.png'
                     alt='クリニック'
-                    layout={'fill'}
-                    objectFit={'cover'}
+                    layout={"fill"}
+                    objectFit={"cover"}
                   />
                 </div>
               </div>
@@ -38,8 +38,8 @@ export const Scene: React.FC = () => {
                   <Image
                     src='/images/rura_scene_hotel.png'
                     alt='ホテル'
-                    layout={'fill'}
-                    objectFit={'cover'}
+                    layout={"fill"}
+                    objectFit={"cover"}
                   />
                 </div>
               </div>
@@ -55,8 +55,8 @@ export const Scene: React.FC = () => {
                   <Image
                     src='/images/rura_scene_estate.png'
                     alt='不動産'
-                    layout={'fill'}
-                    objectFit={'cover'}
+                    layout={"fill"}
+                    objectFit={"cover"}
                   />
                 </div>
               </div>
@@ -72,8 +72,8 @@ export const Scene: React.FC = () => {
                   <Image
                     src='/images/rura_scene_coworking.png'
                     alt='コワーキングスペース'
-                    layout={'fill'}
-                    objectFit={'cover'}
+                    layout={"fill"}
+                    objectFit={"cover"}
                   />
                 </div>
               </div>
@@ -89,8 +89,8 @@ export const Scene: React.FC = () => {
                   <Image
                     src='/images/rura_scene_netcafe.png'
                     alt='ネットカフェ'
-                    layout={'fill'}
-                    objectFit={'cover'}
+                    layout={"fill"}
+                    objectFit={"cover"}
                   />
                 </div>
               </div>
@@ -106,8 +106,8 @@ export const Scene: React.FC = () => {
                   <Image
                     src='/images/rura_scene_shop.png'
                     alt='小売店'
-                    layout={'fill'}
-                    objectFit={'cover'}
+                    layout={"fill"}
+                    objectFit={"cover"}
                   />
                 </div>
               </div>

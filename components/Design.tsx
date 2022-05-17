@@ -1,5 +1,5 @@
-import styles from '@styles/components/Components.module.css';
-import Image from 'next/image';
+import styles from "@styles/components/Components.module.css";
+import Image from "next/image";
 
 export const Design: React.FC = () => {
   return (
@@ -34,8 +34,8 @@ export const Design: React.FC = () => {
                     <Image
                       src='/images/rura_design_1.png'
                       alt='  ディスプレイ、タブレット、縦型画面、立体映'
-                      layout={'fill'}
-                      objectFit={'contain'}
+                      layout={"fill"}
+                      objectFit={"contain"}
                     />
                   </div>
                 </div>
@@ -56,8 +56,8 @@ export const Design: React.FC = () => {
                     <Image
                       src='/images/rura_design_2.png'
                       alt='顔出し、キャラクター、アバター、ボイスチェンジ'
-                      layout={'fill'}
-                      objectFit={'contain'}
+                      layout={"fill"}
+                      objectFit={"contain"}
                     />
                   </div>
                 </div>
@@ -78,8 +78,8 @@ export const Design: React.FC = () => {
                     <Image
                       src='/images/rura_design_3.png'
                       alt='画像、動画、スクリーンセーバー、背景'
-                      layout={'fill'}
-                      objectFit={'contain'}
+                      layout={"fill"}
+                      objectFit={"contain"}
                     />
                   </div>
                 </div>
@@ -87,7 +87,7 @@ export const Design: React.FC = () => {
                   <div className={`${styles.boxShadowA} ${styles.boxRound}`}>
                     <div className={styles.txtBoxA}>
                       <h3 className={styles.headlineMed}>
-                        オリジナル制作{' '}
+                        オリジナル制作{" "}
                         <span>（グラフィック・アバター・装飾・什器）</span>
                       </h3>
                       <p>
@@ -100,8 +100,8 @@ export const Design: React.FC = () => {
                     <Image
                       src='/images/rura_design_4.png'
                       alt='オリジナル制作（グラフィック・アバター・装飾・什器）</span>'
-                      layout={'fill'}
-                      objectFit={'contain'}
+                      layout={"fill"}
+                      objectFit={"contain"}
                     />
                   </div>
                 </div>

@@ -1,6 +1,6 @@
-import styles from '@styles/components/Components.module.css';
-import Image from 'next/image';
-import { ReactElement } from 'react';
+import styles from "@styles/components/Components.module.css";
+import Image from "next/image";
+import { ReactElement } from "react";
 
 export const Service: React.FC = (): ReactElement => {
   return (
@@ -24,8 +24,8 @@ export const Service: React.FC = (): ReactElement => {
                   <Image
                     src='/images/rura_service_1.png'
                     alt='画面を見せながらの接客'
-                    layout={'fill'}
-                    objectFit={'cover'}
+                    layout={"fill"}
+                    objectFit={"cover"}
                   />
                 </div>
                 <div className={styles.txtBoxA}>
@@ -44,8 +44,8 @@ export const Service: React.FC = (): ReactElement => {
                   <Image
                     src='/images/rura_service_2.png'
                     alt='声かけ・呼び出し'
-                    layout={'fill'}
-                    objectFit={'cover'}
+                    layout={"fill"}
+                    objectFit={"cover"}
                   />
                 </div>
                 <div className={styles.txtBoxA}>
@@ -64,8 +64,8 @@ export const Service: React.FC = (): ReactElement => {
                   <Image
                     src='/images/rura_service_3.png'
                     alt='いつものスタッフが画面から'
-                    layout={'fill'}
-                    objectFit={'cover'}
+                    layout={"fill"}
+                    objectFit={"cover"}
                   />
                 </div>
                 <div className={styles.txtBoxA}>
@@ -86,8 +86,8 @@ export const Service: React.FC = (): ReactElement => {
                   <Image
                     src='/images/rura_service_4.png'
                     alt='顔出し、アバター、キャラクター'
-                    layout={'fill'}
-                    objectFit={'cover'}
+                    layout={"fill"}
+                    objectFit={"cover"}
                   />
                 </div>
                 <div className={styles.txtBoxA}>

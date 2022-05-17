@@ -1,19 +1,19 @@
-import { GetStaticPropsContext, NextPage } from 'next';
-import { useRouter } from 'next/dist/client/router';
-import { BreadCrumb } from '@components/BreadCrumb';
-import { Latest } from '@components/Latest';
-import { Meta } from '@components/Meta';
-import { Share, Loader } from '@components';
-import { IBlog, ITag, ICategory } from '@/types/interface';
-import { convertToHtml } from '@scripts';
-import { getAllBlogs, getBlogById, getContents } from '@blog';
-import styles from '@styles/components/Components.module.css';
-import Image from 'next/image';
-import Button from '@components/Button';
-import { client } from '@framework/client';
-import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
-import SeoContent from '@components/SeoContent';
-import { Tags } from '@components/Tags';
+import { GetStaticPropsContext, NextPage } from "next";
+import { useRouter } from "next/dist/client/router";
+import { BreadCrumb } from "@components/BreadCrumb";
+import { Latest } from "@components/Latest";
+import { Meta } from "@components/Meta";
+import { Share, Loader } from "@components";
+import { IBlog, ITag, ICategory } from "@/types/interface";
+import { convertToHtml } from "@scripts";
+import { getAllBlogs, getBlogById, getContents } from "@blog";
+import styles from "@styles/components/Components.module.css";
+import Image from "next/image";
+import Button from "@components/Button";
+import { client } from "@framework/client";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import SeoContent from "@components/SeoContent";
+import { Tags } from "@components/Tags";
 
 type DetailProps = {
   blog: IBlog;
@@ -30,12 +30,12 @@ const Detail: NextPage<DetailProps> = (props) => {
   if (router.isFallback) {
     return <Loader />;
   }
-  const cotegoryLink = '/news/category/' + props.blog.category.id + '/page/1';
-  const cotegoryLinkName = props.blog.category.name + 'の記事一覧を見る';
+  const cotegoryLink = "/news/category/" + props.blog.category.id + "/page/1";
+  const cotegoryLinkName = props.blog.category.name + "の記事一覧を見る";
   const tagContent = props.blog.tag.map((tagName) => {
     return `&hashtags=${tagName.name}`;
   });
-  const tagDataDefalt = tagContent.join('');
+  const tagDataDefalt = tagContent.join("");
   const tagData = tagDataDefalt;
 
   return (
@@ -74,8 +74,8 @@ const Detail: NextPage<DetailProps> = (props) => {
               <Image
                 src={`${props.blog.ogimage?.url}?w=820&q=100`}
                 alt={props.blog.title}
-                layout={'fill'}
-                objectFit={'contain'}
+                layout={"fill"}
+                objectFit={"contain"}
               />
             </picture>
           </div>
@@ -83,8 +83,16 @@ const Detail: NextPage<DetailProps> = (props) => {
         <div className={styles.postContent}>
           <h1 className={styles.title}>{props.blog.title}</h1>
           <div className={styles.postMetaFlex}>
-            <Meta category={props.blog.category} createdAt={props.blog.postDate} isDetail={true} />
-            <Share id={props.blog.id} title={props.blog.title} tagData={tagData && tagData} />
+            <Meta
+              category={props.blog.category}
+              createdAt={props.blog.postDate}
+              isDetail={true}
+            />
+            <Share
+              id={props.blog.id}
+              title={props.blog.title}
+              tagData={tagData && tagData}
+            />
           </div>
 
           <div
@@ -98,8 +106,8 @@ const Detail: NextPage<DetailProps> = (props) => {
                 <Image
                   src='/images/rura_logo_blue.svg'
                   alt={props.blog.title}
-                  layout={'fill'}
-                  objectFit={'contain'}
+                  layout={"fill"}
+                  objectFit={"contain"}
                 />
               </div>
               <p>資料ダウンロード・お問い合わせはこちら</p>
@@ -205,28 +213,28 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context: GetStaticPropsContext) {
-  const blogId: any = context.params?.blogId || '1';
+  const blogId: any = context.params?.blogId || "1";
   const blog = await getBlogById(blogId);
   const body = convertToHtml(blog.body);
   const { blogs, categories, tags } = await getContents();
 
-  const entry = await client.get({ endpoint: 'blog', contentId: blogId });
-  const fields = 'id,title,postDate';
+  const entry = await client.get({ endpoint: "blog", contentId: blogId });
+  const fields = "id,title,postDate";
   const prev = await client.get({
-    endpoint: 'blog',
+    endpoint: "blog",
     queries: {
       limit: 1,
-      orders: '-postDate',
+      orders: "-postDate",
       fields,
       filters: `postDate[less_than]${entry.postDate}`,
     },
   });
 
   const next = await client.get({
-    endpoint: 'blog',
+    endpoint: "blog",
     queries: {
       limit: 1,
-      orders: 'postDate',
+      orders: "postDate",
       fields,
       filters: `postDate[greater_than]${entry.postDate}`,
     },

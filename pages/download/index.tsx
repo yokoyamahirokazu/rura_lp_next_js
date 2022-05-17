@@ -1,9 +1,9 @@
-import { NextPage } from 'next';
-import React from 'react';
-import styles from '@styles/components/Components.module.css';
-import Image from 'next/image';
-import SeoContent from '@components/SeoContent';
-import HubspotForm from 'react-hubspot-form';
+import { NextPage } from "next";
+import React from "react";
+import styles from "@styles/components/Components.module.css";
+import Image from "next/image";
+import SeoContent from "@components/SeoContent";
+import HubspotForm from "react-hubspot-form";
 
 const Index: NextPage = () => {
   return (
@@ -11,7 +11,7 @@ const Index: NextPage = () => {
       <SeoContent
         pageTitle='資料ダウンロード'
         pageDescription='資料ダウンロードページです。遠隔接客サービスRURAにご関心いただきありがとうございます。'
-        noIndex={'true'}
+        noIndex={"true"}
       />
       <div className={styles.contactPageFlex}>
         <div className={styles.contactPageFlexLeft}>
@@ -28,16 +28,16 @@ const Index: NextPage = () => {
                     <Image
                       src='/images/rura_dl_document_1.png'
                       alt='資料ダウンロード・お問い合わせ'
-                      layout={'fill'}
-                      objectFit={'cover'}
+                      layout={"fill"}
+                      objectFit={"cover"}
                     />
                   </div>
                   <div className={styles.downloadFlexImgBox}>
                     <Image
                       src='/images/rura_dl_document_2.png'
                       alt='資料ダウンロード・お問い合わせ'
-                      layout={'fill'}
-                      objectFit={'cover'}
+                      layout={"fill"}
+                      objectFit={"cover"}
                     />
                   </div>
                 </div>

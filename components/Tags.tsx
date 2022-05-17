@@ -1,7 +1,7 @@
-import NextLink from 'next/link';
-import { ITag } from '@types';
-import styles from '@styles/components/Components.module.css';
-import { IoPricetagsOutline } from 'react-icons/io5';
+import NextLink from "next/link";
+import { ITag } from "@types";
+import styles from "@styles/components/Components.module.css";
+import { IoPricetagsOutline } from "react-icons/io5";
 
 type TagsProps = {
   tags: ITag[];

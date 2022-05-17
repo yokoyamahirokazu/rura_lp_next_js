@@ -1,14 +1,14 @@
-import { GetStaticPropsContext, NextPage } from 'next';
-import { useRouter } from 'next/dist/client/router';
-import Link from 'next/link';
-import { BreadCrumb, Categories, Loader, Meta, Pager } from '@components';
-import { IBanner, IBlog, ICategory, IPopularArticles, ITag } from '@/types';
-import { getContents } from '@blog';
-import styles from '@styles/components/Components.module.css';
-import Image from 'next/image';
-import SeoContent from '@components/SeoContent';
-import ContactSection from '@components/ContactSection';
-import { IoPricetagsOutline } from 'react-icons/io5';
+import { GetStaticPropsContext, NextPage } from "next";
+import { useRouter } from "next/dist/client/router";
+import Link from "next/link";
+import { BreadCrumb, Categories, Loader, Meta, Pager } from "@components";
+import { IBanner, IBlog, ICategory, IPopularArticles, ITag } from "@/types";
+import { getContents } from "@blog";
+import styles from "@styles/components/Components.module.css";
+import Image from "next/image";
+import SeoContent from "@components/SeoContent";
+import ContactSection from "@components/ContactSection";
+import { IoPricetagsOutline } from "react-icons/io5";
 
 type PageProps = {
   currentPage: number;
@@ -26,8 +26,8 @@ const Page: NextPage<PageProps> = (props) => {
   if (router.isFallback) {
     return <Loader />;
   }
-  
-return (
+
+  return (
     <>
       <SeoContent
         pageTitle={props.selectedTag.name}
@@ -55,31 +55,35 @@ return (
           {props.blogs.map((blog) => {
             return (
               <li key={blog.id}>
-                <Link href="/news/[blogId]" as={`/news/${blog.id}`}>
+                <Link href='/news/[blogId]' as={`/news/${blog.id}`}>
                   <a>
                     {blog.ogimage ? (
                       <div className={styles.newsImagesBox}>
                         <Image
                           src={`${blog.ogimage.url}?w=670`}
                           alt={blog.title}
-                          layout={'fill'}
-                          objectFit={'cover'}
+                          layout={"fill"}
+                          objectFit={"cover"}
                         />
                       </div>
                     ) : (
                       <div className={styles.newsImagesBox}>
                         <Image
-                          src="/images/noimage.png"
+                          src='/images/noimage.png'
                           alt={blog.title}
-                          layout={'fill'}
-                          objectFit={'cover'}
+                          layout={"fill"}
+                          objectFit={"cover"}
                         />
                       </div>
                     )}
 
                     <div className={styles.newsImagesTxt}>
                       <h3>{blog.title}</h3>
-                      <Meta createdAt={blog.postDate} category={blog.category} tags={blog.tag} />
+                      <Meta
+                        createdAt={blog.postDate}
+                        category={blog.category}
+                        tags={blog.tag}
+                      />
                     </div>
                   </a>
                 </Link>
@@ -88,7 +92,7 @@ return (
           })}
         </ul>
         {props.blogs.length > 0 && (
-          <ul className="pager">
+          <ul className='pager'>
             <Pager
               pager={props.pager}
               currentPage={props.currentPage}
@@ -118,14 +122,20 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context: GetStaticPropsContext) {
-  const page: any = context.params?.id || '1';
+  const page: any = context.params?.id || "1";
   const tagId = context.params?.tagId;
 
-  const articleFilter = tagId !== undefined ? `tag[contains]${tagId}` : undefined;
+  const articleFilter =
+    tagId !== undefined ? `tag[contains]${tagId}` : undefined;
 
-  const { blogs, pager, categories, tags } = await getContents(page, articleFilter);
+  const { blogs, pager, categories, tags } = await getContents(
+    page,
+    articleFilter,
+  );
   const selectedTag =
-    tagId !== undefined ? tags.find((content) => content.id === tagId) : undefined;
+    tagId !== undefined
+      ? tags.find((content) => content.id === tagId)
+      : undefined;
 
   return {
     props: {

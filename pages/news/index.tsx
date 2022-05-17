@@ -1,11 +1,11 @@
-import { GetStaticPropsContext, NextPage } from 'next';
-import Link from 'next/link';
-import { BreadCrumb, Categories, Meta, Pager } from '@components';
-import { IBlog, ICategory, IPopularArticles } from '@/types';
-import { getContents } from '@blog';
-import styles from '@styles/components/Components.module.css';
-import SeoContent from '@components/SeoContent';
-import { useRouter } from 'next/router';
+import { GetStaticPropsContext, NextPage } from "next";
+import Link from "next/link";
+import { BreadCrumb, Categories, Meta, Pager } from "@components";
+import { IBlog, ICategory, IPopularArticles } from "@/types";
+import { getContents } from "@blog";
+import styles from "@styles/components/Components.module.css";
+import SeoContent from "@components/SeoContent";
+import { useRouter } from "next/router";
 
 type IndexProps = {
   currentPage: number;
@@ -65,7 +65,7 @@ const Index: NextPage<IndexProps> = (props) => {
 };
 
 export async function getStaticProps(context: GetStaticPropsContext) {
-  const page: any = context.params || '1';
+  const page: any = context.params || "1";
   const { blogs, pager, categories } = await getContents(page);
 
   return {

@@ -1,8 +1,4 @@
 {
-<<<<<<< HEAD
-    "nuxt.isNuxtApp": false
-}
-=======
   "files.exclude": {
     "**/node_modules": true
   },
@@ -16,4 +12,3 @@
     "files.trimTrailingWhitespace": false
   }
 }
->>>>>>> 6f1a04e0a88fd9299b0dc4b7f391e0397f0a6585

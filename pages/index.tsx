@@ -1,10 +1,10 @@
-import { NextPage } from 'next';
-import { Hero, Scene, Newsindex } from '@components';
+import { NextPage } from "next";
+import { Hero, Scene, Newsindex } from "@components";
 
-import ContactSection from '@components/ContactSection';
-import SeoContent from '@components/SeoContent';
-import { IBlog, ICategory, IPopularArticles } from '@/types';
-import { client } from 'framework/client';
+import ContactSection from "@components/ContactSection";
+import SeoContent from "@components/SeoContent";
+import { IBlog, ICategory, IPopularArticles } from "@/types";
+import { client } from "framework/client";
 
 interface caseItems {
   id?: string;
@@ -76,10 +76,10 @@ const Index: NextPage<IndexProps> = (props) => {
 
 export async function getStaticProps() {
   const blogData = await client.get({
-    endpoint: 'blog',
+    endpoint: "blog",
     queries: { limit: 5 },
   });
-  const categoryData = await client.get({ endpoint: 'categories' });
+  const categoryData = await client.get({ endpoint: "categories" });
 
   return {
     props: {

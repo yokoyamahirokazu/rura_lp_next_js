@@ -1,7 +1,7 @@
-import NextLink from 'next/link';
-import { ICategory, ITag } from '@/types';
-import styles from '@styles/components/Components.module.css';
-import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import NextLink from "next/link";
+import { ICategory, ITag } from "@/types";
+import styles from "@styles/components/Components.module.css";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 type PagerProps = {
   currentPage: number;
@@ -20,8 +20,8 @@ export const Pager: React.FC<PagerProps> = (props) => {
       return `/news/page/${pageNumber}`;
     }
   };
-  
-return (
+
+  return (
     <div>
       <ul className={styles.pager}>
         {props.currentPage > 1 && (
@@ -48,7 +48,7 @@ return (
                 <li
                   key={pageIndex}
                   className={`${styles.page} ${
-                    props.currentPage === page + 1 ? `${styles.active}` : ''
+                    props.currentPage === page + 1 ? `${styles.active}` : ""
                   }`}
                 >
                   <NextLink href={getPath(page + 1)}>
@@ -59,7 +59,9 @@ return (
             </>
           );
         })}
-        {props.currentPage + 3 < props.pager.length && <li className={styles.omission}>...</li>}
+        {props.currentPage + 3 < props.pager.length && (
+          <li className={styles.omission}>...</li>
+        )}
         {props.currentPage + 2 < props.pager.length && (
           <li className={styles.page}>
             <NextLink href={getPath(props.pager.length)}>

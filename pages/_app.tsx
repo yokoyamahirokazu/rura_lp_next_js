@@ -1,8 +1,8 @@
-import { AppProps } from 'next/app';
-import Head from 'next/head';
-import { QueryClient, QueryClientProvider } from 'react-query';
-import { Footer, Header } from '@components';
-import '../styles/globals.scss';
+import { AppProps } from "next/app";
+import Head from "next/head";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { Footer, Header } from "@components";
+import "../styles/globals.scss";
 
 const queryClient = new QueryClient();
 

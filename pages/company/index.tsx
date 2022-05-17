@@ -1,19 +1,19 @@
-import { NextPage } from 'next';
-import React from 'react';
-import styles from '@styles/components/Company.module.css';
-import ContactSection from '@components/ContactSection';
-import Image from 'next/image';
-import SeoContent from '@components/SeoContent';
+import { NextPage } from "next";
+import React from "react";
+import styles from "@styles/components/Company.module.css";
+import ContactSection from "@components/ContactSection";
+import Image from "next/image";
+import SeoContent from "@components/SeoContent";
 
 const Index: NextPage = () => {
   const companyOutline = [
-    { item: '会社名', content: 'タイムリープ株式会社' },
-    { item: '住所', content: '東京都千代田区岩本町1-9-1 アイアンビルヂング3F' },
-    { item: '電話番号', content: '03-5825-4576' },
-    { item: '会社設立', content: '2019年6月3日' },
-    { item: '資本金', content: '2億3,697万8千円（資本準備金含む）' },
-    { item: '代表取締役', content: '望月 亮輔' },
-    { item: '取締役', content: '小路 龍太郎' },
+    { item: "会社名", content: "タイムリープ株式会社" },
+    { item: "住所", content: "東京都千代田区岩本町1-9-1 アイアンビルヂング3F" },
+    { item: "電話番号", content: "03-5825-4576" },
+    { item: "会社設立", content: "2019年6月3日" },
+    { item: "資本金", content: "2億3,697万8千円（資本準備金含む）" },
+    { item: "代表取締役", content: "望月 亮輔" },
+    { item: "取締役", content: "小路 龍太郎" },
   ];
 
   return (
@@ -28,8 +28,8 @@ const Index: NextPage = () => {
             <Image
               src='/images/timeleap_logo.svg'
               alt='タイムリープ株式会社'
-              layout={'fill'}
-              objectFit={'contain'}
+              layout={"fill"}
+              objectFit={"contain"}
             />
           </div>
         </section>
@@ -68,7 +68,7 @@ const Index: NextPage = () => {
             </div>
           </div>
         </section>
-      </div>{' '}
+      </div>{" "}
       <ContactSection downloadId='companyD' contactId='companyC' />
     </>
   );

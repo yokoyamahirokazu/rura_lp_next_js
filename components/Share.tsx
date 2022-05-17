@@ -1,9 +1,9 @@
-import { config } from '../site.config';
-import styles from '@styles/components/Components.module.css';
-import { SiTwitter, SiFacebook, SiLine } from 'react-icons/si';
-import { IoCopyOutline } from 'react-icons/io5';
-import React from 'react';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { config } from "../site.config";
+import styles from "@styles/components/Components.module.css";
+import { SiTwitter, SiFacebook, SiLine } from "react-icons/si";
+import { IoCopyOutline } from "react-icons/io5";
+import React from "react";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 type ShareProps = {
   id: string;
@@ -12,7 +12,7 @@ type ShareProps = {
 };
 
 export const Share: React.FC<ShareProps> = (props) => {
-  const updateText = config.baseUrl + '/news/' + props.id;
+  const updateText = config.baseUrl + "/news/" + props.id;
 
   const twitterLink = `https://twitter.com/intent/tweet?text=${props.title}&url=${config.baseUrl}/news/${props.id}/${props.tagData}`;
   const facebookLink = `https://www.facebook.com/sharer.php?u=${config.baseUrl}/news/${props.id}/`;

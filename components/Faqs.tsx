@@ -1,4 +1,4 @@
-import styles from '@styles/components/Components.module.css';
+import styles from "@styles/components/Components.module.css";
 
 interface Article {
   id?: string;

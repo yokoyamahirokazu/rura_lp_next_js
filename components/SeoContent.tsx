@@ -1,5 +1,5 @@
-import Head from 'next/head';
-import { config } from '@site.config';
+import Head from "next/head";
+import { config } from "@site.config";
 
 interface Props {
   pageTitle?: string;
@@ -17,9 +17,9 @@ const SeoContent = ({
   noIndex,
 }: Props) => {
   const defaultTitle =
-    '遠隔接客サービス RURA｜まるで瞬間移動。 高スキルのスタッフを全国に０秒派遣。 お店の無人化や人材不足に効果を発揮。';
+    "遠隔接客サービス RURA｜まるで瞬間移動。 高スキルのスタッフを全国に０秒派遣。 お店の無人化や人材不足に効果を発揮。";
   const defaultDescription =
-    '時給450円から店舗スタッフを採用可能遠隔接客サービス RURA※特許出願中。RURAはロボットやバーチャルキャラクター越しに接客を行なうシステムで、全国各地にいるRURAワーカーが、WEB経由で店舗の接客。一人のスタッフが複数店舗をまたいで接客が可能';
+    "時給450円から店舗スタッフを採用可能遠隔接客サービス RURA※特許出願中。RURAはロボットやバーチャルキャラクター越しに接客を行なうシステムで、全国各地にいるRURAワーカーが、WEB経由で店舗の接客。一人のスタッフが複数店舗をまたいで接客が可能";
   const defaultPageUrl = config.baseUrl;
   const defaultOgpImg = `${config.baseUrl}/images/og_image.jpg`;
 

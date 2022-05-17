@@ -1,6 +1,6 @@
-import NextLink from 'next/link';
-import { ICategory, ITag } from '@/types';
-import { formatDate } from '@utils';
+import NextLink from "next/link";
+import { ICategory, ITag } from "@/types";
+import { formatDate } from "@utils";
 
 type MetaProps = {
   category?: ICategory;
@@ -22,8 +22,8 @@ export const Meta: React.FC<MetaProps> = (props) => {
             <span className='category'>{props.category.name}</span>
           ))}
         <span className='timestamp'>
-          <time dateTime={formatDate(props.createdAt ?? '', 'YYYY-MM-DD')}>
-            {formatDate(props.createdAt ?? '', 'YYYY.MM.DD')}
+          <time dateTime={formatDate(props.createdAt ?? "", "YYYY-MM-DD")}>
+            {formatDate(props.createdAt ?? "", "YYYY.MM.DD")}
           </time>
         </span>
       </div>
