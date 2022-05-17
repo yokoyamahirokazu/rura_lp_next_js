@@ -1,22 +1,10 @@
 import { NextPage } from 'next';
-import {
-  Hero,
-  Case,
-  Recommend,
-  Faqs,
-  Handbook,
-  Service,
-  Scene,
-  Design,
-  Features,
-  Newsindex,
-} from '@components';
+import { Hero, Scene, Newsindex } from '@components';
 
 import ContactSection from '@components/ContactSection';
 import SeoContent from '@components/SeoContent';
 import { IBlog, ICategory, IPopularArticles } from '@/types';
 import { client } from 'framework/client';
-import { config } from '@site.config';
 
 interface caseItems {
   id?: string;
@@ -79,31 +67,14 @@ const Index: NextPage<IndexProps> = (props) => {
     <>
       <SeoContent />
       <Hero />
-      <Case articles={props.caseItem} />
-      <Service />
-      <ContactSection downloadId="indexD1" contactId="indexC1" />
-      <Scene />
-      <Design />
-      <ContactSection downloadId="indexD2" contactId="indexC2" />
-      <Recommend articles={props.recommendItem} />
-      <Features />
-      <ContactSection downloadId="indexD3" contactId="indexC3" />
       <Newsindex articles={props.blogItem} />
-      <Handbook articles={props.handbookItem} />
-      <Faqs articles={props.faqItem} />
-      <ContactSection downloadId="indexD4" contactId="indexC4" />
+      <ContactSection downloadId='indexD1' contactId='indexC1' />
+      <Scene />
     </>
   );
 };
 
 export async function getStaticProps() {
-  const caseData = await client.get({ endpoint: 'case' });
-  const recommendData = await client.get({ endpoint: 'recommend' });
-  const faqData = await client.get({ endpoint: 'faq' });
-  const handbookData = await client.get({
-    endpoint: 'whitepaper',
-    queries: { limit: config.defaultMaxLimit },
-  });
   const blogData = await client.get({
     endpoint: 'blog',
     queries: { limit: 5 },
@@ -113,10 +84,6 @@ export async function getStaticProps() {
   return {
     props: {
       blogItem: blogData.contents,
-      caseItem: caseData.contents,
-      recommendItem: recommendData.contents,
-      faqItem: faqData.contents,
-      handbookItem: handbookData.contents,
       cateoryItem: categoryData.contents,
     },
   };

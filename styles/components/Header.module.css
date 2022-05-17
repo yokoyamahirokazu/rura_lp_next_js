@@ -114,6 +114,7 @@ nav.header_nav ul li a:hover::before {
   height: 30px;
 }
 
+<<<<<<< HEAD
 .drawerLogo {
   width: 120px;
   height: 30px;
@@ -126,6 +127,8 @@ nav.header_nav ul li a:hover::before {
   height: auto;
 }
 
+=======
+>>>>>>> 6f1a04e0a88fd9299b0dc4b7f391e0397f0a6585
 @media screen and (max-width: 1160px) {
   .drawerBtn {
     position: absolute;

@@ -2,9 +2,8 @@ import { GetStaticPropsContext, NextPage } from 'next';
 import { useRouter } from 'next/dist/client/router';
 import { BreadCrumb } from '@components/BreadCrumb';
 import { Latest } from '@components/Latest';
-import { Loader } from '@components/Loader';
 import { Meta } from '@components/Meta';
-import { Share } from '@components';
+import { Share, Loader } from '@components';
 import { IBlog, ITag, ICategory } from '@/types/interface';
 import { convertToHtml } from '@scripts';
 import { getAllBlogs, getBlogById, getContents } from '@blog';
@@ -53,23 +52,23 @@ const Detail: NextPage<DetailProps> = (props) => {
           <div className={styles.postOgpImage}>
             <picture>
               <source
-                media="(min-width: 1160px)"
-                type="image/webp"
+                media='(min-width: 1160px)'
+                type='image/webp'
                 srcSet={`${props.blog.ogimage.url}?w=820&fm=webp, ${props.blog.ogimage.url}?w=1640&fm=webp 2x`}
               />
               <source
-                media="(min-width: 820px)"
-                type="image/webp"
+                media='(min-width: 820px)'
+                type='image/webp'
                 srcSet={`${props.blog.ogimage.url}?w=740&fm=webp, ${props.blog.ogimage.url}?w=1480&fm=webp 2x`}
               />
               <source
-                media="(min-width: 768px)"
-                type="image/webp"
+                media='(min-width: 768px)'
+                type='image/webp'
                 srcSet={`${props.blog.ogimage.url}?w=728&fm=webp, ${props.blog.ogimage.url}?w=1456&fm=webp 2x`}
               />
               <source
-                media="(min-width: 768px)"
-                type="image/webp"
+                media='(min-width: 768px)'
+                type='image/webp'
                 srcSet={`${props.blog.ogimage.url}?w=375&fm=webp, ${props.blog.ogimage.url}?w=750&fm=webp 2x`}
               />
               <Image
@@ -88,13 +87,16 @@ const Detail: NextPage<DetailProps> = (props) => {
             <Share id={props.blog.id} title={props.blog.title} tagData={tagData && tagData} />
           </div>
 
-          <div className={styles.postBody} dangerouslySetInnerHTML={{ __html: props.body }}></div>
+          <div
+            className={styles.postBody}
+            dangerouslySetInnerHTML={{ __html: props.body }}
+          ></div>
 
           <div className={styles.postContactBox}>
             <div className={styles.postContactBoxLogo}>
               <div className={styles.postContactBoxLogoImg}>
                 <Image
-                  src="/images/rura_logo_blue.svg"
+                  src='/images/rura_logo_blue.svg'
                   alt={props.blog.title}
                   layout={'fill'}
                   objectFit={'contain'}
@@ -104,21 +106,21 @@ const Detail: NextPage<DetailProps> = (props) => {
             </div>
             <div className={styles.contactSectionLogoBtn}>
               <Button
-                bgColor="primary"
-                size="large"
-                types="link"
-                href="/download/"
-                icon="download"
+                bgColor='primary'
+                size='large'
+                types='link'
+                href='/download/'
+                icon='download'
                 id={`${props.blog.id}D`}
               >
                 資料ダウンロード
               </Button>
               <Button
-                bgColor="secondary"
-                size="large"
-                types="link"
-                href="/contact"
-                icon="contact"
+                bgColor='secondary'
+                size='large'
+                types='link'
+                href='/contact'
+                icon='contact'
                 id={`${props.blog.id}C`}
               >
                 お問い合わせ
@@ -126,7 +128,11 @@ const Detail: NextPage<DetailProps> = (props) => {
             </div>
           </div>
           <Tags tags={props.blog.tag} />
-          <Share id={props.blog.id} title={props.blog.title} tagData={tagData && tagData} />
+          <Share
+            id={props.blog.id}
+            title={props.blog.title}
+            tagData={tagData && tagData}
+          />
         </div>
         <div className={styles.nextPreviewWrapper}>
           <div className={styles.nextPreview}>
@@ -134,7 +140,10 @@ const Detail: NextPage<DetailProps> = (props) => {
               {(() => {
                 if (props.nextEntry.id) {
                   return (
-                    <a className={styles.prev} href={`/news/${props.nextEntry.id}`}>
+                    <a
+                      className={styles.prev}
+                      href={`/news/${props.nextEntry.id}`}
+                    >
                       {props.nextEntry.title}
                       <IoIosArrowBack />
                     </a>
@@ -146,7 +155,10 @@ const Detail: NextPage<DetailProps> = (props) => {
               {(() => {
                 if (props.prevEntry.id) {
                   return (
-                    <a className={styles.next} href={`/news/${props.prevEntry.id}`}>
+                    <a
+                      className={styles.next}
+                      href={`/news/${props.prevEntry.id}`}
+                    >
                       {props.prevEntry.title}
                       <IoIosArrowForward />
                     </a>
@@ -157,10 +169,20 @@ const Detail: NextPage<DetailProps> = (props) => {
           </div>
         </div>
         <div className={styles.categoryLinkBtnBox}>
-          <Button bgColor="normal" size="normal" types="link" href={cotegoryLink}>
+          <Button
+            bgColor='normal'
+            size='normal'
+            types='link'
+            href={cotegoryLink}
+          >
             {cotegoryLinkName}
           </Button>
-          <Button bgColor="normal" size="normal" types="link" href="/news/page/1">
+          <Button
+            bgColor='normal'
+            size='normal'
+            types='link'
+            href='/news/page/1'
+          >
             全ての記事を見る
           </Button>
         </div>
@@ -175,6 +197,7 @@ export async function getStaticPaths() {
   const ids = blogs.contents.map((blog) => {
     return { params: { blogId: blog.id } };
   });
+
   return {
     paths: ids,
     fallback: true,
