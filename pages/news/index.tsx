@@ -1,6 +1,6 @@
 import { GetStaticPropsContext, NextPage } from 'next';
 import Link from 'next/link';
-import { BreadCrumb, Categories, Meta, Pager, Search } from '@components';
+import { BreadCrumb, Categories, Meta, Pager } from '@components';
 import { IBlog, ICategory, IPopularArticles } from '@/types';
 import { getContents } from '@blog';
 import styles from '@styles/components/Components.module.css';
@@ -31,7 +31,6 @@ const Index: NextPage<IndexProps> = (props) => {
             <h1 className={styles.headline}>新着情報</h1>
           </div>
           <Categories categories={props.categories} />
-          <Search />
         </div>
       </div>
       <div className={styles.newsListContent}>
