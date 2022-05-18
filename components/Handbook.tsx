@@ -1,7 +1,7 @@
-import styles from '@styles/components/Components.module.css';
-import Image from 'next/image';
-import Link from 'next/link';
-import Button from '@components/Button';
+import styles from "@styles/components/Components.module.css";
+import Image from "next/image";
+import Link from "next/link";
+import Button from "@components/Button";
 
 interface Article {
   id?: string;
@@ -26,7 +26,7 @@ export const Handbook: React.FC<CaesProps> = (props) => {
   });
 
   return (
-    <section className={styles.slantBg} id="handbook">
+    <section className={styles.slantBg} id='handbook'>
       <div className={styles.slantBg_inner}>
         <div className={styles.headline_box_center}>
           <h2 className={styles.headline}>
@@ -41,25 +41,30 @@ export const Handbook: React.FC<CaesProps> = (props) => {
                 {(() => {
                   if (!handbook.smallBannerImg) {
                     return (
-                      <Link href="/download/[id]" as={`/download/${handbook.id}`}>
+                      <Link
+                        href='/download/[id]'
+                        as={`/download/${handbook.id}`}
+                      >
                         <a className={styles.handbookLink}>
-                          <div className={`${styles.boxShadowA} ${styles.boxRound}`}>
+                          <div
+                            className={`${styles.boxShadowA} ${styles.boxRound}`}
+                          >
                             <div className={styles.boxRound_inner}>
                               <div className={styles.imageBoxB}>
                                 <Image
                                   src={handbook.img && handbook.img.url}
                                   alt={handbook.title && handbook.title}
-                                  layout={'fill'}
-                                  objectFit={'contain'}
+                                  layout={"fill"}
+                                  objectFit={"contain"}
                                 />
                               </div>
                             </div>
                             <div className={styles.handbookLinkHover}>
                               <Button
-                                bgColor="secondary"
-                                size="normal"
-                                types="link"
-                                href="/download/[id]"
+                                bgColor='secondary'
+                                size='normal'
+                                types='link'
+                                href='/download/[id]'
                                 as={`/download/${handbook.id}`}
                               >
                                 ダウンロードへ進む
@@ -85,18 +90,26 @@ export const Handbook: React.FC<CaesProps> = (props) => {
                 {(() => {
                   if (handbook.smallBannerImg) {
                     return (
-                      <Link href="/download/[id]" as={`/download/${handbook.id}`}>
+                      <Link
+                        href='/download/[id]'
+                        as={`/download/${handbook.id}`}
+                      >
                         <a className={styles.handbookLink}>
-                          <div className={`${styles.boxShadowA} ${styles.boxRound}`}>
+                          <div
+                            className={`${styles.boxShadowA} ${styles.boxRound}`}
+                          >
                             <div className={styles.boxRound_inner}>
                               <div className={styles.handbookSmallLink}>
                                 <div className={styles.handbookSmallImg}>
                                   <div className={styles.imageBoxSquare}>
                                     <Image
-                                      src={handbook.smallBannerImg && handbook.smallBannerImg.url}
+                                      src={
+                                        handbook.smallBannerImg &&
+                                        handbook.smallBannerImg.url
+                                      }
                                       alt={handbook.title && handbook.title}
-                                      layout={'fill'}
-                                      objectFit={'cover'}
+                                      layout={"fill"}
+                                      objectFit={"cover"}
                                     />
                                   </div>
                                 </div>
@@ -112,10 +125,10 @@ export const Handbook: React.FC<CaesProps> = (props) => {
                             </div>
                             <div className={styles.handbookLinkHover}>
                               <Button
-                                bgColor="secondary"
-                                size="normal"
-                                types="link"
-                                href="/download/[id]"
+                                bgColor='secondary'
+                                size='normal'
+                                types='link'
+                                href='/download/[id]'
                                 as={`/download/${handbook.id}`}
                               >
                                 ダウンロードへ進む

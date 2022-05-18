@@ -1,11 +1,11 @@
-import { GetStaticPropsContext, NextPage } from 'next';
-import Link from 'next/link';
-import { BreadCrumb, Categories, Meta, Pager } from '@components';
-import { IBlog, ICategory, IPopularArticles } from '@/types';
-import { getContents } from '@blog';
-import styles from '@styles/components/Components.module.css';
-import SeoContent from '@components/SeoContent';
-import { useRouter } from 'next/router';
+import { GetStaticPropsContext, NextPage } from "next";
+import Link from "next/link";
+import { BreadCrumb, Categories, Meta, Pager } from "@components";
+import { IBlog, ICategory, IPopularArticles } from "@/types";
+import { getContents } from "@blog";
+import styles from "@styles/components/Components.module.css";
+import SeoContent from "@components/SeoContent";
+import { useRouter } from "next/router";
 
 type IndexProps = {
   currentPage: number;
@@ -20,8 +20,8 @@ const Index: NextPage<IndexProps> = (props) => {
   return (
     <>
       <SeoContent
-        pageTitle="新着情報"
-        pageDescription="遠隔接客サービスの新着情報をお届けします。"
+        pageTitle='新着情報'
+        pageDescription='遠隔接客サービスの新着情報をお届けします。'
         pageUrl={router.asPath}
       />
       <BreadCrumb />
@@ -39,10 +39,14 @@ const Index: NextPage<IndexProps> = (props) => {
           {props.blogs.map((blog) => {
             return (
               <li key={blog.id}>
-                <Link href="/news/[blogId]" as={`/news/${blog.id}`}>
+                <Link href='/news/[blogId]' as={`/news/${blog.id}`}>
                   <a>
                     <h3>{blog.title}</h3>
-                    <Meta createdAt={blog.createdAt} category={blog.category} tags={blog.tag} />
+                    <Meta
+                      createdAt={blog.createdAt}
+                      category={blog.category}
+                      tags={blog.tag}
+                    />
                   </a>
                 </Link>
               </li>
@@ -50,7 +54,7 @@ const Index: NextPage<IndexProps> = (props) => {
           })}
         </ul>
         {props.blogs.length > 0 && (
-          <ul className="pager">
+          <ul className='pager'>
             <Pager pager={props.pager} currentPage={props.currentPage} />
           </ul>
         )}
@@ -60,8 +64,9 @@ const Index: NextPage<IndexProps> = (props) => {
 };
 
 export async function getStaticProps(context: GetStaticPropsContext) {
-  const page: any = context.params || '1';
+  const page: any = context.params || "1";
   const { blogs, pager, categories } = await getContents(page);
+
   return {
     props: {
       currentPage: parseInt(page),

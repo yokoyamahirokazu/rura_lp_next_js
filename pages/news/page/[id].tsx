@@ -1,13 +1,13 @@
-import { GetStaticPropsContext, NextPage } from 'next';
-import { useRouter } from 'next/dist/client/router';
-import Link from 'next/link';
-import { BreadCrumb, Categories, Loader, Meta, Pager } from '@components';
-import { IBanner, IBlog, ICategory, IPopularArticles, ITag } from '@/types';
-import { getBlogsByFilter, getContents } from '@blog';
-import styles from '@styles/components/Components.module.css';
-import ContactSection from '@components/ContactSection';
+import { GetStaticPropsContext, NextPage } from "next";
+import { useRouter } from "next/dist/client/router";
+import Link from "next/link";
+import { BreadCrumb, Categories, Loader, Meta, Pager } from "@components";
+import { IBanner, IBlog, ICategory, IPopularArticles, ITag } from "@/types";
+import { getBlogsByFilter, getContents } from "@blog";
+import styles from "@styles/components/Components.module.css";
+import ContactSection from "@components/ContactSection";
 
-import SeoContent from '@components/SeoContent';
+import SeoContent from "@components/SeoContent";
 type PageProps = {
   currentPage: number;
   blogs: IBlog[];
@@ -27,8 +27,8 @@ const Page: NextPage<PageProps> = (props) => {
   return (
     <>
       <SeoContent
-        pageTitle="新着情報"
-        pageDescription="遠隔接客サービスの新着情報をお届けします。"
+        pageTitle='新着情報'
+        pageDescription='遠隔接客サービスの新着情報をお届けします。'
         pageUrl={router.asPath}
       />
       <BreadCrumb />
@@ -46,10 +46,14 @@ const Page: NextPage<PageProps> = (props) => {
           {props.blogs.map((blog) => {
             return (
               <li key={blog.id}>
-                <Link href="/news/[blogId]" as={`/news/${blog.id}`}>
+                <Link href='/news/[blogId]' as={`/news/${blog.id}`}>
                   <a>
                     <h3>{blog.title}</h3>
-                    <Meta createdAt={blog.postDate} category={blog.category} tags={blog.tag} />
+                    <Meta
+                      createdAt={blog.postDate}
+                      category={blog.category}
+                      tags={blog.tag}
+                    />
                   </a>
                 </Link>
               </li>
@@ -57,12 +61,12 @@ const Page: NextPage<PageProps> = (props) => {
           })}
         </ul>
         {props.blogs.length > 0 && (
-          <ul className="pager">
+          <ul className='pager'>
             <Pager pager={props.pager} currentPage={props.currentPage} />
           </ul>
         )}
       </div>
-      <ContactSection downloadId="newsD" contactId="newsC" />
+      <ContactSection downloadId='newsD' contactId='newsC' />
     </>
   );
 };
@@ -73,6 +77,7 @@ export async function getStaticPaths() {
   const paths = pager.map((page) => {
     return { params: { id: (page + 1).toString() } };
   });
+
   return {
     paths: paths,
     fallback: true,
@@ -80,8 +85,9 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context: GetStaticPropsContext) {
-  const page: any = context.params?.id || '1';
+  const page: any = context.params?.id || "1";
   const { blogs, pager, categories, tags } = await getContents(page);
+
   return {
     props: {
       currentPage: parseInt(page),

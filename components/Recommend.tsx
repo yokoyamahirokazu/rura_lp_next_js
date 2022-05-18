@@ -1,9 +1,9 @@
-import styles from '@styles/components/Components.module.css';
-import Image from 'next/image';
-import Slick from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
+import styles from "@styles/components/Components.module.css";
+import Image from "next/image";
+import Slick from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 interface Article {
   id?: string;
@@ -43,6 +43,7 @@ export const Recommend: React.FC<CaesProps> = (props) => {
       },
     ],
   };
+
   return (
     <section>
       <div className={styles.section_inner}>
@@ -60,13 +61,15 @@ export const Recommend: React.FC<CaesProps> = (props) => {
                         <Image
                           src={recommend.img && recommend.img.url}
                           alt={recommend.name && recommend.name}
-                          layout={'fill'}
-                          objectFit={'cover'}
+                          layout={"fill"}
+                          objectFit={"cover"}
                         />
                       </div>
                     </div>
                     <div className={styles.recommendContentsTxt}>
-                      <h3 className={styles.headlineMed}>{recommend.body && recommend.body}</h3>
+                      <h3 className={styles.headlineMed}>
+                        {recommend.body && recommend.body}
+                      </h3>
                       <p>
                         <small>
                           {recommend.company && recommend.company}
