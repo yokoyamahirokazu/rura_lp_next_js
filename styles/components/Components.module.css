@@ -172,7 +172,7 @@
 }
 
 .slantBg::before {
-  content: ' ';
+  content: " ";
   position: absolute;
   top: 8vw;
   bottom: 10vw;
@@ -303,7 +303,7 @@
 .imageBoxA::before {
   padding: 50% 0 0 0;
   display: block;
-  content: ' ';
+  content: " ";
 }
 .imageBoxB {
   width: 100%;
@@ -313,7 +313,7 @@
 .imageBoxB::before {
   padding: 62.5% 0 0 0;
   display: block;
-  content: ' ';
+  content: " ";
 }
 .imageBoxC {
   width: 100%;
@@ -323,7 +323,7 @@
 .imageBoxC::before {
   padding: 75% 0 0 0;
   display: block;
-  content: ' ';
+  content: " ";
 }
 .imageBoxD {
   width: 100%;
@@ -333,7 +333,7 @@
 .imageBoxD::before {
   padding: 141% 0 0 0;
   display: block;
-  content: ' ';
+  content: " ";
 }
 .imageCircle {
   width: 100%;
@@ -345,7 +345,7 @@
 .imageCircle::before {
   padding: 100% 0 0 0;
   display: block;
-  content: ' ';
+  content: " ";
 }
 
 .imageBoxSquare {
@@ -357,7 +357,7 @@
 .imageBoxSquare::before {
   padding: 100% 0 0 0;
   display: block;
-  content: ' ';
+  content: " ";
 }
 
 .txtBoxA {
@@ -616,7 +616,7 @@
 .caseContentsImg::before {
   padding: 75% 0 0 0;
   display: block;
-  content: ' ';
+  content: " ";
 }
 
 .caseContentsImg_inner {
@@ -663,7 +663,7 @@
 }
 .caseContentsLogoImg::before {
   padding: 75% 0 0 0;
-  content: ' ';
+  content: " ";
   display: block;
 }
 
@@ -705,7 +705,7 @@
   .caseContentsImg::before {
     padding: 62.5% 0 0 0;
     display: block;
-    content: ' ';
+    content: " ";
   }
 
   .caseContentsImg_inner {
@@ -857,7 +857,7 @@
   right: 0;
   background-color: var(--bg-overlay);
   mix-blend-mode: multiply;
-  content: ' ';
+  content: " ";
 }
 
 .contactSection_inner {
@@ -886,7 +886,7 @@
   top: 0;
   bottom: 0;
   right: 0;
-  content: ' ';
+  content: " ";
   box-shadow: inset 0px 4px 30px rgba(0, 35, 51, 0.2);
   z-index: 3;
 }
@@ -1139,7 +1139,7 @@ ul.newsImages li a {
 }
 .newsImagesBox::before {
   padding: 50% 0 0 0;
-  content: ' ';
+  content: " ";
   display: block;
 }
 
@@ -1270,7 +1270,7 @@ ul.newsImages li a {
   left: 0;
   top: 50%;
   transform: translate(0, -50%);
-  content: ' ';
+  content: " ";
   width: 3rem;
   height: 3rem;
   box-sizing: border-box;

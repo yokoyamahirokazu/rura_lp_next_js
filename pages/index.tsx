@@ -1,4 +1,4 @@
-import { NextPage } from 'next';
+import { NextPage } from "next";
 import {
   Hero,
   Case,
@@ -10,13 +10,13 @@ import {
   Design,
   Features,
   Newsindex,
-} from '@components';
+} from "@components";
 
-import ContactSection from '@components/ContactSection';
-import SeoContent from '@components/SeoContent';
-import { IBlog, ICategory, IPopularArticles } from '@/types';
-import { client } from 'framework/client';
-import { config } from '@site.config';
+import ContactSection from "@components/ContactSection";
+import SeoContent from "@components/SeoContent";
+import { IBlog, ICategory, IPopularArticles } from "@/types";
+import { client } from "framework/client";
+import { config } from "@site.config";
 
 interface caseItems {
   id?: string;
@@ -81,34 +81,34 @@ const Index: NextPage<IndexProps> = (props) => {
       <Hero />
       <Case articles={props.caseItem} />
       <Service />
-      <ContactSection downloadId="indexD1" contactId="indexC1" />
+      <ContactSection downloadId='indexD1' contactId='indexC1' />
       <Scene />
       <Design />
-      <ContactSection downloadId="indexD2" contactId="indexC2" />
+      <ContactSection downloadId='indexD2' contactId='indexC2' />
       <Recommend articles={props.recommendItem} />
       <Features />
-      <ContactSection downloadId="indexD3" contactId="indexC3" />
+      <ContactSection downloadId='indexD3' contactId='indexC3' />
       <Newsindex articles={props.blogItem} />
       <Handbook articles={props.handbookItem} />
       <Faqs articles={props.faqItem} />
-      <ContactSection downloadId="indexD4" contactId="indexC4" />
+      <ContactSection downloadId='indexD4' contactId='indexC4' />
     </>
   );
 };
 
 export async function getStaticProps() {
-  const caseData = await client.get({ endpoint: 'case' });
-  const recommendData = await client.get({ endpoint: 'recommend' });
-  const faqData = await client.get({ endpoint: 'faq' });
+  const caseData = await client.get({ endpoint: "case" });
+  const recommendData = await client.get({ endpoint: "recommend" });
+  const faqData = await client.get({ endpoint: "faq" });
   const handbookData = await client.get({
-    endpoint: 'whitepaper',
+    endpoint: "whitepaper",
     queries: { limit: config.defaultMaxLimit },
   });
   const blogData = await client.get({
-    endpoint: 'blog',
+    endpoint: "blog",
     queries: { limit: 5 },
   });
-  const categoryData = await client.get({ endpoint: 'categories' });
+  const categoryData = await client.get({ endpoint: "categories" });
 
   return {
     props: {

@@ -3,7 +3,7 @@ import {
   MicroCMSListResponse,
   MicroCMSObjectContent,
   MicroCMSQueries,
-} from 'microcms-js-sdk';
+} from "microcms-js-sdk";
 
 export type Queries = MicroCMSQueries;
 
