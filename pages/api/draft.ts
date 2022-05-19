@@ -1,10 +1,9 @@
-import axios from "axios";
-import { NextApiRequest, NextApiResponse } from "next";
-import { config } from "../../site.config";
-import { IBlog } from "@/types";
-import { convertToToc, convertToHtml } from "@scripts";
+import axios from 'axios';
+import { NextApiRequest, NextApiResponse } from 'next';
+import { config } from '../../site.config';
+import { IBlog } from '@/types';
+import { convertToToc, convertToHtml } from '@scripts';
 
-// eslint-disable-next-line import/no-anonymous-default-export
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const id = req.query.id;
   const draftKey = req.query.draftKey;
@@ -17,7 +16,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     .get<IBlog>(
       `https://${config.serviceId}.microcms.io/api/v1/blog/${id}?draftKey=${draftKey}&depth=2`,
       {
-        headers: { "X-API-KEY": config.apiKey },
+        headers: { 'X-API-KEY': config.apiKey },
       },
     )
     .then(({ data }) => {

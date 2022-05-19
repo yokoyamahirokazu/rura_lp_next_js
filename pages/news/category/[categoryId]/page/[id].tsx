@@ -1,13 +1,13 @@
-import { GetStaticPropsContext, NextPage } from "next";
-import { useRouter } from "next/dist/client/router";
-import Link from "next/link";
-import { BreadCrumb, Categories, Loader, Meta, Pager } from "@components";
-import { IBanner, IBlog, ICategory, IPopularArticles } from "@/types";
-import { getContents } from "@blog";
-import styles from "@styles/components/Components.module.css";
-import Image from "next/image";
-import SeoContent from "@components/SeoContent";
-import ContactSection from "@components/ContactSection";
+import { GetStaticPropsContext, NextPage } from 'next';
+import { useRouter } from 'next/dist/client/router';
+import Link from 'next/link';
+import { BreadCrumb, Categories, Loader, Meta, Pager } from '@components';
+import { IBanner, IBlog, ICategory, IPopularArticles } from '@/types';
+import { getContents } from '@blog';
+import styles from '@styles/components/Components.module.css';
+import Image from 'next/image';
+import SeoContent from '@components/SeoContent';
+import ContactSection from '@components/ContactSection';
 
 type PageProps = {
   currentPage: number;
@@ -24,7 +24,6 @@ const Page: NextPage<PageProps> = (props) => {
   if (router.isFallback) {
     return <Loader />;
   }
-
   return (
     <>
       <SeoContent
@@ -49,13 +48,13 @@ const Page: NextPage<PageProps> = (props) => {
         )}
 
         {(() => {
-          if (props.selectedCategory.id == "corporate") {
+          if (props.selectedCategory.id == 'corporate') {
             return (
               <ul className={styles.news}>
                 {props.blogs.map((blog) => {
                   return (
                     <li key={blog.id}>
-                      <Link href='/news/[blogId]' as={`/news/${blog.id}`}>
+                      <Link href="/news/[blogId]" as={`/news/${blog.id}`}>
                         <a>
                           <h3>{blog.title}</h3>
                           <Meta
@@ -76,24 +75,24 @@ const Page: NextPage<PageProps> = (props) => {
                 {props.blogs.map((blog) => {
                   return (
                     <li key={blog.id}>
-                      <Link href='/news/[blogId]' as={`/news/${blog.id}`}>
+                      <Link href="/news/[blogId]" as={`/news/${blog.id}`}>
                         <a>
                           {blog.ogimage ? (
                             <div className={styles.newsImagesBox}>
                               <Image
                                 src={`${blog.ogimage.url}?w=670`}
                                 alt={blog.title}
-                                layout={"fill"}
-                                objectFit={"cover"}
+                                layout={'fill'}
+                                objectFit={'cover'}
                               />
                             </div>
                           ) : (
                             <div className={styles.newsImagesBox}>
                               <Image
-                                src='/images/noimage.png'
+                                src="/images/noimage.png"
                                 alt={blog.title}
-                                layout={"fill"}
-                                objectFit={"cover"}
+                                layout={'fill'}
+                                objectFit={'cover'}
                               />
                             </div>
                           )}
@@ -117,7 +116,7 @@ const Page: NextPage<PageProps> = (props) => {
         })()}
 
         {props.blogs.length > 0 && (
-          <ul className='pager'>
+          <ul className="pager">
             <Pager
               pager={props.pager}
               currentPage={props.currentPage}
@@ -142,15 +141,12 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context: GetStaticPropsContext) {
-  const page: any = context.params?.id || "1";
+  const page: any = context.params?.id || '1';
   const categoryId = context.params?.categoryId;
-  const articleFilter =
-    categoryId !== undefined ? `category[equals]${categoryId}` : undefined;
+  const articleFilter = categoryId !== undefined ? `category[equals]${categoryId}` : undefined;
   const { blogs, pager, categories } = await getContents(page, articleFilter);
   const selectedCategory =
-    categoryId !== undefined
-      ? categories.find((content) => content.id === categoryId)
-      : undefined;
+    categoryId !== undefined ? categories.find((content) => content.id === categoryId) : undefined;
 
   return {
     props: {
