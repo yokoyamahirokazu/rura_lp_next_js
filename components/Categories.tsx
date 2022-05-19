@@ -1,6 +1,6 @@
-import { ICategory } from "@/types";
-import styles from "@styles/components/Components.module.css";
-import Button from "@components/Button";
+import { ICategory } from '@/types';
+import styles from '@styles/components/Components.module.css';
+import Button from '@components/Button';
 
 type CategoriesProps = {
   categories: ICategory[];
@@ -15,10 +15,10 @@ export const Categories: React.FC<CategoriesProps> = (props) => {
           return (
             <li key={category.id}>
               <Button
-                bgColor='normal'
-                size='normal'
-                types='link'
-                href='/news/category/[categoryId]/page/[id]'
+                bgColor="normal"
+                size="normal"
+                types="link"
+                href="/news/category/[categoryId]/page/[id]"
                 as={`/news/category/${category.id}/page/1`}
               >
                 {category.name}
@@ -27,12 +27,7 @@ export const Categories: React.FC<CategoriesProps> = (props) => {
           );
         })}
         <li>
-          <Button
-            bgColor='normal'
-            size='normal'
-            types='link'
-            href='/news/page/1'
-          >
+          <Button bgColor="normal" size="normal" types="link" href="/news/page/1">
             全ての記事
           </Button>
         </li>

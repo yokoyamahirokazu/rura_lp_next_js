@@ -84,7 +84,7 @@ const Detail: NextPage<DetailProps> = (props) => {
         <div className={styles.postContent}>
           <h1 className={styles.title}>{props.blog.title}</h1>
           <div className={styles.postMetaFlex}>
-            <Meta category={props.blog.category} createdAt={props.blog.postDate} isDetail={true} />
+            <Meta category={props.blog.category} createdAt={props.blog.createdAt} isDetail={true} />
             <Share id={props.blog.id} title={props.blog.title} tagData={tagData && tagData} />
           </div>
 

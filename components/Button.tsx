@@ -1,6 +1,6 @@
-import Link from "next/link";
-import styles from "@styles/components/Parts.module.css";
-import { IoDocumentTextOutline, IoMailOutline } from "react-icons/io5";
+import Link from 'next/link';
+import styles from '@styles/components/Parts.module.css';
+import { IoDocumentTextOutline, IoMailOutline } from 'react-icons/io5';
 interface Props {
   children?: string;
   href?: string;
@@ -31,31 +31,26 @@ const Button = ({
   submittingText,
 }: Props) => {
   {
-    if (size == "normal") {
-      bgColor == "normal" && (classNames = styles.btn);
-      bgColor == "primary" && (classNames = `${styles.btn} ${styles.primary}`);
-      bgColor == "secondary" &&
-        (classNames = `${styles.btn} ${styles.secondary}`);
+    if (size == 'normal') {
+      bgColor == 'normal' && (classNames = styles.btn);
+      bgColor == 'primary' && (classNames = `${styles.btn} ${styles.primary}`);
+      bgColor == 'secondary' && (classNames = `${styles.btn} ${styles.secondary}`);
     }
-    if (size == "large") {
-      bgColor == "primary" &&
-        (classNames = `${styles.btn} ${styles.primary}  ${styles.large}`);
-      bgColor == "secondary" &&
-        (classNames = `${styles.btn} ${styles.secondary} ${styles.large}`);
+    if (size == 'large') {
+      bgColor == 'primary' && (classNames = `${styles.btn} ${styles.primary}  ${styles.large}`);
+      bgColor == 'secondary' && (classNames = `${styles.btn} ${styles.secondary} ${styles.large}`);
     }
-    if (size == "headerSmall") {
-      bgColor == "primary" &&
-        (classNames = `${styles.btn} ${styles.primary}  ${styles.headerSmall}`);
-      bgColor == "secondary" &&
-        (classNames = `${styles.btn} ${styles.secondary} ${styles.headerSmall}`);
+    if (size == 'headerSmall') {
+      bgColor == 'primary' && (classNames = `${styles.btn} ${styles.primary}  ${styles.headerSmall}`);
+      bgColor == 'secondary' && (classNames = `${styles.btn} ${styles.secondary} ${styles.headerSmall}`);
     }
   }
 
   return (
     <>
-      {types == "submit" ? (
+      {types == 'submit' ? (
         <button
-          type='submit'
+          type="submit"
           className={classNames}
           data-formrun-error-text={errorText}
           data-formrun-submitting-text={submittingText}
@@ -67,10 +62,10 @@ const Button = ({
           <a className={classNames} id={id}>
             {(() => {
               if (icon) {
-                if (icon == "download") {
+                if (icon == 'download') {
                   return <IoDocumentTextOutline />;
                 }
-                if (icon == "contact") {
+                if (icon == 'contact') {
                   return <IoMailOutline />;
                 }
               }

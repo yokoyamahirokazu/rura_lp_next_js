@@ -21,15 +21,8 @@
     "paths": {
       "@*": ["./*"],
       "@blog": ["./framework/blog"]
-    },
-    "incremental": true
+    }
   },
   "exclude": ["node_modules"],
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "next-sitemap.js",
-    "pages/api/reCaptcha.js"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "next-sitemap.js", "pages/api/reCaptcha.js"]
 }

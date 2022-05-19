@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import styles from "@styles/components/Parts.module.css";
-import { IoIosArrowUp } from "react-icons/io";
+import { useEffect, useState } from 'react';
+import styles from '@styles/components/Parts.module.css';
+import { IoIosArrowUp } from 'react-icons/io';
 
 const ReturnTopButton = () => {
   const [isButtonActive, setIsButtonActive] = useState(false);
@@ -8,15 +8,14 @@ const ReturnTopButton = () => {
   const returnTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", scrollWindow);
-
+    window.addEventListener('scroll', scrollWindow);
     return () => {
-      window.removeEventListener("scroll", scrollWindow);
+      window.removeEventListener('scroll', scrollWindow);
     };
   }, []);
 
@@ -33,12 +32,12 @@ const ReturnTopButton = () => {
 
   const normalStyle = {
     opacity: 0,
-    transition: "0.5s",
-    pointerEvents: "none",
+    transition: '0.5s',
+    pointerEvents: 'none',
   };
   const activeStyle = {
     opacity: 1,
-    transition: "0.5s",
+    transition: '0.5s',
   };
   const style = isButtonActive ? activeStyle : normalStyle;
 

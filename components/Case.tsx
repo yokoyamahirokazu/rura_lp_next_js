@@ -1,9 +1,9 @@
-import styles from "@styles/components/Components.module.css";
-import Image from "next/image";
-import Slick from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
+import styles from '@styles/components/Components.module.css';
+import Image from 'next/image';
+import Slick from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 
 interface Article {
   id?: string;
@@ -55,7 +55,7 @@ export const Case: React.FC<CaesProps> = (props) => {
   };
 
   return (
-    <section id='case'>
+    <section id="case">
       <div className={styles.case_inner}>
         <div className={styles.headline_box}>
           <h2 className={styles.headline}>
@@ -71,8 +71,8 @@ export const Case: React.FC<CaesProps> = (props) => {
                     <Image
                       src={caseItems.caseImg && caseItems.caseImg.url}
                       alt={caseItems.caseName}
-                      layout={"fill"}
-                      objectFit={"cover"}
+                      layout={'fill'}
+                      objectFit={'cover'}
                     />
                   )}
                 </div>
@@ -89,8 +89,8 @@ export const Case: React.FC<CaesProps> = (props) => {
                       <Image
                         src={caseItems.caseLogo1.url}
                         alt={caseItems.caseName}
-                        layout={"fill"}
-                        objectFit={"contain"}
+                        layout={'fill'}
+                        objectFit={'contain'}
                       />
                     </div>
                   )}
@@ -99,8 +99,8 @@ export const Case: React.FC<CaesProps> = (props) => {
                       <Image
                         src={caseItems.caseLogo2.url}
                         alt={caseItems.caseName}
-                        layout={"fill"}
-                        objectFit={"contain"}
+                        layout={'fill'}
+                        objectFit={'contain'}
                       />
                     </div>
                   )}
