@@ -1,8 +1,8 @@
-import { IBlog, ICategory, IPopularArticles } from '@/types';
 import { getContents } from '@blog';
 import { BreadCrumb, Categories, Meta, Pager, Search } from '@components';
 import SeoContent from '@components/SeoContent';
 import styles from '@styles/components/Components.module.css';
+import { IBlog, ICategory, IPopularArticles } from '@types';
 import { GetStaticPropsContext, NextPage } from 'next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -65,7 +65,18 @@ const Index: NextPage<IndexProps> = (props) => {
   );
 };
 
-export async function getStaticProps(context: GetStaticPropsContext) {
+export async function getStaticProps({
+  context,
+}: {
+  context: GetStaticPropsContext;
+}): Promise<{
+  props: {
+    currentPage: number;
+    blogs: IBlog[];
+    categories: ICategory[];
+    pager: number[];
+  };
+}> {
   const page: any = context.params || '1';
   const { blogs, pager, categories } = await getContents(page);
   return {

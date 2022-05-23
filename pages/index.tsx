@@ -95,7 +95,16 @@ const Index: NextPage<IndexProps> = (props) => {
   );
 };
 
-export async function getStaticProps() {
+export async function getStaticProps(): Promise<{
+  props: {
+    blogItem;
+    caseItem;
+    recommendItem;
+    faqItem;
+    handbookItem;
+    cateoryItem;
+  };
+}> {
   const caseData = await client.get({ endpoint: 'case' });
   const recommendData = await client.get({ endpoint: 'recommend' });
   const faqData = await client.get({ endpoint: 'faq' });

@@ -13,6 +13,7 @@ import styles from '@styles/components/Components.module.css';
 import { NextPage } from 'next';
 import { useRouter } from 'next/dist/client/router';
 import Image from 'next/image';
+import HubspotForm from 'react-hubspot-form';
 
 type DraftProps = {
   blogs: IBlog[];
@@ -125,6 +126,13 @@ const Draft: NextPage<DraftProps> = (props) => {
           <Share id={data.blog.id} title={data.blog.title} />
         </div>
         <Latest blogs={props.blogs} />
+        {data.blog.hubSpotPortalId && (
+          <HubspotForm
+            portalId={data.blog.hubSpotPortalId}
+            formId={data.blog.hubSpotFormId}
+            loading={<div>Loading...</div>}
+          />
+        )}
       </div>
     </>
   );

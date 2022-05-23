@@ -30,6 +30,7 @@
     "**/*.ts",
     "**/*.tsx",
     "next-sitemap.js",
-    "pages/api/reCaptcha.js"
+    "pages/api/reCaptcha.js",
+    "components/WindowSize.js"
   ]
 }
