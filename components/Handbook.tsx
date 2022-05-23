@@ -26,7 +26,7 @@ export const Handbook: React.FC<CaesProps> = (props) => {
   });
 
   return (
-    <section className={styles.slantBg} id="handbook">
+    <section className={styles.slantBg} id='handbook'>
       <div className={styles.slantBg_inner}>
         <div className={styles.headline_box_center}>
           <h2 className={styles.headline}>
@@ -41,9 +41,12 @@ export const Handbook: React.FC<CaesProps> = (props) => {
                 {(() => {
                   if (!handbook.smallBannerImg) {
                     return (
-                      <Link href="/download/[id]" as={`/download/${handbook.id}`}>
+                      <Link
+                        href='/download/[id]'
+                        as={`/download/${handbook.id}`}>
                         <a className={styles.handbookLink}>
-                          <div className={`${styles.boxShadowA} ${styles.boxRound}`}>
+                          <div
+                            className={`${styles.boxShadowA} ${styles.boxRound}`}>
                             <div className={styles.boxRound_inner}>
                               <div className={styles.imageBoxB}>
                                 <Image
@@ -56,12 +59,11 @@ export const Handbook: React.FC<CaesProps> = (props) => {
                             </div>
                             <div className={styles.handbookLinkHover}>
                               <Button
-                                bgColor="secondary"
-                                size="normal"
-                                types="link"
-                                href="/download/[id]"
-                                as={`/download/${handbook.id}`}
-                              >
+                                bgColor='secondary'
+                                size='normal'
+                                types='link'
+                                href='/download/[id]'
+                                as={`/download/${handbook.id}`}>
                                 ダウンロードへ進む
                               </Button>
                             </div>
@@ -85,15 +87,21 @@ export const Handbook: React.FC<CaesProps> = (props) => {
                 {(() => {
                   if (handbook.smallBannerImg) {
                     return (
-                      <Link href="/download/[id]" as={`/download/${handbook.id}`}>
+                      <Link
+                        href='/download/[id]'
+                        as={`/download/${handbook.id}`}>
                         <a className={styles.handbookLink}>
-                          <div className={`${styles.boxShadowA} ${styles.boxRound}`}>
+                          <div
+                            className={`${styles.boxShadowA} ${styles.boxRound}`}>
                             <div className={styles.boxRound_inner}>
                               <div className={styles.handbookSmallLink}>
                                 <div className={styles.handbookSmallImg}>
                                   <div className={styles.imageBoxSquare}>
                                     <Image
-                                      src={handbook.smallBannerImg && handbook.smallBannerImg.url}
+                                      src={
+                                        handbook.smallBannerImg &&
+                                        handbook.smallBannerImg.url
+                                      }
                                       alt={handbook.title && handbook.title}
                                       layout={'fill'}
                                       objectFit={'cover'}
@@ -112,12 +120,11 @@ export const Handbook: React.FC<CaesProps> = (props) => {
                             </div>
                             <div className={styles.handbookLinkHover}>
                               <Button
-                                bgColor="secondary"
-                                size="normal"
-                                types="link"
-                                href="/download/[id]"
-                                as={`/download/${handbook.id}`}
-                              >
+                                bgColor='secondary'
+                                size='normal'
+                                types='link'
+                                href='/download/[id]'
+                                as={`/download/${handbook.id}`}>
                                 ダウンロードへ進む
                               </Button>
                             </div>

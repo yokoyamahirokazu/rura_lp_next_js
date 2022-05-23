@@ -10,7 +10,10 @@ export const useDraft = () => {
 
   const fetcher = async () => {
     const query = router.query;
-    const data = await getDraftBlog(query.id as string, query.draftKey as string);
+    const data = await getDraftBlog(
+      query.id as string,
+      query.draftKey as string
+    );
     setData(data);
     setLoading(false);
   };

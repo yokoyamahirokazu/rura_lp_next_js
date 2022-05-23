@@ -17,7 +17,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       `https://${config.serviceId}.microcms.io/api/v1/blog/${id}?draftKey=${draftKey}&depth=2`,
       {
         headers: { 'X-API-KEY': config.apiKey },
-      },
+      }
     )
     .then(({ data }) => {
       const toc = convertToToc(data.body);

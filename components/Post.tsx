@@ -15,5 +15,9 @@ export const Post: React.FC<PostProps> = (props) => {
       setHtmlString(DOMPurify().sanitize(props.body));
     }
   }, []);
-  return <div className={styles.postBody} dangerouslySetInnerHTML={{ __html: htmlString }}></div>;
+  return (
+    <div
+      className={styles.postBody}
+      dangerouslySetInnerHTML={{ __html: htmlString }}></div>
+  );
 };

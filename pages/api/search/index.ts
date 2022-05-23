@@ -9,9 +9,14 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   return axios
-    .get(`https://${config.serviceId}.microcms.io/api/v1/blog?q=${encodeURIComponent(query)}`, {
-      headers: { 'X-API-KEY': config.apiKey },
-    })
+    .get(
+      `https://${
+        config.serviceId
+      }.microcms.io/api/v1/blog?q=${encodeURIComponent(query)}`,
+      {
+        headers: { 'X-API-KEY': config.apiKey },
+      }
+    )
     .then(({ data }) => {
       res.status(200).json(data);
     })

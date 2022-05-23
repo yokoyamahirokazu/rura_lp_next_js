@@ -21,8 +21,8 @@ const Index: NextPage<IndexProps> = (props) => {
   return (
     <>
       <SeoContent
-        pageTitle="新着情報"
-        pageDescription="遠隔接客サービスの新着情報をお届けします。"
+        pageTitle='新着情報'
+        pageDescription='遠隔接客サービスの新着情報をお届けします。'
         pageUrl={router.asPath}
       />
       <BreadCrumb />
@@ -41,10 +41,14 @@ const Index: NextPage<IndexProps> = (props) => {
           {props.blogs.map((blog) => {
             return (
               <li key={blog.id}>
-                <Link href="/news/[blogId]" as={`/news/${blog.id}`}>
+                <Link href='/news/[blogId]' as={`/news/${blog.id}`}>
                   <a>
                     <h3>{blog.title}</h3>
-                    <Meta createdAt={blog.createdAt} category={blog.category} tags={blog.tag} />
+                    <Meta
+                      createdAt={blog.createdAt}
+                      category={blog.category}
+                      tags={blog.tag}
+                    />
                   </a>
                 </Link>
               </li>
@@ -52,7 +56,7 @@ const Index: NextPage<IndexProps> = (props) => {
           })}
         </ul>
         {props.blogs.length > 0 && (
-          <ul className="pager">
+          <ul className='pager'>
             <Pager pager={props.pager} currentPage={props.currentPage} />
           </ul>
         )}

@@ -43,7 +43,7 @@ export const Footer: React.FC = () => {
               <>
                 {navItem.map((items) => (
                   <li key={items.url}>
-                    <Link href="/" as={`/#${items.url}`}>
+                    <Link href='/' as={`/#${items.url}`}>
                       <a>{items.name}</a>
                     </Link>
                   </li>
@@ -59,41 +59,36 @@ export const Footer: React.FC = () => {
               <ul>
                 <li>
                   <Link
-                    href="/news/category/[categoryId]/page/[id]"
-                    as={'/news/category/presselease/page/1'}
-                  >
+                    href='/news/category/[categoryId]/page/[id]'
+                    as={'/news/category/presselease/page/1'}>
                     <a>プレスリリース</a>
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/news/category/[categoryId]/page/[id]"
-                    as={'/news/category/media/page/1'}
-                  >
+                    href='/news/category/[categoryId]/page/[id]'
+                    as={'/news/category/media/page/1'}>
                     <a>メディア掲載</a>
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/news/category/[categoryId]/page/[id]"
-                    as={'/news/category/event/page/1'}
-                  >
+                    href='/news/category/[categoryId]/page/[id]'
+                    as={'/news/category/event/page/1'}>
                     <a>イベント・セミナー</a>
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/news/category/[categoryId]/page/[id]"
-                    as={'/news/category/useful/page/1'}
-                  >
+                    href='/news/category/[categoryId]/page/[id]'
+                    as={'/news/category/useful/page/1'}>
                     <a>お役立ちコンテンツ</a>
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/news/category/[categoryId]/page/[id]"
-                    as={'/news/category/corporate/page/1'}
-                  >
+                    href='/news/category/[categoryId]/page/[id]'
+                    as={'/news/category/corporate/page/1'}>
                     <a>コーポレート</a>
                   </Link>
                 </li>
@@ -127,8 +122,8 @@ export const Footer: React.FC = () => {
           <p>遠隔接客サービス</p>
           <div className={styles.footerLogoImg}>
             <Image
-              src="/images/rura_logo_white.svg"
-              alt="RURA"
+              src='/images/rura_logo_white.svg'
+              alt='RURA'
               layout={'fill'}
               objectFit={'contain'}
             />
@@ -138,7 +133,7 @@ export const Footer: React.FC = () => {
               運営会社
               <br />
               タイムリープ株式会社
-              <a href="https://timeleap.co.jp/" target="_blank">
+              <a href='https://timeleap.co.jp/' target='_blank'>
                 https://timeleap.co.jp/
               </a>
             </p>

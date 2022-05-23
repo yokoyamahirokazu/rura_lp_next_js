@@ -27,8 +27,8 @@ const Page: NextPage<PageProps> = (props) => {
   return (
     <>
       <SeoContent
-        pageTitle="新着情報"
-        pageDescription="遠隔接客サービスの新着情報をお届けします。"
+        pageTitle='新着情報'
+        pageDescription='遠隔接客サービスの新着情報をお届けします。'
         pageUrl={router.asPath}
       />
       <BreadCrumb />
@@ -46,10 +46,14 @@ const Page: NextPage<PageProps> = (props) => {
           {props.blogs.map((blog) => {
             return (
               <li key={blog.id}>
-                <Link href="/news/[blogId]" as={`/news/${blog.id}`}>
+                <Link href='/news/[blogId]' as={`/news/${blog.id}`}>
                   <a>
                     <h3>{blog.title}</h3>
-                    <Meta createdAt={blog.postDate} category={blog.category} tags={blog.tag} />
+                    <Meta
+                      createdAt={blog.postDate}
+                      category={blog.category}
+                      tags={blog.tag}
+                    />
                   </a>
                 </Link>
               </li>
@@ -57,12 +61,12 @@ const Page: NextPage<PageProps> = (props) => {
           })}
         </ul>
         {props.blogs.length > 0 && (
-          <ul className="pager">
+          <ul className='pager'>
             <Pager pager={props.pager} currentPage={props.currentPage} />
           </ul>
         )}
       </div>
-      <ContactSection downloadId="newsD" contactId="newsC" />
+      <ContactSection downloadId='newsD' contactId='newsC' />
     </>
   );
 };

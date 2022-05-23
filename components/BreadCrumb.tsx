@@ -25,17 +25,19 @@ export const BreadCrumb: React.FC<BreadCrumbProps> = (props) => {
   return (
     <ul className={styles.breadcrumb}>
       <li className={styles.breadcrumbList}>
-        <Link href="/">HOME</Link>
+        <Link href='/'>HOME</Link>
       </li>
       <li className={styles.slush}>/</li>
       <li className={styles.breadcrumbList}>
-        <Link href="/news/page/1">新着情報</Link>
+        <Link href='/news/page/1'>新着情報</Link>
       </li>
       {hasCategory(props.category) && (
         <>
           <li className={styles.slush}>/</li>
           <li className={styles.breadcrumbList}>
-            <Link href={`/news/category/${props.category?.id}/page/1`}>{props.category?.name}</Link>
+            <Link href={`/news/category/${props.category?.id}/page/1`}>
+              {props.category?.name}
+            </Link>
           </li>
         </>
       )}
@@ -43,7 +45,9 @@ export const BreadCrumb: React.FC<BreadCrumbProps> = (props) => {
         <>
           <li className={styles.slush}>/</li>
           <li className={styles.breadcrumbList}>
-            <Link href={`/news/tag/${props.tag?.id}/page/1`}>{props.tag.name}</Link>
+            <Link href={`/news/tag/${props.tag?.id}/page/1`}>
+              {props.tag.name}
+            </Link>
           </li>
         </>
       )}

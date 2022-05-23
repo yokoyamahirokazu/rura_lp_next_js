@@ -1,25 +1,25 @@
-import Link from "next/link";
-import styles from "../styles/components/Header.module.css";
-import Button from "@components/Button";
-import TopButton from "@components/TopButton";
-import DrawerMenu from "@components/DrawerMenu";
-import { Link as Scroll } from "react-scroll";
-import { useRouter } from "next/router";
-import React, { useCallback, useState, useEffect } from "react";
-import Image from "next/image";
+import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import React, { useCallback, useState, useEffect } from 'react';
+import { Link as Scroll } from 'react-scroll';
+import styles from '../styles/components/Header.module.css';
+import Button from '@components/Button';
+import DrawerMenu from '@components/DrawerMenu';
+import TopButton from '@components/TopButton';
 
 export const Header: React.FC = () => {
   const router = useRouter();
 
   const navItem = [
-    { url: "case", name: "導入事例" },
-    { url: "service", name: "サービス" },
-    { url: "scene", name: "シーン" },
-    { url: "design", name: "デザイン" },
-    { url: "features", name: "機能" },
-    { url: "news", name: "新着情報" },
-    { url: "handbook", name: "ハンドブック" },
-    { url: "faq", name: "FAQ" },
+    { url: 'case', name: '導入事例' },
+    { url: 'service', name: 'サービス' },
+    { url: 'scene', name: 'シーン' },
+    { url: 'design', name: 'デザイン' },
+    { url: 'features', name: '機能' },
+    { url: 'news', name: '新着情報' },
+    { url: 'handbook', name: 'ハンドブック' },
+    { url: 'faq', name: 'FAQ' },
   ];
   const [isHeaderShown, setIsHeaderClass] = useState(true);
   const [lastPosition, setLastPosition] = useState(0);
@@ -38,10 +38,10 @@ export const Header: React.FC = () => {
   }, [lastPosition]);
 
   useEffect(() => {
-    window.addEventListener("scroll", scrollEvent);
+    window.addEventListener('scroll', scrollEvent);
 
     return () => {
-      window.removeEventListener("scroll", scrollEvent);
+      window.removeEventListener('scroll', scrollEvent);
     };
   }, [scrollEvent]);
 
@@ -52,8 +52,7 @@ export const Header: React.FC = () => {
           isHeaderShown == true
             ? styles.header
             : `${styles.headerFixed} ${styles.header}`
-        }
-      >
+        }>
         <div className={styles.logo}>
           <Link href='/'>
             <a>
@@ -61,8 +60,8 @@ export const Header: React.FC = () => {
                 <Image
                   src='/images/rura_logo_blue.svg'
                   alt='遠隔接客サービスRURA'
-                  layout={"fill"}
-                  objectFit={"contain"}
+                  layout={'fill'}
+                  objectFit={'contain'}
                 />
               </div>
               <p className={styles.logoText}>遠隔接客サービス</p>
@@ -73,12 +72,12 @@ export const Header: React.FC = () => {
           <nav className={styles.header_nav}>
             <ul>
               <li>
-                <Link href={"/"}>
+                <Link href={'/'}>
                   <a>ホーム</a>
                 </Link>
               </li>
 
-              {router.pathname == "/" ? (
+              {router.pathname == '/' ? (
                 <>
                   {navItem.map((navContent) => (
                     <li key={navContent.name}>
@@ -104,20 +103,18 @@ export const Header: React.FC = () => {
 
           <Button
             bgColor='primary'
-            size={isHeaderShown == true ? "normal" : "headerSmall"}
+            size={isHeaderShown == true ? 'normal' : 'headerSmall'}
             types='link'
             href='/download'
-            id='headerD'
-          >
+            id='headerD'>
             資料ダウンロード
           </Button>
           <Button
             bgColor='secondary'
-            size={isHeaderShown == true ? "normal" : "headerSmall"}
+            size={isHeaderShown == true ? 'normal' : 'headerSmall'}
             types='link'
             href='/contact'
-            id='headerC'
-          >
+            id='headerC'>
             お問い合わせ
           </Button>
         </div>

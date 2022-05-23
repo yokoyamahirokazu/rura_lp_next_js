@@ -19,15 +19,15 @@ const Index: NextPage = () => {
   return (
     <>
       <SeoContent
-        pageTitle="運営会社"
-        pageDescription="遠隔接客サービスRURAの運営会社タイムリープ株式会社をご紹介します。"
+        pageTitle='運営会社'
+        pageDescription='遠隔接客サービスRURAの運営会社タイムリープ株式会社をご紹介します。'
       />
       <div className={styles.companyContent}>
         <section>
           <div className={styles.companyTimeleapLogo}>
             <Image
-              src="/images/timeleap_logo.svg"
-              alt="タイムリープ株式会社"
+              src='/images/timeleap_logo.svg'
+              alt='タイムリープ株式会社'
               layout={'fill'}
               objectFit={'contain'}
             />
@@ -69,7 +69,7 @@ const Index: NextPage = () => {
           </div>
         </section>
       </div>{' '}
-      <ContactSection downloadId="companyD" contactId="companyC" />
+      <ContactSection downloadId='companyD' contactId='companyC' />
     </>
   );
 };

@@ -24,25 +24,24 @@ export const Share: React.FC<ShareProps> = (props) => {
         <li>
           <CopyToClipboard
             text={updateText}
-            onCopy={() => alert(`クリップボードにURLをコピーしました！`)}
-          >
+            onCopy={() => alert(`クリップボードにURLをコピーしました！`)}>
             <button>
               <IoCopyOutline />
             </button>
           </CopyToClipboard>
         </li>
         <li>
-          <a href={twitterLink} target="_blank" rel="noopener noreferrer">
+          <a href={twitterLink} target='_blank' rel='noopener noreferrer'>
             <SiTwitter />
           </a>
         </li>
         <li>
-          <a href={facebookLink} target="_blank" rel="noopener noreferrer">
+          <a href={facebookLink} target='_blank' rel='noopener noreferrer'>
             <SiFacebook />
           </a>
         </li>
         <li>
-          <a href={LineLink} target="_blank" rel="noopener noreferrer">
+          <a href={LineLink} target='_blank' rel='noopener noreferrer'>
             <SiLine />
           </a>
         </li>

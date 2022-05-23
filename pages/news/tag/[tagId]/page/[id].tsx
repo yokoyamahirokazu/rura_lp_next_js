@@ -54,7 +54,7 @@ const Page: NextPage<PageProps> = (props) => {
           {props.blogs.map((blog) => {
             return (
               <li key={blog.id}>
-                <Link href="/news/[blogId]" as={`/news/${blog.id}`}>
+                <Link href='/news/[blogId]' as={`/news/${blog.id}`}>
                   <a>
                     {blog.ogimage ? (
                       <div className={styles.newsImagesBox}>
@@ -68,7 +68,7 @@ const Page: NextPage<PageProps> = (props) => {
                     ) : (
                       <div className={styles.newsImagesBox}>
                         <Image
-                          src="/images/noimage.png"
+                          src='/images/noimage.png'
                           alt={blog.title}
                           layout={'fill'}
                           objectFit={'cover'}
@@ -78,7 +78,11 @@ const Page: NextPage<PageProps> = (props) => {
 
                     <div className={styles.newsImagesTxt}>
                       <h3>{blog.title}</h3>
-                      <Meta createdAt={blog.postDate} category={blog.category} tags={blog.tag} />
+                      <Meta
+                        createdAt={blog.postDate}
+                        category={blog.category}
+                        tags={blog.tag}
+                      />
                     </div>
                   </a>
                 </Link>
@@ -87,7 +91,7 @@ const Page: NextPage<PageProps> = (props) => {
           })}
         </ul>
         {props.blogs.length > 0 && (
-          <ul className="pager">
+          <ul className='pager'>
             <Pager
               pager={props.pager}
               currentPage={props.currentPage}
@@ -120,11 +124,17 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   const page: any = context.params?.id || '1';
   const tagId = context.params?.tagId;
 
-  const articleFilter = tagId !== undefined ? `tag[contains]${tagId}` : undefined;
+  const articleFilter =
+    tagId !== undefined ? `tag[contains]${tagId}` : undefined;
 
-  const { blogs, pager, categories, tags } = await getContents(page, articleFilter);
+  const { blogs, pager, categories, tags } = await getContents(
+    page,
+    articleFilter
+  );
   const selectedTag =
-    tagId !== undefined ? tags.find((content) => content.id === tagId) : undefined;
+    tagId !== undefined
+      ? tags.find((content) => content.id === tagId)
+      : undefined;
 
   return {
     props: {

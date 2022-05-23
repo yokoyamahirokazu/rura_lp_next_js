@@ -48,8 +48,7 @@ export const Pager: React.FC<PagerProps> = (props) => {
                   key={pageIndex}
                   className={`${styles.page} ${
                     props.currentPage === page + 1 ? `${styles.active}` : ''
-                  }`}
-                >
+                  }`}>
                   <NextLink href={getPath(page + 1)}>
                     <a>{page + 1}</a>
                   </NextLink>
@@ -58,7 +57,9 @@ export const Pager: React.FC<PagerProps> = (props) => {
             </>
           );
         })}
-        {props.currentPage + 3 < props.pager.length && <li className={styles.omission}>...</li>}
+        {props.currentPage + 3 < props.pager.length && (
+          <li className={styles.omission}>...</li>
+        )}
         {props.currentPage + 2 < props.pager.length && (
           <li className={styles.page}>
             <NextLink href={getPath(props.pager.length)}>

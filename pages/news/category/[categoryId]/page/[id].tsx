@@ -54,7 +54,7 @@ const Page: NextPage<PageProps> = (props) => {
                 {props.blogs.map((blog) => {
                   return (
                     <li key={blog.id}>
-                      <Link href="/news/[blogId]" as={`/news/${blog.id}`}>
+                      <Link href='/news/[blogId]' as={`/news/${blog.id}`}>
                         <a>
                           <h3>{blog.title}</h3>
                           <Meta
@@ -75,7 +75,7 @@ const Page: NextPage<PageProps> = (props) => {
                 {props.blogs.map((blog) => {
                   return (
                     <li key={blog.id}>
-                      <Link href="/news/[blogId]" as={`/news/${blog.id}`}>
+                      <Link href='/news/[blogId]' as={`/news/${blog.id}`}>
                         <a>
                           {blog.ogimage ? (
                             <div className={styles.newsImagesBox}>
@@ -89,7 +89,7 @@ const Page: NextPage<PageProps> = (props) => {
                           ) : (
                             <div className={styles.newsImagesBox}>
                               <Image
-                                src="/images/noimage.png"
+                                src='/images/noimage.png'
                                 alt={blog.title}
                                 layout={'fill'}
                                 objectFit={'cover'}
@@ -116,7 +116,7 @@ const Page: NextPage<PageProps> = (props) => {
         })()}
 
         {props.blogs.length > 0 && (
-          <ul className="pager">
+          <ul className='pager'>
             <Pager
               pager={props.pager}
               currentPage={props.currentPage}
@@ -143,10 +143,13 @@ export async function getStaticPaths() {
 export async function getStaticProps(context: GetStaticPropsContext) {
   const page: any = context.params?.id || '1';
   const categoryId = context.params?.categoryId;
-  const articleFilter = categoryId !== undefined ? `category[equals]${categoryId}` : undefined;
+  const articleFilter =
+    categoryId !== undefined ? `category[equals]${categoryId}` : undefined;
   const { blogs, pager, categories } = await getContents(page, articleFilter);
   const selectedCategory =
-    categoryId !== undefined ? categories.find((content) => content.id === categoryId) : undefined;
+    categoryId !== undefined
+      ? categories.find((content) => content.id === categoryId)
+      : undefined;
 
   return {
     props: {
