@@ -1,9 +1,9 @@
 import styles from '@/styles/components/Components.module.css';
 import Image from 'next/image';
+import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 import Slick from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 
 interface Article {
   id?: string;
@@ -63,51 +63,52 @@ export const Case: React.FC<CaesProps> = (props) => {
           </h2>
         </div>
         <Slick {...settings}>
-          {props.articles.map((caseItems) => (
-            <div className={styles.caseContents} key={caseItems.id}>
-              <div className={styles.caseContentsImg}>
-                <div className={styles.caseContentsImg_inner}>
-                  {!!caseItems.caseImg && (
-                    <Image
-                      src={caseItems.caseImg && caseItems.caseImg.url}
-                      alt={caseItems.caseName}
-                      layout={'fill'}
-                      objectFit={'cover'}
-                    />
-                  )}
-                </div>
-              </div>
-              <div className={styles.caseContentsTxt}>
-                <h2>
-                  {caseItems.caseName}
-                  <span> {caseItems.caseType}</span>
-                </h2>
-                <p>{caseItems.caseBody}</p>
-                <div className={styles.caseContentsLogo}>
-                  {caseItems.caseLogo1 && (
-                    <div className={styles.caseContentsLogoImg}>
+          {props.articles &&
+            props.articles.map((caseItems) => (
+              <div className={styles.caseContents} key={caseItems.id}>
+                <div className={styles.caseContentsImg}>
+                  <div className={styles.caseContentsImg_inner}>
+                    {!!caseItems.caseImg && (
                       <Image
-                        src={caseItems.caseLogo1.url}
+                        src={caseItems.caseImg && caseItems.caseImg.url}
                         alt={caseItems.caseName}
                         layout={'fill'}
-                        objectFit={'contain'}
+                        objectFit={'cover'}
                       />
-                    </div>
-                  )}
-                  {caseItems.caseLogo2 && (
-                    <div className={styles.caseContentsLogoImg}>
-                      <Image
-                        src={caseItems.caseLogo2.url}
-                        alt={caseItems.caseName}
-                        layout={'fill'}
-                        objectFit={'contain'}
-                      />
-                    </div>
-                  )}
+                    )}
+                  </div>
+                </div>
+                <div className={styles.caseContentsTxt}>
+                  <h2>
+                    {caseItems.caseName}
+                    <span> {caseItems.caseType}</span>
+                  </h2>
+                  <p>{caseItems.caseBody}</p>
+                  <div className={styles.caseContentsLogo}>
+                    {caseItems.caseLogo1 && (
+                      <div className={styles.caseContentsLogoImg}>
+                        <Image
+                          src={caseItems.caseLogo1.url}
+                          alt={caseItems.caseName}
+                          layout={'fill'}
+                          objectFit={'contain'}
+                        />
+                      </div>
+                    )}
+                    {caseItems.caseLogo2 && (
+                      <div className={styles.caseContentsLogoImg}>
+                        <Image
+                          src={caseItems.caseLogo2.url}
+                          alt={caseItems.caseName}
+                          layout={'fill'}
+                          objectFit={'contain'}
+                        />
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
         </Slick>
       </div>
     </section>

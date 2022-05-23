@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
 import styles from '@styles/components/Parts.module.css';
+import { useEffect, useState } from 'react';
 import { IoIosArrowUp } from 'react-icons/io';
 
 const ReturnTopButton = () => {

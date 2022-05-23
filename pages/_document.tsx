@@ -1,7 +1,9 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { config } from '@site.config';
+import Document, { Html, Head, Main, NextScript } from 'next/document';
+import React, { ReactElement } from 'react';
+
 export default class MyDocument extends Document {
-  render() {
+  render(): ReactElement {
     return (
       <Html lang='ja'>
         <Head>

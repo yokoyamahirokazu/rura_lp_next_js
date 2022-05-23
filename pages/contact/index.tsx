@@ -1,7 +1,7 @@
+import SeoContent from '@components/SeoContent';
+import styles from '@styles/components/Components.module.css';
 import { NextPage } from 'next';
 import React from 'react';
-import styles from '@styles/components/Components.module.css';
-import SeoContent from '@components/SeoContent';
 import HubspotForm from 'react-hubspot-form';
 
 declare global {

@@ -1,7 +1,7 @@
+import Button from '@components/Button';
 import styles from '@styles/components/Components.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
-import Button from '@components/Button';
 
 interface Article {
   id?: string;
@@ -43,10 +43,12 @@ export const Handbook: React.FC<CaesProps> = (props) => {
                     return (
                       <Link
                         href='/download/[id]'
-                        as={`/download/${handbook.id}`}>
+                        as={`/download/${handbook.id}`}
+                      >
                         <a className={styles.handbookLink}>
                           <div
-                            className={`${styles.boxShadowA} ${styles.boxRound}`}>
+                            className={`${styles.boxShadowA} ${styles.boxRound}`}
+                          >
                             <div className={styles.boxRound_inner}>
                               <div className={styles.imageBoxB}>
                                 <Image
@@ -63,7 +65,8 @@ export const Handbook: React.FC<CaesProps> = (props) => {
                                 size='normal'
                                 types='link'
                                 href='/download/[id]'
-                                as={`/download/${handbook.id}`}>
+                                as={`/download/${handbook.id}`}
+                              >
                                 ダウンロードへ進む
                               </Button>
                             </div>
@@ -89,10 +92,12 @@ export const Handbook: React.FC<CaesProps> = (props) => {
                     return (
                       <Link
                         href='/download/[id]'
-                        as={`/download/${handbook.id}`}>
+                        as={`/download/${handbook.id}`}
+                      >
                         <a className={styles.handbookLink}>
                           <div
-                            className={`${styles.boxShadowA} ${styles.boxRound}`}>
+                            className={`${styles.boxShadowA} ${styles.boxRound}`}
+                          >
                             <div className={styles.boxRound_inner}>
                               <div className={styles.handbookSmallLink}>
                                 <div className={styles.handbookSmallImg}>
@@ -124,7 +129,8 @@ export const Handbook: React.FC<CaesProps> = (props) => {
                                 size='normal'
                                 types='link'
                                 href='/download/[id]'
-                                as={`/download/${handbook.id}`}>
+                                as={`/download/${handbook.id}`}
+                              >
                                 ダウンロードへ進む
                               </Button>
                             </div>

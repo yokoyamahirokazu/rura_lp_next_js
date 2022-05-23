@@ -1,8 +1,8 @@
-import { NextPage } from 'next';
-import styles from '@styles/components/Components.module.css';
 import Button from '@components/Button';
-import Image from 'next/image';
 import SeoContent from '@components/SeoContent';
+import styles from '@styles/components/Components.module.css';
+import { NextPage } from 'next';
+import Image from 'next/image';
 
 const Thanks: NextPage = () => {
   return (

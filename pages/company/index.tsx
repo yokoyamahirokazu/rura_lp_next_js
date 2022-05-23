@@ -1,9 +1,9 @@
-import { NextPage } from 'next';
-import React from 'react';
-import styles from '@styles/components/Company.module.css';
 import ContactSection from '@components/ContactSection';
-import Image from 'next/image';
 import SeoContent from '@components/SeoContent';
+import styles from '@styles/components/Company.module.css';
+import { NextPage } from 'next';
+import Image from 'next/image';
+import React from 'react';
 
 const Index: NextPage = () => {
   const companyOutline = [

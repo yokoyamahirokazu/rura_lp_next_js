@@ -1,10 +1,10 @@
-import { GetStaticPropsContext, NextPage } from 'next';
-import Link from 'next/link';
-import { BreadCrumb, Categories, Meta, Pager, Search } from '@components';
 import { IBlog, ICategory, IPopularArticles } from '@/types';
 import { getContents } from '@blog';
-import styles from '@styles/components/Components.module.css';
+import { BreadCrumb, Categories, Meta, Pager, Search } from '@components';
 import SeoContent from '@components/SeoContent';
+import styles from '@styles/components/Components.module.css';
+import { GetStaticPropsContext, NextPage } from 'next';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 type IndexProps = {

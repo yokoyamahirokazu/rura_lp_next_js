@@ -1,18 +1,19 @@
+import { Footer, Header } from '@components';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { Footer, Header } from '@components';
 import '../styles/globals.scss';
 
 const queryClient = new QueryClient();
 
-export default function MyApp({ Component, pageProps }: AppProps) {
+const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
   return (
     <>
       <Head>
         <script
           src='https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js'
-          async></script>
+          async
+        ></script>
       </Head>
       <div className='wrapper'>
         <Header />
@@ -25,4 +26,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       <Footer />
     </>
   );
-}
+};
+
+export default MyApp;

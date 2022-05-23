@@ -1,13 +1,12 @@
+import { IBanner, IBlog, ICategory, IPopularArticles, ITag } from '@/types';
+import { getBlogsByFilter, getContents } from '@blog';
+import { BreadCrumb, Categories, Loader, Meta, Pager } from '@components';
+import ContactSection from '@components/ContactSection';
+import SeoContent from '@components/SeoContent';
+import styles from '@styles/components/Components.module.css';
 import { GetStaticPropsContext, NextPage } from 'next';
 import { useRouter } from 'next/dist/client/router';
 import Link from 'next/link';
-import { BreadCrumb, Categories, Loader, Meta, Pager } from '@components';
-import { IBanner, IBlog, ICategory, IPopularArticles, ITag } from '@/types';
-import { getBlogsByFilter, getContents } from '@blog';
-import styles from '@styles/components/Components.module.css';
-import ContactSection from '@components/ContactSection';
-
-import SeoContent from '@components/SeoContent';
 type PageProps = {
   currentPage: number;
   blogs: IBlog[];
@@ -72,7 +71,7 @@ const Page: NextPage<PageProps> = (props) => {
 };
 
 export async function getStaticPaths() {
-  const limit: number = 12;
+  const limit = 12;
   const { pager } = await getBlogsByFilter(limit, 1);
   const paths = pager.map((page) => {
     return { params: { id: (page + 1).toString() } };

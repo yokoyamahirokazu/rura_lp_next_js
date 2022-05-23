@@ -1,12 +1,13 @@
+import Button from '@components/Button';
+import DrawerMenu from '@components/DrawerMenu';
+import TopButton from '@components/TopButton';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useCallback, useState, useEffect } from 'react';
 import { Link as Scroll } from 'react-scroll';
+
 import styles from '../styles/components/Header.module.css';
-import Button from '@components/Button';
-import DrawerMenu from '@components/DrawerMenu';
-import TopButton from '@components/TopButton';
 
 export const Header: React.FC = () => {
   const router = useRouter();
@@ -52,7 +53,8 @@ export const Header: React.FC = () => {
           isHeaderShown == true
             ? styles.header
             : `${styles.headerFixed} ${styles.header}`
-        }>
+        }
+      >
         <div className={styles.logo}>
           <Link href='/'>
             <a>
@@ -106,7 +108,8 @@ export const Header: React.FC = () => {
             size={isHeaderShown == true ? 'normal' : 'headerSmall'}
             types='link'
             href='/download'
-            id='headerD'>
+            id='headerD'
+          >
             資料ダウンロード
           </Button>
           <Button
@@ -114,7 +117,8 @@ export const Header: React.FC = () => {
             size={isHeaderShown == true ? 'normal' : 'headerSmall'}
             types='link'
             href='/contact'
-            id='headerC'>
+            id='headerC'
+          >
             お問い合わせ
           </Button>
         </div>

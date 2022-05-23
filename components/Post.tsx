@@ -1,6 +1,6 @@
+import styles from '@styles/components/Components.module.css';
 import DOMPurify from 'dompurify';
 import { useEffect, useState } from 'react';
-import styles from '@styles/components/Components.module.css';
 
 type PostProps = {
   body?: string;
@@ -18,6 +18,7 @@ export const Post: React.FC<PostProps> = (props) => {
   return (
     <div
       className={styles.postBody}
-      dangerouslySetInnerHTML={{ __html: htmlString }}></div>
+      dangerouslySetInnerHTML={{ __html: htmlString }}
+    ></div>
   );
 };

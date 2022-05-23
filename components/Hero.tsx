@@ -1,9 +1,9 @@
+import Button from '@components/Button';
 import styles from '@styles/components/Hero.module.css';
 import Image from 'next/image';
-import Button from '@components/Button';
-import { LazyVideo } from 'react-lazy-media';
-import { IoIosPlay } from 'react-icons/io';
 import React, { useEffect, useState, useCallback } from 'react';
+import { IoIosPlay } from 'react-icons/io';
+import { LazyVideo } from 'react-lazy-media';
 import Modal from 'react-modal';
 import YouTube from 'react-youtube';
 
@@ -89,7 +89,8 @@ export const Hero: React.FC = () => {
                 types='link'
                 href='/download'
                 icon='download'
-                id='heroD'>
+                id='heroD'
+              >
                 資料ダウンロード
               </Button>
               <Button
@@ -98,7 +99,8 @@ export const Hero: React.FC = () => {
                 types='link'
                 href='/contact'
                 icon='contact'
-                id='heroC'>
+                id='heroC'
+              >
                 お問い合わせ
               </Button>
             </div>
@@ -113,7 +115,8 @@ export const Hero: React.FC = () => {
           <div
             className={styles.videoPlayImg}
             onClick={openModal}
-            id='moviePlay'>
+            id='moviePlay'
+          >
             <div className={styles.imageCircle}>
               <Image
                 src='/images/videoPlay.jpg'
@@ -144,7 +147,8 @@ export const Hero: React.FC = () => {
         onRequestClose={closeModal}
         closeTimeoutMS={500}
         className={styles.Modal}
-        overlayClassName={styles.Overlay}>
+        overlayClassName={styles.Overlay}
+      >
         <div className={styles.youtubeWrapper}>
           <YouTube
             videoId='BjCzqX1n_IM'

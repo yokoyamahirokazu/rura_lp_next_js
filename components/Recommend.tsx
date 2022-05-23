@@ -1,9 +1,9 @@
 import styles from '@styles/components/Components.module.css';
 import Image from 'next/image';
+import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 import Slick from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 
 interface Article {
   id?: string;
@@ -18,7 +18,7 @@ type CaesProps = {
   articles: Article[];
 };
 export const Recommend: React.FC<CaesProps> = (props) => {
-  const settingsR = {
+  const settings = {
     arows: true,
     dots: true,
     arrows: true,
@@ -49,7 +49,7 @@ export const Recommend: React.FC<CaesProps> = (props) => {
         <div className={styles.headline_box_center_nomargin}>
           <h2 className={styles.headline}>RURAをオススメする理由</h2>
         </div>
-        <Slick {...settingsR}>
+        <Slick {...settings}>
           {props.articles.map((recommend) => (
             <div className={styles.recommendContents} key={recommend.id}>
               <div className={`${styles.boxShadowA} ${styles.boxRound}`}>

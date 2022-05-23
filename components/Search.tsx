@@ -1,5 +1,5 @@
-import { useRouter } from 'next/dist/client/router';
 import styles from '@styles/components/Search.module.scss';
+import { useRouter } from 'next/dist/client/router';
 
 export const Search: React.FC = () => {
   const router = useRouter();

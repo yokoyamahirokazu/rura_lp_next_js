@@ -1,11 +1,11 @@
-import { NextPage } from 'next';
-import React from 'react';
-import styles from '@styles/components/Components.module.css';
-import Image from 'next/image';
-import { client } from '@framework/client';
 import SeoContent from '@components/SeoContent';
-import { useRouter } from 'next/router';
+import { client } from '@framework/client';
 import { config } from '@site.config';
+import styles from '@styles/components/Components.module.css';
+import { NextPage } from 'next';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import React from 'react';
 import HubspotForm from 'react-hubspot-form';
 
 interface handbookItems {

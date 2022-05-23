@@ -1,8 +1,8 @@
-import { NextPage } from 'next';
-import React from 'react';
-import styles from '@styles/components/Company.module.css';
 import ContactSection from '@components/ContactSection';
 import SeoContent from '@components/SeoContent';
+import styles from '@styles/components/Company.module.css';
+import { NextPage } from 'next';
+import React from 'react';
 
 const Privacy: NextPage = () => {
   return (
@@ -63,7 +63,8 @@ const Privacy: NextPage = () => {
                 <a
                   href='http://www.google.com/analytics/terms/jp.html'
                   target='_blank'
-                  rel='noopener noreferrer'>
+                  rel='noopener noreferrer'
+                >
                   http://www.google.com/analytics/terms/jp.html
                 </a>
                 <br />
@@ -78,7 +79,8 @@ const Privacy: NextPage = () => {
                 <a
                   href='https://tools.google.com/dlpage/gaoptout?hl=ja'
                   target='_blank'
-                  rel='noopener noreferrer'>
+                  rel='noopener noreferrer'
+                >
                   https://tools.google.com/dlpage/gaoptout?hl=ja
                 </a>
               </p>

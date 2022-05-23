@@ -17,7 +17,8 @@ export const Service: React.FC = (): ReactElement => {
         <div className={styles.contentBox}>
           <div className={`serviceWrap ${styles.contentFlex}`}>
             <div
-              className={`fadein ${styles.contentFlexTwo} ${styles.boxShadowA} ${styles.boxRound}`}>
+              className={`fadein ${styles.contentFlexTwo} ${styles.boxShadowA} ${styles.boxRound}`}
+            >
               <div className={styles.boxRound_inner}>
                 <div className={styles.imageBoxA}>
                   <Image
@@ -36,7 +37,8 @@ export const Service: React.FC = (): ReactElement => {
               </div>
             </div>
             <div
-              className={`fadein ${styles.contentFlexTwo} ${styles.boxShadowA} ${styles.boxRound}`}>
+              className={`fadein ${styles.contentFlexTwo} ${styles.boxShadowA} ${styles.boxRound}`}
+            >
               <div className={styles.boxRound_inner}>
                 <div className={styles.imageBoxA}>
                   <Image
@@ -55,7 +57,8 @@ export const Service: React.FC = (): ReactElement => {
               </div>
             </div>
             <div
-              className={`fadein ${styles.contentFlexTwo} ${styles.boxShadowA} ${styles.boxRound}`}>
+              className={`fadein ${styles.contentFlexTwo} ${styles.boxShadowA} ${styles.boxRound}`}
+            >
               <div className={styles.boxRound_inner}>
                 <div className={styles.imageBoxA}>
                   <Image
@@ -76,7 +79,8 @@ export const Service: React.FC = (): ReactElement => {
               </div>
             </div>
             <div
-              className={`fadein ${styles.contentFlexTwo} ${styles.boxShadowA} ${styles.boxRound}`}>
+              className={`fadein ${styles.contentFlexTwo} ${styles.boxShadowA} ${styles.boxRound}`}
+            >
               <div className={styles.boxRound_inner}>
                 <div className={styles.imageBoxA}>
                   <Image

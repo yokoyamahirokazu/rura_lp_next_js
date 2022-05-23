@@ -1,6 +1,6 @@
-import NextLink from 'next/link';
 import { ICategory, ITag } from '@/types';
 import styles from '@styles/components/Components.module.css';
+import NextLink from 'next/link';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
 type PagerProps = {
@@ -48,7 +48,8 @@ export const Pager: React.FC<PagerProps> = (props) => {
                   key={pageIndex}
                   className={`${styles.page} ${
                     props.currentPage === page + 1 ? `${styles.active}` : ''
-                  }`}>
+                  }`}
+                >
                   <NextLink href={getPath(page + 1)}>
                     <a>{page + 1}</a>
                   </NextLink>

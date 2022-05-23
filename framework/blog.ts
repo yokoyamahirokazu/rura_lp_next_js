@@ -1,11 +1,11 @@
+import { client } from '@framework';
 import { config } from '@site.config';
 import { IBlog, ICategory, ITag, MicroCmsResponse, Queries } from '@types';
-import { client } from '@framework';
 
 const limit = parseInt(config.defaultLimit);
 
 export const getContents = async (
-  currentPage: number = 1,
+  currentPage = 1,
   articleFilter?: string
 ): Promise<{
   blogs: IBlog[];

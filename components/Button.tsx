@@ -1,6 +1,6 @@
+import styles from '@styles/components/Parts.module.css';
 import Link from 'next/link';
 import { IoDocumentTextOutline, IoMailOutline } from 'react-icons/io5';
-import styles from '@styles/components/Parts.module.css';
 interface Props {
   children?: string;
   href?: string;
@@ -29,7 +29,7 @@ const Button = ({
   errorText,
   as,
   submittingText,
-}: Props) => {
+}: Props): JSX.Element => {
   {
     if (size == 'normal') {
       bgColor == 'normal' && (classNames = styles.btn);
@@ -58,7 +58,8 @@ const Button = ({
           type='submit'
           className={classNames}
           data-formrun-error-text={errorText}
-          data-formrun-submitting-text={submittingText}>
+          data-formrun-submitting-text={submittingText}
+        >
           {children}
         </button>
       ) : (

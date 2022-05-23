@@ -1,6 +1,6 @@
 import styles from '@styles/components/Footer.module.css';
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Link as Scroll } from 'react-scroll';
 
@@ -60,35 +60,40 @@ export const Footer: React.FC = () => {
                 <li>
                   <Link
                     href='/news/category/[categoryId]/page/[id]'
-                    as={'/news/category/presselease/page/1'}>
+                    as={'/news/category/presselease/page/1'}
+                  >
                     <a>プレスリリース</a>
                   </Link>
                 </li>
                 <li>
                   <Link
                     href='/news/category/[categoryId]/page/[id]'
-                    as={'/news/category/media/page/1'}>
+                    as={'/news/category/media/page/1'}
+                  >
                     <a>メディア掲載</a>
                   </Link>
                 </li>
                 <li>
                   <Link
                     href='/news/category/[categoryId]/page/[id]'
-                    as={'/news/category/event/page/1'}>
+                    as={'/news/category/event/page/1'}
+                  >
                     <a>イベント・セミナー</a>
                   </Link>
                 </li>
                 <li>
                   <Link
                     href='/news/category/[categoryId]/page/[id]'
-                    as={'/news/category/useful/page/1'}>
+                    as={'/news/category/useful/page/1'}
+                  >
                     <a>お役立ちコンテンツ</a>
                   </Link>
                 </li>
                 <li>
                   <Link
                     href='/news/category/[categoryId]/page/[id]'
-                    as={'/news/category/corporate/page/1'}>
+                    as={'/news/category/corporate/page/1'}
+                  >
                     <a>コーポレート</a>
                   </Link>
                 </li>

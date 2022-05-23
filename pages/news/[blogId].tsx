@@ -1,20 +1,20 @@
-import { GetStaticPropsContext, NextPage } from 'next';
-import { useRouter } from 'next/dist/client/router';
+import { IBlog, ITag, ICategory } from '@/types/interface';
+import { getAllBlogs, getBlogById, getContents } from '@blog';
 import { BreadCrumb } from '@components/BreadCrumb';
+import Button from '@components/Button';
 import { Latest } from '@components/Latest';
 import { Loader } from '@components/Loader';
 import { Meta } from '@components/Meta';
-import { Share } from '@components/Share';
-import { IBlog, ITag, ICategory } from '@/types/interface';
-import { convertToHtml } from '@scripts';
-import { getAllBlogs, getBlogById, getContents } from '@blog';
-import styles from '@styles/components/Components.module.css';
-import Image from 'next/image';
-import Button from '@components/Button';
-import { client } from '@framework/client';
-import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import SeoContent from '@components/SeoContent';
+import { Share } from '@components/Share';
 import { Tags } from '@components/Tags';
+import { client } from '@framework/client';
+import { convertToHtml } from '@scripts';
+import styles from '@styles/components/Components.module.css';
+import { GetStaticPropsContext, NextPage } from 'next';
+import { useRouter } from 'next/dist/client/router';
+import Image from 'next/image';
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
 type DetailProps = {
   blog: IBlog;

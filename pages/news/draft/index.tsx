@@ -1,18 +1,18 @@
-import { NextPage } from 'next';
 import { IBlog, ICategory, ITag } from '@/types';
-import { useRouter } from 'next/dist/client/router';
-import { useDraft } from '@hooks';
+import { getContents } from '@blog';
+import { Share } from '@components';
 import { BreadCrumb } from '@components/BreadCrumb';
+import Button from '@components/Button';
 import { Latest } from '@components/Latest';
 import { Loader } from '@components/Loader';
 import { Meta } from '@components/Meta';
-import { Share } from '@components';
-import { getContents } from '@blog';
-import styles from '@styles/components/Components.module.css';
-import Image from 'next/image';
-import Button from '@components/Button';
-import { Tags } from '@components/Tags';
 import SeoContent from '@components/SeoContent';
+import { Tags } from '@components/Tags';
+import { useDraft } from '@hooks';
+import styles from '@styles/components/Components.module.css';
+import { NextPage } from 'next';
+import { useRouter } from 'next/dist/client/router';
+import Image from 'next/image';
 
 type DraftProps = {
   blogs: IBlog[];
@@ -83,7 +83,8 @@ const Draft: NextPage<DraftProps> = (props) => {
 
           <div
             className={styles.postBody}
-            dangerouslySetInnerHTML={{ __html: data.body }}></div>
+            dangerouslySetInnerHTML={{ __html: data.body }}
+          ></div>
 
           <div className={styles.postContactBox}>
             <div className={styles.postContactBoxLogo}>
@@ -104,7 +105,8 @@ const Draft: NextPage<DraftProps> = (props) => {
                 types='link'
                 href='/download/'
                 icon='download'
-                id={`${data.blog.id}D`}>
+                id={`${data.blog.id}D`}
+              >
                 資料ダウンロード
               </Button>
               <Button
@@ -113,7 +115,8 @@ const Draft: NextPage<DraftProps> = (props) => {
                 types='link'
                 href='/contact'
                 icon='contact'
-                id={`${data.blog.id}C`}>
+                id={`${data.blog.id}C`}
+              >
                 お問い合わせ
               </Button>
             </div>

@@ -1,12 +1,12 @@
-import { NextPage } from 'next';
-import React from 'react';
-import styles from '@styles/components/Components.module.css';
 import Button from '@components/Button';
-import Image from 'next/image';
-import { client } from '@framework/client';
 import SeoContent from '@components/SeoContent';
-import { useRouter } from 'next/router';
+import { client } from '@framework/client';
 import { config } from '@site.config';
+import styles from '@styles/components/Components.module.css';
+import { NextPage } from 'next';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import React from 'react';
 
 declare global {
   interface Window {
@@ -74,7 +74,8 @@ const Index: NextPage<IndexProps> = (props) => {
                   size='large'
                   types='link'
                   href={props.handbookItem.url && props.handbookItem.url}
-                  icon='download'>
+                  icon='download'
+                >
                   資料ダウンロードはこちら
                 </Button>
               </div>

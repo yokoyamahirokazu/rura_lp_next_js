@@ -1,6 +1,6 @@
 import { ICategory } from '@/types';
-import styles from '@styles/components/Components.module.css';
 import Button from '@components/Button';
+import styles from '@styles/components/Components.module.css';
 
 type CategoriesProps = {
   categories: ICategory[];

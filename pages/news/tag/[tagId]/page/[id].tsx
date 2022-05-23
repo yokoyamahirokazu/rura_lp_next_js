@@ -1,13 +1,13 @@
-import { GetStaticPropsContext, NextPage } from 'next';
-import { useRouter } from 'next/dist/client/router';
-import Link from 'next/link';
-import { BreadCrumb, Categories, Loader, Meta, Pager } from '@components';
 import { IBanner, IBlog, ICategory, IPopularArticles, ITag } from '@/types';
 import { getContents } from '@blog';
-import styles from '@styles/components/Components.module.css';
-import Image from 'next/image';
-import SeoContent from '@components/SeoContent';
+import { BreadCrumb, Categories, Loader, Meta, Pager } from '@components';
 import ContactSection from '@components/ContactSection';
+import SeoContent from '@components/SeoContent';
+import styles from '@styles/components/Components.module.css';
+import { GetStaticPropsContext, NextPage } from 'next';
+import { useRouter } from 'next/dist/client/router';
+import Image from 'next/image';
+import Link from 'next/link';
 import { IoPricetagsOutline } from 'react-icons/io5';
 
 type PageProps = {

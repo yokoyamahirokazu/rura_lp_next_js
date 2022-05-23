@@ -1,6 +1,6 @@
-import NextLink from 'next/link';
-import { ITag } from '@types';
 import styles from '@styles/components/Components.module.css';
+import { ITag } from '@types';
+import NextLink from 'next/link';
 import { IoPricetagsOutline } from 'react-icons/io5';
 
 type TagsProps = {
@@ -15,7 +15,8 @@ export const Tags: React.FC<TagsProps> = ({ tags }) => {
           <li key={tag.id}>
             <NextLink
               href='/news/tag/[tagId]/page/[id]'
-              as={`/news/tag/${tag.id}/page/1`}>
+              as={`/news/tag/${tag.id}/page/1`}
+            >
               <a>
                 <IoPricetagsOutline />
                 {tag.name}

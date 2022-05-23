@@ -41,7 +41,8 @@ export const Newsindex: React.FC<CaesProps> = (props) => {
                 bgColor='normal'
                 size='normal'
                 types='link'
-                href='/news/page/1'>
+                href='/news/page/1'
+              >
                 全ての記事を見る
               </Button>
             </div>

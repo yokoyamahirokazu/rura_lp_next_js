@@ -1,6 +1,6 @@
+import { config } from '@site.config';
 import axios from 'axios';
 import { NextApiRequest, NextApiResponse } from 'next';
-import { config } from '../../../site.config';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const query: any = req.query.q;

@@ -1,15 +1,15 @@
-import Link from 'next/link';
-import React from 'react';
+import Button from '@components/Button';
 import styles from '@styles/components/Header.module.css';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import React from 'react';
+import { IoIosMenu } from 'react-icons/io';
 import Drawer from 'react-modern-drawer';
 import 'react-modern-drawer/dist/index.css';
-import { IoIosMenu } from 'react-icons/io';
-import { useRouter } from 'next/router';
 import { Link as Scroll } from 'react-scroll';
-import Image from 'next/image';
-import Button from '@components/Button';
 
-const DrawerMenu = () => {
+const DrawerMenu: React.FC = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState);
@@ -66,7 +66,8 @@ const DrawerMenu = () => {
                         to={items.url}
                         smooth={true}
                         duration={600}
-                        onClick={toggleDrawer}>
+                        onClick={toggleDrawer}
+                      >
                         {items.name}
                       </Scroll>
                     </li>
@@ -92,7 +93,8 @@ const DrawerMenu = () => {
                   size='normal'
                   types='link'
                   href='/download'
-                  id='drawerD'>
+                  id='drawerD'
+                >
                   資料ダウンロード
                 </Button>
               </div>
@@ -102,7 +104,8 @@ const DrawerMenu = () => {
                   size='normal'
                   types='link'
                   href='/contact'
-                  id='drawerC'>
+                  id='drawerC'
+                >
                   お問い合わせ
                 </Button>
               </div>

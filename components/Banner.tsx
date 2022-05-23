@@ -13,7 +13,8 @@ export const Banner: React.FC<BannerProps> = (props) => {
           props.banner?.url
             ? `${props.banner.url}?utm_source=google&utm_medium=content-text&utm_campain=remarketing`
             : ''
-        }>
+        }
+      >
         <picture>
           <source
             type='image/webp'
