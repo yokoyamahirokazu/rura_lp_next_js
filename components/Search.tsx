@@ -1,5 +1,5 @@
-import { useRouter } from 'next/dist/client/router';
 import styles from '@styles/components/Search.module.scss';
+import { useRouter } from 'next/dist/client/router';
 
 export const Search: React.FC = () => {
   const router = useRouter();
@@ -18,8 +18,10 @@ export const Search: React.FC = () => {
       サイト内検索
       <input
         className={styles.input}
-        type="text"
-        onKeyPress={(e: React.KeyboardEvent<HTMLInputElement>) => onEnterKeyEvent(e)}
+        type='text'
+        onKeyPress={(e: React.KeyboardEvent<HTMLInputElement>) =>
+          onEnterKeyEvent(e)
+        }
       />
     </label>
   );

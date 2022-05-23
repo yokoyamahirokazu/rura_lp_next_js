@@ -1,22 +1,22 @@
-import { NextPage } from 'next';
-import styles from '@styles/components/Components.module.css';
 import Button from '@components/Button';
-import Image from 'next/image';
 import SeoContent from '@components/SeoContent';
+import styles from '@styles/components/Components.module.css';
+import { NextPage } from 'next';
+import Image from 'next/image';
 
 const Thanks: NextPage = () => {
   return (
     <>
       <SeoContent
-        pageTitle="資料ダウンロード送信完了"
-        pageDescription="資料ダウンロードフォームの送信が完了しました。この度は遠隔接客サービスRURAの資料ダウンロードをお申し込みいただき誠にありがとうございました。"
+        pageTitle='資料ダウンロード送信完了'
+        pageDescription='資料ダウンロードフォームの送信が完了しました。この度は遠隔接客サービスRURAの資料ダウンロードをお申し込みいただき誠にありがとうございました。'
         noIndex={'true'}
       />
       <section className={styles.thanksPage}>
         <div className={styles.thanksPageBg}>
           <Image
-            src="/images/contact_section_bg.jpg"
-            alt="お問い合わせありがとうございます。"
+            src='/images/contact_section_bg.jpg'
+            alt='お問い合わせありがとうございます。'
             layout={'fill'}
             objectFit={'cover'}
           />
@@ -28,11 +28,11 @@ const Thanks: NextPage = () => {
             <div className={styles.thanksDownload}>
               <h2>資料ダウンロードはこちら</h2>
               <Button
-                bgColor="secondary"
-                size="large"
-                types="link"
-                href="https://drive.google.com/file/d/1ofA5TP-xjMDg87fXSpGccDj8LAnVbj3m/view"
-                icon="download"
+                bgColor='secondary'
+                size='large'
+                types='link'
+                href='https://drive.google.com/file/d/1ofA5TP-xjMDg87fXSpGccDj8LAnVbj3m/view'
+                icon='download'
               >
                 資料ダウンロードはこちら
               </Button>
@@ -45,7 +45,7 @@ const Thanks: NextPage = () => {
               その他不明な点がございましたらお気軽にお問い合わせください。
             </p>
             <div className={styles.thanksContentBtn}>
-              <Button bgColor="primary" size="normal" types="link" href={'/'}>
+              <Button bgColor='primary' size='normal' types='link' href={'/'}>
                 ホームへ戻る
               </Button>
             </div>

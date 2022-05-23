@@ -24,6 +24,8 @@ export interface IBlog extends ContentBase {
   writer?: IAuthor;
   partner?: string;
   postDate?: string;
+  hubSpotPortalId?: string;
+  hubSpotFormId?: string;
   related_blogs: IBlog[];
 }
 
@@ -71,6 +73,6 @@ export type Response<T = any> = {
   headers: any;
 };
 
-export interface IHttpClient {
-  get: <T extends object, R = Response<T>>(path: string) => Promise<R>;
-}
+// export interface IHttpClient {
+//   get: <T extends object, R = Response<T>>(path: string) => Promise<R>;
+// }

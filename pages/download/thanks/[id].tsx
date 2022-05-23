@@ -1,12 +1,12 @@
-import { NextPage } from 'next';
-import React from 'react';
-import styles from '@styles/components/Components.module.css';
 import Button from '@components/Button';
-import Image from 'next/image';
-import { client } from '@framework/client';
 import SeoContent from '@components/SeoContent';
-import { useRouter } from 'next/router';
+import { client } from '@framework/client';
 import { config } from '@site.config';
+import styles from '@styles/components/Components.module.css';
+import { NextPage } from 'next';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import React from 'react';
 
 declare global {
   interface Window {
@@ -50,8 +50,8 @@ const Index: NextPage<IndexProps> = (props) => {
         <section className={styles.thanksPage}>
           <div className={styles.thanksPageBg}>
             <Image
-              src="/images/contact_section_bg.jpg"
-              alt="お問い合わせありがとうございます。"
+              src='/images/contact_section_bg.jpg'
+              alt='お問い合わせありがとうございます。'
               layout={'fill'}
               objectFit={'cover'}
             />
@@ -70,11 +70,11 @@ const Index: NextPage<IndexProps> = (props) => {
               <div className={styles.thanksDownload}>
                 <h2>資料ダウンロードはこちら</h2>
                 <Button
-                  bgColor="secondary"
-                  size="large"
-                  types="link"
+                  bgColor='secondary'
+                  size='large'
+                  types='link'
                   href={props.handbookItem.url && props.handbookItem.url}
-                  icon="download"
+                  icon='download'
                 >
                   資料ダウンロードはこちら
                 </Button>
@@ -87,7 +87,7 @@ const Index: NextPage<IndexProps> = (props) => {
                 その他不明な点がございましたらお気軽にお問い合わせください。
               </p>
               <div className={styles.thanksContentBtn}>
-                <Button bgColor="primary" size="normal" types="link" href={'/'}>
+                <Button bgColor='primary' size='normal' types='link' href={'/'}>
                   ホームへ戻る
                 </Button>
               </div>
@@ -105,7 +105,9 @@ export const getStaticPaths = async () => {
     queries: { limit: config.defaultMaxLimit },
   });
 
-  const paths = data.contents.map((content) => `/download/thanks/${content.id}`);
+  const paths = data.contents.map(
+    (content) => `/download/thanks/${content.id}`
+  );
   return { paths, fallback: false };
 };
 

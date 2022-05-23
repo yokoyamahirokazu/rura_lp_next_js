@@ -1,4 +1,4 @@
-import { NextPage } from 'next';
+import { IBlog, ICategory, IPopularArticles } from '@/types';
 import {
   Hero,
   Case,
@@ -11,12 +11,11 @@ import {
   Features,
   Newsindex,
 } from '@components';
-
 import ContactSection from '@components/ContactSection';
 import SeoContent from '@components/SeoContent';
-import { IBlog, ICategory, IPopularArticles } from '@/types';
-import { client } from 'framework/client';
 import { config } from '@site.config';
+import { client } from 'framework/client';
+import { NextPage } from 'next';
 
 interface caseItems {
   id?: string;
@@ -81,22 +80,31 @@ const Index: NextPage<IndexProps> = (props) => {
       <Hero />
       <Case articles={props.caseItem} />
       <Service />
-      <ContactSection downloadId="indexD1" contactId="indexC1" />
+      <ContactSection downloadId='indexD1' contactId='indexC1' />
       <Scene />
       <Design />
-      <ContactSection downloadId="indexD2" contactId="indexC2" />
+      <ContactSection downloadId='indexD2' contactId='indexC2' />
       <Recommend articles={props.recommendItem} />
       <Features />
-      <ContactSection downloadId="indexD3" contactId="indexC3" />
+      <ContactSection downloadId='indexD3' contactId='indexC3' />
       <Newsindex articles={props.blogItem} />
       <Handbook articles={props.handbookItem} />
       <Faqs articles={props.faqItem} />
-      <ContactSection downloadId="indexD4" contactId="indexC4" />
+      <ContactSection downloadId='indexD4' contactId='indexC4' />
     </>
   );
 };
 
-export async function getStaticProps() {
+export async function getStaticProps(): Promise<{
+  props: {
+    blogItem;
+    caseItem;
+    recommendItem;
+    faqItem;
+    handbookItem;
+    cateoryItem;
+  };
+}> {
   const caseData = await client.get({ endpoint: 'case' });
   const recommendData = await client.get({ endpoint: 'recommend' });
   const faqData = await client.get({ endpoint: 'faq' });

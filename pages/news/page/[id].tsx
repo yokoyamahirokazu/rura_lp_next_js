@@ -1,13 +1,12 @@
+import { IBanner, IBlog, ICategory, IPopularArticles, ITag } from '@/types';
+import { getBlogsByFilter, getContents } from '@blog';
+import { BreadCrumb, Categories, Loader, Meta, Pager } from '@components';
+import ContactSection from '@components/ContactSection';
+import SeoContent from '@components/SeoContent';
+import styles from '@styles/components/Components.module.css';
 import { GetStaticPropsContext, NextPage } from 'next';
 import { useRouter } from 'next/dist/client/router';
 import Link from 'next/link';
-import { BreadCrumb, Categories, Loader, Meta, Pager } from '@components';
-import { IBanner, IBlog, ICategory, IPopularArticles, ITag } from '@/types';
-import { getBlogsByFilter, getContents } from '@blog';
-import styles from '@styles/components/Components.module.css';
-import ContactSection from '@components/ContactSection';
-
-import SeoContent from '@components/SeoContent';
 type PageProps = {
   currentPage: number;
   blogs: IBlog[];
@@ -27,8 +26,8 @@ const Page: NextPage<PageProps> = (props) => {
   return (
     <>
       <SeoContent
-        pageTitle="新着情報"
-        pageDescription="遠隔接客サービスの新着情報をお届けします。"
+        pageTitle='新着情報'
+        pageDescription='遠隔接客サービスの新着情報をお届けします。'
         pageUrl={router.asPath}
       />
       <BreadCrumb />
@@ -46,10 +45,14 @@ const Page: NextPage<PageProps> = (props) => {
           {props.blogs.map((blog) => {
             return (
               <li key={blog.id}>
-                <Link href="/news/[blogId]" as={`/news/${blog.id}`}>
+                <Link href='/news/[blogId]' as={`/news/${blog.id}`}>
                   <a>
                     <h3>{blog.title}</h3>
-                    <Meta createdAt={blog.postDate} category={blog.category} tags={blog.tag} />
+                    <Meta
+                      createdAt={blog.postDate}
+                      category={blog.category}
+                      tags={blog.tag}
+                    />
                   </a>
                 </Link>
               </li>
@@ -57,18 +60,18 @@ const Page: NextPage<PageProps> = (props) => {
           })}
         </ul>
         {props.blogs.length > 0 && (
-          <ul className="pager">
+          <ul className='pager'>
             <Pager pager={props.pager} currentPage={props.currentPage} />
           </ul>
         )}
       </div>
-      <ContactSection downloadId="newsD" contactId="newsC" />
+      <ContactSection downloadId='newsD' contactId='newsC' />
     </>
   );
 };
 
 export async function getStaticPaths() {
-  const limit: number = 12;
+  const limit = 12;
   const { pager } = await getBlogsByFilter(limit, 1);
   const paths = pager.map((page) => {
     return { params: { id: (page + 1).toString() } };

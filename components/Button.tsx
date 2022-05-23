@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import styles from '@styles/components/Parts.module.css';
+import Link from 'next/link';
 import { IoDocumentTextOutline, IoMailOutline } from 'react-icons/io5';
 interface Props {
   children?: string;
@@ -29,20 +29,25 @@ const Button = ({
   errorText,
   as,
   submittingText,
-}: Props) => {
+}: Props): JSX.Element => {
   {
     if (size == 'normal') {
       bgColor == 'normal' && (classNames = styles.btn);
       bgColor == 'primary' && (classNames = `${styles.btn} ${styles.primary}`);
-      bgColor == 'secondary' && (classNames = `${styles.btn} ${styles.secondary}`);
+      bgColor == 'secondary' &&
+        (classNames = `${styles.btn} ${styles.secondary}`);
     }
     if (size == 'large') {
-      bgColor == 'primary' && (classNames = `${styles.btn} ${styles.primary}  ${styles.large}`);
-      bgColor == 'secondary' && (classNames = `${styles.btn} ${styles.secondary} ${styles.large}`);
+      bgColor == 'primary' &&
+        (classNames = `${styles.btn} ${styles.primary}  ${styles.large}`);
+      bgColor == 'secondary' &&
+        (classNames = `${styles.btn} ${styles.secondary} ${styles.large}`);
     }
     if (size == 'headerSmall') {
-      bgColor == 'primary' && (classNames = `${styles.btn} ${styles.primary}  ${styles.headerSmall}`);
-      bgColor == 'secondary' && (classNames = `${styles.btn} ${styles.secondary} ${styles.headerSmall}`);
+      bgColor == 'primary' &&
+        (classNames = `${styles.btn} ${styles.primary}  ${styles.headerSmall}`);
+      bgColor == 'secondary' &&
+        (classNames = `${styles.btn} ${styles.secondary} ${styles.headerSmall}`);
     }
   }
 
@@ -50,7 +55,7 @@ const Button = ({
     <>
       {types == 'submit' ? (
         <button
-          type="submit"
+          type='submit'
           className={classNames}
           data-formrun-error-text={errorText}
           data-formrun-submitting-text={submittingText}

@@ -1,12 +1,13 @@
-import Link from 'next/link';
-import styles from '@styles/components/Header.module.css';
 import Button from '@components/Button';
-import TopButton from '@components/TopButton';
 import DrawerMenu from '@components/DrawerMenu';
-import { Link as Scroll } from 'react-scroll';
-import { useRouter } from 'next/router';
-import React, { useCallback, useState, useEffect } from "react"
+import TopButton from '@components/TopButton';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import React, { useCallback, useState, useEffect } from 'react';
+import { Link as Scroll } from 'react-scroll';
+
+import styles from '../styles/components/Header.module.css';
 
 export const Header: React.FC = () => {
   const router = useRouter();
@@ -21,11 +22,11 @@ export const Header: React.FC = () => {
     { url: 'handbook', name: 'ハンドブック' },
     { url: 'faq', name: 'FAQ' },
   ];
-const [isHeaderShown, setIsHeaderClass] = useState(true);
- const [lastPosition, setLastPosition] = useState(0);
- const headerHeight = 0;
+  const [isHeaderShown, setIsHeaderClass] = useState(true);
+  const [lastPosition, setLastPosition] = useState(0);
+  const headerHeight = 0;
 
- const scrollEvent = useCallback(() => {
+  const scrollEvent = useCallback(() => {
     const offset = window.pageYOffset;
 
     if (offset > headerHeight) {
@@ -33,7 +34,6 @@ const [isHeaderShown, setIsHeaderClass] = useState(true);
     } else {
       setIsHeaderClass(true);
     }
-
 
     setLastPosition(offset);
   }, [lastPosition]);
@@ -46,21 +46,22 @@ const [isHeaderShown, setIsHeaderClass] = useState(true);
     };
   }, [scrollEvent]);
 
-
-
-
   return (
     <>
-      <header className={(
-        isHeaderShown == true ? styles.header : `${styles.headerFixed} ${styles.header}`
-      )}>
+      <header
+        className={
+          isHeaderShown == true
+            ? styles.header
+            : `${styles.headerFixed} ${styles.header}`
+        }
+      >
         <div className={styles.logo}>
-          <Link href="/">
+          <Link href='/'>
             <a>
               <div className={styles.logoImg}>
                 <Image
-                  src="/images/rura_logo_blue.svg"
-                  alt="遠隔接客サービスRURA"
+                  src='/images/rura_logo_blue.svg'
+                  alt='遠隔接客サービスRURA'
                   layout={'fill'}
                   objectFit={'contain'}
                 />
@@ -92,7 +93,7 @@ const [isHeaderShown, setIsHeaderClass] = useState(true);
                 <>
                   {navItem.map((navContent) => (
                     <li key={navContent.name}>
-                      <Link href="/" as={`/#${navContent.url}`}>
+                      <Link href='/' as={`/#${navContent.url}`}>
                         {navContent.name}
                       </Link>
                     </li>
@@ -102,14 +103,22 @@ const [isHeaderShown, setIsHeaderClass] = useState(true);
             </ul>
           </nav>
 
-          <Button bgColor="primary" size={(
-        isHeaderShown == true ? 'normal' : 'headerSmall'
-      )} types="link" href="/download" id="headerD">
+          <Button
+            bgColor='primary'
+            size={isHeaderShown == true ? 'normal' : 'headerSmall'}
+            types='link'
+            href='/download'
+            id='headerD'
+          >
             資料ダウンロード
           </Button>
-          <Button bgColor="secondary" size={(
-        isHeaderShown == true ? 'normal' : 'headerSmall'
-      )} types="link" href="/contact" id="headerC">
+          <Button
+            bgColor='secondary'
+            size={isHeaderShown == true ? 'normal' : 'headerSmall'}
+            types='link'
+            href='/contact'
+            id='headerC'
+          >
             お問い合わせ
           </Button>
         </div>

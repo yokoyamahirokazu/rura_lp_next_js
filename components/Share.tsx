@@ -1,9 +1,10 @@
-import { config } from '../site.config';
 import styles from '@styles/components/Components.module.css';
-import { SiTwitter, SiFacebook, SiLine } from 'react-icons/si';
-import { IoCopyOutline } from 'react-icons/io5';
 import React from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { IoCopyOutline } from 'react-icons/io5';
+import { SiTwitter, SiFacebook, SiLine } from 'react-icons/si';
+
+import { config } from '../site.config';
 
 type ShareProps = {
   id: string;
@@ -32,17 +33,17 @@ export const Share: React.FC<ShareProps> = (props) => {
           </CopyToClipboard>
         </li>
         <li>
-          <a href={twitterLink} target="_blank" rel="noopener noreferrer">
+          <a href={twitterLink} target='_blank' rel='noopener noreferrer'>
             <SiTwitter />
           </a>
         </li>
         <li>
-          <a href={facebookLink} target="_blank" rel="noopener noreferrer">
+          <a href={facebookLink} target='_blank' rel='noopener noreferrer'>
             <SiFacebook />
           </a>
         </li>
         <li>
-          <a href={LineLink} target="_blank" rel="noopener noreferrer">
+          <a href={LineLink} target='_blank' rel='noopener noreferrer'>
             <SiLine />
           </a>
         </li>

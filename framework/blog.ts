@@ -1,12 +1,12 @@
+import { client } from '@framework';
 import { config } from '@site.config';
 import { IBlog, ICategory, ITag, MicroCmsResponse, Queries } from '@types';
-import { client } from '@framework';
 
 const limit = parseInt(config.defaultLimit);
 
 export const getContents = async (
-  currentPage: number = 1,
-  articleFilter?: string,
+  currentPage = 1,
+  articleFilter?: string
 ): Promise<{
   blogs: IBlog[];
   categories: ICategory[];
@@ -34,7 +34,9 @@ export const getAllBlogs = async (): Promise<MicroCmsResponse<IBlog>> => {
   return res;
 };
 
-export const getBlogs = async (limit: number): Promise<MicroCmsResponse<IBlog>> => {
+export const getBlogs = async (
+  limit: number
+): Promise<MicroCmsResponse<IBlog>> => {
   const res = await client.get<MicroCmsResponse<IBlog>>({
     endpoint: 'blog',
     queries: { limit: limit },
@@ -43,7 +45,9 @@ export const getBlogs = async (limit: number): Promise<MicroCmsResponse<IBlog>> 
   return res;
 };
 
-export const getLatestBlogs = async (limit: number): Promise<MicroCmsResponse<IBlog>> => {
+export const getLatestBlogs = async (
+  limit: number
+): Promise<MicroCmsResponse<IBlog>> => {
   const res = await client.get<MicroCmsResponse<IBlog>>({
     endpoint: 'blog',
     queries: { limit: limit },
@@ -55,7 +59,7 @@ export const getLatestBlogs = async (limit: number): Promise<MicroCmsResponse<IB
 export const getBlogsByFilter = async (
   limit: number,
   currentPage: number,
-  articleFilter?: string,
+  articleFilter?: string
 ): Promise<{ blogs: MicroCmsResponse<IBlog>; pager: number[] }> => {
   const queries: Queries = {
     limit: limit,
@@ -80,7 +84,9 @@ export const getBlogById = async (blogId: string): Promise<IBlog> => {
 };
 
 export const getCategories = async (): Promise<MicroCmsResponse<ICategory>> => {
-  const res = await client.get<MicroCmsResponse<ICategory>>({ endpoint: 'categories' });
+  const res = await client.get<MicroCmsResponse<ICategory>>({
+    endpoint: 'categories',
+  });
   return res;
 };
 

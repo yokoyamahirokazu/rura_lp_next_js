@@ -1,11 +1,11 @@
-import { NextPage } from 'next';
-import React from 'react';
-import styles from '@styles/components/Components.module.css';
-import Image from 'next/image';
-import { client } from '@framework/client';
 import SeoContent from '@components/SeoContent';
-import { useRouter } from 'next/router';
+import { client } from '@framework/client';
 import { config } from '@site.config';
+import styles from '@styles/components/Components.module.css';
+import { NextPage } from 'next';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import React from 'react';
 import HubspotForm from 'react-hubspot-form';
 
 interface handbookItems {
@@ -58,8 +58,8 @@ const Index: NextPage<IndexProps> = (props) => {
                 <Image
                   src={props.handbookItem.img.url}
                   alt={props.handbookItem.title}
-                  layout="fill"
-                  objectFit="contain"
+                  layout='fill'
+                  objectFit='contain'
                 />
               </div>
 
@@ -77,7 +77,7 @@ const Index: NextPage<IndexProps> = (props) => {
           <div className={styles.contactPageFlexInner}>
             <div className={styles.contactContent}>
               <HubspotForm
-                portalId="21136941"
+                portalId='21136941'
                 formId={props.handbookItem.hubspotId}
                 loading={<div>Loading...</div>}
               />

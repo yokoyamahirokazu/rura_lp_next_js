@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/dist/client/router';
 import { IDraftResponse } from '@/types';
 import { getDraftBlog } from 'framework/draft';
+import { useRouter } from 'next/dist/client/router';
+import { useEffect, useState } from 'react';
 
 export const useDraft = () => {
   const router = useRouter();
@@ -10,7 +10,10 @@ export const useDraft = () => {
 
   const fetcher = async () => {
     const query = router.query;
-    const data = await getDraftBlog(query.id as string, query.draftKey as string);
+    const data = await getDraftBlog(
+      query.id as string,
+      query.draftKey as string
+    );
     setData(data);
     setLoading(false);
   };

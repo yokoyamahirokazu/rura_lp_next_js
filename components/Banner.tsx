@@ -7,7 +7,7 @@ type BannerProps = {
 
 export const Banner: React.FC<BannerProps> = (props) => {
   return (
-    <div className="wrapper">
+    <div className='wrapper'>
       <a
         href={
           props.banner?.url
@@ -17,7 +17,7 @@ export const Banner: React.FC<BannerProps> = (props) => {
       >
         <picture>
           <source
-            type="image/webp"
+            type='image/webp'
             srcSet={`${props.banner.image.url}?w=300&fm=webp,${props.banner.image.url}?w=600&fm=webp 2x`}
           />
           <img

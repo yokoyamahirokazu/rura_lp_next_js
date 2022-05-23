@@ -1,3 +1,3 @@
 module.exports = {
-  swcMinify: false // 追記
-}
+  swcMinify: false, // 追記
+};

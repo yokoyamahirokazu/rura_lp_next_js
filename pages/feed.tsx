@@ -1,5 +1,5 @@
-import { GetServerSidePropsContext } from 'next';
 import { generateFeedXml } from '@scripts';
+import { GetServerSidePropsContext } from 'next';
 
 export async function getServerSideProps({ res }: GetServerSidePropsContext) {
   const xml = await generateFeedXml();
