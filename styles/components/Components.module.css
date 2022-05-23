@@ -2044,3 +2044,76 @@ p.downloadTxt span {
     text-align: left;
   }
 }
+
+/* post form */
+.postFormPage {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2vw 4vw;
+}
+.postFormPage .postPage {
+  padding: 0 0 4vw;
+}
+.postFormPage .postOgpImage {
+  max-width: 680px;
+}
+.formBg {
+  border: solid 3px var(--bg-light);
+  padding: 24px;
+  margin: 0 0 0 4vw;
+  max-width: 680px;
+}
+.formBg h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0 0 15px 0;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--primary-500);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.formBg h2 svg {
+  color: var(--primary-500);
+  margin: 0 8px 0 0;
+}
+
+.formButton {
+  border: solid 3px var(--primary-500);
+  margin: 32px 0 0;
+  color: var(--primary-500);
+  font-size: 2rem;
+  text-align: center;
+  padding: 16px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.1rem;
+}
+.formButton:hover {
+  background-color: var(--bg-light);
+}
+
+.formButton svg {
+  color: var(--primary-500);
+  margin: 0 8px 0 0;
+}
+
+@media screen and (max-width: 1080px) {
+  .postFormPage {
+    display: block;
+    padding: 0;
+  }
+
+  .formBg {
+    margin: 24px auto;
+    width: calc(100% - 16px);
+    box-sizing: border-box;
+  }
+  .formButtonBox {
+    display: none;
+  }
+}
