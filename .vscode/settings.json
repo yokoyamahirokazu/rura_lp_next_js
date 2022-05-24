@@ -27,5 +27,6 @@
     "javascriptreact",
     "typescript",
     "typescriptreact"
-  ]
+  ],
+  "nuxt.isNuxtApp": false
 }

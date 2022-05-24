@@ -1,6 +1,7 @@
-import { ICategory } from '@/types';
 import Button from '@components/Button';
 import styles from '@styles/components/Components.module.css';
+
+import { ICategory } from '@/types';
 
 type CategoriesProps = {
   categories: ICategory[];
@@ -19,8 +20,7 @@ export const Categories: React.FC<CategoriesProps> = (props) => {
                 size='normal'
                 types='link'
                 href='/news/category/[categoryId]/page/[id]'
-                as={`/news/category/${category.id}/page/1`}
-              >
+                as={`/news/category/${category.id}/page/1`}>
                 {category.name}
               </Button>
             </li>
@@ -31,8 +31,7 @@ export const Categories: React.FC<CategoriesProps> = (props) => {
             bgColor='normal'
             size='normal'
             types='link'
-            href='/news/page/1'
-          >
+            href='/news/page/1'>
             全ての記事
           </Button>
         </li>

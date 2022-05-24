@@ -70,10 +70,8 @@ export const Recommend: React.FC<CaesProps> = (props) => {
                         {recommend.body && recommend.body}
                       </h3>
                       <p>
-                        <small>
-                          {recommend.company && recommend.company}
-                          <br />
-                        </small>
+                        <small>{recommend.company && recommend.company}</small>
+                        <br />
                         {recommend.name && recommend.name}
                       </p>
                     </div>

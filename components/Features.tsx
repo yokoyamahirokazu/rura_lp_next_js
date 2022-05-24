@@ -14,8 +14,7 @@ export const Features: React.FC = () => {
         <div className={styles.contentBox}>
           <div className={styles.contentFlex}>
             <div
-              className={`${styles.contentFlexThree} ${styles.boxShadowA} ${styles.boxRound}`}
-            >
+              className={`${styles.contentFlexThree} ${styles.boxShadowA} ${styles.boxRound}`}>
               <div className={styles.boxRound_inner}>
                 <div className={styles.txtBoxB}>
                   <div className={styles.imageBoxB}>
@@ -35,8 +34,7 @@ export const Features: React.FC = () => {
               </div>
             </div>
             <div
-              className={`${styles.contentFlexThree} ${styles.boxShadowA} ${styles.boxRound}`}
-            >
+              className={`${styles.contentFlexThree} ${styles.boxShadowA} ${styles.boxRound}`}>
               <div className={styles.boxRound_inner}>
                 <div className={styles.txtBoxB}>
                   <div className={styles.imageBoxB}>
@@ -54,8 +52,7 @@ export const Features: React.FC = () => {
               </div>
             </div>
             <div
-              className={`${styles.contentFlexThree} ${styles.boxShadowA} ${styles.boxRound}`}
-            >
+              className={`${styles.contentFlexThree} ${styles.boxShadowA} ${styles.boxRound}`}>
               <div className={styles.boxRound_inner}>
                 <div className={styles.txtBoxB}>
                   <div className={styles.imageBoxB}>
@@ -74,8 +71,7 @@ export const Features: React.FC = () => {
               </div>
             </div>
             <div
-              className={`${styles.contentFlexThree} ${styles.boxShadowA} ${styles.boxRound}`}
-            >
+              className={`${styles.contentFlexThree} ${styles.boxShadowA} ${styles.boxRound}`}>
               <div className={styles.boxRound_inner}>
                 <div className={styles.txtBoxB}>
                   <div className={styles.imageBoxB}>
@@ -95,8 +91,7 @@ export const Features: React.FC = () => {
               </div>
             </div>
             <div
-              className={`${styles.contentFlexThree} ${styles.boxShadowA} ${styles.boxRound}`}
-            >
+              className={`${styles.contentFlexThree} ${styles.boxShadowA} ${styles.boxRound}`}>
               <div className={styles.boxRound_inner}>
                 <div className={styles.txtBoxB}>
                   <div className={styles.imageBoxB}>
@@ -114,8 +109,7 @@ export const Features: React.FC = () => {
               </div>
             </div>
             <div
-              className={`${styles.contentFlexThree} ${styles.boxShadowA} ${styles.boxRound}`}
-            >
+              className={`${styles.contentFlexThree} ${styles.boxShadowA} ${styles.boxRound}`}>
               <div className={styles.boxRound_inner}>
                 <div className={styles.txtBoxB}>
                   <div className={styles.imageBoxB}>

@@ -1,6 +1,6 @@
-import { getAllBlogs } from 'scripts/blog';
+import { config } from '@site.config';
 import RSS from 'rss';
-import { config } from '../site.config';
+import { getAllBlogs } from 'scripts/blog';
 
 export const generateFeedXml = async (): Promise<string> => {
   const feed = new RSS({

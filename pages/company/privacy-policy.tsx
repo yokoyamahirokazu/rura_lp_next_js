@@ -63,8 +63,7 @@ const Privacy: NextPage = () => {
                 <a
                   href='http://www.google.com/analytics/terms/jp.html'
                   target='_blank'
-                  rel='noopener noreferrer'
-                >
+                  rel='noopener noreferrer'>
                   http://www.google.com/analytics/terms/jp.html
                 </a>
                 <br />
@@ -79,8 +78,7 @@ const Privacy: NextPage = () => {
                 <a
                   href='https://tools.google.com/dlpage/gaoptout?hl=ja'
                   target='_blank'
-                  rel='noopener noreferrer'
-                >
+                  rel='noopener noreferrer'>
                   https://tools.google.com/dlpage/gaoptout?hl=ja
                 </a>
               </p>

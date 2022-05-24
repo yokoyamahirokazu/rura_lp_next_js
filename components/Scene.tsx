@@ -14,8 +14,7 @@ export const Scene: React.FC = () => {
         <div className={styles.contentBox}>
           <div className={styles.contentFlex}>
             <div
-              className={`${styles.contentFlexThree} ${styles.boxShadowA} ${styles.boxRound}`}
-            >
+              className={`${styles.contentFlexThree} ${styles.boxShadowA} ${styles.boxRound}`}>
               <div className={styles.boxRound_inner}>
                 <div className={styles.imageBoxB}>
                   <Image
@@ -31,8 +30,7 @@ export const Scene: React.FC = () => {
               </div>
             </div>
             <div
-              className={`${styles.contentFlexThree} ${styles.boxShadowA} ${styles.boxRound}`}
-            >
+              className={`${styles.contentFlexThree} ${styles.boxShadowA} ${styles.boxRound}`}>
               <div className={styles.boxRound_inner}>
                 <div className={styles.imageBoxB}>
                   <Image
@@ -48,8 +46,7 @@ export const Scene: React.FC = () => {
               </div>
             </div>
             <div
-              className={`${styles.contentFlexThree} ${styles.boxShadowA} ${styles.boxRound}`}
-            >
+              className={`${styles.contentFlexThree} ${styles.boxShadowA} ${styles.boxRound}`}>
               <div className={styles.boxRound_inner}>
                 <div className={styles.imageBoxB}>
                   <Image
@@ -65,8 +62,7 @@ export const Scene: React.FC = () => {
               </div>
             </div>
             <div
-              className={`${styles.contentFlexThree} ${styles.boxShadowA} ${styles.boxRound}`}
-            >
+              className={`${styles.contentFlexThree} ${styles.boxShadowA} ${styles.boxRound}`}>
               <div className={styles.boxRound_inner}>
                 <div className={styles.imageBoxB}>
                   <Image
@@ -82,8 +78,7 @@ export const Scene: React.FC = () => {
               </div>
             </div>
             <div
-              className={`${styles.contentFlexThree} ${styles.boxShadowA} ${styles.boxRound}`}
-            >
+              className={`${styles.contentFlexThree} ${styles.boxShadowA} ${styles.boxRound}`}>
               <div className={styles.boxRound_inner}>
                 <div className={styles.imageBoxB}>
                   <Image
@@ -99,8 +94,7 @@ export const Scene: React.FC = () => {
               </div>
             </div>
             <div
-              className={`${styles.contentFlexThree} ${styles.boxShadowA} ${styles.boxRound}`}
-            >
+              className={`${styles.contentFlexThree} ${styles.boxShadowA} ${styles.boxRound}`}>
               <div className={styles.boxRound_inner}>
                 <div className={styles.imageBoxB}>
                   <Image

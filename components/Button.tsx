@@ -58,8 +58,7 @@ const Button = ({
           type='submit'
           className={classNames}
           data-formrun-error-text={errorText}
-          data-formrun-submitting-text={submittingText}
-        >
+          data-formrun-submitting-text={submittingText}>
           {children}
         </button>
       ) : (

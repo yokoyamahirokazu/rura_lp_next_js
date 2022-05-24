@@ -45,8 +45,7 @@ const ContactSection: React.FC<Props> = ({
                 types='link'
                 href='/download/'
                 icon='download'
-                id={downloadId}
-              >
+                id={downloadId}>
                 資料ダウンロード
               </Button>
               <Button
@@ -55,8 +54,7 @@ const ContactSection: React.FC<Props> = ({
                 types='link'
                 href='/contact'
                 icon='contact'
-                id={contactId}
-              >
+                id={contactId}>
                 お問い合わせ
               </Button>
             </div>

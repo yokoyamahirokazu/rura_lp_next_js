@@ -36,21 +36,16 @@ const DrawerMenu: React.FC = () => {
       <Drawer open={isOpen} onClose={toggleDrawer} direction='right'>
         <div className={styles.drawerInner}>
           <div className={styles.drawerInnerContent}>
-            <div className={styles.drawerLogo}>
-              <Link href='/'>
-                <a>
-                  <div className={styles.drawerLogoImg}>
-                    <Image
-                      src='/images/rura_logo_blue.svg'
-                      alt='遠隔接客サービスRURA'
-                      layout={'fill'}
-                      objectFit={'contain'}
-                    />
-                  </div>
-                </a>
-              </Link>
-            </div>
-
+            <Link href='/'>
+              <a className={styles.drawerLogo}>
+                <Image
+                  src='/images/rura_logo_blue.svg'
+                  alt='遠隔接客サービスRURA'
+                  layout={'fill'}
+                  objectFit={'contain'}
+                />
+              </a>
+            </Link>
             <ul>
               <li>
                 <Link href={'/'}>
@@ -66,8 +61,7 @@ const DrawerMenu: React.FC = () => {
                         to={items.url}
                         smooth={true}
                         duration={600}
-                        onClick={toggleDrawer}
-                      >
+                        onClick={toggleDrawer}>
                         {items.name}
                       </Scroll>
                     </li>
@@ -93,8 +87,7 @@ const DrawerMenu: React.FC = () => {
                   size='normal'
                   types='link'
                   href='/download'
-                  id='drawerD'
-                >
+                  id='drawerD'>
                   資料ダウンロード
                 </Button>
               </div>
@@ -104,8 +97,7 @@ const DrawerMenu: React.FC = () => {
                   size='normal'
                   types='link'
                   href='/contact'
-                  id='drawerC'
-                >
+                  id='drawerC'>
                   お問い合わせ
                 </Button>
               </div>

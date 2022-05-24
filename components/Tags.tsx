@@ -15,8 +15,7 @@ export const Tags: React.FC<TagsProps> = ({ tags }) => {
           <li key={tag.id}>
             <NextLink
               href='/news/tag/[tagId]/page/[id]'
-              as={`/news/tag/${tag.id}/page/1`}
-            >
+              as={`/news/tag/${tag.id}/page/1`}>
               <a>
                 <IoPricetagsOutline />
                 {tag.name}

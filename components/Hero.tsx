@@ -89,8 +89,7 @@ export const Hero: React.FC = () => {
                 types='link'
                 href='/download'
                 icon='download'
-                id='heroD'
-              >
+                id='heroD'>
                 資料ダウンロード
               </Button>
               <Button
@@ -99,8 +98,7 @@ export const Hero: React.FC = () => {
                 types='link'
                 href='/contact'
                 icon='contact'
-                id='heroC'
-              >
+                id='heroC'>
                 お問い合わせ
               </Button>
             </div>
@@ -115,14 +113,14 @@ export const Hero: React.FC = () => {
           <div
             className={styles.videoPlayImg}
             onClick={openModal}
-            id='moviePlay'
-          >
+            id='moviePlay'>
             <div className={styles.imageCircle}>
               <Image
                 src='/images/videoPlay.jpg'
                 alt='Youtube動画再生'
                 layout={'fill'}
                 objectFit={'cover'}
+                loading={'lazy'}
               />
               <div className={styles.imageCircleOverlay}></div>
               <div className={styles.imagePlayIconWrapper}>
@@ -147,8 +145,7 @@ export const Hero: React.FC = () => {
         onRequestClose={closeModal}
         closeTimeoutMS={500}
         className={styles.Modal}
-        overlayClassName={styles.Overlay}
-      >
+        overlayClassName={styles.Overlay}>
         <div className={styles.youtubeWrapper}>
           <YouTube
             videoId='BjCzqX1n_IM'
