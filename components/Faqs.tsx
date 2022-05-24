@@ -20,8 +20,7 @@ export const Faqs: React.FC<CaesProps> = (props) => {
             {props.articles.map((faq) => (
               <div
                 key={faq.id}
-                className={`${styles.contentFlexTwo} ${styles.boxShadowA} ${styles.boxRound}`}
-              >
+                className={`${styles.contentFlexTwo} ${styles.boxShadowA} ${styles.boxRound}`}>
                 <div className={styles.boxRound_inner}>
                   <div className={styles.faqContent}>
                     <div className={styles.txtBoxA}>

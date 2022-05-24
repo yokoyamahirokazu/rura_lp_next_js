@@ -53,8 +53,7 @@ export const Header: React.FC = () => {
           isHeaderShown == true
             ? styles.header
             : `${styles.headerFixed} ${styles.header}`
-        }
-      >
+        }>
         <div className={styles.logo}>
           <Link href='/'>
             <a>
@@ -108,8 +107,7 @@ export const Header: React.FC = () => {
             size={isHeaderShown == true ? 'normal' : 'headerSmall'}
             types='link'
             href='/download'
-            id='headerD'
-          >
+            id='headerD'>
             資料ダウンロード
           </Button>
           <Button
@@ -117,8 +115,7 @@ export const Header: React.FC = () => {
             size={isHeaderShown == true ? 'normal' : 'headerSmall'}
             types='link'
             href='/contact'
-            id='headerC'
-          >
+            id='headerC'>
             お問い合わせ
           </Button>
         </div>

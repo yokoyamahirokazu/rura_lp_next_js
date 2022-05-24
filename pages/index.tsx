@@ -1,4 +1,3 @@
-import { IBlog, ICategory, IPopularArticles } from '@/types';
 import {
   Hero,
   Case,
@@ -16,6 +15,8 @@ import SeoContent from '@components/SeoContent';
 import { config } from '@site.config';
 import { client } from 'framework/client';
 import { NextPage } from 'next';
+
+import { IBlog, ICategory } from '@/types';
 
 interface caseItems {
   id?: string;
@@ -64,7 +65,6 @@ type IndexProps = {
   currentPage: number;
   blogs: IBlog[];
   categories: ICategory[];
-  popularArticles: IPopularArticles;
   pager: [];
   blogItem: IBlog[];
   caseItem: caseItems[];

@@ -1,7 +1,8 @@
-import styles from '@/styles/components/Components.module.css';
+import styles from '@styles/components/Components.module.css';
 import Image from 'next/image';
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
-import Slick from 'react-slick';
+import Slider from 'react-slick';
+
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
@@ -62,7 +63,7 @@ export const Case: React.FC<CaesProps> = (props) => {
             導入事例<span>導入店舗、ぞくぞく増加中！</span>
           </h2>
         </div>
-        <Slick {...settings}>
+        <Slider {...settings}>
           {props.articles &&
             props.articles.map((caseItems) => (
               <div className={styles.caseContents} key={caseItems.id}>
@@ -74,6 +75,7 @@ export const Case: React.FC<CaesProps> = (props) => {
                         alt={caseItems.caseName}
                         layout={'fill'}
                         objectFit={'cover'}
+                        loading={'lazy'}
                       />
                     )}
                   </div>
@@ -81,7 +83,7 @@ export const Case: React.FC<CaesProps> = (props) => {
                 <div className={styles.caseContentsTxt}>
                   <h2>
                     {caseItems.caseName}
-                    <span> {caseItems.caseType}</span>
+                    <span>{caseItems.caseType}</span>
                   </h2>
                   <p>{caseItems.caseBody}</p>
                   <div className={styles.caseContentsLogo}>
@@ -109,7 +111,7 @@ export const Case: React.FC<CaesProps> = (props) => {
                 </div>
               </div>
             ))}
-        </Slick>
+        </Slider>
       </div>
     </section>
   );

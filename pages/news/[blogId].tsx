@@ -128,8 +128,8 @@ const Detail: NextPage<DetailProps> = (props) => {
               お申し込みはこちら
             </h2>
             <HubspotForm
-              portalId='21136941'
-              formId='84e44b1e-488b-4c0b-8631-7b89e9a58357'
+              portalId={props.blog.hubSpotPortalId}
+              formId={props.blog.hubSpotFormId}
               loading={<div>Loading...</div>}
             />
           </div>

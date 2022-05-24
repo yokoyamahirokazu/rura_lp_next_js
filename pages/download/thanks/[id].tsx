@@ -8,12 +8,6 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React from 'react';
 
-declare global {
-  interface Window {
-    Formrun?: any;
-  }
-}
-
 interface handbookItems {
   id?: string;
   title?: string;
@@ -74,8 +68,7 @@ const Index: NextPage<IndexProps> = (props) => {
                   size='large'
                   types='link'
                   href={props.handbookItem.url && props.handbookItem.url}
-                  icon='download'
-                >
+                  icon='download'>
                   資料ダウンロードはこちら
                 </Button>
               </div>

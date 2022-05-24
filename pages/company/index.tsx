@@ -58,17 +58,19 @@ const Index: NextPage = () => {
             </div>
             <div className={styles.companyContentFlexRight}>
               <table>
-                {companyOutline.map((items) => (
-                  <tr>
-                    <th>{items.item}</th>
-                    <td>{items.content}</td>
-                  </tr>
-                ))}
+                <tbody>
+                  {companyOutline.map((items) => (
+                    <tr>
+                      <th>{items.item}</th>
+                      <td>{items.content}</td>
+                    </tr>
+                  ))}
+                </tbody>
               </table>
             </div>
           </div>
         </section>
-      </div>{' '}
+      </div>
       <ContactSection downloadId='companyD' contactId='companyC' />
     </>
   );

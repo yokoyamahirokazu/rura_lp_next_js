@@ -1,8 +1,9 @@
-import Link from 'next/link';
-import { IBlog } from '@/types';
 import { Meta } from '@components';
 import Button from '@components/Button';
 import styles from '@styles/components/Components.module.css';
+import Link from 'next/link';
+
+import { IBlog } from '@/types';
 type CaesProps = {
   articles: IBlog[];
 };
@@ -41,8 +42,7 @@ export const Newsindex: React.FC<CaesProps> = (props) => {
                 bgColor='normal'
                 size='normal'
                 types='link'
-                href='/news/page/1'
-              >
+                href='/news/page/1'>
                 全ての記事を見る
               </Button>
             </div>

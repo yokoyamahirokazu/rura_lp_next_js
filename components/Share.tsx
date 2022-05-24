@@ -1,10 +1,10 @@
+import { config } from '@site.config';
 import styles from '@styles/components/Components.module.css';
+import NextLink from 'next/link';
 import React from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { IoCopyOutline } from 'react-icons/io5';
 import { SiTwitter, SiFacebook, SiLine } from 'react-icons/si';
-
-import { config } from '../site.config';
 
 type ShareProps = {
   id: string;
@@ -25,27 +25,32 @@ export const Share: React.FC<ShareProps> = (props) => {
         <li>
           <CopyToClipboard
             text={updateText}
-            onCopy={() => alert(`クリップボードにURLをコピーしました！`)}
-          >
+            onCopy={() => alert(`クリップボードにURLをコピーしました！`)}>
             <button>
               <IoCopyOutline />
             </button>
           </CopyToClipboard>
         </li>
         <li>
-          <a href={twitterLink} target='_blank' rel='noopener noreferrer'>
-            <SiTwitter />
-          </a>
+          <NextLink href={twitterLink}>
+            <a target='_blank' rel='noopener noreferrer'>
+              <SiTwitter />
+            </a>
+          </NextLink>
         </li>
         <li>
-          <a href={facebookLink} target='_blank' rel='noopener noreferrer'>
-            <SiFacebook />
-          </a>
+          <NextLink href={facebookLink}>
+            <a target='_blank' rel='noopener noreferrer'>
+              <SiFacebook />
+            </a>
+          </NextLink>
         </li>
         <li>
-          <a href={LineLink} target='_blank' rel='noopener noreferrer'>
-            <SiLine />
-          </a>
+          <NextLink href={LineLink}>
+            <a target='_blank' rel='noopener noreferrer'>
+              <SiLine />
+            </a>
+          </NextLink>
         </li>
       </ul>
     </div>

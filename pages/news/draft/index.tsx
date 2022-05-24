@@ -1,4 +1,3 @@
-import { IBlog, ICategory, ITag } from '@/types';
 import { getContents } from '@blog';
 import { Share } from '@components';
 import { BreadCrumb } from '@components/BreadCrumb';
@@ -16,6 +15,8 @@ import Image from 'next/image';
 import HubspotForm from 'react-hubspot-form';
 import { FiEdit2 } from 'react-icons/fi';
 import { Link as Scroll } from 'react-scroll';
+
+import { IBlog, ICategory, ITag } from '@/types';
 
 type DraftProps = {
   blogs: IBlog[];
@@ -87,8 +88,7 @@ const Draft: NextPage<DraftProps> = (props) => {
 
               <div
                 className={styles.postBody}
-                dangerouslySetInnerHTML={{ __html: data.body }}
-              ></div>
+                dangerouslySetInnerHTML={{ __html: data.body }}></div>
 
               <Tags tags={data.blog.tag} />
               <Share id={data.blog.id} title={data.blog.title} />
@@ -163,8 +163,7 @@ const Draft: NextPage<DraftProps> = (props) => {
 
             <div
               className={styles.postBody}
-              dangerouslySetInnerHTML={{ __html: data.body }}
-            ></div>
+              dangerouslySetInnerHTML={{ __html: data.body }}></div>
 
             <div className={styles.postContactBox}>
               <div className={styles.postContactBoxLogo}>
@@ -185,8 +184,7 @@ const Draft: NextPage<DraftProps> = (props) => {
                   types='link'
                   href='/download/'
                   icon='download'
-                  id={`${data.blog.id}D`}
-                >
+                  id={`${data.blog.id}D`}>
                   資料ダウンロード
                 </Button>
                 <Button
@@ -195,8 +193,7 @@ const Draft: NextPage<DraftProps> = (props) => {
                   types='link'
                   href='/contact'
                   icon='contact'
-                  id={`${data.blog.id}C`}
-                >
+                  id={`${data.blog.id}C`}>
                   お問い合わせ
                 </Button>
               </div>
