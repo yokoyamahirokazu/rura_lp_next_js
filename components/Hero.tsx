@@ -1,11 +1,12 @@
-import Button from '@components/Button';
-import styles from '@styles/components/Hero.module.css';
 import Image from 'next/image';
 import React, { useEffect, useState, useCallback } from 'react';
 import { IoIosPlay } from 'react-icons/io';
 import { LazyVideo } from 'react-lazy-media';
 import Modal from 'react-modal';
 import YouTube from 'react-youtube';
+
+import Button from '@components/Button';
+import styles from '@styles/components/Hero.module.css';
 
 export const Hero: React.FC = () => {
   const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -132,7 +133,7 @@ export const Hero: React.FC = () => {
           </div>
           <div className={styles.imagePlayTxt}>
             <p>
-              WHAT'S
+              WHAT&apos;S
               <br />
               RURA ?
             </p>

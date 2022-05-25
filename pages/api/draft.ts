@@ -1,10 +1,14 @@
-import { IBlog } from '@/types';
-import { convertToToc, convertToHtml } from '@scripts';
-import { config } from '@site.config';
 import axios from 'axios';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+import { IBlog } from '@/types';
+import { convertToToc, convertToHtml } from '@scripts';
+import { config } from '@site.config';
+
+export default async function getDraft(
+  req: NextApiRequest,
+  res: NextApiResponse
+): Promise<void> {
   const id = req.query.id;
   const draftKey = req.query.draftKey;
 
@@ -27,4 +31,4 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     .catch((error) => {
       res.status(500).json(error);
     });
-};
+}

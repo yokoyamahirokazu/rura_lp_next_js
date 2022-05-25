@@ -1,7 +1,7 @@
-import { formatDate } from '@utils';
 import NextLink from 'next/link';
 
 import { ICategory, ITag } from '@/types';
+import { formatDate } from '@utils';
 
 type MetaProps = {
   category?: ICategory;

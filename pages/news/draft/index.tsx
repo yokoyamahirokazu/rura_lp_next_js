@@ -1,3 +1,11 @@
+import { NextPage } from 'next';
+import { useRouter } from 'next/dist/client/router';
+import Image from 'next/image';
+import HubspotForm from 'react-hubspot-form';
+import { FiEdit2 } from 'react-icons/fi';
+import { Link as Scroll } from 'react-scroll';
+
+import { IBlog, ICategory, ITag } from '@/types';
 import { getContents } from '@blog';
 import { Share } from '@components';
 import { BreadCrumb } from '@components/BreadCrumb';
@@ -9,14 +17,6 @@ import SeoContent from '@components/SeoContent';
 import { Tags } from '@components/Tags';
 import { useDraft } from '@hooks';
 import styles from '@styles/components/Components.module.css';
-import { NextPage } from 'next';
-import { useRouter } from 'next/dist/client/router';
-import Image from 'next/image';
-import HubspotForm from 'react-hubspot-form';
-import { FiEdit2 } from 'react-icons/fi';
-import { Link as Scroll } from 'react-scroll';
-
-import { IBlog, ICategory, ITag } from '@/types';
 
 type DraftProps = {
   blogs: IBlog[];
@@ -208,7 +208,13 @@ const Draft: NextPage<DraftProps> = (props) => {
   );
 };
 
-export async function getStaticProps() {
+export async function getStaticProps(): Promise<{
+  props: {
+    blogs: IBlog[];
+    categories: ICategory[];
+    tags: ITag[];
+  };
+}> {
   const { blogs, categories, tags } = await getContents();
   return {
     props: {

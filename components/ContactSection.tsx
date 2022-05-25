@@ -1,6 +1,7 @@
+import Image from 'next/image';
+
 import Button from '@components/Button';
 import styles from '@styles/components/Components.module.css';
-import Image from 'next/image';
 
 interface Props {
   ids?: string;

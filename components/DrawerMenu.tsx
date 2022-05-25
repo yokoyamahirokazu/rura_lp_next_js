@@ -1,5 +1,3 @@
-import Button from '@components/Button';
-import styles from '@styles/components/Header.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -8,6 +6,9 @@ import { IoIosMenu } from 'react-icons/io';
 import Drawer from 'react-modern-drawer';
 import 'react-modern-drawer/dist/index.css';
 import { Link as Scroll } from 'react-scroll';
+
+import Button from '@components/Button';
+import styles from '@styles/components/Header.module.css';
 
 const DrawerMenu: React.FC = () => {
   const [isOpen, setIsOpen] = React.useState(false);

@@ -1,6 +1,7 @@
-import styles from '@styles/components/Components.module.css';
 import Image from 'next/image';
 import { ReactElement } from 'react';
+
+import styles from '@styles/components/Components.module.css';
 
 export const Service: React.FC = (): ReactElement => {
   return (

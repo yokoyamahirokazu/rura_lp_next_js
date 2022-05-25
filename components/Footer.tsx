@@ -1,8 +1,9 @@
-import styles from '@styles/components/Footer.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Link as Scroll } from 'react-scroll';
+
+import styles from '@styles/components/Footer.module.css';
 
 export const Footer: React.FC = () => {
   const router = useRouter();
@@ -133,7 +134,10 @@ export const Footer: React.FC = () => {
               運営会社
               <br />
               タイムリープ株式会社
-              <a href='https://timeleap.co.jp/' target='_blank'>
+              <a
+                href='https://timeleap.co.jp/'
+                target='_blank'
+                rel='noreferrer'>
                 https://timeleap.co.jp/
               </a>
             </p>

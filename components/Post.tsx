@@ -1,6 +1,7 @@
-import styles from '@styles/components/Components.module.css';
 import DOMPurify from 'dompurify';
 import { useEffect, useState } from 'react';
+
+import styles from '@styles/components/Components.module.css';
 
 type PostProps = {
   body?: string;
@@ -14,7 +15,7 @@ export const Post: React.FC<PostProps> = (props) => {
       // XSS対策
       setHtmlString(DOMPurify().sanitize(props.body));
     }
-  }, []);
+  }, [props.body]);
   return (
     <div
       className={styles.postBody}

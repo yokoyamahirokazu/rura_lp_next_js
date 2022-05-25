@@ -1,12 +1,13 @@
+import { NextPage } from 'next';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import React from 'react';
+
 import Button from '@components/Button';
 import SeoContent from '@components/SeoContent';
 import { client } from '@framework/client';
 import { config } from '@site.config';
 import styles from '@styles/components/Components.module.css';
-import { NextPage } from 'next';
-import Image from 'next/image';
-import { useRouter } from 'next/router';
-import React from 'react';
 
 type DetailProps = {
   id?: string;
@@ -74,7 +75,10 @@ const Index: NextPage<IndexProps> = (props) => {
   );
 };
 
-export const getStaticPaths = async () => {
+export const getStaticPaths = async function (): Promise<{
+  paths: any;
+  fallback: boolean;
+}> {
   const data = await client.get({
     endpoint: 'blog',
     queries: {
@@ -87,7 +91,11 @@ export const getStaticPaths = async () => {
   return { paths, fallback: false };
 };
 
-export const getStaticProps = async (context) => {
+export const getStaticProps = async function (context: any): Promise<{
+  props: {
+    newsItem: any;
+  };
+}> {
   const id = context.params.id;
   const data = await client.get({ endpoint: 'blog', contentId: id });
 

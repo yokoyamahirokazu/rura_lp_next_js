@@ -1,12 +1,13 @@
-import SeoContent from '@components/SeoContent';
-import { client } from '@framework/client';
-import { config } from '@site.config';
-import styles from '@styles/components/Components.module.css';
 import { NextPage } from 'next';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React from 'react';
 import HubspotForm from 'react-hubspot-form';
+
+import SeoContent from '@components/SeoContent';
+import { client } from '@framework/client';
+import { config } from '@site.config';
+import styles from '@styles/components/Components.module.css';
 
 interface handbookItems {
   id?: string;
@@ -89,7 +90,10 @@ const Index: NextPage<IndexProps> = (props) => {
   );
 };
 
-export const getStaticPaths = async () => {
+export const getStaticPaths = async function getWhitepaper(): Promise<{
+  paths: any;
+  fallback: boolean;
+}> {
   const data = await client.get({
     endpoint: 'whitepaper',
     queries: { limit: config.defaultMaxLimit },
@@ -99,7 +103,13 @@ export const getStaticPaths = async () => {
   return { paths, fallback: false };
 };
 
-export const getStaticProps = async (context) => {
+export const getStaticProps = async function getWhitepaperData(
+  context: any
+): Promise<{
+  props: {
+    handbookItem: any;
+  };
+}> {
   const id = context.params.id;
   const data = await client.get({ endpoint: 'whitepaper', contentId: id });
 

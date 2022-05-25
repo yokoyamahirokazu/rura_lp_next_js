@@ -1,10 +1,11 @@
-import { config } from '@site.config';
-import styles from '@styles/components/Components.module.css';
 import NextLink from 'next/link';
 import React from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { IoCopyOutline } from 'react-icons/io5';
 import { SiTwitter, SiFacebook, SiLine } from 'react-icons/si';
+
+import { config } from '@site.config';
+import styles from '@styles/components/Components.module.css';
 
 type ShareProps = {
   id: string;

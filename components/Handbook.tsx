@@ -1,7 +1,8 @@
-import Button from '@components/Button';
-import styles from '@styles/components/Components.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
+
+import Button from '@components/Button';
+import styles from '@styles/components/Components.module.css';
 
 interface Article {
   id?: string;

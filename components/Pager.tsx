@@ -1,8 +1,8 @@
-import styles from '@styles/components/Components.module.css';
 import NextLink from 'next/link';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
 import { ICategory, ITag } from '@/types';
+import styles from '@styles/components/Components.module.css';
 
 type PagerProps = {
   currentPage: number;

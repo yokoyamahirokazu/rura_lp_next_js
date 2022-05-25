@@ -1,6 +1,7 @@
-import styles from '@styles/components/Parts.module.css';
 import { useEffect, useState } from 'react';
 import { IoIosArrowUp } from 'react-icons/io';
+
+import styles from '@styles/components/Parts.module.css';
 
 const ReturnTopButton = () => {
   const [isButtonActive, setIsButtonActive] = useState(false);

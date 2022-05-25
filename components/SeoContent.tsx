@@ -1,5 +1,6 @@
-import { config } from '@site.config';
 import Head from 'next/head';
+
+import { config } from '@site.config';
 
 interface Props {
   pageTitle?: string;

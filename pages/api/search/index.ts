@@ -1,8 +1,12 @@
-import { config } from '@site.config';
 import axios from 'axios';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+import { config } from '@site.config';
+
+export default async function getSearch(
+  req: NextApiRequest,
+  res: NextApiResponse
+): Promise<void> {
   const query: any = req.query.q;
   if (!query) {
     res.status(400).json({ error: `missing queryparamaeter` });
@@ -23,4 +27,4 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     .catch((error) => {
       res.status(500).json(error);
     });
-};
+}

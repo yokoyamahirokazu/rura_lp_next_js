@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 
-const WindowSize = () => {
+const WindowSize = function (): void {
   const isClient = typeof window === 'object';
   const getWindowDimensions = useCallback(() => {
     return {
