@@ -1,12 +1,13 @@
+import { GetStaticPropsContext, NextPage } from 'next';
+import { useRouter } from 'next/dist/client/router';
+import Link from 'next/link';
+
 import { IBanner, IBlog, ICategory, IPopularArticles, ITag } from '@/types';
 import { getBlogsByFilter, getContents } from '@blog';
 import { BreadCrumb, Categories, Loader, Meta, Pager } from '@components';
 import ContactSection from '@components/ContactSection';
 import SeoContent from '@components/SeoContent';
 import styles from '@styles/components/Components.module.css';
-import { GetStaticPropsContext, NextPage } from 'next';
-import { useRouter } from 'next/dist/client/router';
-import Link from 'next/link';
 type PageProps = {
   currentPage: number;
   blogs: IBlog[];
@@ -70,7 +71,14 @@ const Page: NextPage<PageProps> = (props) => {
   );
 };
 
-export async function getStaticPaths() {
+export async function getStaticPaths(): Promise<{
+  paths: {
+    params: {
+      id: string;
+    };
+  }[];
+  fallback: boolean;
+}> {
   const limit = 12;
   const { pager } = await getBlogsByFilter(limit, 1);
   const paths = pager.map((page) => {
@@ -82,7 +90,15 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps(context: GetStaticPropsContext) {
+export async function getStaticProps(context: GetStaticPropsContext): Promise<{
+  props: {
+    currentPage: number;
+    blogs: IBlog[];
+    categories: ICategory[];
+    pager: number[];
+    tags: ITag[];
+  };
+}> {
   const page: any = context.params?.id || '1';
   const { blogs, pager, categories, tags } = await getContents(page);
   return {

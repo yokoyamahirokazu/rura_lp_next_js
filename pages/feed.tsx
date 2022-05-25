@@ -1,7 +1,12 @@
-import { generateFeedXml } from '@scripts';
 import { GetServerSidePropsContext } from 'next';
 
-export async function getServerSideProps({ res }: GetServerSidePropsContext) {
+import { generateFeedXml } from '@scripts';
+
+export async function getServerSideProps({
+  res,
+}: GetServerSidePropsContext): Promise<{
+  props: any;
+}> {
   const xml = await generateFeedXml();
   res.statusCode = 200;
   res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate');
@@ -13,5 +18,7 @@ export async function getServerSideProps({ res }: GetServerSidePropsContext) {
   };
 }
 
-const Feed = () => null;
+export function Feed(): void {
+  null;
+}
 export default Feed;

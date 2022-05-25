@@ -1,8 +1,9 @@
+import { NextPage } from 'next';
+import Image from 'next/image';
+
 import Button from '@components/Button';
 import SeoContent from '@components/SeoContent';
 import styles from '@styles/components/Components.module.css';
-import { NextPage } from 'next';
-import Image from 'next/image';
 
 const Thanks: NextPage = () => {
   return (
@@ -32,8 +33,7 @@ const Thanks: NextPage = () => {
                 size='large'
                 types='link'
                 href='https://drive.google.com/file/d/1ofA5TP-xjMDg87fXSpGccDj8LAnVbj3m/view'
-                icon='download'
-              >
+                icon='download'>
                 資料ダウンロードはこちら
               </Button>
             </div>

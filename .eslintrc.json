@@ -5,12 +5,14 @@
   },
   "extends": [
     "eslint:recommended",
+    "next",
     "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
   "plugins": ["import", "unused-imports"], // eslint-plugin- 接頭辞は省略
   "rules": {
     "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/no-explicit-any": 0,
     "unused-imports/no-unused-imports": "warn",
     "import/order": [
       "warn",

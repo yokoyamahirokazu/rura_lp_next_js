@@ -1,8 +1,9 @@
+import { NextPage } from 'next';
+import React from 'react';
+
 import ContactSection from '@components/ContactSection';
 import SeoContent from '@components/SeoContent';
 import styles from '@styles/components/Company.module.css';
-import { NextPage } from 'next';
-import React from 'react';
 
 const Privacy: NextPage = () => {
   return (

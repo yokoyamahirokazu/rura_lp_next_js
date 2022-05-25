@@ -1,13 +1,14 @@
+import { GetStaticPropsContext, NextPage } from 'next';
+import { useRouter } from 'next/dist/client/router';
+import Image from 'next/image';
+import Link from 'next/link';
+
 import { IBanner, IBlog, ICategory, IPopularArticles } from '@/types';
 import { getContents } from '@blog';
 import { BreadCrumb, Categories, Loader, Meta, Pager } from '@components';
 import ContactSection from '@components/ContactSection';
 import SeoContent from '@components/SeoContent';
 import styles from '@styles/components/Components.module.css';
-import { GetStaticPropsContext, NextPage } from 'next';
-import { useRouter } from 'next/dist/client/router';
-import Image from 'next/image';
-import Link from 'next/link';
 
 type PageProps = {
   currentPage: number;
@@ -133,14 +134,25 @@ const Page: NextPage<PageProps> = (props) => {
   );
 };
 
-export async function getStaticPaths() {
+export async function getStaticPaths(): Promise<{
+  paths: any[];
+  fallback: boolean;
+}> {
   return {
     paths: [],
     fallback: true,
   };
 }
 
-export async function getStaticProps(context: GetStaticPropsContext) {
+export async function getStaticProps(context: GetStaticPropsContext): Promise<{
+  props: {
+    currentPage: number;
+    blogs: IBlog[];
+    categories: ICategory[];
+    pager: number[];
+    selectedCategory: ICategory;
+  };
+}> {
   const page: any = context.params?.id || '1';
   const categoryId = context.params?.categoryId;
   const articleFilter =

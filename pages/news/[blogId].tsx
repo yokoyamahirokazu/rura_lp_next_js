@@ -1,3 +1,11 @@
+import { GetStaticPropsContext, NextPage } from 'next';
+import { useRouter } from 'next/dist/client/router';
+import Image from 'next/image';
+import HubspotForm from 'react-hubspot-form';
+import { FiEdit2 } from 'react-icons/fi';
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import { Link as Scroll } from 'react-scroll';
+
 import { IBlog, ITag, ICategory } from '@/types/interface';
 import { getAllBlogs, getBlogById, getContents } from '@blog';
 import { BreadCrumb } from '@components/BreadCrumb';
@@ -11,13 +19,6 @@ import { Tags } from '@components/Tags';
 import { client } from '@framework/client';
 import { convertToHtml } from '@scripts';
 import styles from '@styles/components/Components.module.css';
-import { GetStaticPropsContext, NextPage } from 'next';
-import { useRouter } from 'next/dist/client/router';
-import Image from 'next/image';
-import HubspotForm from 'react-hubspot-form';
-import { FiEdit2 } from 'react-icons/fi';
-import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
-import { Link as Scroll } from 'react-scroll';
 
 type DetailProps = {
   blog: IBlog;
@@ -103,8 +104,7 @@ const Detail: NextPage<DetailProps> = (props) => {
 
               <div
                 className={styles.postBody}
-                dangerouslySetInnerHTML={{ __html: props.body }}
-              ></div>
+                dangerouslySetInnerHTML={{ __html: props.body }}></div>
 
               <Tags tags={props.blog.tag} />
               <Share
@@ -185,8 +185,7 @@ const Detail: NextPage<DetailProps> = (props) => {
 
             <div
               className={styles.postBody}
-              dangerouslySetInnerHTML={{ __html: props.body }}
-            ></div>
+              dangerouslySetInnerHTML={{ __html: props.body }}></div>
 
             <div className={styles.postContactBox}>
               <div className={styles.postContactBoxLogo}>
@@ -207,8 +206,7 @@ const Detail: NextPage<DetailProps> = (props) => {
                   types='link'
                   href='/download/'
                   icon='download'
-                  id={`${props.blog.id}D`}
-                >
+                  id={`${props.blog.id}D`}>
                   資料ダウンロード
                 </Button>
                 <Button
@@ -217,8 +215,7 @@ const Detail: NextPage<DetailProps> = (props) => {
                   types='link'
                   href='/contact'
                   icon='contact'
-                  id={`${props.blog.id}C`}
-                >
+                  id={`${props.blog.id}C`}>
                   お問い合わせ
                 </Button>
               </div>
@@ -241,8 +238,7 @@ const Detail: NextPage<DetailProps> = (props) => {
                         return (
                           <a
                             className={styles.prev}
-                            href={`/news/${props.nextEntry.id}`}
-                          >
+                            href={`/news/${props.nextEntry.id}`}>
                             {props.nextEntry.title}
                             <IoIosArrowBack />
                           </a>
@@ -256,8 +252,7 @@ const Detail: NextPage<DetailProps> = (props) => {
                         return (
                           <a
                             className={styles.next}
-                            href={`/news/${props.prevEntry.id}`}
-                          >
+                            href={`/news/${props.prevEntry.id}`}>
                             {props.prevEntry.title}
                             <IoIosArrowForward />
                           </a>
@@ -272,16 +267,14 @@ const Detail: NextPage<DetailProps> = (props) => {
                   bgColor='normal'
                   size='normal'
                   types='link'
-                  href={cotegoryLink}
-                >
+                  href={cotegoryLink}>
                   {cotegoryLinkName}
                 </Button>
                 <Button
                   bgColor='normal'
                   size='normal'
                   types='link'
-                  href='/news/page/1'
-                >
+                  href='/news/page/1'>
                   全ての記事を見る
                 </Button>
               </div>
@@ -294,7 +287,14 @@ const Detail: NextPage<DetailProps> = (props) => {
   );
 };
 
-export async function getStaticPaths() {
+export async function getStaticPaths(): Promise<{
+  paths: {
+    params: {
+      blogId: string;
+    };
+  }[];
+  fallback: boolean;
+}> {
   const blogs = await getAllBlogs();
   const ids = blogs.contents.map((blog) => {
     return { params: { blogId: blog.id } };
@@ -305,7 +305,17 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps(context: GetStaticPropsContext) {
+export async function getStaticProps(context: GetStaticPropsContext): Promise<{
+  props: {
+    blog: IBlog;
+    body: string;
+    blogs: IBlog[];
+    tags: ITag[];
+    categories: ICategory[];
+    prevEntry: any;
+    nextEntry: any;
+  };
+}> {
   const blogId: any = context.params?.blogId || '1';
   const blog = await getBlogById(blogId);
   const body = convertToHtml(blog.body);

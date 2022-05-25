@@ -1,15 +1,10 @@
-import SeoContent from '@components/SeoContent';
-import styles from '@styles/components/Components.module.css';
 import { NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
 import HubspotForm from 'react-hubspot-form';
 
-declare global {
-  interface Window {
-    Formrun?: any;
-  }
-}
+import SeoContent from '@components/SeoContent';
+import styles from '@styles/components/Components.module.css';
 
 const Index: NextPage = () => {
   return (

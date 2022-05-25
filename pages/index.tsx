@@ -1,3 +1,6 @@
+import { NextPage } from 'next';
+
+import { IBlog, ICategory } from '@/types';
 import {
   Hero,
   Case,
@@ -14,9 +17,6 @@ import ContactSection from '@components/ContactSection';
 import SeoContent from '@components/SeoContent';
 import { config } from '@site.config';
 import { client } from 'framework/client';
-import { NextPage } from 'next';
-
-import { IBlog, ICategory } from '@/types';
 
 interface caseItems {
   id?: string;

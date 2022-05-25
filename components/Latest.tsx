@@ -1,7 +1,8 @@
+import NextLink from 'next/link';
+
 import { Meta } from '@components';
 import styles from '@styles/components/Components.module.css';
 import { IBlog } from '@types';
-import NextLink from 'next/link';
 
 type LatestProps = {
   blogs: IBlog[];

@@ -1,7 +1,8 @@
-import styles from '@styles/components/Components.module.css';
 import Image from 'next/image';
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 import Slider from 'react-slick';
+
+import styles from '@styles/components/Components.module.css';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';

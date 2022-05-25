@@ -1,9 +1,10 @@
-import { Meta } from '@components';
-import Button from '@components/Button';
-import styles from '@styles/components/Components.module.css';
 import Link from 'next/link';
 
 import { IBlog } from '@/types';
+import { Meta } from '@components';
+import Button from '@components/Button';
+import styles from '@styles/components/Components.module.css';
+
 type CaesProps = {
   articles: IBlog[];
 };
