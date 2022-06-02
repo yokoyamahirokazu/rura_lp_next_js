@@ -5,6 +5,6 @@ export const client = createClient({
   apiKey: config.apiKey,
 });
 export const clientCopy = createClient({
-  serviceDomain: config.serviceIdCopy,
-  apiKey: config.apiKeyCopy,
+  serviceDomain: config.serviceIdMake,
+  apiKey: config.apiKeyMake,
 });
