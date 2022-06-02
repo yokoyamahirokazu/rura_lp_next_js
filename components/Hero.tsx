@@ -72,7 +72,7 @@ export const Hero: React.FC<HeroCopy> = (props) => {
         <div className={styles.heroInner}>
           <div className={styles.heroContent}>
             {props.articles.map((copy) => {
-              return <p className={styles.heroCopy}>{copy.mainCopy}</p>;
+              return <p className={styles.heroCopy} key={copy.id}>{copy.mainCopy}</p>;
             })}
             <div className={styles.heroLogo}>
               <p className={styles.heroLogoTxt}>遠隔接客サービス</p>
@@ -88,10 +88,10 @@ export const Hero: React.FC<HeroCopy> = (props) => {
             {props.articles.map((copy) => {
               return (
                 <h1
+                  key={copy.id}
                   className={styles.heroTitle}
                   dangerouslySetInnerHTML={{ __html: copy.subCopy }}
-                >
-                </h1>
+                ></h1>
               );
             })}
 
