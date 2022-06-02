@@ -62,6 +62,11 @@ export interface IMicroCmsImageType {
   width: number;
 }
 
+export interface ICopy extends ContentBase {
+  mainCopy?: string;
+  subCopy?: string;
+}
+
 export interface IDraftResponse {
   blog: IBlog;
   toc: TocTypes[];
