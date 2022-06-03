@@ -7,8 +7,13 @@ import YouTube from 'react-youtube';
 
 import Button from '@components/Button';
 import styles from '@styles/components/Hero.module.css';
+import { ICopy } from '@/types';
 
-export const Hero: React.FC = () => {
+type HeroCopy = {
+  articles: ICopy[];
+};
+
+export const Hero: React.FC<HeroCopy> = (props) => {
   const [modalIsOpen, setIsOpen] = React.useState(false);
   function openModal() {
     setIsOpen(true);
@@ -66,7 +71,9 @@ export const Hero: React.FC = () => {
 
         <div className={styles.heroInner}>
           <div className={styles.heroContent}>
-            <p className={styles.heroCopy}>変わる接客、変わらない体験</p>
+            {props.articles.map((copy) => {
+              return <p className={styles.heroCopy} key={copy.id}>{copy.mainCopy}</p>;
+            })}
             <div className={styles.heroLogo}>
               <p className={styles.heroLogoTxt}>遠隔接客サービス</p>
               <div className={styles.heroLogoImg}>
@@ -78,11 +85,16 @@ export const Hero: React.FC = () => {
                 />
               </div>
             </div>
-            <h1 className={styles.heroTitle}>
-              まるで瞬間移動。高スキルのスタッフをRURAで全国に０秒派遣。
-              <br />
-              お店の無人化や人材不足に効果を発揮します。
-            </h1>
+            {props.articles.map((copy) => {
+              return (
+                <h1
+                  key={copy.id}
+                  className={styles.heroTitle}
+                  dangerouslySetInnerHTML={{ __html: copy.subCopy }}
+                ></h1>
+              );
+            })}
+
             <div className={styles.heroBtn}>
               <Button
                 bgColor='primary'
@@ -90,7 +102,8 @@ export const Hero: React.FC = () => {
                 types='link'
                 href='/download'
                 icon='download'
-                id='heroD'>
+                id='heroD'
+              >
                 資料ダウンロード
               </Button>
               <Button
@@ -99,7 +112,8 @@ export const Hero: React.FC = () => {
                 types='link'
                 href='/contact'
                 icon='contact'
-                id='heroC'>
+                id='heroC'
+              >
                 お問い合わせ
               </Button>
             </div>
@@ -114,7 +128,8 @@ export const Hero: React.FC = () => {
           <div
             className={styles.videoPlayImg}
             onClick={openModal}
-            id='moviePlay'>
+            id='moviePlay'
+          >
             <div className={styles.imageCircle}>
               <Image
                 src='/images/videoPlay.jpg'
@@ -146,7 +161,8 @@ export const Hero: React.FC = () => {
         onRequestClose={closeModal}
         closeTimeoutMS={500}
         className={styles.Modal}
-        overlayClassName={styles.Overlay}>
+        overlayClassName={styles.Overlay}
+      >
         <div className={styles.youtubeWrapper}>
           <YouTube
             videoId='BjCzqX1n_IM'

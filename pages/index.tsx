@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 
-import { IBlog, ICategory } from '@/types';
+import { IBlog, ICategory, ICopy } from '@/types';
 import {
   Hero,
   Case,
@@ -16,7 +16,7 @@ import {
 import ContactSection from '@components/ContactSection';
 import SeoContent from '@components/SeoContent';
 import { config } from '@site.config';
-import { client } from 'framework/client';
+import { client, clientCopy } from 'framework/client';
 
 interface caseItems {
   id?: string;
@@ -68,6 +68,7 @@ type IndexProps = {
   pager: [];
   blogItem: IBlog[];
   caseItem: caseItems[];
+  copyItem: ICopy[];
   recommendItem: recommendItems[];
   faqItem: faqItems[];
   handbookItem: handbookItems[];
@@ -77,7 +78,7 @@ const Index: NextPage<IndexProps> = (props) => {
   return (
     <>
       <SeoContent />
-      <Hero />
+      <Hero articles={props.copyItem} />
       <Case articles={props.caseItem} />
       <Service />
       <ContactSection downloadId='indexD1' contactId='indexC1' />
@@ -103,6 +104,7 @@ export async function getStaticProps(): Promise<{
     faqItem;
     handbookItem;
     cateoryItem;
+    copyItem;
   };
 }> {
   const caseData = await client.get({ endpoint: 'case' });
@@ -118,6 +120,11 @@ export async function getStaticProps(): Promise<{
   });
   const categoryData = await client.get({ endpoint: 'categories' });
 
+  const copyData = await clientCopy.get({
+    endpoint: 'hero',
+    queries: { limit: 1 },
+  });
+
   return {
     props: {
       blogItem: blogData.contents,
@@ -126,6 +133,7 @@ export async function getStaticProps(): Promise<{
       faqItem: faqData.contents,
       handbookItem: handbookData.contents,
       cateoryItem: categoryData.contents,
+      copyItem: copyData.contents,
     },
   };
 }
