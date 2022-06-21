@@ -21,6 +21,11 @@ type wpProps = {
   articles: Article[];
 };
 export const WpPost: React.FC<wpProps> = (props) => {
+  const onLoad = (e) => {
+    if (e.target.srcset) {
+      e.target.dataset.load = 'done';
+    }
+  };
   return (
     <section className={styles.ruraMagazineBannerSeciton}>
       <Link href='https://media.timeleap-rura.com/'>
@@ -45,6 +50,8 @@ export const WpPost: React.FC<wpProps> = (props) => {
                 return (
                   <div key={wp.id} className={styles.ruraMagazinePostImage}>
                     <Image
+                      className={styles.image}
+                      onLoad={onLoad}
                       src={wp.yoast_head_json.og_image[0].url}
                       layout={'fill'}
                       objectFit={'cover'}

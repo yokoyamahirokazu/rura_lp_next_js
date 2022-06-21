@@ -2121,7 +2121,7 @@ p.downloadTxt span {
 /* RURA Magazine */
 
 .ruraMagazineBannerSeciton {
-  padding: 6vw 4vw 80px;
+  padding: 8vw 4vw 80px;
 }
 
 .ruraMagazineBanner {
@@ -2202,7 +2202,7 @@ p.downloadTxt span {
 
 @media screen and (max-width: 1080px) {
   .ruraMagazineBannerSeciton {
-    padding: 80px 4vw;
+    padding: 10vw 4vw;
   }
 
   .ruraMagazineBanner {
