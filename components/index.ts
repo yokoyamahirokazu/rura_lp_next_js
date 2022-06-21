@@ -24,3 +24,4 @@ export * from './ContactSection';
 export * from './Newsindex';
 export * from './TopButton';
 export * from './WindowSize';
+export * from './WordPress';

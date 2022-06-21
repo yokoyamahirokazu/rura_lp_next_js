@@ -97,7 +97,7 @@ p.footerCopyRight {
   }
   .footerNavFlex {
     margin: 0 0 40px 0;
-    justify-content: flex-start;
+    justify-content: space-between;
   }
 
   .footerLogo {
@@ -113,7 +113,7 @@ p.footerCopyRight {
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
   .footerNavFlex {
     display: block;
   }
@@ -125,5 +125,55 @@ p.footerCopyRight {
 
   ul.footerNav:first-child {
     margin: 0 0 20px 0;
+  }
+}
+
+.footerBtn {
+  margin: 0 0 0 40px;
+  max-width: 220px;
+  width: 100%;
+}
+
+.footerBtn a {
+  display: flex;
+  margin: 0 0 16px;
+}
+
+.footerRuraMagazineBanner {
+  background-color: #fff;
+  border-radius: 6px;
+  width: 100%;
+  padding: 20px 16px 16px;
+  color: var(--primary-500);
+  transition: 0.2s;
+  box-sizing: border-box;
+  margin: 0 0 8px 0;
+}
+.footerRuraMagazineLogo {
+  width: 100%;
+  aspect-ratio: 8 / 1;
+  position: relative;
+  margin: 0 auto 16px;
+  max-width: 280px;
+}
+.footerRuraMagazineBanner p {
+  font-size: 1.2rem;
+  margin: 0;
+  padding: 0;
+  line-height: 1.4;
+}
+
+.footerRuraMagazineBanner:hover {
+  filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.25));
+}
+
+@media screen and (max-width: 600px) {
+  .footerBtn {
+    margin: 0 0 0 0;
+    max-width: 100%;
+    width: 100%;
+  }
+  .footerRuraMagazineBanner p {
+    text-align: center;
   }
 }

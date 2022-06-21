@@ -31,7 +31,7 @@ export const Handbook: React.FC<CaesProps> = (props) => {
       <div className={styles.slantBg_inner}>
         <div className={styles.headline_box_center}>
           <h2 className={styles.headline}>
-            導入ハンドブック ダウンロード
+            お役立ち資料
             <span>導入事例やメリットをわかりやすくまとめています。</span>
           </h2>
         </div>

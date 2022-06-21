@@ -13,7 +13,10 @@ export const Faqs: React.FC<CaesProps> = (props) => {
     <section id='faq'>
       <div className={styles.section_inner}>
         <div className={styles.headline_box_center}>
-          <h2 className={styles.headline}>よくあるご質問</h2>
+          <h2 className={styles.headline}>
+            FAQ
+            <span>お客様から寄せられるよくあるご質問</span>
+          </h2>
         </div>
         <div className={styles.contentBox}>
           <div className={styles.contentFlex}>

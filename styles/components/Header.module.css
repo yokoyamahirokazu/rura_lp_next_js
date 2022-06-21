@@ -229,3 +229,28 @@ nav.header_nav ul li a:hover::before {
     display: none;
   }
 }
+
+.drawerRuraMagazineBanner {
+  background-color: var(--primary-500);
+  border-radius: 6px;
+  width: 100%;
+  padding: 16px 16px;
+  transition: 0.2s;
+  box-sizing: border-box;
+  margin: 0 0 16px 0;
+  position: relative;
+}
+.drawerRuraMagazineLogo {
+  width: 100%;
+  aspect-ratio: 8 / 1;
+  position: relative;
+  margin: 0 auto;
+  max-width: 280px;
+}
+
+.drawerRuraMagazineBanner:hover {
+  background-color: var(--primary-600);
+}
+.drawerRuraMagazineBanner:active {
+  background-color: var(--primary-700);
+}

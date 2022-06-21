@@ -15,7 +15,7 @@ export const Newsindex: React.FC<CaesProps> = (props) => {
         <div className={styles.sectionFlex}>
           <div className={styles.sectionFlexLeft}>
             <h2 className={styles.headline}>
-              新着情報<span>ニュースリリースやイベント情報など</span>
+              新着一覧<span>ニュースリリースやイベント情報など</span>
             </h2>
           </div>
           <div className={styles.sectionFlexRight}>

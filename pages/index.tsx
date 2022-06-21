@@ -12,6 +12,7 @@ import {
   Design,
   Features,
   Newsindex,
+  WpPost,
 } from '@components';
 import ContactSection from '@components/ContactSection';
 import SeoContent from '@components/SeoContent';
@@ -60,6 +61,20 @@ interface handbookItems {
     url: string;
   };
 }
+interface wpItems {
+  id?: string;
+  date?: string;
+  title?: {
+    rendered: string;
+  };
+  link?: string;
+  yoast_head_json?: {
+    og_image?: {
+      url?: string;
+    };
+    og_description?: string;
+  };
+}
 
 type IndexProps = {
   currentPage: number;
@@ -72,6 +87,7 @@ type IndexProps = {
   recommendItem: recommendItems[];
   faqItem: faqItems[];
   handbookItem: handbookItems[];
+  wpItem: wpItems[];
 };
 
 const Index: NextPage<IndexProps> = (props) => {
@@ -90,6 +106,7 @@ const Index: NextPage<IndexProps> = (props) => {
       <ContactSection downloadId='indexD3' contactId='indexC3' />
       <Newsindex articles={props.blogItem} />
       <Handbook articles={props.handbookItem} />
+      <WpPost articles={props.wpItem} />
       <Faqs articles={props.faqItem} />
       <ContactSection downloadId='indexD4' contactId='indexC4' />
     </>
@@ -105,6 +122,7 @@ export async function getStaticProps(): Promise<{
     handbookItem;
     cateoryItem;
     copyItem;
+    wpItem;
   };
 }> {
   const caseData = await client.get({ endpoint: 'case' });
@@ -125,6 +143,12 @@ export async function getStaticProps(): Promise<{
     queries: { limit: 1 },
   });
 
+  // RURA Magazine 記事取得
+  const res = await fetch(
+    'https://media.timeleap-rura.com/wp-json/wp/v2/posts?meta_key=lp_post_number&meta_orderby=meta_value_num&order=asc'
+  );
+  const wpData = await res.json();
+
   return {
     props: {
       blogItem: blogData.contents,
@@ -134,6 +158,7 @@ export async function getStaticProps(): Promise<{
       handbookItem: handbookData.contents,
       cateoryItem: categoryData.contents,
       copyItem: copyData.contents,
+      wpItem: wpData,
     },
   };
 }

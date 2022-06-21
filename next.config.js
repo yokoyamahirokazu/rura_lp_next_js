@@ -1,6 +1,6 @@
 module.exports = {
   images: {
-    domains: ['images.microcms-assets.io'],
+    domains: ['images.microcms-assets.io', 'media.timeleap-rura.com'],
   },
   async redirects() {
     return [

@@ -2117,3 +2117,147 @@ p.downloadTxt span {
     display: none;
   }
 }
+
+/* RURA Magazine */
+
+.ruraMagazineBannerSeciton {
+  padding: 6vw 4vw 80px;
+}
+
+.ruraMagazineBanner {
+  background-color: var(--primary-500);
+  max-width: 1080px;
+  margin: 0 auto;
+  position: relative;
+  border-radius: 6px;
+  padding: 32px 48px;
+  box-sizing: border-box;
+  color: #fff;
+  transition: 0.2s;
+}
+.ruraMagazineBanner:hover {
+  background-color: var(--primary-600);
+}
+.ruraMagazineBanner:active {
+  background-color: var(--primary-700);
+}
+
+.ruraMagazineLogo {
+  max-width: 460px;
+  width: 50%;
+  aspect-ratio: 8 / 1;
+  position: relative;
+  margin: 32px 0;
+}
+.ruraMagazineCopy {
+  font-size: 2.2rem;
+  font-weight: bold;
+  letter-spacing: 0.05rem;
+}
+.ruraMagazineLeadCopy {
+  font-size: 1.6rem;
+  letter-spacing: 0.05rem;
+}
+
+.ruraMagazinePostImageWrapper {
+  position: relative;
+  max-width: 400px;
+  width: 40%;
+  aspect-ratio: 1.2 / 1;
+  z-index: 1;
+  position: absolute;
+  right: 48px;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.ruraMagazinePostImage {
+  max-width: 240px;
+  width: 60%;
+  aspect-ratio: 1.4 / 1;
+  position: absolute;
+  filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.25));
+}
+
+.ruraMagazinePostImage img {
+  border-radius: 6px;
+}
+
+.ruraMagazinePostImage:nth-child(1) {
+  right: 0;
+  top: 0;
+  z-index: 4;
+}
+.ruraMagazinePostImage:nth-child(2) {
+  right: 50%;
+  top: 50%;
+  transform: translate(50%, -50%);
+  z-index: 3;
+}
+.ruraMagazinePostImage:nth-child(3) {
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+}
+
+@media screen and (max-width: 1080px) {
+  .ruraMagazineBannerSeciton {
+    padding: 80px 4vw;
+  }
+
+  .ruraMagazineBanner {
+    padding: 3vw 4vw;
+  }
+
+  .ruraMagazinePostImageWrapper {
+    right: 4vw;
+    aspect-ratio: 1.1 / 1;
+  }
+  .ruraMagazineCopy {
+    font-size: 2vw;
+  }
+  .ruraMagazineLeadCopy {
+    font-size: 1.4rem;
+    width: 50%;
+    line-height: 1.5;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .ruraMagazineBannerSeciton {
+    padding: 4vw 4vw 20vw;
+  }
+
+  .ruraMagazineBanner {
+    padding: 4vw 4vw 40vw;
+  }
+  .ruraMagazinePostImageWrapper {
+    right: auto;
+    left: 50%;
+    top: 34vw;
+    max-width: 360px;
+    width: 75%;
+    transform: translate(-50%, 0);
+    aspect-ratio: 1.4 / 1;
+  }
+  .ruraMagazineCopy {
+    font-size: 3.2vw;
+    text-align: center;
+  }
+
+  .ruraMagazineLogo {
+    max-width: 460px;
+    width: 75%;
+    aspect-ratio: 8 / 1;
+    position: relative;
+    margin: 4vw auto;
+  }
+  .ruraMagazineLeadCopy {
+    font-size: 2.8vw;
+    width: 100%;
+    text-align: center;
+  }
+  .ruraMagazinePostImage {
+    filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25));
+  }
+}

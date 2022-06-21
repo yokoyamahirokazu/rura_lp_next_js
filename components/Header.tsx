@@ -15,12 +15,10 @@ export const Header: React.FC = () => {
 
   const navItem = [
     { url: 'case', name: '導入事例' },
-    { url: 'service', name: 'サービス' },
-    { url: 'scene', name: 'シーン' },
-    { url: 'design', name: 'デザイン' },
+    { url: 'scene', name: '導入シーン' },
     { url: 'features', name: '機能' },
-    { url: 'news', name: '新着情報' },
-    { url: 'handbook', name: 'ハンドブック' },
+    { url: 'news', name: '新着一覧' },
+    { url: 'handbook', name: 'お役立ち資料' },
     { url: 'faq', name: 'FAQ' },
   ];
   const [isHeaderShown, setIsHeaderClass] = useState(true);
@@ -73,12 +71,6 @@ export const Header: React.FC = () => {
         <div className={styles.headerRight}>
           <nav className={styles.header_nav}>
             <ul>
-              <li>
-                <Link href={'/'}>
-                  <a>ホーム</a>
-                </Link>
-              </li>
-
               {router.pathname == '/' ? (
                 <>
                   {navItem.map((navContent) => (
