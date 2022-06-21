@@ -182,7 +182,24 @@
   transform: skewY(-5deg);
   z-index: -1;
 }
-
+.slantBg2 {
+  width: 100%;
+  margin: 0;
+  position: relative;
+  overflow: visible;
+  padding: 2vw 0 0;
+}
+.slantBg2::before {
+  content: ' ';
+  position: absolute;
+  top: 8vw;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--bg-light);
+  transform: skewY(-5deg);
+  z-index: -1;
+}
 .slantBg_inner {
   padding: 4vw 0;
   box-sizing: content-box;
@@ -2121,7 +2138,7 @@ p.downloadTxt span {
 /* RURA Magazine */
 
 .ruraMagazineBannerSeciton {
-  padding: 8vw 4vw 80px;
+  padding: 0 4vw 100px;
 }
 
 .ruraMagazineBanner {
@@ -2201,10 +2218,6 @@ p.downloadTxt span {
 }
 
 @media screen and (max-width: 1080px) {
-  .ruraMagazineBannerSeciton {
-    padding: 10vw 4vw;
-  }
-
   .ruraMagazineBanner {
     padding: 3vw 4vw;
   }
@@ -2224,13 +2237,10 @@ p.downloadTxt span {
 }
 
 @media screen and (max-width: 640px) {
-  .ruraMagazineBannerSeciton {
-    padding: 4vw 4vw 20vw;
-  }
-
   .ruraMagazineBanner {
     padding: 4vw 4vw 40vw;
   }
+
   .ruraMagazinePostImageWrapper {
     right: auto;
     left: 50%;

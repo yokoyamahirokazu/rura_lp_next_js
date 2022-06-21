@@ -15,9 +15,25 @@ interface Article {
     url: string;
   };
 }
+interface wpArticle {
+  id?: string;
+  date?: string;
+  title?: {
+    rendered: string;
+  };
+  link?: string;
+  yoast_head_json?: {
+    og_image?: {
+      url?: string;
+    };
+    og_description?: string;
+  };
+}
 type CaesProps = {
   articles: Article[];
+  wparticles: wpArticle[];
 };
+
 export const Handbook: React.FC<CaesProps> = (props) => {
   const filter_Handbook = props.articles.filter((output) => {
     return output.smallBannerImg == undefined;
@@ -82,6 +98,7 @@ export const Handbook: React.FC<CaesProps> = (props) => {
               </div>
             ))}
           </div>
+
           <div className={styles.contentFlex}>
             {unfilter_Handbook.map((handbook) => (
               <div key={handbook.id} className={styles.contentFlexThree}>
@@ -139,6 +156,43 @@ export const Handbook: React.FC<CaesProps> = (props) => {
             ))}
           </div>
         </div>
+      </div>
+      <div className={styles.ruraMagazineBannerSeciton}>
+        <Link href='https://media.timeleap-rura.com/'>
+          <a target='_blank'>
+            <div className={styles.ruraMagazineBanner}>
+              <p className={styles.ruraMagazineCopy}>
+                遠隔接客サービスの導入事例・比較・調査など配信中
+              </p>
+              <div className={styles.ruraMagazineLogo}>
+                <Image
+                  src='/images/rura_magazine_logo_white.svg'
+                  alt='遠隔接客サービスの導入事例・比較・調査など配信中 RURA Magazine'
+                  layout={'fill'}
+                  objectFit={'contain'}
+                />
+              </div>
+              <p className={styles.ruraMagazineLeadCopy}>
+                遠隔接客をより身近に。未来の接客を探索するWEBメディア
+              </p>
+              <div className={styles.ruraMagazinePostImageWrapper}>
+                {props.wparticles.map((wp) => {
+                  return (
+                    <div key={wp.id} className={styles.ruraMagazinePostImage}>
+                      <Image
+                        className={styles.image}
+                        src={wp.yoast_head_json.og_image[0].url}
+                        layout={'fill'}
+                        objectFit={'cover'}
+                        alt={wp.title.rendered}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </a>
+        </Link>
       </div>
     </section>
   );

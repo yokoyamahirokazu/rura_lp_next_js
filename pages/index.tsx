@@ -12,7 +12,6 @@ import {
   Design,
   Features,
   Newsindex,
-  WpPost,
 } from '@components';
 import ContactSection from '@components/ContactSection';
 import SeoContent from '@components/SeoContent';
@@ -105,8 +104,7 @@ const Index: NextPage<IndexProps> = (props) => {
       <Features />
       <ContactSection downloadId='indexD3' contactId='indexC3' />
       <Newsindex articles={props.blogItem} />
-      <Handbook articles={props.handbookItem} />
-      <WpPost articles={props.wpItem} />
+      <Handbook articles={props.handbookItem} wparticles={props.wpItem} />
       <Faqs articles={props.faqItem} />
       <ContactSection downloadId='indexD4' contactId='indexC4' />
     </>
