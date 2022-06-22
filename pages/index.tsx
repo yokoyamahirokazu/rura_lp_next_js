@@ -143,7 +143,7 @@ export async function getStaticProps(): Promise<{
 
   // RURA Magazine 記事取得
   const res = await fetch(
-    'https://media.timeleap-rura.com/wp-json/wp/v2/posts?meta_key=lp_post_number&meta_orderby=meta_value_num&order=asc'
+    'https://media.timeleap-rura.com/wp-json/wp/v2/posts?meta_key=lppost_number'
   );
   const wpData = await res.json();
 
