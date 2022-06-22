@@ -108,7 +108,7 @@ export const Footer: React.FC = () => {
             </li>
           </ul>
           <div className={styles.footerBtn}>
-            <Link href='https://media.timeleap-rura.com/'>
+            <Link href='https://media.timeleap-rura.com?utm_source=rura-lp&utm_medium=banner_footer'>
               <a target='_blank'>
                 <div className={styles.footerRuraMagazineBanner}>
                   <div className={styles.footerRuraMagazineLogo}>

@@ -101,7 +101,7 @@ const DrawerMenu: React.FC = () => {
                 </Button>
               </div>
             </div>
-            <Link href='https://media.timeleap-rura.com/'>
+            <Link href='https://media.timeleap-rura.com?utm_source=rura-lp&utm_medium=banner_drawer'>
               <a target='_blank'>
                 <div className={styles.drawerRuraMagazineBanner}>
                   <div className={styles.drawerRuraMagazineLogo}>

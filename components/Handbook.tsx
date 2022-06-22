@@ -158,7 +158,7 @@ export const Handbook: React.FC<CaesProps> = (props) => {
         </div>
       </div>
       <div className={styles.ruraMagazineBannerSeciton}>
-        <Link href='https://media.timeleap-rura.com/'>
+        <Link href='https://media.timeleap-rura.com?utm_source=rura-lp&utm_medium=banner_middle'>
           <a target='_blank'>
             <div className={styles.ruraMagazineBanner}>
               <p className={styles.ruraMagazineCopy}>
@@ -180,7 +180,6 @@ export const Handbook: React.FC<CaesProps> = (props) => {
                   return (
                     <div key={wp.id} className={styles.ruraMagazinePostImage}>
                       <Image
-                        className={styles.image}
                         src={wp.yoast_head_json.og_image[0].url}
                         layout={'fill'}
                         objectFit={'cover'}
