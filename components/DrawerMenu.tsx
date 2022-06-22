@@ -20,12 +20,10 @@ const DrawerMenu: React.FC = () => {
 
   const navItem = [
     { url: 'case', name: '導入事例' },
-    { url: 'service', name: 'サービス' },
-    { url: 'scene', name: 'シーン' },
-    { url: 'design', name: 'デザイン' },
+    { url: 'scene', name: '導入シーン' },
     { url: 'features', name: '機能' },
-    { url: 'news', name: '新着情報' },
-    { url: 'handbook', name: 'ハンドブック' },
+    { url: 'news', name: '新着一覧' },
+    { url: 'handbook', name: 'お役立ち資料' },
     { url: 'faq', name: 'FAQ' },
   ];
 
@@ -103,6 +101,20 @@ const DrawerMenu: React.FC = () => {
                 </Button>
               </div>
             </div>
+            <Link href='https://media.timeleap-rura.com?utm_source=rura-lp&utm_medium=banner_drawer'>
+              <a target='_blank'>
+                <div className={styles.drawerRuraMagazineBanner}>
+                  <div className={styles.drawerRuraMagazineLogo}>
+                    <Image
+                      src='/images/rura_magazine_logo_white.svg'
+                      alt='遠隔接客サービスの導入事例・比較・調査など配信中 RURA Magazine'
+                      layout={'fill'}
+                      objectFit={'contain'}
+                    />
+                  </div>
+                </div>
+              </a>
+            </Link>
             <ul className={styles.simple}>
               <li>
                 <Link href={'/company'}>

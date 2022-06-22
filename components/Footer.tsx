@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Link as Scroll } from 'react-scroll';
 
+import Button from '@components/Button';
 import styles from '@styles/components/Footer.module.css';
 
 export const Footer: React.FC = () => {
@@ -14,8 +15,8 @@ export const Footer: React.FC = () => {
     { url: 'scene', name: '導入シーン' },
     { url: 'design', name: 'デザイン' },
     { url: 'features', name: '機能' },
-    { url: 'news', name: '新着情報' },
-    { url: 'handbook', name: '導入ハンドブック' },
+    { url: 'news', name: '新着一覧' },
+    { url: 'handbook', name: 'お役立ち資料' },
     { url: 'faq', name: 'FAQ' },
   ];
 
@@ -95,18 +96,6 @@ export const Footer: React.FC = () => {
                 </li>
               </ul>
             </li>
-          </ul>
-          <ul className={styles.footerNav}>
-            <li>
-              <Link href={'/download'}>
-                <a>資料ダウンロード</a>
-              </Link>
-            </li>
-            <li>
-              <Link href={'/contact'}>
-                <a>お問い合わせ</a>
-              </Link>
-            </li>
             <li>
               <Link href={'/company'}>
                 <a>運営会社</a>
@@ -118,6 +107,43 @@ export const Footer: React.FC = () => {
               </Link>
             </li>
           </ul>
+          <div className={styles.footerBtn}>
+            <Link href='https://media.timeleap-rura.com?utm_source=rura-lp&utm_medium=banner_footer'>
+              <a target='_blank'>
+                <div className={styles.footerRuraMagazineBanner}>
+                  <div className={styles.footerRuraMagazineLogo}>
+                    <Image
+                      src='/images/rura_magazine_logo_blue.svg'
+                      alt='遠隔接客サービスの導入事例・比較・調査など配信中 RURA Magazine'
+                      layout={'fill'}
+                      objectFit={'contain'}
+                    />
+                  </div>
+                  <p>
+                    遠隔接客をより身近に。
+                    <br />
+                    未来の接客を探索するWEBメディア
+                  </p>
+                </div>
+              </a>
+            </Link>
+            <Button
+              bgColor='primary'
+              size='normal'
+              types='link'
+              href='/download'
+              id='headerD'>
+              資料ダウンロード
+            </Button>
+            <Button
+              bgColor='secondary'
+              size='normal'
+              types='link'
+              href='/contact'
+              id='headerC'>
+              お問い合わせ
+            </Button>
+          </div>
         </div>
         <div className={styles.footerLogo}>
           <p>遠隔接客サービス</p>
