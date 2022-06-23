@@ -20,7 +20,7 @@ const SeoContent = ({
   const defaultTitle =
     '遠隔接客サービス RURA｜まるで瞬間移動。 高スキルのスタッフを全国に０秒派遣。 お店の無人化や人材不足に効果を発揮。';
   const defaultDescription =
-    '時給450円から店舗スタッフを採用可能遠隔接客サービス RURA※特許出願中。RURAはロボットやバーチャルキャラクター越しに接客を行なうシステムで、全国各地にいるRURAワーカーが、WEB経由で店舗の接客。一人のスタッフが複数店舗をまたいで接客が可能';
+    '遠隔接客サービス RURA※特許出願中｜無人化を加速させるオンライン接客サービス。一人のスタッフが複数店舗をまたいで接客が可能で、展開店舗数が増えるほど効率性を上げられる独自システムで、店舗スタッフの少数精鋭化や店舗展開構想とも相性◎';
   const defaultPageUrl = config.baseUrl;
   const defaultOgpImg = `${config.baseUrl}/images/og_image.jpg`;
 
