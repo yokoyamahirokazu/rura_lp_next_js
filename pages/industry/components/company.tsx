@@ -17,7 +17,7 @@ export const Company: React.FC = () => {
   ];
 
   return (
-    <section id='about' className={styles.companyContent}>
+    <section id='company' className={styles.companyContent}>
       <div className={styles.section_inner}>
         <div className={styles.headline_box_center}>
           <h2 className={styles.headline}>運営会社</h2>
