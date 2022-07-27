@@ -10,17 +10,35 @@ import TopButton from '@components/TopButton';
 
 import styles from '../styles/components/Header.module.css';
 
-export const Header: React.FC = () => {
+interface NavItem {
+  url?: string;
+  name?: string;
+}
+type NavItemProps = {
+  navItemList?: NavItem[];
+  original?: string;
+  dlLink?: string;
+};
+
+export const Header: React.FC<NavItemProps> = (props) => {
+  const navItemdata = props.navItemList;
+  const navItem = (navItemdata) => {
+    if (navItemdata) {
+      return navItemdata;
+    } else {
+      return [
+        { url: 'case', name: '導入事例' },
+        { url: 'scene', name: '導入シーン' },
+        { url: 'features', name: '機能' },
+        { url: 'news', name: '新着一覧' },
+        { url: 'handbook', name: 'お役立ち資料' },
+        { url: 'faq', name: 'FAQ' },
+      ];
+    }
+  };
+
   const router = useRouter();
 
-  const navItem = [
-    { url: 'case', name: '導入事例' },
-    { url: 'scene', name: '導入シーン' },
-    { url: 'features', name: '機能' },
-    { url: 'news', name: '新着一覧' },
-    { url: 'handbook', name: 'お役立ち資料' },
-    { url: 'faq', name: 'FAQ' },
-  ];
   const [isHeaderShown, setIsHeaderClass] = useState(true);
   const [lastPosition, setLastPosition] = useState(0);
   const headerHeight = 0;
@@ -71,9 +89,9 @@ export const Header: React.FC = () => {
         <div className={styles.headerRight}>
           <nav className={styles.header_nav}>
             <ul>
-              {router.pathname == '/' ? (
+              {router.pathname == '/' || props.original === 'true' ? (
                 <>
-                  {navItem.map((navContent) => (
+                  {navItem(navItemdata).map((navContent) => (
                     <li key={navContent.name}>
                       <Scroll to={navContent.url} smooth={true} duration={600}>
                         {navContent.name}
@@ -83,7 +101,7 @@ export const Header: React.FC = () => {
                 </>
               ) : (
                 <>
-                  {navItem.map((navContent) => (
+                  {navItem(navItemdata).map((navContent) => (
                     <li key={navContent.name}>
                       <Link href='/' as={`/#${navContent.url}`}>
                         {navContent.name}
@@ -99,7 +117,7 @@ export const Header: React.FC = () => {
             bgColor='primary'
             size={isHeaderShown == true ? 'normal' : 'headerSmall'}
             types='link'
-            href='/download'
+            href={props.dlLink ? props.dlLink : '/download'}
             id='headerD'>
             資料ダウンロード
           </Button>

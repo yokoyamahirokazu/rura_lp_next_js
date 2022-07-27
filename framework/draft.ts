@@ -1,6 +1,7 @@
+import axios from 'axios';
+
 import { config } from '@site.config';
 import { IDraftResponse } from '@types';
-import axios from 'axios';
 
 export const getDraftBlog = async (
   id: string,

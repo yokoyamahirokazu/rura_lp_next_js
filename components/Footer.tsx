@@ -6,7 +6,11 @@ import { Link as Scroll } from 'react-scroll';
 import Button from '@components/Button';
 import styles from '@styles/components/Footer.module.css';
 
-export const Footer: React.FC = () => {
+type Props = {
+  dlLink?: string;
+};
+
+export const Footer: React.FC<Props> = (props) => {
   const router = useRouter();
 
   const navItem = [
@@ -131,7 +135,7 @@ export const Footer: React.FC = () => {
               bgColor='primary'
               size='normal'
               types='link'
-              href='/download'
+              href={props.dlLink ? props.dlLink : '/download'}
               id='headerD'>
               資料ダウンロード
             </Button>
