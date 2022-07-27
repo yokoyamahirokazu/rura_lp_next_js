@@ -145,7 +145,8 @@ export async function getStaticProps(): Promise<{
   const res = await fetch(
     'https://media.timeleap-rura.com/wp-json/wp/v2/posts?meta_key=lppost_number'
   );
-  const wpData = await res.json();
+  const wpDataRaw = await res.json();
+  const wpData = wpDataRaw.slice(0, 3);
 
   return {
     props: {
