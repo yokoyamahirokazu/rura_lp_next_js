@@ -2587,4 +2587,21 @@ span.titleIcon svg {
   .solutionBox h3 {
     font-size: 2.4rem;
   }
+
+  .companyFlex {
+    display: block;
+  }
+
+  .companyFlexLogo {
+    width: 100%;
+    margin: 0 auto 48px;
+    text-align: center;
+  }
+
+  .companyFlexText {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    text-align: left;
+  }
 }
