@@ -55,7 +55,7 @@ export const Hero: React.FC<HeroCopy> = (props) => {
                   types='link'
                   href='/download'
                   icon='download'
-                  id='heroD'>
+                  id='funeralHeroD'>
                   資料ダウンロード
                 </Button>
                 <Button
@@ -64,7 +64,7 @@ export const Hero: React.FC<HeroCopy> = (props) => {
                   types='link'
                   href='/contact'
                   icon='contact'
-                  id='heroC'>
+                  id='funeralHeroC'>
                   お問い合わせ
                 </Button>
               </div>

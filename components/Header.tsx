@@ -18,6 +18,8 @@ type NavItemProps = {
   navItemList?: NavItem[];
   original?: string;
   dlLink?: string;
+  donwloadId?: string;
+  contactId?: string;
 };
 
 export const Header: React.FC<NavItemProps> = (props) => {
@@ -118,7 +120,7 @@ export const Header: React.FC<NavItemProps> = (props) => {
             size={isHeaderShown == true ? 'normal' : 'headerSmall'}
             types='link'
             href={props.dlLink ? props.dlLink : '/download'}
-            id='headerD'>
+            id={props.donwloadId ? props.donwloadId : 'headerD'}>
             資料ダウンロード
           </Button>
           <Button
@@ -126,7 +128,7 @@ export const Header: React.FC<NavItemProps> = (props) => {
             size={isHeaderShown == true ? 'normal' : 'headerSmall'}
             types='link'
             href='/contact'
-            id='headerC'>
+            id={props.contactId ? props.contactId : 'headerC'}>
             お問い合わせ
           </Button>
         </div>

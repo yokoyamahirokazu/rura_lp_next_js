@@ -8,6 +8,9 @@ import styles from '@styles/components/Footer.module.css';
 
 type Props = {
   dlLink?: string;
+  donwloadId?: string;
+  contactId?: string;
+  mediaLink?: string;
 };
 
 export const Footer: React.FC<Props> = (props) => {
@@ -112,7 +115,12 @@ export const Footer: React.FC<Props> = (props) => {
             </li>
           </ul>
           <div className={styles.footerBtn}>
-            <Link href='https://media.timeleap-rura.com?utm_source=rura-lp&utm_medium=banner_footer'>
+            <Link
+              href={
+                props.mediaLink
+                  ? props.mediaLink
+                  : 'https://media.timeleap-rura.com?utm_source=rura-lp&utm_medium=banner_footer'
+              }>
               <a target='_blank'>
                 <div className={styles.footerRuraMagazineBanner}>
                   <div className={styles.footerRuraMagazineLogo}>
@@ -136,7 +144,7 @@ export const Footer: React.FC<Props> = (props) => {
               size='normal'
               types='link'
               href={props.dlLink ? props.dlLink : '/download'}
-              id='headerD'>
+              id={props.donwloadId ? props.donwloadId : 'footerD'}>
               資料ダウンロード
             </Button>
             <Button
@@ -144,7 +152,7 @@ export const Footer: React.FC<Props> = (props) => {
               size='normal'
               types='link'
               href='/contact'
-              id='headerC'>
+              id={props.donwloadId ? props.donwloadId : 'footerC'}>
               お問い合わせ
             </Button>
           </div>

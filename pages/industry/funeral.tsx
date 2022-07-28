@@ -49,6 +49,8 @@ const Funeral: NextPage = () => {
         navItemList={navItem}
         original={'true'}
         dlLink={'/download/u-fskwgyeq'}
+        donwloadId={'funeralHeaderD'}
+        contactId={'funeralHeaderC'}
       />
       <div className='main funeral'>
         <Hero
@@ -63,8 +65,8 @@ const Funeral: NextPage = () => {
           <Task />
           <About />
           <ContactSection
-            downloadId=''
-            contactId=''
+            downloadId='funeralD1'
+            contactId='funeralC1'
             bgProps={contactBgData}
             copy={contactCopyData}
             type={'funeral'}
@@ -72,8 +74,8 @@ const Funeral: NextPage = () => {
           />
           <Solution />
           <ContactSection
-            downloadId=''
-            contactId=''
+            downloadId='funeralD2'
+            contactId='funeralC2'
             bgProps={contactBgData}
             copy={contactCopyData}
             type={'funeral'}
@@ -82,8 +84,8 @@ const Funeral: NextPage = () => {
           <Functions />
           <Case />
           <ContactSection
-            downloadId=''
-            contactId=''
+            downloadId='funeralD3'
+            contactId='funeralC3'
             bgProps={contactBgData}
             copy={contactCopyData}
             type={'funeral'}
@@ -92,7 +94,14 @@ const Funeral: NextPage = () => {
           <Company />
         </div>
       </div>
-      <Footer dlLink={'/download/u-fskwgyeq'} />
+      <Footer
+        dlLink={'/download/u-fskwgyeq'}
+        donwloadId={'funeralFooterD'}
+        contactId={'funeralFooterC'}
+        mediaLink={
+          'https://media.timeleap-rura.com?utm_source=rura-lp&utm_medium=banner_footer_funeral'
+        }
+      />
     </>
   );
 };
