@@ -3,10 +3,6 @@ import { IoPeople, IoHeart, IoAnalyticsOutline } from 'react-icons/io5';
 
 import styles from '@styles/components/Components.module.css';
 
-import Solution1 from '/public/images/solution_1.svg';
-import Solution2 from '/public/images/solution_2.svg';
-import Solution3 from '/public/images/solution_3.svg';
-
 export const Solution: React.FC = () => {
   return (
     <section id='solution'>
@@ -26,12 +22,21 @@ export const Solution: React.FC = () => {
               <div className={styles.solutionBox}>
                 <div className={styles.solutionBoxFlex}>
                   <div className={styles.solutionBoxFlexRight}>
-                    <Solution1 />
+                    <div
+                      style={{ aspectRatio: '1.11' }}
+                      className={styles.imageBox}>
+                      <Image
+                        src='/images/solution_1.png'
+                        alt=' 少人数で多拠点同時対応できる独自システム'
+                        layout={'fill'}
+                        objectFit={'contain'}
+                      />
+                    </div>
                   </div>
                   <div className={styles.solutionBoxFlexLeft}>
                     <h3>少人数で多拠点同時対応できる独自システム</h3>
                     <p>
-                      一般的なビデオ通話や接客システムとの大きな違いは少人数のスタッフで多拠点対応できる点。約30店舗を3人で対応しているケースもあるように受付スタッフの省人化を実現します。
+                      一般的なビデオ通話や接客システムとの大きな違いは少人数のスタッフで多拠点対応できる点。受付スタッフの省人化を“実現”していることが強みで、約30店舗を3人で対応できるようになった事例もあります。
                     </p>
                   </div>
                 </div>
@@ -57,7 +62,12 @@ export const Solution: React.FC = () => {
               <div className={styles.boxRound_inner}>
                 <div className={styles.solutionBox}>
                   <div className={styles.solutionFlexImage}>
-                    <Solution2 />
+                    <Image
+                      src='/images/solution_2.png'
+                      alt=' 遠隔地から複数店舗を対応'
+                      layout={'fill'}
+                      objectFit={'contain'}
+                    />
                   </div>
                   <h3>
                     遠隔地から
@@ -75,7 +85,12 @@ export const Solution: React.FC = () => {
               <div className={styles.boxRound_inner}>
                 <div className={styles.solutionBox}>
                   <div className={styles.solutionFlexImage}>
-                    <Solution3 />
+                    <Image
+                      src='/images/solution_3.png'
+                      alt='急な来店にもすぐに気付ける通知機能'
+                      layout={'fill'}
+                      objectFit={'cover'}
+                    />
                   </div>
                   <h3>
                     急な来店にも
@@ -121,7 +136,9 @@ export const Solution: React.FC = () => {
                     機会創出
                   </h3>
                   <p>
-                    RURAは少人数で多拠点をカバーできるので、無人店舗の拡大にお役立ていただけます。
+                    RURAは少人数で多拠点をカバーできるだけでなく、効率性を高められる仕組みに強みがあります。
+                    <br />
+                    そのため、無人化を可能にする体制を組んだのちに店舗展開をご検討いただく際にはこの強みが力を発揮します。
                   </p>
                 </div>
               </div>
@@ -144,7 +161,7 @@ export const Solution: React.FC = () => {
                     分析機能
                   </h3>
                   <p>
-                    遠隔接客データを集積。データから「お客様が知りたい情報」を抽出し、RURAでの接客品質の向上や店舗案内の改善に役立ち、成約率向上につながります。
+                    遠隔接客データを集積。データから「お客様が知りたい情報」を抽出することで、RURAでの接客品質の向上や店舗案内の改善、成約率向上につなげることができます。
                   </p>
                 </div>
               </div>

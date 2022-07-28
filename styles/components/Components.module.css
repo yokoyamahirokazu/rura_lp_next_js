@@ -2578,7 +2578,7 @@ span.titleIcon svg {
   }
   .solutionBoxFlexRight {
     width: 100%;
-    margin: 0 0 4vw 0;
+    margin: 0 0 8vw 0;
   }
   .solutionBoxFlexLeft h3 {
     text-align: center;
@@ -2604,4 +2604,9 @@ span.titleIcon svg {
     margin: 0 auto;
     text-align: left;
   }
+}
+
+.imageBox {
+  position: relative;
+  width: 100%;
 }
