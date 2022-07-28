@@ -83,7 +83,7 @@
 .headlineBigWh {
   font-size: 3.6rem;
   display: block;
-  color: #fff;
+  color: #fff !important;
   font-weight: bold;
   letter-spacing: 0.5rem;
 }
@@ -895,6 +895,7 @@
   height: 400px;
   position: relative;
   order: 1;
+  color: #fff;
 }
 
 .contactSectionImg::before {
@@ -964,6 +965,12 @@
 
 .contactSectionLogoBtn a {
   margin: 0 5px;
+}
+
+.contactSectionSubCopy {
+  color: #fff;
+  margin: 0 0 16px 0;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 960px) {
@@ -2270,4 +2277,336 @@ p.downloadTxt span {
   .ruraMagazinePostImage {
     filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25));
   }
+}
+
+.funeral h2,
+.funeral h3 {
+  color: #004b7b;
+}
+.task_title {
+  font-size: 2.4rem;
+  font-weight: bold;
+  line-height: 1.5;
+}
+.task_title span {
+  font-size: 1.6rem;
+  font-weight: bold;
+  display: block;
+  margin: 16px 0 0 0;
+}
+
+.textBold {
+  font-size: 1.6rem;
+  font-weight: bold;
+  display: block;
+  margin: 0 0 0;
+}
+
+.task_icon {
+  width: 50%;
+  margin: 0 auto 16px;
+}
+
+.task_solution {
+  background-color: #004b7b;
+  padding: 24px;
+  display: block;
+  color: #fff !important;
+  max-width: 1080px;
+  width: calc(100% - 8vw);
+  margin: 0 auto;
+  font-size: 2.4rem;
+  font-weight: bold;
+  box-sizing: border-box;
+  text-align: center;
+  border-radius: 6px;
+  line-height: 1.4;
+}
+
+.aboutImage {
+  margin: 0 auto 4vw;
+  max-width: 840px;
+}
+
+.textCenter {
+  text-align: center;
+}
+
+span.titleIcon {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  font-size: inherit;
+}
+
+span.titleIcon svg {
+  width: 6rem;
+  height: 6rem;
+  margin: 0 24px 0 0;
+}
+
+.solutionBox {
+  padding: 4vw;
+}
+
+.solutionBox h3 {
+  font-size: 2.8rem;
+  font-weight: bold;
+  line-height: 1.5;
+  margin: 0 0 24px;
+}
+
+.solutionBox p {
+  font-size: 1.5rem;
+}
+
+.solutionBoxFlex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.solutionBoxFlexLeft {
+  width: calc(45% - 4vw);
+  margin: 0 4vw 0 0;
+  order: 1;
+}
+.solutionBoxFlexRight {
+  width: 55%;
+  order: 2;
+}
+
+.solutionFlexImage {
+  margin: 0 auto 4vw;
+  aspect-ratio: 1.4;
+  text-align: center;
+  position: relative;
+}
+
+.solutionFlexImage svg {
+  height: 100%;
+  width: auto;
+  margin: 0 auto;
+}
+
+.contentFlexTwo .solutionBox h3 {
+  text-align: center;
+}
+
+.companyContent section {
+  padding: 4vw 0;
+}
+
+.companyTimeleapLogo {
+  width: 200px;
+  height: 147px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.companyContentFlex {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.companyContentFlexLeft {
+  width: 20%;
+}
+
+.companyContentFlexRight {
+  width: calc(80% - 4vw);
+  margin: 0 0 0 4vw;
+}
+
+.companyContentFlex h2 {
+  font-size: 2rem;
+  font-weight: normal;
+  list-style: 1.4;
+}
+.companyVision h3 {
+  font-size: 2.4rem;
+  font-weight: bold;
+  line-height: 1.4;
+  margin: 0 0 30px 0;
+  letter-spacing: 0.2rem;
+}
+
+.companyVision p {
+  font-size: 1.6rem;
+  font-weight: bold;
+  letter-spacing: 0.2rem;
+}
+
+.companyContent table {
+  border-collapse: collapse;
+  display: block;
+  font-size: 1.4rem;
+  line-height: 1.4;
+}
+
+.companyContent table th {
+  padding: 10px 0;
+  font-weight: bold;
+  text-align: left;
+  white-space: nowrap;
+}
+.companyContent table td {
+  padding: 10px 0 10px 20px;
+  font-weight: normal;
+}
+
+.companyArticle {
+  margin: 0 auto;
+  max-width: 720px;
+}
+.companyArticle h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.companyArticle p {
+  margin: 0 0 20px;
+}
+.companyArticle h2 {
+  margin: 60px 0 20px;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 767px) {
+  .companyTimeleapLogo {
+    height: 100px;
+    position: relative;
+    margin: 0 auto;
+  }
+
+  .companyContent section {
+    padding: 40px 0;
+  }
+
+  .companyContentFlex {
+    display: block;
+  }
+
+  .companyContentFlexLeft {
+    width: 100%;
+  }
+
+  .companyContentFlexRight {
+    width: 100%;
+    margin: 40px 0 0 0;
+  }
+  .companyVision h3 {
+    font-size: 2rem;
+  }
+
+  .companyVision p {
+    font-size: 1.5rem;
+  }
+
+  .companyArticle h1 {
+    font-size: 2.4rem;
+  }
+
+  .companyArticle p {
+    margin: 0 0 20px;
+  }
+  .companyArticle h2 {
+    margin: 60px 0 20px;
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+}
+
+.companyFlex {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.companyFlexLogo {
+  width: 30%;
+}
+.companyFlexText {
+  width: calc(70% - 4vw);
+  margin: 0 0 0 4vw;
+  text-align: left;
+}
+
+.taskFlex {
+  display: flex;
+}
+
+.taskBoxFlex {
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .taskBoxFlex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .task_icon {
+    width: 25%;
+    margin: 0 32px 0 0;
+  }
+
+  .taskFlex {
+    display: block;
+  }
+  .taskFlex .contentFlexThree {
+    display: block;
+    width: 100%;
+    margin: 0 0 4vw 0;
+  }
+
+  .task_solution {
+    padding: 4vw;
+    font-size: 2.1rem;
+  }
+
+  .solutionBoxFlex {
+    display: block;
+  }
+
+  .solutionBoxFlexLeft {
+    width: 100%;
+    margin: 0 0 0 0;
+  }
+  .solutionBoxFlexRight {
+    width: 100%;
+    margin: 0 0 8vw 0;
+  }
+  .solutionBoxFlexLeft h3 {
+    text-align: center;
+  }
+
+  .solutionBox h3 {
+    font-size: 2.4rem;
+  }
+
+  .companyFlex {
+    display: block;
+  }
+
+  .companyFlexLogo {
+    width: 100%;
+    margin: 0 auto 48px;
+    text-align: center;
+  }
+
+  .companyFlexText {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    text-align: left;
+  }
+}
+
+.imageBox {
+  position: relative;
+  width: 100%;
 }

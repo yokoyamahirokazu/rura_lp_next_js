@@ -5,12 +5,16 @@ import { LazyVideo } from 'react-lazy-media';
 import Modal from 'react-modal';
 import YouTube from 'react-youtube';
 
+import { ICopy } from '@/types';
 import Button from '@components/Button';
 import styles from '@styles/components/Hero.module.css';
-import { ICopy } from '@/types';
 
 type HeroCopy = {
-  articles: ICopy[];
+  articles?: ICopy[];
+  mainCopyProps?: string;
+  subCopyProps?: string;
+  bgImage?: string;
+  workerImage?: string;
 };
 
 export const Hero: React.FC<HeroCopy> = (props) => {
@@ -45,35 +49,37 @@ export const Hero: React.FC<HeroCopy> = (props) => {
   return (
     <>
       <div className={styles.hero}>
-        {(() => {
-          if (windowWidth < 640) {
-            return (
-              <Image
-                src='/images/contact_section_bg.jpg'
-                alt='資料ダウンロード・お問い合わせ'
-                layout={'fill'}
-                objectFit={'cover'}
-              />
-            );
-          } else {
-            return (
-              <LazyVideo
-                poster={'/images/videoPoster.jpg'}
-                src={'/videos/rura_lp_movie.mp4'}
-                autoplay={true}
-                muted={true}
-                loop={true}
-                controls={false}
-              />
-            );
-          }
-        })()}
-
+        {windowWidth < 640 ? (
+          <Image
+            src='/images/contact_section_bg.jpg'
+            alt='資料ダウンロード・お問い合わせ'
+            layout={'fill'}
+            objectFit={'cover'}
+          />
+        ) : (
+          <LazyVideo
+            poster={'/images/videoPoster.jpg'}
+            src={'/videos/rura_lp_movie.mp4'}
+            autoplay={true}
+            muted={true}
+            loop={true}
+            controls={false}
+          />
+        )}
         <div className={styles.heroInner}>
           <div className={styles.heroContent}>
-            {props.articles.map((copy) => {
-              return <p className={styles.heroCopy} key={copy.id}>{copy.mainCopy}</p>;
-            })}
+            {props.mainCopyProps ? (
+              <p className={styles.heroCopy}>{props.mainCopyProps}</p>
+            ) : (
+              props.articles.map((copy) => {
+                return (
+                  <p className={styles.heroCopy} key={copy.id}>
+                    {copy.mainCopy}
+                  </p>
+                );
+              })
+            )}
+
             <div className={styles.heroLogo}>
               <p className={styles.heroLogoTxt}>遠隔接客サービス</p>
               <div className={styles.heroLogoImg}>
@@ -85,15 +91,20 @@ export const Hero: React.FC<HeroCopy> = (props) => {
                 />
               </div>
             </div>
-            {props.articles.map((copy) => {
-              return (
-                <h1
-                  key={copy.id}
-                  className={styles.heroTitle}
-                  dangerouslySetInnerHTML={{ __html: copy.subCopy }}
-                ></h1>
-              );
-            })}
+            {props.subCopyProps ? (
+              <h1
+                className={styles.heroTitle}
+                dangerouslySetInnerHTML={{ __html: props.subCopyProps }}></h1>
+            ) : (
+              props.articles.map((copy) => {
+                return (
+                  <h1
+                    key={copy.id}
+                    className={styles.heroTitle}
+                    dangerouslySetInnerHTML={{ __html: copy.subCopy }}></h1>
+                );
+              })
+            )}
 
             <div className={styles.heroBtn}>
               <Button
@@ -102,8 +113,7 @@ export const Hero: React.FC<HeroCopy> = (props) => {
                 types='link'
                 href='/download'
                 icon='download'
-                id='heroD'
-              >
+                id='heroD'>
                 資料ダウンロード
               </Button>
               <Button
@@ -112,8 +122,7 @@ export const Hero: React.FC<HeroCopy> = (props) => {
                 types='link'
                 href='/contact'
                 icon='contact'
-                id='heroC'
-              >
+                id='heroC'>
                 お問い合わせ
               </Button>
             </div>
@@ -128,8 +137,7 @@ export const Hero: React.FC<HeroCopy> = (props) => {
           <div
             className={styles.videoPlayImg}
             onClick={openModal}
-            id='moviePlay'
-          >
+            id='moviePlay'>
             <div className={styles.imageCircle}>
               <Image
                 src='/images/videoPlay.jpg'
@@ -161,8 +169,7 @@ export const Hero: React.FC<HeroCopy> = (props) => {
         onRequestClose={closeModal}
         closeTimeoutMS={500}
         className={styles.Modal}
-        overlayClassName={styles.Overlay}
-      >
+        overlayClassName={styles.Overlay}>
         <div className={styles.youtubeWrapper}>
           <YouTube
             videoId='BjCzqX1n_IM'

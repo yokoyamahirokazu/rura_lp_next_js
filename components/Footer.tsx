@@ -6,7 +6,14 @@ import { Link as Scroll } from 'react-scroll';
 import Button from '@components/Button';
 import styles from '@styles/components/Footer.module.css';
 
-export const Footer: React.FC = () => {
+type Props = {
+  dlLink?: string;
+  donwloadId?: string;
+  contactId?: string;
+  mediaLink?: string;
+};
+
+export const Footer: React.FC<Props> = (props) => {
   const router = useRouter();
 
   const navItem = [
@@ -108,7 +115,12 @@ export const Footer: React.FC = () => {
             </li>
           </ul>
           <div className={styles.footerBtn}>
-            <Link href='https://media.timeleap-rura.com?utm_source=rura-lp&utm_medium=banner_footer'>
+            <Link
+              href={
+                props.mediaLink
+                  ? props.mediaLink
+                  : 'https://media.timeleap-rura.com?utm_source=rura-lp&utm_medium=banner_footer'
+              }>
               <a target='_blank'>
                 <div className={styles.footerRuraMagazineBanner}>
                   <div className={styles.footerRuraMagazineLogo}>
@@ -131,8 +143,8 @@ export const Footer: React.FC = () => {
               bgColor='primary'
               size='normal'
               types='link'
-              href='/download'
-              id='headerD'>
+              href={props.dlLink ? props.dlLink : '/download'}
+              id={props.donwloadId ? props.donwloadId : 'footerD'}>
               資料ダウンロード
             </Button>
             <Button
@@ -140,7 +152,7 @@ export const Footer: React.FC = () => {
               size='normal'
               types='link'
               href='/contact'
-              id='headerC'>
+              id={props.donwloadId ? props.donwloadId : 'footerC'}>
               お問い合わせ
             </Button>
           </div>
