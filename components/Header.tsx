@@ -20,10 +20,13 @@ type NavItemProps = {
   dlLink?: string;
   donwloadId?: string;
   contactId?: string;
+  drawerMeidaUrl?: string;
+  drawerContactId?: string;
+  drawerDonwloadId?: string;
 };
 
 export const Header: React.FC<NavItemProps> = (props) => {
-  const navItemdata = props.navItemList;
+  const navItemdata = props.navItemList && props.navItemList;
   const navItem = (navItemdata) => {
     if (navItemdata) {
       return navItemdata;
@@ -132,7 +135,15 @@ export const Header: React.FC<NavItemProps> = (props) => {
             お問い合わせ
           </Button>
         </div>
-        <DrawerMenu />
+        <DrawerMenu
+          navItemList={navItem(navItemdata)}
+          original={props.original === 'true' ? 'true' : 'falise'}
+          drawerDonwloadId={
+            props.drawerDonwloadId ? props.drawerDonwloadId : null
+          }
+          drawerContactId={props.drawerContactId ? props.drawerContactId : null}
+          drawerMeidaUrl={props.drawerMeidaUrl ? props.drawerMeidaUrl : null}
+        />
       </header>
       <TopButton />
     </>

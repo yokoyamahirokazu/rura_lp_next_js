@@ -10,22 +10,26 @@ import { Link as Scroll } from 'react-scroll';
 import Button from '@components/Button';
 import styles from '@styles/components/Header.module.css';
 
-const DrawerMenu: React.FC = () => {
+interface NavItem {
+  url?: string;
+  name?: string;
+}
+
+type NavItemProps = {
+  navItemList?: NavItem[];
+  original?: string;
+  drawerDonwloadId?: string;
+  drawerContactId?: string;
+  drawerMeidaUrl?: string;
+};
+
+const DrawerMenu: React.FC<NavItemProps> = (props) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState);
   };
 
   const router = useRouter();
-
-  const navItem = [
-    { url: 'case', name: '導入事例' },
-    { url: 'scene', name: '導入シーン' },
-    { url: 'features', name: '機能' },
-    { url: 'news', name: '新着一覧' },
-    { url: 'handbook', name: 'お役立ち資料' },
-    { url: 'faq', name: 'FAQ' },
-  ];
 
   return (
     <>
@@ -52,9 +56,9 @@ const DrawerMenu: React.FC = () => {
                 </Link>
               </li>
 
-              {router.pathname == '/' ? (
+              {router.pathname == '/' || props.original === 'true' ? (
                 <>
-                  {navItem.map((items) => (
+                  {props.navItemList.map((items) => (
                     <li key={items.url}>
                       <Scroll
                         to={items.url}
@@ -68,7 +72,7 @@ const DrawerMenu: React.FC = () => {
                 </>
               ) : (
                 <>
-                  {navItem.map((items) => (
+                  {props.navItemList.map((items) => (
                     <li key={items.url}>
                       <Link href='/' as={`/#${items.url}`}>
                         <a onClick={toggleDrawer}>{items.name}</a>
@@ -86,7 +90,9 @@ const DrawerMenu: React.FC = () => {
                   size='normal'
                   types='link'
                   href='/download'
-                  id='drawerD'>
+                  id={
+                    props.drawerDonwloadId ? props.drawerDonwloadId : 'drawerD'
+                  }>
                   資料ダウンロード
                 </Button>
               </div>
@@ -96,12 +102,19 @@ const DrawerMenu: React.FC = () => {
                   size='normal'
                   types='link'
                   href='/contact'
-                  id='drawerC'>
+                  id={
+                    props.drawerContactId ? props.drawerContactId : 'drawerC'
+                  }>
                   お問い合わせ
                 </Button>
               </div>
             </div>
-            <Link href='https://media.timeleap-rura.com?utm_source=rura-lp&utm_medium=banner_drawer'>
+            <Link
+              href={
+                props.drawerMeidaUrl
+                  ? props.drawerMeidaUrl
+                  : 'https://media.timeleap-rura.com?utm_source=rura-lp&utm_medium=banner_drawer'
+              }>
               <a target='_blank'>
                 <div className={styles.drawerRuraMagazineBanner}>
                   <div className={styles.drawerRuraMagazineLogo}>
@@ -115,18 +128,20 @@ const DrawerMenu: React.FC = () => {
                 </div>
               </a>
             </Link>
-            <ul className={styles.simple}>
-              <li>
-                <Link href={'/company'}>
-                  <a onClick={toggleDrawer}>運営会社</a>
-                </Link>
-              </li>
-              <li>
-                <Link href={'/company/privacy-policy'}>
-                  <a onClick={toggleDrawer}>プライバシーポリシー</a>
-                </Link>
-              </li>
-            </ul>
+            {props.original != 'true' && (
+              <ul className={styles.simple}>
+                <li>
+                  <Link href={'/company'}>
+                    <a onClick={toggleDrawer}>運営会社</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href={'/company/privacy-policy'}>
+                    <a onClick={toggleDrawer}>プライバシーポリシー</a>
+                  </Link>
+                </li>
+              </ul>
+            )}
           </div>
         </div>
       </Drawer>

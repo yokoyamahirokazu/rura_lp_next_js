@@ -51,6 +51,11 @@ const Funeral: NextPage = () => {
         dlLink={'/download/u-fskwgyeq'}
         donwloadId={'funeralHeaderD'}
         contactId={'funeralHeaderC'}
+        drawerMeidaUrl={
+          'https://media.timeleap-rura.com?utm_source=rura-lp&utm_medium=banner_drawer_funeral'
+        }
+        drawerDonwloadId={'funeralDrawerD'}
+        drawerContactId={'funeralDrawerC'}
       />
       <div className='main funeral'>
         <Hero
