@@ -42,8 +42,8 @@ const Funeral: NextPage = () => {
   return (
     <>
       <SeoContent
-        pageTitle='葬儀業界向け'
-        pageDescription='遠隔接客サービスRURAの運営会社タイムリープ株式会社をご紹介します。'
+        pageTitle='葬儀業界に新たな店舗運営を'
+        pageDescription='RURAは、少人数で多拠点の接客を可能にし、効率的な店舗運営を支援するサービス。複数の店舗に『RURA』を設置することで、来館されたお客様への接客を自宅や本社からモニター越しに行なうことができます。優秀なスタッフが少人数で複数箇所を接客できるため、人件費削減や、少人数運営が可能になることでのさらなる店舗拡大、収益向上が同時に実現可能。'
       />
       <Header
         navItemList={navItem}
