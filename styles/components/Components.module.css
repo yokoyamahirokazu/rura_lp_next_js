@@ -2610,3 +2610,9 @@ span.titleIcon svg {
   position: relative;
   width: 100%;
 }
+
+@media screen and (max-width: 767px) {
+  .about .textCenter {
+    text-align: left;
+  }
+}

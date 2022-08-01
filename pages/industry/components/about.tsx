@@ -4,7 +4,7 @@ import AboutImage from '/public/images/about_image.svg';
 
 export const About: React.FC = () => {
   return (
-    <section id='about'>
+    <section id='about' className={styles.about}>
       <div className={styles.section_inner}>
         <div className={styles.headline_box_center}>
           <h2 className={styles.headline}>遠隔接客サービスRURAとは？</h2>
