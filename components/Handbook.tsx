@@ -162,12 +162,12 @@ export const Handbook: React.FC<CaesProps> = (props) => {
           <a target='_blank'>
             <div className={styles.ruraMagazineBanner}>
               <p className={styles.ruraMagazineCopy}>
-                遠隔接客サービスの導入事例・比較・調査など配信中
+                遠隔（リモート）接客サービスの導入事例・比較・調査など配信中
               </p>
               <div className={styles.ruraMagazineLogo}>
                 <Image
                   src='/images/rura_magazine_logo_white.svg'
-                  alt='遠隔接客サービスの導入事例・比較・調査など配信中 RURA Magazine'
+                  alt='遠隔（リモート）接客サービスの導入事例・比較・調査など配信中 RURA Magazine'
                   layout={'fill'}
                   objectFit={'contain'}
                 />

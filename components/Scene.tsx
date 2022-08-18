@@ -9,7 +9,9 @@ export const Scene: React.FC = () => {
         <div className={styles.headline_box_center}>
           <h2 className={styles.headline}>
             導入シーン
-            <span>遠隔接客サービスが様々な業界で活用されています。</span>
+            <span>
+              遠隔（リモート）接客サービスが様々な業界で活用されています。
+            </span>
           </h2>
         </div>
         <div className={styles.contentBox}>

@@ -7,7 +7,9 @@ export const About: React.FC = () => {
     <section id='about' className={styles.about}>
       <div className={styles.section_inner}>
         <div className={styles.headline_box_center}>
-          <h2 className={styles.headline}>遠隔接客サービスRURAとは？</h2>
+          <h2 className={styles.headline}>
+            遠隔（リモート）接客サービスRURAとは？
+          </h2>
         </div>
         <div className={styles.contentBox}>
           <div className={styles.aboutImage}>

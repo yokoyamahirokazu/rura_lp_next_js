@@ -25,7 +25,7 @@ const Index: NextPage = () => {
     <>
       <SeoContent
         pageTitle='運営会社'
-        pageDescription='遠隔接客サービスRURAの運営会社タイムリープ株式会社をご紹介します。'
+        pageDescription='遠隔（リモート）接客サービスRURAの運営会社タイムリープ株式会社をご紹介します。'
       />
       <div className={styles.companyContent}>
         <section>

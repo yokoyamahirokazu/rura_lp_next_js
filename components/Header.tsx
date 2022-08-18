@@ -82,7 +82,7 @@ export const Header: React.FC<NavItemProps> = (props) => {
               <div className={styles.logoImg}>
                 <Image
                   src='/images/rura_logo_blue.svg'
-                  alt='遠隔接客サービスRURA'
+                  alt='遠隔（リモート）接客サービスRURA'
                   layout={'fill'}
                   objectFit={'contain'}
                 />

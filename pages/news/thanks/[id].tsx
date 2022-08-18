@@ -28,7 +28,7 @@ const Index: NextPage<IndexProps> = (props) => {
         <>
           <SeoContent
             pageTitle={`${props.newsItem.title}のダウンロードフォーム送信完了`}
-            pageDescription={`${props.newsItem.title}のダウンロードフォームの送信が完了しました。この度は遠隔接客サービスRURAの資料ダウンロードをお申し込みいただき誠にありがとうございました。`}
+            pageDescription={`${props.newsItem.title}のダウンロードフォームの送信が完了しました。この度は遠隔（リモート）接客サービスRURAの資料ダウンロードをお申し込みいただき誠にありがとうございました。`}
             pageUrl={router.asPath}
             noIndex={'true'}
           />
