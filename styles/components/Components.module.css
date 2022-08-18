@@ -2174,7 +2174,7 @@ p.downloadTxt span {
   margin: 32px 0;
 }
 .ruraMagazineCopy {
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-weight: bold;
   letter-spacing: 0.05rem;
 }
@@ -2234,7 +2234,7 @@ p.downloadTxt span {
     aspect-ratio: 1.1 / 1;
   }
   .ruraMagazineCopy {
-    font-size: 2vw;
+    font-size: 1.8vw;
   }
   .ruraMagazineLeadCopy {
     font-size: 1.4rem;
@@ -2251,7 +2251,7 @@ p.downloadTxt span {
   .ruraMagazinePostImageWrapper {
     right: auto;
     left: 50%;
-    top: 34vw;
+    top: 40vw;
     max-width: 360px;
     width: 75%;
     transform: translate(-50%, 0);
@@ -2276,6 +2276,9 @@ p.downloadTxt span {
   }
   .ruraMagazinePostImage {
     filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25));
+  }
+  .ruraMagazineCopy {
+    font-size: 1.4rem;
   }
 }
 
