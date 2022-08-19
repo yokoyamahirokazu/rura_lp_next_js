@@ -85,7 +85,7 @@ export const Hero: React.FC<HeroCopy> = (props) => {
               <div className={styles.heroLogoImg}>
                 <Image
                   src='/images/rura_logo_white.svg'
-                  alt='遠隔（リモート）接客サービスRURA'
+                  alt='遠隔接客・リモート接客サービスRURA'
                   layout={'fill'}
                   objectFit={'contain'}
                 />

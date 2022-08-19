@@ -9,7 +9,7 @@ export const Service: React.FC = (): ReactElement => {
       <div className={styles.slantBg_inner}>
         <div className={styles.headline_box_center}>
           <h2 className={styles.headline}>
-            遠隔（リモート）接客サービス
+            遠隔接客・リモート接客サービス
             <span>
               RURAは店頭スタッフと変わらない接客サービスの提供を目指しています。
             </span>

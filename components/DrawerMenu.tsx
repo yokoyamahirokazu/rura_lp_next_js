@@ -43,7 +43,7 @@ const DrawerMenu: React.FC<NavItemProps> = (props) => {
               <a className={styles.drawerLogo}>
                 <Image
                   src='/images/rura_logo_blue.svg'
-                  alt='遠隔（リモート）接客サービスRURA'
+                  alt='遠隔接客・リモート接客サービスRURA'
                   layout={'fill'}
                   objectFit={'contain'}
                 />
@@ -120,7 +120,7 @@ const DrawerMenu: React.FC<NavItemProps> = (props) => {
                   <div className={styles.drawerRuraMagazineLogo}>
                     <Image
                       src='/images/rura_magazine_logo_white.svg'
-                      alt='遠隔（リモート）接客サービスの導入事例・比較・調査など配信中 RURA Magazine'
+                      alt='遠隔接客・リモート接客サービスの導入事例・比較・調査など配信中 RURA Magazine'
                       layout={'fill'}
                       objectFit={'contain'}
                     />

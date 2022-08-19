@@ -126,7 +126,7 @@ export const Footer: React.FC<Props> = (props) => {
                   <div className={styles.footerRuraMagazineLogo}>
                     <Image
                       src='/images/rura_magazine_logo_blue.svg'
-                      alt='遠隔（リモート）接客サービスの導入事例・比較・調査など配信中 RURA Magazine'
+                      alt='遠隔接客・リモート接客サービスの導入事例・比較・調査など配信中 RURA Magazine'
                       layout={'fill'}
                       objectFit={'contain'}
                     />

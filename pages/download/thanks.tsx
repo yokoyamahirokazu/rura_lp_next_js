@@ -10,7 +10,7 @@ const Thanks: NextPage = () => {
     <>
       <SeoContent
         pageTitle='資料ダウンロード送信完了'
-        pageDescription='資料ダウンロードフォームの送信が完了しました。この度は遠隔（リモート）接客サービスRURAの資料ダウンロードをお申し込みいただき誠にありがとうございました。'
+        pageDescription='資料ダウンロードフォームの送信が完了しました。この度は遠隔接客・リモート接客サービスRURAの資料ダウンロードをお申し込みいただき誠にありがとうございました。'
         noIndex={'true'}
       />
       <section className={styles.thanksPage}>

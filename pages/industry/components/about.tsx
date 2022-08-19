@@ -8,7 +8,7 @@ export const About: React.FC = () => {
       <div className={styles.section_inner}>
         <div className={styles.headline_box_center}>
           <h2 className={styles.headline}>
-            遠隔（リモート）接客サービスRURAとは？
+            遠隔接客・リモート接客サービスRURAとは？
           </h2>
         </div>
         <div className={styles.contentBox}>

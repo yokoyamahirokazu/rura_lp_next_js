@@ -28,7 +28,7 @@ const Page: NextPage<PageProps> = (props) => {
     <>
       <SeoContent
         pageTitle='新着情報'
-        pageDescription='遠隔（リモート）接客サービスの新着情報をお届けします。'
+        pageDescription='遠隔接客・リモート接客サービスの新着情報をお届けします。'
         pageUrl={router.asPath}
       />
       <BreadCrumb />
