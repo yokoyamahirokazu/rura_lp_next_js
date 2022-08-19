@@ -117,13 +117,13 @@ export const Functions: React.FC = () => {
                   <div className={styles.imageBoxB}>
                     <Image
                       src='/images/functions_6.png'
-                      alt='遠隔操作での迅速な障害対応'
+                      alt='遠隔（リモート）操作での迅速な障害対応'
                       layout={'fill'}
                       objectFit={'contain'}
                     />
                   </div>
                   <h3 className={styles.headlineMin}>
-                    遠隔操作での迅速な障害対応
+                    遠隔（リモート）操作での迅速な障害対応
                   </h3>
                 </div>
               </div>

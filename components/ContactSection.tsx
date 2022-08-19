@@ -43,7 +43,7 @@ const ContactSection: React.FC<Props> = ({
               <div className={styles.contactSectionLogoImg}>
                 <Image
                   src='/images/rura_logo_white.svg'
-                  alt='遠隔接客サービスRURA'
+                  alt='遠隔（リモート）接客サービスRURA'
                   layout={'fill'}
                   objectFit={'contain'}
                 />

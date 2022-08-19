@@ -10,7 +10,7 @@ const Index: NextPage = () => {
     <>
       <SeoContent
         pageTitle='お問い合わせ'
-        pageDescription='遠隔接客サービスRURAへのお問い合わせページです。'
+        pageDescription='遠隔（リモート）接客サービスRURAへのお問い合わせページです。'
       />
       <div className={styles.contactPageFlex}>
         <div className={styles.contactPageFlexLeft}>

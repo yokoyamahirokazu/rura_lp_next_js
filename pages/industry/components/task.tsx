@@ -78,7 +78,7 @@ export const Task: React.FC = () => {
           </div>
         </div>
         <h3 className={styles.task_solution}>
-          「遠隔接客サービスRURA」は、この課題解決にお役立ていただけます！
+          「遠隔（リモート）接客サービスRURA」は、この課題解決にお役立ていただけます！
         </h3>
       </div>
     </section>

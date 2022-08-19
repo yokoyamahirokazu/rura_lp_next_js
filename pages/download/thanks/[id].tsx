@@ -36,7 +36,7 @@ const Index: NextPage<IndexProps> = (props) => {
     <>
       <SeoContent
         pageTitle={`${props.handbookItem.title}のダウンロードフォーム送信完了`}
-        pageDescription={`${props.handbookItem.title}のダウンロードフォームの送信が完了しました。この度は遠隔接客サービスRURAの資料ダウンロードをお申し込みいただき誠にありがとうございました。`}
+        pageDescription={`${props.handbookItem.title}のダウンロードフォームの送信が完了しました。この度は遠隔（リモート）接客サービスRURAの資料ダウンロードをお申し込みいただき誠にありがとうございました。`}
         ogpImg={props.handbookItem.img && props.handbookItem.img.url}
         pageUrl={router.asPath}
         noIndex={'true'}
