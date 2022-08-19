@@ -10,7 +10,7 @@ export const Scene: React.FC = () => {
           <h2 className={styles.headline}>
             導入シーン
             <span>
-              遠隔（リモート）接客サービスが様々な業界で活用されています。
+              遠隔接客・リモート接客サービスが様々な業界で活用されています。
             </span>
           </h2>
         </div>

@@ -11,7 +11,7 @@ const Index: NextPage = () => {
     <>
       <SeoContent
         pageTitle='資料ダウンロード'
-        pageDescription='資料ダウンロードページです。遠隔（リモート）接客サービスRURAにご関心いただきありがとうございます。'
+        pageDescription='資料ダウンロードページです。遠隔接客・リモート接客サービスRURAにご関心いただきありがとうございます。'
         noIndex={'true'}
       />
       <div className={styles.contactPageFlex}>
