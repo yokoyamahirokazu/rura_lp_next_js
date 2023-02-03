@@ -27,7 +27,7 @@ export const Company: React.FC = () => {
             <div className={styles.companyFlexLogo}>
               <div className={styles.companyTimeleapLogo}>
                 <Image
-                  src='/images/timeleap_logo.svg'
+                  src='/images/timeleap_logo_black.svg'
                   alt='タイムリープ株式会社'
                   layout={'fill'}
                   objectFit={'contain'}
