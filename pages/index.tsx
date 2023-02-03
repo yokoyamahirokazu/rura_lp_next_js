@@ -20,7 +20,6 @@ import { config } from '@site.config';
 import styles from '@styles/components/Home.module.css';
 import { client, clientCopy } from 'framework/client';
 
-
 interface caseItems {
   id?: string;
   caseName?: string;
@@ -97,7 +96,9 @@ const Index: NextPage<IndexProps> = (props) => {
     <>
       <SeoContent />
       <Hero articles={props.copyItem} />
-      <div className={styles.aboutSection}><About /></div>
+      <div className={styles.aboutSection}>
+        <About />
+      </div>
       <Case articles={props.caseItem} />
       <Service />
       <ContactSection downloadId='indexD1' contactId='indexC1' />
@@ -151,6 +152,7 @@ export async function getStaticProps(): Promise<{
   );
   const wpDataRaw = await res.json();
   const wpData = wpDataRaw.slice(0, 3);
+  console.log(wpData);
 
   return {
     props: {

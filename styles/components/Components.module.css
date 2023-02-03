@@ -2158,6 +2158,7 @@ p.downloadTxt span {
   box-sizing: border-box;
   color: #fff;
   transition: 0.2s;
+  text-align: center;
 }
 .ruraMagazineBanner:hover {
   background-color: var(--primary-600);
@@ -2171,7 +2172,7 @@ p.downloadTxt span {
   width: 50%;
   aspect-ratio: 8 / 1;
   position: relative;
-  margin: 32px 0;
+  margin: 32px auto;
 }
 .ruraMagazineCopy {
   font-size: 2rem;
@@ -2245,7 +2246,7 @@ p.downloadTxt span {
 
 @media screen and (max-width: 640px) {
   .ruraMagazineBanner {
-    padding: 4vw 4vw 40vw;
+    padding: 4vw 4vw 4vw;
   }
 
   .ruraMagazinePostImageWrapper {

@@ -23,6 +23,7 @@ interface wpArticle {
   };
   link?: string;
   yoast_head_json?: {
+    og_url?: string;
     og_image?: {
       url?: string;
     };
@@ -31,7 +32,7 @@ interface wpArticle {
 }
 type CaesProps = {
   articles: Article[];
-  wparticles: wpArticle[];
+  wparticles?: wpArticle[];
 };
 
 export const Handbook: React.FC<CaesProps> = (props) => {
@@ -175,7 +176,7 @@ export const Handbook: React.FC<CaesProps> = (props) => {
               <p className={styles.ruraMagazineLeadCopy}>
                 遠隔接客をより身近に。未来の接客を探索するWEBメディア
               </p>
-              <div className={styles.ruraMagazinePostImageWrapper}>
+              {/* <div className={styles.ruraMagazinePostImageWrapper}>
                 {props.wparticles.map((wp) => {
                   return (
                     <div key={wp.id} className={styles.ruraMagazinePostImage}>
@@ -188,7 +189,7 @@ export const Handbook: React.FC<CaesProps> = (props) => {
                     </div>
                   );
                 })}
-              </div>
+              </div> */}
             </div>
           </a>
         </Link>

@@ -1,6 +1,10 @@
 module.exports = {
   images: {
-    domains: ['images.microcms-assets.io', 'media.timeleap-rura.com'],
+    domains: [
+      'images.microcms-assets.io',
+      'media.timeleap-rura.com',
+      'ec2-176-34-20-104.ap-northeast-1.compute.amazonaws.com',
+    ],
   },
   webpack(config) {
     config.module.rules.push({
