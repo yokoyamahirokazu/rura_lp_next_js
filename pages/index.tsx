@@ -152,7 +152,6 @@ export async function getStaticProps(): Promise<{
   );
   const wpDataRaw = await res.json();
   const wpData = wpDataRaw.slice(0, 3);
-  console.log(wpData);
 
   return {
     props: {
