@@ -40,6 +40,8 @@
   letter-spacing: 0.5rem;
   font-weight: bold;
   color: #fff;
+  margin: 0 0 32px;
+  line-height: 1.4;
 }
 .heroLogo {
   margin: 60px 0;
@@ -320,7 +322,7 @@
 
 @media screen and (max-width: 640px) {
   .hero {
-    height: 161vw;
+    height: 121vw;
   }
 
   .heroInner {
@@ -515,8 +517,8 @@
 @media screen and (max-width: 768px) {
   .industryHero {
     width: 100%;
-    height: 170vw;
-    max-height: 140vw;
+    height: 120vw;
+    max-height: 120vw;
   }
 
   .industryHeroInner {
@@ -560,7 +562,7 @@
 @media screen and (max-width: 540px) {
   .industryHero {
     width: 100%;
-    height: 170vw;
-    max-height: 170vw;
+    height: 150vw;
+    max-height: 150vw;
   }
 }
