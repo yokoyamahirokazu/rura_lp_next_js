@@ -30,7 +30,7 @@ const Funeral: NextPage = () => {
     { url: 'company', name: '運営会社' },
   ];
 
-  const mainCopyData = '葬儀業界に新たな店舗運営を';
+  const mainCopyData = '葬儀業界に<br/>新たな店舗運営を';
   const subCopyData =
     '人材不足、店舗拡大に関わる課題をRURAが解決。<br/>お店の省人化や無人化など新しい店舗運営をご提案します。';
 

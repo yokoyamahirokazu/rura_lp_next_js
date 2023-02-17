@@ -73,24 +73,14 @@ export const Hero: React.FC<HeroCopy> = (props) => {
             ) : (
               props.articles.map((copy) => {
                 return (
-                  <p className={styles.heroCopy} key={copy.id}>
-                    {copy.mainCopy}
-                  </p>
+                  <p
+                    className={styles.heroCopy}
+                    key={copy.id}
+                    dangerouslySetInnerHTML={{ __html: copy.mainCopy }}></p>
                 );
               })
             )}
 
-            <div className={styles.heroLogo}>
-              <p className={styles.heroLogoTxt}>遠隔接客サービス</p>
-              <div className={styles.heroLogoImg}>
-                <Image
-                  src='/images/rura_logo_white.svg'
-                  alt='遠隔接客・リモート接客サービスRURA'
-                  layout={'fill'}
-                  objectFit={'contain'}
-                />
-              </div>
-            </div>
             {props.subCopyProps ? (
               <h1
                 className={styles.heroTitle}

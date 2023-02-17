@@ -4,8 +4,6 @@ import React from 'react';
 import Button from '@components/Button';
 import styles from '@styles/components/Hero.module.css';
 
-import RuraLogoSvg from '/public/images/rura_logo_white.svg';
-
 type HeroCopy = {
   mainCopyProps?: string;
   subCopyProps?: string;
@@ -38,13 +36,9 @@ export const Hero: React.FC<HeroCopy> = (props) => {
           </div>
           <div className={styles.industryHeroContent}>
             <div>
-              <p className={styles.heroCopy}>{props.mainCopyProps}</p>
-              <div className={styles.industryHeroLogo}>
-                <p className={styles.heroLogoTxt}>遠隔接客サービス</p>
-                <div className={styles.industryHeroLogoImg}>
-                  <RuraLogoSvg />
-                </div>
-              </div>
+              <p
+                className={styles.heroCopy}
+                dangerouslySetInnerHTML={{ __html: props.mainCopyProps }}></p>
               <h1
                 className={styles.heroTitle}
                 dangerouslySetInnerHTML={{ __html: props.subCopyProps }}></h1>
